@@ -1,1 +1,5 @@
-# POOSD-Project
+# POOSD Project
+
+## Description
+
+## Vision Statement
