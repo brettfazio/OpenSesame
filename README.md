@@ -4,8 +4,6 @@
 
 Jordan Carlton, Brett Fazio, Danny Parsons, and Juleeyah Wright
 
-## Description
-
 ## Vision Statement
 
 - For... people on the main campus of UCF.
