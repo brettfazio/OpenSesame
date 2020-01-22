@@ -1,5 +1,9 @@
 # POOSD Project
 
+## Team Members
+
+Jordan Carlton, Brett Fazio, Danny Parsons, and Juleeyah Wright
+
 ## Description
 
 ## Vision Statement
