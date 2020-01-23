@@ -5,7 +5,8 @@
 Jordan Carlton, Brett Fazio, Danny Parsons, and Juleeyah Wright
 
 ## Vision Statement
-  [Vision Statement Drafts](https://docs.google.com/document/d/1J8gtAdEl_P0kj1Dhokq9wBSZ20QjU_ZheBifjP5GqFQ/edit?usp=sharing)
+This project is marketed towards students and staff who would like to publicly report campus property damages to maintenance workers. Students also reporting the same task can prioritize that task. Our product is a property management software that leads to students displaying work orders on a top-down geographical map accessible to anyone on campus. Unlike the leading products, our product focuses on reporting maintenance issues like property damage, undersupplied restrooms and offers students a convenient method to report campus property issues.
+
 - For... people on the main campus of UCF.
 - Who/That... use the physical facilities and services on campus.
 - The product... an Android app that allows users to mark geographic locations on campus of physical accessibility or maintenance issues.
