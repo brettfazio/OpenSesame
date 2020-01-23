@@ -5,7 +5,7 @@
 Jordan Carlton, Brett Fazio, Danny Parsons, and Juleeyah Wright
 
 ## Vision Statement
-  [Vision Statement Drafts](https://docs.google.com/document/d/1J8gtAdEl_P0kj1Dhokq9wBSZ20QjU_ZheBifjP5GqFQ/edit)
+  [Vision Statement Drafts](https://docs.google.com/document/d/1J8gtAdEl_P0kj1Dhokq9wBSZ20QjU_ZheBifjP5GqFQ/edit?usp=sharing)
 - For... people on the main campus of UCF.
 - Who/That... use the physical facilities and services on campus.
 - The product... an Android app that allows users to mark geographic locations on campus of physical accessibility or maintenance issues.
