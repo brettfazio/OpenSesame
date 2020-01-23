@@ -1,4 +1,4 @@
-# POOSD Project
+# OpenSesame (POOSD Project)
 
 ## Team Members
 
