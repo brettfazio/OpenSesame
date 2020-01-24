@@ -5,7 +5,9 @@
 Jordan Carlton, Brett Fazio, Danny Parsons, and Juleeyah Wright
 
 ## Vision Statement
-This project is marketed towards students and staff who would like to publicly report campus property damages to maintenance workers. Students also reporting the same task can prioritize that task. Our product is a property management software that leads to students displaying work orders on a top-down geographical map accessible to anyone on campus. Unlike the leading products, our product focuses on reporting maintenance issues like property damage, undersupplied restrooms and offers students a convenient method to report campus property issues.
+OpenSesame is an application marketed towards students, staff, and maintenance personnel to report & publicly display property damages across UCF’s campus.  Features of the application include, but are not limited to, priority elevation of frequently reported issues, a user-driven, live updating map of potential property issues, and a listing of all reported issues for UCF maintenance personnel to manage accordingly.  
+
+OpenSesame is a property management application that enables students to self-report issues that may require work orders, and display them on a top-down geographical map, accessible from anywhere on campus via a mobile app. Separating it from leading products, our app focuses on user-driven reports to maintain up-to-date reports on property damage, undersupplied restrooms, as well as giving students an easy and convenient method to report issues on campus property.
 
 - For... people on the main campus of UCF.
 - Who/That... use the physical facilities and services on campus.
