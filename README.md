@@ -15,3 +15,12 @@ OpenSesame is a property management application that enables students to self-re
 - That leads to... people being able to better navigate the main campus of UCF more safely and more efficiently.
 - Unlike the... current suite of UCF applications which provide a low level of detail about present situations.
 - Our product offers... a live or recently updated map that is accessible to anyone on campus.
+
+## Sprint 1
+
+- Product Backlog
+- Sprint Backlog
+- Requirements
+- Trello Board
+- Burndown Chart
+- Velocity Chart
