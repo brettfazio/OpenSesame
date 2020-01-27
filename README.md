@@ -19,7 +19,7 @@ OpenSesame is a property management application that enables students to self-re
 ## Sprint 1
 
 - [Product Backlog](https://github.com/brettfazio/OpenSesame/blob/master/artifacts/product_backlog.md)
-- Sprint Backlog
+- [Sprint Backlog](https://github.com/brettfazio/OpenSesame/blob/master/artifacts/sprint1_backlog.md)
 - [Requirements](https://github.com/brettfazio/OpenSesame/blob/master/artifacts/requirements.md)
 - [Trello Board](https://trello.com/b/Uk0WAfML/poosd-project-planning)
 - Burndown Chart
