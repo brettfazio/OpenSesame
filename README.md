@@ -21,6 +21,6 @@ OpenSesame is a property management application that enables students to self-re
 - Product Backlog
 - Sprint Backlog
 - Requirements
-- Trello Board
+- [Trello Board](https://trello.com/b/Uk0WAfML/poosd-project-planning)
 - Burndown Chart
 - Velocity Chart
