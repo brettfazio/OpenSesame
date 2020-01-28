@@ -24,4 +24,4 @@ OpenSesame is a property management application that enables students to self-re
 - [Trello Board](https://trello.com/b/Uk0WAfML/poosd-project-planning)
 - Burndown Chart
 - Velocity Chart
-- [Source Code](https://github.com/JuleeyG/OpenSesameApp.git)
+
