@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "24116206648",
+    "firebase_url": "https://opensesame-600ad.firebaseio.com",
+    "project_id": "opensesame-600ad",
+    "storage_bucket": "opensesame-600ad.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:24116206648:android:baac5edb920f42f7fedacd",
+        "android_client_info": {
+          "package_name": "com.example.juleeyahwright.opensesame"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "24116206648-vfdkkfr4sinjv1v10nvpjuuurbtk0h03.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAsLAbMFIBGKZq3JBx3lOoPcdQyMfb2Ieo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "24116206648-vfdkkfr4sinjv1v10nvpjuuurbtk0h03.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
