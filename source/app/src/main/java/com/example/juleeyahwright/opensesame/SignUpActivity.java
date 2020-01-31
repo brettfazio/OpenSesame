@@ -1,6 +1,10 @@
 package com.example.juleeyahwright.opensesame;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,10 +24,35 @@ public class SignUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sign_up_activity);
         mAuth = FirebaseAuth.getInstance();
+
+        // Link UI
+        Button signUpButton = (Button) findViewById((R.id.signUpButton));
+        signUpButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                signUpUser();
+            }
+        });
+    }
+
+    private String getEnteredEmail() {
+        return ((EditText) findViewById(R.id.emailField)).getText().toString();
+    }
+
+    private String getEnteredPassword() {
+        return ((EditText) findViewById(R.id.passwordField)).getText().toString();
     }
 
     private void signUpUser() {
-        String email = "", password = "";
+        //TODO(): Add username to stored data.
+        String email = getEnteredEmail();
+        String password = getEnteredPassword();
+
+        if (email.length() == 0 || password.length() == 0) {
+            Toast.makeText(getApplicationContext(),
+                    "Email and password must both be non-empty.",
+                    Toast.LENGTH_LONG).show();
+            return;
+        }
 
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -35,6 +64,7 @@ public class SignUpActivity extends AppCompatActivity {
                             FirebaseUser user = mAuth.getCurrentUser();
                             //updateUI(user);
                         } else {
+                            System.out.println(task.getException().toString());
                             // If sign in fails, display a message to the user.
                             //Log.w(TAG, "createUserWithEmail:failure", task.getException());
                             //Toast.makeText(EmailPasswordActivity.this, "Authentication failed.",

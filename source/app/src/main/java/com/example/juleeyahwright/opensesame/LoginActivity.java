@@ -61,7 +61,6 @@ public class LoginActivity extends AppCompatActivity {
         String password = ((EditText) findViewById(R.id.passwordField)).getText().toString();
 
         if (email.length() == 0 || password.length() == 0) {
-            System.out.println("here");
             Toast.makeText(getApplicationContext(),
                     "Email and password must both be non-empty.",
                     Toast.LENGTH_LONG).show();
