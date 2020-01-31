@@ -55,10 +55,18 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
+    private String getEnteredEmail() {
+        return ((EditText) findViewById(R.id.emailField)).getText().toString();
+    }
+
+    private String getEnteredPassword() {
+        return ((EditText) findViewById(R.id.passwordField)).getText().toString();
+    }
+
     public void logIn() {
         // Get the email and password the user entered.
-        String email = ((EditText) findViewById(R.id.usernameField)).getText().toString();
-        String password = ((EditText) findViewById(R.id.passwordField)).getText().toString();
+        String email = getEnteredEmail();
+        String password = getEnteredPassword();
 
         if (email.length() == 0 || password.length() == 0) {
             Toast.makeText(getApplicationContext(),

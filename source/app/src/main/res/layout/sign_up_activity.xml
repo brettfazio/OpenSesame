@@ -34,13 +34,13 @@
         android:layout_marginRight="172dp"
         android:layout_marginBottom="28dp"
         android:text="Username:"
-        app:layout_constraintBottom_toTopOf="@+id/usernameField"
+        app:layout_constraintBottom_toTopOf="@+id/emailField"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/usernameField"
+        android:id="@+id/emailField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="99dp"
