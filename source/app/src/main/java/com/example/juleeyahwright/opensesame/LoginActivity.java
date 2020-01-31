@@ -1,6 +1,10 @@
 package com.example.juleeyahwright.opensesame;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,25 +24,50 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_activity);
         mAuth = FirebaseAuth.getInstance();
+
+        // Link UI
+        Button loginButton = (Button) findViewById(R.id.logInButton);
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                System.out.println("LOG IN");
+                signIn();
+            }
+        });
+        Button signUpButton = (Button) findViewById((R.id.signUpButton));
+        signUpButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                System.out.println("SIGN UP");
+            }
+        });
     }
 
     @Override
     public void onStart() {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
-        //FirebaseUser currentUser = mAuth.getCurrentUser();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
 
         // A user is signed in
-        //if (currentUser != null) {
+        if (currentUser != null) {
             // Proceed to main app.
-        //}
+        }
 
 
     }
 
     public void signIn() {
+        System.out.println("Sign in");
+        // Get the email and password the user entered.
+        String email = ((EditText) findViewById(R.id.emailField)).getText().toString();
+        String password = ((EditText) findViewById(R.id.passwordField)).getText().toString();
 
-        String email = "", password = "";
+        if (email.length() == 0 || password.length() == 0) {
+            System.out.println("here");
+            Toast.makeText(getApplicationContext(),
+                    "Email and password must both be non-empty.",
+                    Toast.LENGTH_LONG).show();
+            return;
+        }
 
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -54,6 +83,9 @@ public class LoginActivity extends AppCompatActivity {
                             //Log.w(TAG, "signInWithEmail:failure", task.getException());
                             //Toast.makeText(EmailPasswordActivity.this, "Authentication failed.",
                             //        Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(),
+                                    "Failed to sign in.",
+                                    Toast.LENGTH_LONG).show();
                             //updateUI(null);
                         }
 
