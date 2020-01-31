@@ -1,5 +1,6 @@
 package com.example.juleeyahwright.opensesame;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -29,14 +30,13 @@ public class LoginActivity extends AppCompatActivity {
         Button loginButton = (Button) findViewById(R.id.logInButton);
         loginButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                System.out.println("LOG IN");
-                signIn();
+                logIn();
             }
         });
         Button signUpButton = (Button) findViewById((R.id.signUpButton));
         signUpButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                System.out.println("SIGN UP");
+                signUp();
             }
         });
     }
@@ -55,10 +55,9 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    public void signIn() {
-        System.out.println("Sign in");
+    public void logIn() {
         // Get the email and password the user entered.
-        String email = ((EditText) findViewById(R.id.emailField)).getText().toString();
+        String email = ((EditText) findViewById(R.id.usernameField)).getText().toString();
         String password = ((EditText) findViewById(R.id.passwordField)).getText().toString();
 
         if (email.length() == 0 || password.length() == 0) {
@@ -91,6 +90,11 @@ public class LoginActivity extends AppCompatActivity {
 
                     }
                 });
+    }
+
+    public void signUp() {
+        Intent signUpIntent = new Intent(this, SignUpActivity.class);
+        startActivity(signUpIntent);
     }
 
 }
