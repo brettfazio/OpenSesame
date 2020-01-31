@@ -1,5 +1,6 @@
 package com.example.juleeyahwright.opensesame;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -44,8 +45,8 @@ public class SignUpActivity extends AppCompatActivity {
 
     private void signUpUser() {
         //TODO(): Add username to stored data.
-        String email = getEnteredEmail();
-        String password = getEnteredPassword();
+        final String email = getEnteredEmail();
+        final String password = getEnteredPassword();
 
         if (email.length() == 0 || password.length() == 0) {
             Toast.makeText(getApplicationContext(),
@@ -62,6 +63,15 @@ public class SignUpActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             //Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
+
+                            // Save to shared preferences
+                            SharedPreferences sp =
+                                    getSharedPreferences("Login", MODE_PRIVATE);
+                            SharedPreferences.Editor Ed = sp.edit();
+                            Ed.putString("email", email);
+                            Ed.putString("password", password);
+                            Ed.commit();
+
                             //updateUI(user);
                         } else {
                             System.out.println(task.getException().toString());
