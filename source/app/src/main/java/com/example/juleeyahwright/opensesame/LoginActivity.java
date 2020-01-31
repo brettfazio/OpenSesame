@@ -58,7 +58,7 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
-        // Try to log the user in
+        // Try to log the user in;
 
     }
 
@@ -87,6 +87,8 @@ public class LoginActivity extends AppCompatActivity {
                             //Log.d(TAG, "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             //updateUI(user);
+                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                            startActivity(intent);
                         } else {
                             // If sign in fails, display a message to the user.
                             //Log.w(TAG, "signInWithEmail:failure", task.getException());
