@@ -50,8 +50,6 @@ public class LoginActivity extends AppCompatActivity {
         String email = SharedPreferencesController.getEmail(getApplicationContext());
         String password = SharedPreferencesController.getPassword(getApplicationContext());
 
-        System.out.println(email + " pppp " + password);
-
         if (email == null || password == null) {
             return;
         }

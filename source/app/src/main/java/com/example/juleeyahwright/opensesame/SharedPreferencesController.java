@@ -21,7 +21,6 @@ public class SharedPreferencesController extends Activity {
     }
 
     public static void setEmail(Context context, String email) {
-        System.out.println("setttt");
         SharedPreferences sp = spFromContext(context);
         SharedPreferences.Editor Ed = sp.edit();
         Ed.putString("email", email);
