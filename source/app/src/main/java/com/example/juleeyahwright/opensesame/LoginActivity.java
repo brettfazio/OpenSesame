@@ -1,7 +1,6 @@
 package com.example.juleeyahwright.opensesame;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -48,18 +47,14 @@ public class LoginActivity extends AppCompatActivity {
     public void onStart() {
         super.onStart();
 
-        // Check shared preferences to login.
-        SharedPreferences sp = this.getSharedPreferences("Login", MODE_PRIVATE);
-
-        String email = sp.getString("email", null);
-        String password = sp.getString("password", null);
+        String email = SharedPreferencesController.getInstance().getEmail();
+        String password = SharedPreferencesController.getInstance().getPassword();
 
         if (email == null || password == null) {
             return;
         }
 
-        // Try to log the user in;
-
+        logIn(email, password);
     }
 
     private String getEnteredEmail() {

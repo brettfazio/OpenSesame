@@ -1,2 +1,4 @@
 source/app/google-services.json
 **/google-services.json
+source/app/google-services.json
+.DS_Store

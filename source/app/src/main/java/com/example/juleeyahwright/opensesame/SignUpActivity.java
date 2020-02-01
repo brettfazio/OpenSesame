@@ -1,6 +1,5 @@
 package com.example.juleeyahwright.opensesame;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -64,13 +63,8 @@ public class SignUpActivity extends AppCompatActivity {
                             //Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
 
-                            // Save to shared preferences
-                            SharedPreferences sp =
-                                    getSharedPreferences("Login", MODE_PRIVATE);
-                            SharedPreferences.Editor Ed = sp.edit();
-                            Ed.putString("email", email);
-                            Ed.putString("password", password);
-                            Ed.commit();
+                            SharedPreferencesController.getInstance().setEmail(email);
+                            SharedPreferencesController.getInstance().setPassword(password);
 
                             //updateUI(user);
                         } else {
