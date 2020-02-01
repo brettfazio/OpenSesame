@@ -3,34 +3,33 @@ package com.example.juleeyahwright.opensesame;
 import android.app.Activity;
 import android.content.SharedPreferences;
 
+import android.content.Context;
+
 public class SharedPreferencesController extends Activity {
-    private static final SharedPreferencesController ourInstance = new SharedPreferencesController();
+    private static final String CONTEXT_NAME = "Login";
 
-    public static SharedPreferencesController getInstance() {
-        return ourInstance;
+    private static SharedPreferences spFromContext(Context context) {
+        return context.getSharedPreferences(CONTEXT_NAME, MODE_PRIVATE);
     }
 
-    private SharedPreferences sp;
-
-    private SharedPreferencesController() {
-        sp =  this.getSharedPreferences("Login", MODE_PRIVATE);
+    public static String getEmail(Context context) {
+        return spFromContext(context).getString("email", null);
     }
 
-    public String getEmail() {
-        return sp.getString("email", null);
+    public static String getPassword(Context context) {
+        return spFromContext(context).getString("password", null);
     }
 
-    public String getPassword() {
-        return sp.getString("password", null);
-    }
-
-    public void setEmail(String email) {
+    public static void setEmail(Context context, String email) {
+        System.out.println("setttt");
+        SharedPreferences sp = spFromContext(context);
         SharedPreferences.Editor Ed = sp.edit();
         Ed.putString("email", email);
         Ed.commit();
     }
 
-    public void setPassword(String password) {
+    public static void setPassword(Context context, String password) {
+        SharedPreferences sp = spFromContext(context);
         SharedPreferences.Editor Ed = sp.edit();
         Ed.putString("password", password);
         Ed.commit();

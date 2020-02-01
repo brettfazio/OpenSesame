@@ -1,5 +1,6 @@
 package com.example.juleeyahwright.opensesame;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -63,12 +64,17 @@ public class SignUpActivity extends AppCompatActivity {
                             //Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
 
-                            SharedPreferencesController.getInstance().setEmail(email);
-                            SharedPreferencesController.getInstance().setPassword(password);
+                            SharedPreferencesController.setEmail(getApplicationContext(), email);
+                            SharedPreferencesController.setPassword(getApplicationContext(), password);
 
-                            //updateUI(user);
+                            Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
+                            startActivity(intent);
                         } else {
                             System.out.println(task.getException().toString());
+
+                            Toast.makeText(getApplicationContext(),
+                                    task.getException().toString(), Toast.LENGTH_LONG).show();
+
                             // If sign in fails, display a message to the user.
                             //Log.w(TAG, "createUserWithEmail:failure", task.getException());
                             //Toast.makeText(EmailPasswordActivity.this, "Authentication failed.",
