@@ -18,6 +18,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".SignUpActivity"></activity>
+        <activity android:name=".MapActivity" android:exported="true">
+        </activity>
         <activity android:name=".LoginActivity"></activity>
     </application>
 
