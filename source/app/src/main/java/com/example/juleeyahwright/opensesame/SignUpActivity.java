@@ -33,6 +33,13 @@ public class SignUpActivity extends AppCompatActivity {
                 signUpUser();
             }
         });
+
+        Button backButton = (Button) findViewById(R.id.backButton);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     private String getEnteredEmail() {

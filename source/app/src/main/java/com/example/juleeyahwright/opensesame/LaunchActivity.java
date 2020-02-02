@@ -22,7 +22,7 @@ public class LaunchActivity extends AppCompatActivity {
         final String password = SharedPreferencesController.getPassword(getApplicationContext());
 
         if (email == null || password == null) {
-            intentMain();
+            intentLogin();
             return;
         }
 
@@ -44,6 +44,8 @@ public class LaunchActivity extends AppCompatActivity {
                                 SharedPreferencesController.setEmail(getApplicationContext(), email);
                                 SharedPreferencesController.setPassword(getApplicationContext(), password);
                             }
+
+                            System.out.println("EMAIL " + user.getEmail());
 
                             intentMain();
                         } else {
