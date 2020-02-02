@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity"/>
-        <activity android:name=".LoginActivity">
+        <activity android:name=".LaunchActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,6 +21,7 @@
         <uses-library android:name="org.apache.http.legacy" android:required="false"/>
         <activity android:name=".MapActivity" android:exported="true">
         </activity>
+<<<<<<< HEAD
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="TO DO PUT IN YOUR API KEY BEFORE THIS RUNS"
@@ -29,6 +30,9 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version"
             />
+=======
+        <activity android:name=".LoginActivity"></activity>
+>>>>>>> dada9b1ae481a31877992e9bcc2817b792c43b77
     </application>
 
 </manifest>
