@@ -18,8 +18,17 @@
             </intent-filter>
         </activity>
         <activity android:name=".SignUpActivity"></activity>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
         <activity android:name=".MapActivity" android:exported="true">
         </activity>
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="TO DO PUT IN YOUR API KEY BEFORE THIS RUNS"
+            />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version"
+            />
         <activity android:name=".LoginActivity"></activity>
     </application>
 
