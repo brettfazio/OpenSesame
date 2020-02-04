@@ -22,6 +22,8 @@ You should have one or more user interface screens in this section. Each screen 
 
 # Security
 
+We are storing all user generated content in Firebase as well as any login information which has a high level of built in security. In addition, when we are storing data locally on the system we are using private system prefrences provided by AndroidX to ensure that only our application can access user data.
+
 # Performance
 
 # Scalability
