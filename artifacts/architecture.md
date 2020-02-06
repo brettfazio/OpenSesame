@@ -15,8 +15,9 @@
 **TODO** You should list the assumptions, rules, and guidelines from external sources that are impacting your program design. 
 
 # User Interface Design
+This user interface is convenient and legible. The user finds locations on the map and reports issues using the yellow button in the bottom right corner. Drop-down options are easily visible, organized into sections, and the user can verify tapping the correct option when the text changes from white to another color. The current pin on the map shows the user's current location.
 
-**TODO** You should have one or more user interface screens in this section. Each screen should be accompanied by an explanation of the screens purpose and how the user will interact with it. You should relate each screen to one another as the user transitions through the states of your application. You should also have a table that relates each window or component to the support using stories. 
+<img src = "/images/UI.png" width="200" > 
 
 # Resource Management
 
