@@ -36,6 +36,8 @@ With the Google Maps API, this app can place markers anywhere on the globe. The 
 
 # Interoperability
 
+The only data sharing that will be taking place will be between the local application and the Firebase backend. It will be accomplished via the Firebase API.
+
 # Internationalization/Localization
 
 Internationalization/localization would have to be handled on the back end to set a different location boundary perimeter and the presence of work orders and/or where the work orders would go to. Multiple language options for future development is feasible. 
