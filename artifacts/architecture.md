@@ -20,6 +20,8 @@
 
 # Resource Management
 
+Resources used on the application side will all be lightweight. All querying for data will happen on the backend, the inclusion of a Google Maps API will only have a nominal impact on graphics performance as it is a commonly used interface on phones. Local memory resources will all be managed by the JVM and the AndroidX toolkit.
+
 # Security
 
 We are storing all user generated content in Firebase as well as any login information which has a high level of built in security. In addition, when we are storing data locally on the system we are using private system preferences provided by AndroidX to ensure that only our application can access user data.
