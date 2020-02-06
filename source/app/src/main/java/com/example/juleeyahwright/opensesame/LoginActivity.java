@@ -83,9 +83,14 @@ public class LoginActivity extends AppCompatActivity {
                             FirebaseUser user = mAuth.getCurrentUser();
 
                             // Set login preferences if they are different.
+
+                            boolean differentPassword = SharedPreferencesController.getPassword(getApplicationContext()) == null ?
+                                    true : !SharedPreferencesController.getPassword(getApplicationContext()).equals(password);
+                            boolean differentEmail= SharedPreferencesController.getEmail(getApplicationContext()) == null ?
+                                    true : !SharedPreferencesController.getEmail(getApplicationContext()).equals(email);
+
                             if (SharedPreferencesController.isLoginCredentialsSet(getApplicationContext())
-                                    || !SharedPreferencesController.getPassword(getApplicationContext()).equals(password)
-                                    || !SharedPreferencesController.getEmail(getApplicationContext()).equals(email)) {
+                                    || differentEmail || differentPassword) {
                                 SharedPreferencesController.setEmail(getApplicationContext(), email);
                                 SharedPreferencesController.setPassword(getApplicationContext(), password);
                             }
