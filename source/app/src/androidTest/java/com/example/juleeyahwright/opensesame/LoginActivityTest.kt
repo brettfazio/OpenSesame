@@ -1,6 +1,7 @@
 package com.example.juleeyahwright.opensesame
 
 
+import android.content.Context
 import android.view.View
 import android.view.ViewGroup
 import androidx.test.espresso.Espresso.onView
@@ -15,6 +16,7 @@ import org.hamcrest.Description
 import org.hamcrest.Matcher
 import org.hamcrest.Matchers.allOf
 import org.hamcrest.TypeSafeMatcher
+import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -25,7 +27,16 @@ class LoginActivityTest {
 
     @Rule
     @JvmField
-    var mActivityTestRule = ActivityTestRule(LaunchActivity::class.java)
+    var mActivityTestRule = ActivityTestRule(LoginActivity::class.java)
+
+    @Before
+    fun clearData() {
+        val mActivity = mActivityTestRule.activity
+
+        val prefs = mActivity.getSharedPreferences("LOGIN", Context.MODE_PRIVATE)
+
+        prefs.edit().clear().commit()
+    }
 
     @Test
     fun setEmail_loginActivityTest() {
