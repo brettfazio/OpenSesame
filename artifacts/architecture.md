@@ -15,9 +15,9 @@
 **TODO** You should list the assumptions, rules, and guidelines from external sources that are impacting your program design. 
 
 # User Interface Design
-This user interface is convenient and legible. The user finds locations on the map and reports issues using the yellow button in the bottom right corner. Drop-down options are easily visible, organized into sections, and the user can verify tapping the correct option when the text changes from white to another color. The current pin on the map shows the user's current location.
+Upon login, the page transitions to the main page where the user finds locations on the map and reports issues. The yellow button is for additional work orders and the pin indicates the user's current location. Drop-down text is easily visible, options organized into sections, and the text changes from white to another color for verification.
 
-<img src = "/images/UI.png" width="200" > 
+<img src = "/images/login.PNG" width="160" > <img src = "/images/UI.png" width="200" > 
 
 # Resource Management
 
