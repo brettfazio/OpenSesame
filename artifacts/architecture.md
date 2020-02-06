@@ -48,11 +48,11 @@ Besides local metadata that is read, the main I/O operation will be the user inp
 
 # Error Processing
 
-(Does this mean how it intends to handle errors or what kinds of errors it may generate or both or what?) 
+Error processing when dealing with errors from the backend (like querying or logging in) will be detective and thus just notify the user when an error occured. With user errors, if there is an error currently being created (invalid text) the application will attempt to correct but if it is posthumous, then the error will simply be detected and logged.
 
 Errors will be, when possible, translated to user-friendly language in a pop-up window. 
 
-Errors will be generated for: trying to set a marker outside of UCF, trying to set a marker on top of another marker, trying to send a work order for an existing work order. 
+Errors will be generated for: trying to set a marker outside of UCF, trying to set a new duplicate marker on top of another, trying to send a work order for one already in progress, logging in with invalid credentials, among other things. 
 
 # Fault Tolerance
 
