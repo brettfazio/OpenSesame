@@ -29,7 +29,7 @@ We are storing all user generated content in Firebase as well as any login infor
 
 # Performance
 
-
+As a lightweight application, performance will be fast & reliable. Relying on Google's Firebase & Map APIs, the application should be able to reliable send & receive information in a timely manner. 
 
 # Scalability
 
