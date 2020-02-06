@@ -24,14 +24,14 @@ public class SharedPreferencesController extends Activity {
         SharedPreferences sp = spFromContext(context);
         SharedPreferences.Editor Ed = sp.edit();
         Ed.putString("email", email);
-        Ed.commit();
+        Ed.apply();
     }
 
     public static void setPassword(Context context, String password) {
         SharedPreferences sp = spFromContext(context);
         SharedPreferences.Editor Ed = sp.edit();
         Ed.putString("password", password);
-        Ed.commit();
+        Ed.apply();
     }
 
     public static boolean isLoginCredentialsSet(Context context) {
