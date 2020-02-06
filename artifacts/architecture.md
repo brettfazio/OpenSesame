@@ -32,7 +32,7 @@ We are storing all user generated content in Firebase as well as any login infor
 
 # Scalability
 
-With the Google Maps API, this app can place markers anywhere on the globe. The user will start on the UCF campus and the app will focus its attentions to the local area, but this app can scale easily to greater areas. Work orders for facilities would have to be disabled for markers set beyond a specific boundary to prevent work orders for places not at UCF. 
+With the Google Maps API, this app can place markers anywhere on the globe. The user will start on the UCF campus and the app will focus its attentions to the local area, but this app can scale easily to greater areas. Work orders for facilities would have to be disabled for markers set beyond a specific boundary to prevent work orders for places not at UCF. Additionally our Firebase backend will automatically scale to meet the needs of the userbase in regards to both queries per second and storage.
 
 # Interoperability
 
