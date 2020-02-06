@@ -12,9 +12,13 @@
 
 # Business Rules
 
-**TODO** You should list the assumptions, rules, and guidelines from external sources that are impacting your program design. 
+Business Rule ID | Rule
+----------------- | -----
+000 | Only faculty and staff of UCF can submit work orders to UCF Facilities. 
+001 | Only UCF Facilities employees can change the status of work orders. 
 
 # User Interface Design
+
 Upon login, the page transitions to the main page where the user finds locations on the map and reports issues. The yellow button is for additional work orders and the pin indicates the user's current location. Drop-down text is easily visible, options organized into sections, and the text changes from white to another color for verification.
 
 <img src = "/images/login.PNG" width="160" > <img src = "/images/UI.png" width="200" > 
@@ -25,11 +29,13 @@ Resources used on the application side will all be lightweight. All querying for
 
 # Security
 
-We are storing all user generated content in Firebase as well as any login information which has a high level of built in security. In addition, when we are storing data locally on the system we are using private system preferences provided by AndroidX to ensure that only our application can access user data.
+We are storing all user generated content in Firebase as well as any login information which has a high level of built in security. In addition, when we are storing data locally on the system we are using private system preferences provided by AndroidX to ensure that only our application can access user data. 
+
+Local user permissions will be gathered and enforced. Location information will not be accessed without explicit user permission. 
 
 # Performance
 
-As a lightweight application, performance will be fast & reliable. Relying on Google's Firebase & Map APIs, the application should be able to reliable send & receive information in a timely manner. 
+As a lightweight application, performance will be fast and reliable. Lag and loading times will be less than three seconds. Relying on Google's Firebase and Map APIs, the application should be able to reliably send and receive information in a timely manner. 
 
 # Scalability
 
@@ -45,11 +51,11 @@ Internationalization/localization would have to be handled on the back end to se
 
 # Input/Output
 
-Besides local metadata that is read, the main I/O operation will be the user inputting touches or text to interact with the application. And the main output will be queries fetched from the backend. There will be no file reading operations for which we have to specify handling errors.
+Besides local metadata that is read, the main I/O operation will be the user inputting touches or text to interact with the application. The main output will be queries fetched from the backend. There will be no file reading operations for which we have to specify handling errors.
 
 # Error Processing
 
-Error processing when dealing with errors from the backend (like querying or logging in) will be detective and thus just notify the user when an error occured. With user errors, if there is an error currently being created (invalid text) the application will attempt to correct but if it is posthumous, then the error will simply be detected and logged.
+Error processing when dealing with errors from the backend (like querying or logging in) will be detective and thus just notify the user when an error occurred. With user errors, if there is an error currently being created (invalid text) the application will attempt to correct but if it is posthumous, then the error will simply be detected and logged.
 
 Errors will be, when possible, translated to user-friendly language in a pop-up window. 
 
@@ -57,21 +63,39 @@ Errors will be generated for: trying to set a marker outside of UCF, trying to s
 
 # Fault Tolerance
 
-Low fault tolerance for anything on Google's side. High tolerance for incorrect user input. 
+Low fault tolerance for anything on Google's or Firebase's end. High tolerance for incorrect user input. 
 
 # Architectural Feasibility
 
+This app is economically feasible with unpaid versions of developmental tools like Trello and GitHub and access to free API and frameworks. 
+
+The more technically feasible aspects of the app are the ability to mark places on the map, assign each marker to a user, to display different markers, to add/remove different markers, and to fill out and send work order forms. 
+
+The less feasible aspects of the app are related to gathering work order material that already exists in the UCF Facilities backlog. 
+
 # Overengineering
 
-Adding pictures along with the markers. 
+Overengineering possibilities to current design plans include: 
+- being able to add pictures to markers 
+- multiple language options 
 
 # Build-vs-Buy Decisions
 
-We are using Firebase becuase it is the main backend used for mobile apps and since its developed by Google it has good integration with Android. We are using this to process/store login information and store all data that users will be served.
-We are using Mockito to generate mocks for unit testing.
+We are using Firebase because it is the main backend used for mobile apps and because it is developed by Google it has good integration with Android. We are using this to process/store login information and store all data that users will be served.
+
+We are using Mockito to generate mocks for unit testing. 
+
+We are using Google Maps because of the aforementioned good integration with Android, its ease of access, and its readily-available documentation. 
 
 # Reuse
 
 This app will be able to be the backbone of other UCF apps that want to use the Google Map functionalities. 
 
 # Change Strategy
+
+1. Identify the root cause of the issue. 
+2. check for common workarounds that exist. 
+3. Discuss with group members on the same day that the issue is discovered. 
+4. Add to, edit, or remove the user story involved with the issue. 
+5. Reevaluate current design documentation to determine high-level changes. 
+6. Add to the backlog and document in next available Git commit. 
