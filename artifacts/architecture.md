@@ -44,6 +44,8 @@ Internationalization/localization would have to be handled on the back end to se
 
 # Input/Output
 
+Besides local metadata that is read, the main I/O operation will be the user inputting touches or text to interact with the application. And the main output will be queries fetched from the backend. There will be no file reading operations for which we have to specify handling errors.
+
 # Error Processing
 
 (Does this mean how it intends to handle errors or what kinds of errors it may generate or both or what?) 
