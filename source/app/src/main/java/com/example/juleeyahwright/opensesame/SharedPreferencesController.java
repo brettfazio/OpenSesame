@@ -37,11 +37,7 @@ public class SharedPreferencesController extends Activity {
     public static boolean isLoginCredentialsSet(Context context) {
         SharedPreferences sp = spFromContext(context);
 
-        if (getEmail(context) == null || getPassword(context) == null) {
-            return false;
-        }
-
-        return true;
+        return getEmail(context) != null && getPassword(context) != null;
     }
 
 

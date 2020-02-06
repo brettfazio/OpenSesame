@@ -52,6 +52,12 @@ class LoginActivityTest {
         onView(withId(R.id.emailField)).check(ViewAssertions.matches(withText("cool@cool.com")))
     }
 
+    @Test
+    fun setPassword_loginActivityTest() {
+        onView(withId(R.id.passwordField)).perform(replaceText("123456"), closeSoftKeyboard())
+        onView(withId(R.id.passwordField)).check(ViewAssertions.matches(withText("123456")))
+    }
+
     private fun childAtPosition(
             parentMatcher: Matcher<View>, position: Int): Matcher<View> {
 

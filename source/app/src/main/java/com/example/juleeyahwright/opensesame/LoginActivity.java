@@ -18,7 +18,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
 
-    FirebaseAuth mAuth;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +65,7 @@ public class LoginActivity extends AppCompatActivity {
         return ((EditText) findViewById(R.id.passwordField)).getText().toString();
     }
 
-    public void logIn(final String email, final String password, final boolean showPopUp) {
+    private void logIn(final String email, final String password, final boolean showPopUp) {
         if (email.length() == 0 || password.length() == 0) {
             Toast.makeText(getApplicationContext(),
                     "Email and password must both be non-empty.",
@@ -114,7 +114,7 @@ public class LoginActivity extends AppCompatActivity {
                 });
     }
 
-    public void signUp() {
+    private void signUp() {
         Intent signUpIntent = new Intent(this, SignUpActivity.class);
         startActivity(signUpIntent);
     }
