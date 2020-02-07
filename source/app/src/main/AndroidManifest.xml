@@ -23,7 +23,7 @@
         </activity>
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
-            android:value="TO DO PUT IN YOUR API KEY BEFORE THIS RUNS"
+            android:value="API KEY"
             />
         <meta-data
             android:name="com.google.android.gms.version"
