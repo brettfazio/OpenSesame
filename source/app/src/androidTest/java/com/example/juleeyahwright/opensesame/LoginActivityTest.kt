@@ -5,9 +5,10 @@ import android.content.Context
 import android.view.View
 import android.view.ViewGroup
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.action.ViewActions.closeSoftKeyboard
-import androidx.test.espresso.action.ViewActions.replaceText
+import androidx.test.espresso.action.ViewActions.*
 import androidx.test.espresso.assertion.ViewAssertions
+import androidx.test.espresso.intent.Intents
+import androidx.test.espresso.intent.matcher.IntentMatchers
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.filters.LargeTest
 import androidx.test.rule.ActivityTestRule
@@ -56,6 +57,20 @@ class LoginActivityTest {
     fun setPassword_loginActivityTest() {
         onView(withId(R.id.passwordField)).perform(replaceText("123456"), closeSoftKeyboard())
         onView(withId(R.id.passwordField)).check(ViewAssertions.matches(withText("123456")))
+    }
+
+    @Test
+    fun performLogin_loginActivityTest() {
+        onView(withId(R.id.emailField)).perform(replaceText("cool@cool.com"), closeSoftKeyboard())
+        onView(withId(R.id.passwordField)).perform(replaceText("123456"), closeSoftKeyboard())
+
+
+        Intents.init()
+        onView(withId(R.id.logInButton)).perform(click())
+        Thread.sleep(3000)
+        Intents.intended(IntentMatchers.hasComponent(MainActivity::class.java.name), (Intents.times(1)))
+
+        Intents.release()
     }
 
     private fun childAtPosition(

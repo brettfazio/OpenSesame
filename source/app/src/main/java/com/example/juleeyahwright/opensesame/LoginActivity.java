@@ -19,12 +19,14 @@ import com.google.firebase.auth.FirebaseUser;
 public class LoginActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
+    private boolean processingLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_activity);
         mAuth = FirebaseAuth.getInstance();
+        processingLogin = false;
 
         // Link UI
         Button loginButton = (Button) findViewById(R.id.logInButton);
@@ -66,10 +68,13 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void logIn(final String email, final String password, final boolean showPopUp) {
+        if (processingLogin) return;
+        processingLogin = true;
         if (email.length() == 0 || password.length() == 0) {
             Toast.makeText(getApplicationContext(),
                     "Email and password must both be non-empty.",
                     Toast.LENGTH_LONG).show();
+            processingLogin = false;
             return;
         }
 
@@ -97,6 +102,7 @@ public class LoginActivity extends AppCompatActivity {
 
                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                             startActivity(intent);
+                            processingLogin = false;
                         } else {
                             // If sign in fails, display a message to the user.
                             //Log.w(TAG, "signInWithEmail:failure", task.getException());
@@ -107,7 +113,7 @@ public class LoginActivity extends AppCompatActivity {
                                         "Failed to sign in.",
                                         Toast.LENGTH_LONG).show();
                             }
-                            //updateUI(null);
+                            processingLogin = false;
                         }
 
                     }
