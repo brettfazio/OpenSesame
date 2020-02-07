@@ -19,12 +19,14 @@ import com.google.firebase.auth.FirebaseUser;
 public class SignUpActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
+    private boolean processingSignup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sign_up_activity);
         mAuth = FirebaseAuth.getInstance();
+        processingSignup = false;
 
         // Link UI
         Button signUpButton = (Button) findViewById((R.id.signUpButton));
@@ -55,10 +57,14 @@ public class SignUpActivity extends AppCompatActivity {
         final String email = getEnteredEmail();
         final String password = getEnteredPassword();
 
+        if (processingSignup) return;
+        processingSignup = true;
+
         if (email.length() == 0 || password.length() == 0) {
             Toast.makeText(getApplicationContext(),
                     "Email and password must both be non-empty.",
                     Toast.LENGTH_LONG).show();
+            processingSignup = false;
             return;
         }
 
@@ -76,20 +82,15 @@ public class SignUpActivity extends AppCompatActivity {
 
                             Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
                             startActivity(intent);
+                            processingSignup = false;
                         } else {
                             System.out.println(task.getException().toString());
 
                             Toast.makeText(getApplicationContext(),
                                     task.getException().toString(), Toast.LENGTH_LONG).show();
 
-                            // If sign in fails, display a message to the user.
-                            //Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                            //Toast.makeText(EmailPasswordActivity.this, "Authentication failed.",
-                            //        Toast.LENGTH_SHORT).show();
-                            //updateUI(null);
+                            processingSignup = false;
                         }
-
-                        // ...
                     }
                 });
     }
