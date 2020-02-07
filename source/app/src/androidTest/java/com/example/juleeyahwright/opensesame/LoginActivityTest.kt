@@ -73,6 +73,21 @@ class LoginActivityTest {
         Intents.release()
     }
 
+    @Test
+    fun performLoginSpam_loginActivityTest() {
+        onView(withId(R.id.emailField)).perform(replaceText("cool@cool.com"), closeSoftKeyboard())
+        onView(withId(R.id.passwordField)).perform(replaceText("123456"), closeSoftKeyboard())
+
+
+        Intents.init()
+        onView(withId(R.id.logInButton)).perform(click(), doubleClick())
+        onView(withId(R.id.logInButton)).perform(click())
+        Thread.sleep(3000)
+        Intents.intended(IntentMatchers.hasComponent(MainActivity::class.java.name), (Intents.times(1)))
+
+        Intents.release()
+    }
+
     private fun childAtPosition(
             parentMatcher: Matcher<View>, position: Int): Matcher<View> {
 
