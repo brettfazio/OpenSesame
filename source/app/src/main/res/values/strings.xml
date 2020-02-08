@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">OpenSesame</string>
+    <string name="add_button">Add</string>
 </resources>

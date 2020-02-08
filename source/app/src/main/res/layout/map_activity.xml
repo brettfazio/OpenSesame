@@ -1,24 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/map"
-        tools:context=".MapActivity"
-        android:name="com.google.android.gms.maps.SupportMapFragment" />
+        tools:context=".MapActivity" />
 
-    <EditText
-        android:id="@+id/UCFMap"
-        android:layout_width="match_parent"
+    <Button
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@id/UCFMap"
-        android:textAlignment="center"
-        android:importantForAutofill="no"
-        android:labelFor = "@id/UCFMap" />
-</LinearLayout>
+        android:drawableStart="@drawable/add_button_icon"
+        android:text="@string/add_button"
+        android:layout_gravity="bottom|end"/>
+
+</FrameLayout>
