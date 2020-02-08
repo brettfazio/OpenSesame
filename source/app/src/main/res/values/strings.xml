@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">OpenSesame</string>
     <string name="add_button">Add</string>
+    <string name="menu_button">Menu</string>
+    <string name="username">username</string>
+    <string name="view_profile">View Profile</string>
+    <string name="todo">TODO</string>
+    <string name="settings">Settings</string>
 </resources>

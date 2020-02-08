@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <fragment
-        android:id="@+id/map"
-        android:name="com.google.android.gms.maps.SupportMapFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".MapActivity" />
+    android:id="@+id/map"
+    android:name="com.google.android.gms.maps.SupportMapFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MapActivity" />
 
     <Button
         android:layout_width="wrap_content"
@@ -19,4 +19,13 @@
         android:text="@string/add_button"
         android:layout_gravity="bottom|end"/>
 
+    <Button
+        android:layout_width="132dp"
+        android:layout_height="67dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:layout_marginStart="3dp"
+        android:layout_gravity="start"
+        android:text="@string/menu_button"
+        android:id="@+id/menu_button"/>
 </FrameLayout>
