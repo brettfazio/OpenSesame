@@ -12,7 +12,7 @@ public class CreateReportActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.sign_up_activity);
+        setContentView(R.layout.create_report_activity);
 
         // Show the back button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

@@ -69,7 +69,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     }
 
     private void addReportClicked() {
-        Intent intent = new Intent(getApplicationContext(), CreateReportActivity.class);
+        Intent intent = new Intent(MapActivity.this, CreateReportActivity.class);
         intent.putExtra("LOCATION", newReportLocation);
         startActivity(intent);
     }
