@@ -13,3 +13,6 @@
 |008|004| A user's information is able to be stored locally|Working|
 |009|004| A user's information is able to be retrieved locally|Working|
 |010|004| A user is automatically signed in if local sign in information is present|Working|
+|011|005| Tapping an add report button brings up a form to create a report|Working|
+|012|005| Submitting a report form creates a report on the Firebase Cloud Firestore|Working|
+
