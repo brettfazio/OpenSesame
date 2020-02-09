@@ -15,4 +15,6 @@
 |010|004| A user is automatically signed in if local sign in information is present|Upon application open, if the user has stored login data, the app will automatically log in|1|Necessary|Working|
 |011|005| Tapping an add report button brings up a form to create a report|A form shows up when the add report button is tapped|3|Necessary|Working|
 |012|005| Submitting a report form creates a report on the Firebase Cloud Firestore|A report object is created on Firebase when the submit button is pressed|3|Necessary|Working|
-
+|013|021| A user is able to access settings for the application|A settings menu is accessible from within the application|3|Necessary|Working|
+|014|022| A user is able to sign out of their account|A signout button is available and when pressed the Firebase user session will end|3|Necessary|Working|
+|015|023| A user can see their location on a map|When using the app a pin will appear on the map showing the user's current location|3|Necessary|Working|
