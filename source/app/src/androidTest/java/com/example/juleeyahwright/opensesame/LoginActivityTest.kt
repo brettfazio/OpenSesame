@@ -68,7 +68,7 @@ class LoginActivityTest {
         Intents.init()
         onView(withId(R.id.logInButton)).perform(click())
         Thread.sleep(3000)
-        Intents.intended(IntentMatchers.hasComponent(MainActivity::class.java.name), (Intents.times(1)))
+        Intents.intended(IntentMatchers.hasComponent(MapActivity::class.java.name), (Intents.times(1)))
 
         Intents.release()
     }
@@ -83,7 +83,7 @@ class LoginActivityTest {
         onView(withId(R.id.logInButton)).perform(click(), doubleClick())
         onView(withId(R.id.logInButton)).perform(click())
         Thread.sleep(3000)
-        Intents.intended(IntentMatchers.hasComponent(MainActivity::class.java.name), (Intents.times(1)))
+        Intents.intended(IntentMatchers.hasComponent(MapActivity::class.java.name), (Intents.times(1)))
 
         Intents.release()
     }

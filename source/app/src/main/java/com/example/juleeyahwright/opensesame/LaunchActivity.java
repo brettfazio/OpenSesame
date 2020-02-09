@@ -47,7 +47,7 @@ public class LaunchActivity extends AppCompatActivity {
 
                             System.out.println("EMAIL " + user.getEmail());
 
-                            intentMain();
+                            intentMap();
                         } else {
                             intentLogin();
                         }
@@ -56,8 +56,8 @@ public class LaunchActivity extends AppCompatActivity {
                 });
     }
 
-    private void intentMain() {
-        Intent intent = new Intent(LaunchActivity.this, MainActivity.class);
+    private void intentMap() {
+        Intent intent = new Intent(LaunchActivity.this, MapActivity.class);
         startActivity(intent);
     }
 

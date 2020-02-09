@@ -29,7 +29,7 @@ public class LoginActivity extends AppCompatActivity {
         processingLogin = false;
 
         // Link UI
-        Button loginButton = (Button) findViewById(R.id.logInButton);
+        Button loginButton = findViewById(R.id.logInButton);
         loginButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 String email = getEnteredEmail();
@@ -37,7 +37,7 @@ public class LoginActivity extends AppCompatActivity {
                 logIn(email, password, true);
             }
         });
-        Button signUpButton = (Button) findViewById((R.id.signUpButton));
+        Button signUpButton = findViewById((R.id.signUpButton));
         signUpButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 signUp();
@@ -89,10 +89,10 @@ public class LoginActivity extends AppCompatActivity {
 
                             // Set login preferences if they are different.
 
-                            boolean differentPassword = SharedPreferencesController.getPassword(getApplicationContext()) == null ?
-                                    true : !SharedPreferencesController.getPassword(getApplicationContext()).equals(password);
-                            boolean differentEmail= SharedPreferencesController.getEmail(getApplicationContext()) == null ?
-                                    true : !SharedPreferencesController.getEmail(getApplicationContext()).equals(email);
+                            boolean differentPassword = SharedPreferencesController.getPassword(getApplicationContext()) == null
+                                    || !SharedPreferencesController.getPassword(getApplicationContext()).equals(password);
+                            boolean differentEmail = SharedPreferencesController.getEmail(getApplicationContext()) == null
+                                    || !SharedPreferencesController.getEmail(getApplicationContext()).equals(email);
 
                             if (SharedPreferencesController.isLoginCredentialsSet(getApplicationContext())
                                     || differentEmail || differentPassword) {
@@ -100,7 +100,7 @@ public class LoginActivity extends AppCompatActivity {
                                 SharedPreferencesController.setPassword(getApplicationContext(), password);
                             }
 
-                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                            Intent intent = new Intent(LoginActivity.this, MapActivity.class);
                             startActivity(intent);
                             processingLogin = false;
                         } else {
