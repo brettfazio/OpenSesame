@@ -102,4 +102,4 @@ This app will be able to be the backbone of other UCF apps that want to use the 
 
 # Demonstration 
 
-<img src = "/images/SignupLogin.gif" width="200" > <img src = "/images/MapSettingsWO.gif" width="200" > 
+<img src = "/images/SignupLogin.gif" width="350" > <img src = "/images/MapSettingsWO.gif" width="350" > 
