@@ -99,3 +99,7 @@ This app will be able to be the backbone of other UCF apps that want to use the 
 4. Add to, edit, or remove the user story involved with the issue. 
 5. Reevaluate current design documentation to determine high-level changes. 
 6. Add to the backlog and document in next available Git commit. 
+
+# Demonstration 
+
+<img src = "/images/SignupLogin.gif" width="160" > <img src = "/images/MapSettingsWO.gif" width="200" > 
