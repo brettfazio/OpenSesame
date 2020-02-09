@@ -7,7 +7,7 @@
 |002 |As a user, I want to be able to close the open app and have my state saved so that I don't have to be using it constantly|2|1|A user is able to successfully close and reopen the application without having to sign in|WORKING|
 |003 |As a user, I want to be able to see a map so that I can identify locations that may have issues|2|1|A map is successfully loaded with or without signing in|WORKING|
 |004 |As a user, I want the app to automatically log me in if I've entered my login information before|1|1|Users are automatically signed into the application upon launch|DONE|
-|005 |As a user, I want to tap a button to add a work order form so that I can conveniently report a problem|5|5|Locations on the map are able to be marked by users|NOT STARTED|
+|005 |As a user, I want to tap a button to add a work order form so that I can conveniently report a problem|8|5|Locations on the map are able to be marked by users|WORKING|
 |006 |As a staff member, I want the ability to import data so that previous problems can be represented|7|6|Staff data can be imported to the application via an authenticated staff member|NOT STARTED|
 |007 |As a non-UCF user, I want the ability to map campus issues so that I can communicate to everyone on campus issues|5|1|Locations on the map marked by users are visible to others|NOT STARTED|
 |008 |As a user, I want the ability to customize the colors in my GUI so that I can differentiate between them|1|7|Color options are visible & configurable by the user|NOT STARTED|
@@ -23,6 +23,6 @@
 |018 |As a user, I am able to include which categories an issue falls under, so I can provide additional information to other users|3|4|A user can select categories from a pre-defined list to add to an issue|NOT STARTED|
 |019 |As a user, I am able to filter issues by category, so I can only see issues I see as relevant|6|5|A user is able to selectively filter the map by various pre-determined categories|NOT STARTED|
 |020 |As a user, I am able to distinguish between various types of issues on the map|3|5|There is a way differentiate between categories of issues on the map|NOT STARTED|
-|021 |As a user, I want to be able to access settings for the application so I can perform actions not related to the map|2|4|There is a way to graphically access settings|WORKING|
+|021 |As a user, I want to be able to access settings for the application so I can perform actions not related to the map|7|4|There is a way to graphically access settings|DONE|
 |022 |As a user, I want the ability to sign out so I can better manage my account|2|4|There is a way to logout of your current account|WORKING|
-|023 |As a user, I want to see my location on the map so that I know how close I am to problems|1|5|There is an indicator on the map for the users current location|WORKING|
+|023 |As a user, I want to see my location on the map so that I know how close I am to problems|10|5|There is an indicator on the map for the users current location|WORKING|
