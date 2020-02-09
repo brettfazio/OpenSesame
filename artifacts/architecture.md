@@ -6,9 +6,19 @@
 
 <img src = "/images/ClassDiagram.png" width="1000" >
 
+Class | Description | User Stories
+------|-------------|-------------
+LogInActivity|Prompts a user to enter their sign in credentials, or sign up for an account|010
+LaunchActivity|Automatically signs the user in if they have saved information, otherwise sends them to LogInActivity|001<br>002<br>004
+SignUpActivity|Allows to the user to create an account with a Username, Email, and Password|000
+MapActivity|Displays a map of marked locations and the location of the user|003<br>005<br>009<br>011<br>012<br>015<br>017<br>020<br>023
+SettingsActivity|Displays a list of account settings & preferences|006<br>008<br>009<br>014<br>021<br>022
+CreateReportActivity|Allows a user to enter information for a report|007<br>016<br>018
+ReportListActivity|Allows a user to see a list of all nearby reports|013<br>019
+
 # Data Design
 
-<img src = "/images/ERD.png" width="1000" >
+**TODO** If you are using a database, you should have a basic Entity Relationship Diagram (ERD) in this section. This diagram should describe the tables in your database and their relationship to one another (especially primary/foreign keys), including the columns within each table. 
 
 # Business Rules
 
