@@ -19,6 +19,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 public class MapActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
+    private LatLng newReportLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,15 +54,28 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         Button addButton = (Button) findViewById(R.id.add_button);
         addButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                addReport();
+                addReportClicked();
             }
         });
 
+        //TODO(): Uncomment when API is enabled
+        /*mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+            @Override
+            public void onMapClick(LatLng latLng) {
+                clicked(latLng);
+            }
+        });*/
+
     }
 
-    private void addReport() {
+    private void addReportClicked() {
         Intent intent = new Intent(getApplicationContext(), CreateReportActivity.class);
+        intent.putExtra("LOCATION", newReportLocation);
         startActivity(intent);
+    }
+
+    private void clicked(LatLng location) {
+
     }
 
     @Override
