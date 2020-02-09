@@ -4,7 +4,7 @@
 
 # Major Classes
 
-**TODO** You should have an UML class diagram in this section, along with a description of each class and a table that relates each component to one or more user stories. At a minimum, you need 1 diagram of your major classes. You are encouraged to also include more detailed diagrams that include all of your classes. 
+<img src = "/images/ClassDiagram.png" width="1000" >
 
 # Data Design
 
