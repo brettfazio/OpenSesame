@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity"/>
         <activity android:name=".SettingsActivity" />
-        <activity android:name=".CreateReportActivity" />
+        <activity android:name=".CreateReport.CreateReportActivity" />
         <activity android:name=".LaunchActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

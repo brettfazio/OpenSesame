@@ -1,10 +1,11 @@
-package com.example.juleeyahwright.opensesame;
+package com.example.juleeyahwright.opensesame.CreateReport;
 
 import android.os.Bundle;
 import android.view.MenuItem;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.juleeyahwright.opensesame.R;
 import com.google.android.gms.maps.model.LatLng;
 
 public class CreateReportActivity extends AppCompatActivity {
