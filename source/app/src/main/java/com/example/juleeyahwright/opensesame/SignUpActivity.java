@@ -1,6 +1,11 @@
 package com.example.juleeyahwright.opensesame;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,17 +18,55 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class SignUpActivity extends AppCompatActivity {
 
-    FirebaseAuth mAuth;
+    private FirebaseAuth mAuth;
+    private boolean processingSignup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sign_up_activity);
         mAuth = FirebaseAuth.getInstance();
+        processingSignup = false;
+
+        // Link UI
+        Button signUpButton = (Button) findViewById((R.id.signUpButton));
+        signUpButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                signUpUser();
+            }
+        });
+
+        Button backButton = (Button) findViewById(R.id.backButton);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                finish();
+            }
+        });
+    }
+
+    private String getEnteredEmail() {
+        return ((EditText) findViewById(R.id.emailField)).getText().toString();
+    }
+
+    private String getEnteredPassword() {
+        return ((EditText) findViewById(R.id.passwordField)).getText().toString();
     }
 
     private void signUpUser() {
-        String email = "", password = "";
+        //TODO(): Add username to stored data.
+        final String email = getEnteredEmail();
+        final String password = getEnteredPassword();
+
+        if (processingSignup) return;
+        processingSignup = true;
+
+        if (email.length() == 0 || password.length() == 0) {
+            Toast.makeText(getApplicationContext(),
+                    "Email and password must both be non-empty.",
+                    Toast.LENGTH_LONG).show();
+            processingSignup = false;
+            return;
+        }
 
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -33,16 +76,21 @@ public class SignUpActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             //Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-                            //updateUI(user);
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            //Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                            //Toast.makeText(EmailPasswordActivity.this, "Authentication failed.",
-                            //        Toast.LENGTH_SHORT).show();
-                            //updateUI(null);
-                        }
 
-                        // ...
+                            SharedPreferencesController.setEmail(getApplicationContext(), email);
+                            SharedPreferencesController.setPassword(getApplicationContext(), password);
+
+                            Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
+                            startActivity(intent);
+                            processingSignup = false;
+                        } else {
+                            System.out.println(task.getException().toString());
+
+                            Toast.makeText(getApplicationContext(),
+                                    task.getException().toString(), Toast.LENGTH_LONG).show();
+
+                            processingSignup = false;
+                        }
                     }
                 });
     }

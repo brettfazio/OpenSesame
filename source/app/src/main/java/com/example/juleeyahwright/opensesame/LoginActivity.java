@@ -1,6 +1,11 @@
 package com.example.juleeyahwright.opensesame;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,32 +18,65 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
 
-    FirebaseAuth mAuth;
+    private FirebaseAuth mAuth;
+    private boolean processingLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_activity);
         mAuth = FirebaseAuth.getInstance();
+        processingLogin = false;
+
+        // Link UI
+        Button loginButton = findViewById(R.id.logInButton);
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                String email = getEnteredEmail();
+                String password = getEnteredPassword();
+                logIn(email, password, true);
+            }
+        });
+        Button signUpButton = findViewById((R.id.signUpButton));
+        signUpButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                signUp();
+            }
+        });
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
 
-        // A user is signed in
-        if (currentUser != null) {
-            // Proceed to main app.
+        String email = SharedPreferencesController.getEmail(getApplicationContext());
+        String password = SharedPreferencesController.getPassword(getApplicationContext());
+
+        if (email == null || password == null) {
+            return;
         }
 
-
+        logIn(email, password, false);
     }
 
-    public void signIn() {
+    private String getEnteredEmail() {
+        return ((EditText) findViewById(R.id.emailField)).getText().toString();
+    }
 
-        String email = "", password = "";
+    private String getEnteredPassword() {
+        return ((EditText) findViewById(R.id.passwordField)).getText().toString();
+    }
+
+    private void logIn(final String email, final String password, final boolean showPopUp) {
+        if (processingLogin) return;
+        processingLogin = true;
+        if (email.length() == 0 || password.length() == 0) {
+            Toast.makeText(getApplicationContext(),
+                    "Email and password must both be non-empty.",
+                    Toast.LENGTH_LONG).show();
+            processingLogin = false;
+            return;
+        }
 
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -48,17 +86,43 @@ public class LoginActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             //Log.d(TAG, "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-                            //updateUI(user);
+
+                            // Set login preferences if they are different.
+
+                            boolean differentPassword = SharedPreferencesController.getPassword(getApplicationContext()) == null
+                                    || !SharedPreferencesController.getPassword(getApplicationContext()).equals(password);
+                            boolean differentEmail = SharedPreferencesController.getEmail(getApplicationContext()) == null
+                                    || !SharedPreferencesController.getEmail(getApplicationContext()).equals(email);
+
+                            if (SharedPreferencesController.isLoginCredentialsSet(getApplicationContext())
+                                    || differentEmail || differentPassword) {
+                                SharedPreferencesController.setEmail(getApplicationContext(), email);
+                                SharedPreferencesController.setPassword(getApplicationContext(), password);
+                            }
+
+                            Intent intent = new Intent(LoginActivity.this, MapActivity.class);
+                            startActivity(intent);
+                            processingLogin = false;
                         } else {
                             // If sign in fails, display a message to the user.
                             //Log.w(TAG, "signInWithEmail:failure", task.getException());
                             //Toast.makeText(EmailPasswordActivity.this, "Authentication failed.",
                             //        Toast.LENGTH_SHORT).show();
-                            //updateUI(null);
+                            if (showPopUp) {
+                                Toast.makeText(getApplicationContext(),
+                                        "Failed to sign in.",
+                                        Toast.LENGTH_LONG).show();
+                            }
+                            processingLogin = false;
                         }
 
                     }
                 });
+    }
+
+    private void signUp() {
+        Intent signUpIntent = new Intent(this, SignUpActivity.class);
+        startActivity(signUpIntent);
     }
 
 }
