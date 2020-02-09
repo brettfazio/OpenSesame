@@ -19,7 +19,6 @@ import com.google.android.gms.maps.model.MarkerOptions;
 public class MapActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-    private Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,11 +28,11 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-        button = (Button) findViewById(R.id.menu_button);
-        button.setOnClickListener(new View.OnClickListener() {
+        final Button menuButton = (Button) findViewById(R.id.menu_button);
+        menuButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PopupMenu mainMenu = new PopupMenu(MapActivity.this, button);
+                PopupMenu mainMenu = new PopupMenu(MapActivity.this, menuButton);
                 mainMenu.getMenuInflater().inflate(R.menu.main_menu, mainMenu.getMenu());
                 mainMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener()  {
                     @Override
@@ -50,6 +49,19 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                 mainMenu.show();
             }
         });
+
+        Button addButton = (Button) findViewById(R.id.add_button);
+        addButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                addReport();
+            }
+        });
+
+    }
+
+    private void addReport() {
+        Intent intent = new Intent(getApplicationContext(), CreateReportActivity.class);
+        startActivity(intent);
     }
 
     @Override
