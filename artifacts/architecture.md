@@ -18,7 +18,7 @@ ReportListActivity|Allows a user to see a list of all nearby reports|013<br>019
 
 # Data Design
 
-**TODO** If you are using a database, you should have a basic Entity Relationship Diagram (ERD) in this section. This diagram should describe the tables in your database and their relationship to one another (especially primary/foreign keys), including the columns within each table. 
+<img src = "/images/ERD.png" width="1000" >
 
 # Business Rules
 
