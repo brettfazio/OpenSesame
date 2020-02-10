@@ -44,6 +44,11 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                             Intent intent = new Intent(getApplicationContext(), SettingsActivity.class);
                             startActivity(intent);
                         }
+
+                        if(item.getTitle().equals("Sign Out")) {
+                            Intent intent = new Intent(getApplicationContext(), SignOutActivity.class);
+                            startActivity(intent);
+                        }
                         return true;
                     }
 
