@@ -61,4 +61,12 @@ class SharedPreferencesControllerTest {
         SharedPreferencesController.setPassword(mActivityTestRule.activity.applicationContext, "str0ng")
         assert(SharedPreferencesController.isLoginCredentialsSet(mActivityTestRule.activity.applicationContext))
     }
+
+    @Test
+    fun clear_test() {
+        SharedPreferencesController.setEmail(mActivityTestRule.activity.applicationContext, "test@test.com")
+        SharedPreferencesController.setPassword(mActivityTestRule.activity.applicationContext, "str0ng")
+        SharedPreferencesController.clearSignInData(mActivityTestRule.activity.applicationContext)
+        assert(!SharedPreferencesController.isLoginCredentialsSet(mActivityTestRule.activity.applicationContext))
+    }
 }
