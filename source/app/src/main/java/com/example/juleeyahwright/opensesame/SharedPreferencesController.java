@@ -35,19 +35,12 @@ public class SharedPreferencesController extends Activity {
     }
 
     public static boolean isLoginCredentialsSet(Context context) {
-        SharedPreferences sp = spFromContext(context);
-
         return getEmail(context) != null && getPassword(context) != null;
     }
 
     public static void clearSignInData(Context context) {
         SharedPreferences sp = spFromContext(context);
-
         sp.edit().clear().commit();
-        SharedPreferences.Editor Ed = sp.edit();
-        Ed.putString("email", null);
-        Ed.putString("password", null);
-        Ed.apply();
     }
 
 
