@@ -44,6 +44,10 @@ public class SharedPreferencesController extends Activity {
         SharedPreferences sp = spFromContext(context);
 
         sp.edit().clear().commit();
+        SharedPreferences.Editor Ed = sp.edit();
+        Ed.putString("email", null);
+        Ed.putString("password", null);
+        Ed.apply();
     }
 
 
