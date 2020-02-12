@@ -6,6 +6,6 @@
         android:title="Settings"/>
     <item
         android:id="@+id/sign_out_option"
-        android:title="@string/sign_out"/>
+        android:title="Sign Out"/>
 
 </menu>

@@ -1,5 +1,6 @@
 package com.example.juleeyahwright.opensesame;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +18,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MapActivity extends AppCompatActivity implements OnMapReadyCallback {
 
@@ -46,7 +48,10 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                         }
 
                         if(item.getTitle().equals("Sign Out")) {
-                            Intent intent = new Intent(getApplicationContext(), SignOutActivity.class);
+                            FirebaseAuth.getInstance().signOut();
+                            finish();
+                            SharedPreferencesController.clearSignInData(getApplicationContext());
+                            Intent intent = new Intent(MapActivity.this, LoginActivity.class);
                             startActivity(intent);
                         }
                         return true;
