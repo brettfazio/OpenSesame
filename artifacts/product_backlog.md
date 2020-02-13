@@ -24,5 +24,5 @@
 |019 |As a user, I am able to filter issues by category, so I can only see issues I see as relevant|6|5|A user is able to selectively filter the map by various pre-determined categories|NOT STARTED|
 |020 |As a user, I am able to distinguish between various types of issues on the map|3|5|There is a way differentiate between categories of issues on the map|NOT STARTED|
 |021 |As a user, I want to be able to access settings for the application so I can perform actions not related to the map|7|4|There is a way to graphically access settings|DONE|
-|022 |As a user, I want the ability to sign out so I can better manage my account|2|4|There is a way to logout of your current account|WORKING|
+|022 |As a user, I want the ability to sign out so I can better manage my account|2|4|There is a way to logout of your current account|DONE|
 |023 |As a user, I want to see my location on the map so that I know how close I am to problems|10|5|There is an indicator on the map for the users current location|WORKING|
