@@ -7,26 +7,23 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
-public class SignUpActivity extends AppCompatActivity {
+public class SignUpActivity extends AppCompatActivity implements AccountModelListener {
 
     private FirebaseAuth mAuth;
-    private boolean processingSignup;
+    private boolean processingSignUp;
+    private AccountModel accountModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sign_up_activity);
         mAuth = FirebaseAuth.getInstance();
-        processingSignup = false;
+        processingSignUp = false;
+        accountModel = new AccountModel(FirebaseAuth.getInstance(), this);
 
         // Link UI
         Button signUpButton = (Button) findViewById((R.id.signUpButton));
@@ -57,42 +54,41 @@ public class SignUpActivity extends AppCompatActivity {
         final String email = getEnteredEmail();
         final String password = getEnteredPassword();
 
-        if (processingSignup) return;
-        processingSignup = true;
+        if (processingSignUp) return;
+        processingSignUp = true;
 
         if (email.length() == 0 || password.length() == 0) {
             Toast.makeText(getApplicationContext(),
                     "Email and password must both be non-empty.",
                     Toast.LENGTH_LONG).show();
-            processingSignup = false;
+            processingSignUp = false;
             return;
         }
 
-        mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            //Log.d(TAG, "createUserWithEmail:success");
-                            FirebaseUser user = mAuth.getCurrentUser();
-
-                            SharedPreferencesController.setEmail(getApplicationContext(), email);
-                            SharedPreferencesController.setPassword(getApplicationContext(), password);
-
-                            Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
-                            startActivity(intent);
-                            processingSignup = false;
-                        } else {
-                            System.out.println(task.getException().toString());
-
-                            Toast.makeText(getApplicationContext(),
-                                    task.getException().toString(), Toast.LENGTH_LONG).show();
-
-                            processingSignup = false;
-                        }
-                    }
-                });
+        accountModel.signUpUser(email, password);
     }
 
+    @Override
+    public void logInSuccess(String email, String password) { }
+
+    @Override
+    public void logInFailure(Exception exception, String email, String password) { }
+
+    @Override
+    public void signUpSuccess(String email, String password) {
+        SharedPreferencesController.setEmail(getApplicationContext(), email);
+        SharedPreferencesController.setPassword(getApplicationContext(), password);
+
+        Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
+        startActivity(intent);
+        processingSignUp = false;
+    }
+
+    @Override
+    public void signUpFailure(Exception exception, String email, String password) {
+        Toast.makeText(getApplicationContext(),
+                "Failed to sign up. Error: " + exception.toString(), Toast.LENGTH_LONG).show();
+
+        processingSignUp = false;
+    }
 }

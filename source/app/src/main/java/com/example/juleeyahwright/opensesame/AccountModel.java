@@ -27,17 +27,10 @@ public class AccountModel extends Observable implements Executor {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            //Log.d(TAG, "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             observer.logInSuccess(email, password);
 
                         } else {
-                            // If sign in fails, display a message to the user.
-                            //Log.w(TAG, "signInWithEmail:failure", task.getException());
-                            //Toast.makeText(EmailPasswordActivity.this, "Authentication failed.",
-                            //        Toast.LENGTH_SHORT).show();
-
                             observer.logInFailure(task.getException(), email, password);
                         }
 
@@ -45,7 +38,7 @@ public class AccountModel extends Observable implements Executor {
                 });
     }
 
-    private void signUpUser(final String email, final String password) {
+    public void signUpUser(final String email, final String password) {
         //TODO(): Add username to stored data.
 
         mAuth.createUserWithEmailAndPassword(email, password)
@@ -53,13 +46,9 @@ public class AccountModel extends Observable implements Executor {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            //Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-
                             observer.signUpSuccess(email, password);
                         } else {
-
                             observer.signUpFailure(task.getException(), email, password);
                         }
                     }

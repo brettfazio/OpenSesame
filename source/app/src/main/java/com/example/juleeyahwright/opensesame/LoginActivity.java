@@ -107,7 +107,7 @@ public class LoginActivity extends AppCompatActivity implements AccountModelList
     public void logInFailure(Exception exception, String email, String password) {
         if (showPopUp) {
             Toast.makeText(getApplicationContext(),
-                    "Failed to sign in.",
+                    "Failed to sign in. Error: " + exception.toString(),
                     Toast.LENGTH_LONG).show();
         }
         this.processingLogin = false;
