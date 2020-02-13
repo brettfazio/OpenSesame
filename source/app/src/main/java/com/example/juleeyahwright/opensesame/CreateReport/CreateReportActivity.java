@@ -8,7 +8,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.juleeyahwright.opensesame.R;
 import com.google.android.gms.maps.model.LatLng;
 
-public class CreateReportActivity extends AppCompatActivity {
+import java.util.Observable;
+import java.util.Observer;
+
+public class CreateReportActivity extends AppCompatActivity implements Observer {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,5 +42,10 @@ public class CreateReportActivity extends AppCompatActivity {
 
     private LatLng getLatLng() {
         return (LatLng) getIntent().getExtras().get("LOCATION");
+    }
+
+    @Override
+    public void update(Observable observable, Object o) {
+
     }
 }
