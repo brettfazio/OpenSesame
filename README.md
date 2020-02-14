@@ -50,6 +50,6 @@ OpenSesame is a property management application that enables students to self-re
 - [Source Code](https://github.com/brettfazio/OpenSesame/tree/master/source/app/src/main/java/com/example/juleeyahwright/opensesame)
 - Tests
   - [UI Tests](https://github.com/brettfazio/OpenSesame/tree/master/source/app/src/androidTest/java/com/example/juleeyahwright/opensesame)
-  - Unit Tests
+  - [Unit Tests](https://github.com/brettfazio/OpenSesame/tree/master/source/app/src/test/java/com/example/juleeyahwright/opensesame)
 - [Demonstration](https://www.youtube.com/watch?v=om0AKBR0rX0)
 
