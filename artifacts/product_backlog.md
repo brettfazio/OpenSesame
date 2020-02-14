@@ -7,7 +7,7 @@
 |002 |As a user, I want to be able to close the open app and have my state saved so that I don't have to be using it constantly|2|1|A user is able to successfully close and reopen the application without having to sign in|WORKING|
 |003 |As a user, I want to be able to see a map so that I can identify locations that may have issues|2|1|A map is successfully loaded with or without signing in|WORKING|
 |004 |As a user, I want the app to automatically log me in if I've entered my login information before|1|1|Users are automatically signed into the application upon launch|DONE|
-|005 |As a user, I want to tap a button to add a work order form so that I can conveniently report a problem|8|5|Locations on the map are able to be marked by users|WORKING|
+|005 |As a user, I want to tap a button to add a work order form so that I can conveniently report a problem|8|5|A report is created when the user submits the form|WORKING|
 |006 |As a staff member, I want the ability to import data so that previous problems can be represented|7|6|Staff data can be imported to the application via an authenticated staff member|NOT STARTED|
 |007 |As a non-UCF user, I want the ability to map campus issues so that I can communicate to everyone on campus issues|5|1|Locations on the map marked by users are visible to others|NOT STARTED|
 |008 |As a user, I want the ability to customize the colors in my GUI so that I can differentiate between them|1|7|Color options are visible & configurable by the user|WORKING|
