@@ -8,15 +8,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.juleeyahwright.opensesame.R;
 import com.google.android.gms.maps.model.LatLng;
 
-import java.util.Observable;
-import java.util.Observer;
+import org.jetbrains.annotations.NotNull;
 
-public class CreateReportActivity extends AppCompatActivity implements Observer {
+public class CreateReportActivity extends AppCompatActivity implements CreateReportListener {
+
+    private CreateReportController controller;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create_report_activity);
+
+        controller = new CreateReportController(this);
 
         // Show the back button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -45,7 +48,12 @@ public class CreateReportActivity extends AppCompatActivity implements Observer 
     }
 
     @Override
-    public void update(Observable observable, Object o) {
+    public void reportCreateSuccess(@NotNull Report report) {
+
+    }
+
+    @Override
+    public void reportCreateFailure(@NotNull Report report, @NotNull Exception exception) {
 
     }
 }

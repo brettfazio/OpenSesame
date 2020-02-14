@@ -9,7 +9,13 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 public class CreateReportController {
 
-    static void writeReport(Report report) {
+    private CreateReportListener listener;
+
+    public CreateReportController(CreateReportListener listener) {
+        this.listener = listener;
+    }
+
+    void writeReport(final Report report) {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         db.collection("reports")
@@ -17,13 +23,13 @@ public class CreateReportController {
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
-                        //Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
+                        listener.reportCreateSuccess(report);
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        //Log.w(TAG, "Error adding document", e);
+                        listener.reportCreateFailure(report, e);
                     }
                 });
     }
