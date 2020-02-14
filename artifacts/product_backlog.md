@@ -10,7 +10,7 @@
 |005 |As a user, I want to tap a button to add a work order form so that I can conveniently report a problem|8|5|Locations on the map are able to be marked by users|WORKING|
 |006 |As a staff member, I want the ability to import data so that previous problems can be represented|7|6|Staff data can be imported to the application via an authenticated staff member|NOT STARTED|
 |007 |As a non-UCF user, I want the ability to map campus issues so that I can communicate to everyone on campus issues|5|1|Locations on the map marked by users are visible to others|NOT STARTED|
-|008 |As a user, I want the ability to customize the colors in my GUI so that I can differentiate between them|1|7|Color options are visible & configurable by the user|NOT STARTED|
+|008 |As a user, I want the ability to customize the colors in my GUI so that I can differentiate between them|1|7|Color options are visible & configurable by the user|WORKING|
 |009 |As a user, I want the ability to go between to view the map and my account|3|2|The account and map portions of the app are able to be traversed by the user|NOT STARTED|
 |010 |As a staff member, I want the ability to login with my UCF staff e-mail|2|4|Staff members are successfully able to log in using their UCF e-mail|NOT STARTED|
 |011 |As a user, I want the ability to mark the map so that I can let others know where issues are|5|1|Markers are able to be placed on the map by a user|NOT STARTED|
