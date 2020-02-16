@@ -1,30 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/settings"
+    android:id="@+id/settings_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-<SwitchPreferenceCompat
-    android:key="notifications"
-    android:title="Enable message notifications"/>
-
-    <PreferenceCategory android:title="Text and Colors">
-        <ListPreference
-            android:defaultValue="2"
-            android:dialogTitle="@string/text_size"
-            android:entries="@array/text_size_entries"
-            android:entryValues="@array/text_size_values"
-            android:key="@string/key_text_size"
-            android:summary="@string/summary_text_size"
-            android:title="@string/title_text_size" />
-
-    </PreferenceCategory>
-
-<Preference
-    android:key="feedback"
-    android:title="Send feedback"
-    android:summary="Report technical issues or suggest new features"/>
-
+    <fragment
+        android:id="@+id/fragment_settings"
+        android:name="com.example.juleeyahwright.opensesame.SettingsActivity.PrefFragment"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
 
 </PreferenceScreen>
