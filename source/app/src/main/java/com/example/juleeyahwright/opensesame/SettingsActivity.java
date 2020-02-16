@@ -1,12 +1,7 @@
 package com.example.juleeyahwright.opensesame;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.ListPreference;
-import android.preference.Preference;
-import androidx.fragment.app.Fragment;
 import androidx.preference.PreferenceFragmentCompat;
-import android.preference.PreferenceManager;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -27,7 +22,19 @@ public class SettingsActivity extends AppCompatActivity {
         // Show the back button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        
+
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.content, new SettingsFragment())
+                .commit();
+
+    }
+
+    public class SettingsFragment extends PreferenceFragmentCompat {
+        @Override
+        public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+            setPreferencesFromResource(R.xml.settings, rootKey);
+        }
     }
 
 
