@@ -5,10 +5,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-<SwitchPreferenceCompat
-    android:key="notifications"
-    android:title="Enable message notifications"/>
-
     <PreferenceCategory android:title="Text and Colors">
         <ListPreference
             android:defaultValue="2"
@@ -20,11 +16,5 @@
             android:title="@string/title_text_size" />
 
     </PreferenceCategory>
-
-<Preference
-    android:key="feedback"
-    android:title="Send feedback"
-    android:summary="Report technical issues or suggest new features"/>
-
 
 </PreferenceScreen>
