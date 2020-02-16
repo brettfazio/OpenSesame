@@ -26,4 +26,10 @@
         android:hint="Briefly title the issue here"
         android:inputType="textPersonName" />
 
+    <Button
+        android:id="@+id/createReportButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Create" />
+
 </LinearLayout>

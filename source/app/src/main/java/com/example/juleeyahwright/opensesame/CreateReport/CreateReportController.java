@@ -10,13 +10,14 @@ import com.google.firebase.firestore.FirebaseFirestore;
 public class CreateReportController {
 
     private CreateReportListener listener;
+    private FirebaseFirestore db;
 
-    public CreateReportController(CreateReportListener listener) {
+    public CreateReportController(@NonNull FirebaseFirestore db, CreateReportListener listener) {
+        this.db = db;
         this.listener = listener;
     }
 
-    void writeReport(final Report report) {
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
+    void writeReport(@NonNull final Report report) {
 
         db.collection("reports")
                 .add(report.getFirebaseMap())
