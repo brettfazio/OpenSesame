@@ -17,9 +17,14 @@ public class CreateReportController {
         this.listener = listener;
     }
 
-    void writeReport(@NonNull final Report report) {
+    public CreateReportController(CreateReportListener listener) {
+        this.db = FirebaseFirestore.getInstance();
+        this.listener = listener;
+    }
 
-        db.collection("reports")
+    public void writeReport(@NonNull final Report report) {
+
+        db.collection(report.getCollectionPath())
                 .add(report.getFirebaseMap())
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
