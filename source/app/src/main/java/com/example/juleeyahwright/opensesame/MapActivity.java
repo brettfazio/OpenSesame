@@ -1,6 +1,8 @@
 package com.example.juleeyahwright.opensesame;
 
 import android.content.Context;
+import android.content.pm.PackageManager;
+import android.location.Location;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -10,11 +12,12 @@ import android.view.MenuItem;
 import android.content.Intent;
 
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 
 import com.example.juleeyahwright.opensesame.CreateReport.CreateReportActivity;
-import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
@@ -24,8 +27,8 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class MapActivity extends AppCompatActivity implements OnMapReadyCallback {
 
-    private GoogleMap mMap;
     private LatLng newReportLocation;
+    private MapController mapController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,10 +67,8 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
-        LatLng ucf = new LatLng(28.6024, -81.2001);
-        mMap.addMarker(new MarkerOptions().position(ucf).title("Welcome to UCF!"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(ucf, 16.0f));
+        mapController = new MapController(googleMap, this);
+        mapController.checkAndRequestPermissions(MapActivity.this, MapActivity.this);
     }
 
     @Override
@@ -95,4 +96,16 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         }
     }
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
+        mapController.setLocationPermission(false);
+        if (grantResults.length > 0
+                && grantResults[0] == PackageManager.PERMISSION_GRANTED)
+        {
+            mapController.setLocationPermission(true);
+        }
+        mapController.updateMapLocation(MapActivity.this);
+    }
 }
