@@ -1,6 +1,7 @@
 package com.example.juleeyahwright.opensesame
 
 
+import android.Manifest
 import android.content.Context
 import android.view.View
 import android.view.ViewGroup
@@ -33,7 +34,7 @@ class LoginActivityTest {
     @JvmField
     var mActivityTestRule = ActivityTestRule(LoginActivity::class.java)
 
-    @get:Rule var permissionRule = GrantPermissionRule.grant(android.Manifest.permission.ACCESS_FINE_LOCATION)
+    @get:Rule var permissionRule = GrantPermissionRule.grant(Manifest.permission.ACCESS_FINE_LOCATION)
 
     @Before
     fun clearData() {
