@@ -43,11 +43,18 @@ public class MapController {
     public MapController(GoogleMap mMap, Activity a) {
         this.mLocationPermissionGranted = false;
         this.mMap = mMap;
-        this.fusedLocationClient = LocationServices.getFusedLocationProviderClient(a);
+        try {
+            this.fusedLocationClient = LocationServices.getFusedLocationProviderClient(a);
+        } catch (NullPointerException n) {
+        }
     }
 
     public void setLocationPermission(boolean b) {
         this.mLocationPermissionGranted = b;
+    }
+
+    public boolean getLocationPermission() {
+        return this.mLocationPermissionGranted;
     }
 
     public void checkAndRequestPermissions(Context c, Activity a){
@@ -117,7 +124,4 @@ public class MapController {
         } catch (SecurityException e) {
         }
     }
-
-
-
 }
