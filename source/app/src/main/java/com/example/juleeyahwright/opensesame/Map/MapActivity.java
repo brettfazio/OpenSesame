@@ -1,28 +1,26 @@
-package com.example.juleeyahwright.opensesame;
+package com.example.juleeyahwright.opensesame.Map;
 
-import android.content.Context;
 import android.content.pm.PackageManager;
-import android.location.Location;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
-import android.widget.PopupMenu;
 import android.view.MenuItem;
 import android.content.Intent;
 
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.content.ContextCompat;
 
 import com.example.juleeyahwright.opensesame.CreateReport.CreateReportActivity;
+import com.example.juleeyahwright.opensesame.LoginActivity;
+import com.example.juleeyahwright.opensesame.R;
+import com.example.juleeyahwright.opensesame.SettingsActivity;
+import com.example.juleeyahwright.opensesame.SharedPreferencesController;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MapActivity extends AppCompatActivity implements OnMapReadyCallback {

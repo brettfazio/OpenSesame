@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.juleeyahwright.opensesame.AccountModel.AccountModel;
 import com.example.juleeyahwright.opensesame.AccountModel.AccountModelListener;
+import com.example.juleeyahwright.opensesame.Map.MapActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity implements AccountModelListener {

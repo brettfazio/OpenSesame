@@ -24,7 +24,7 @@
         </activity>
         <activity android:name=".SignUpActivity"></activity>
         <uses-library android:name="org.apache.http.legacy" android:required="false"/>
-        <activity android:name=".MapActivity" android:exported="true">
+        <activity android:name=".Map.MapActivity" android:exported="true">
         </activity>
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"

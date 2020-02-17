@@ -1,14 +1,14 @@
 package com.example.juleeyahwright.opensesame;
 
 import android.location.Location;
-
 import org.junit.BeforeClass;
+import com.example.juleeyahwright.opensesame.Map.MapActivity;
+import com.example.juleeyahwright.opensesame.Map.MapController;
+import com.google.android.gms.maps.GoogleMap;
 import org.junit.Test;
 import org.mockito.Mock;
 
 import static org.junit.Assert.assertEquals;
-
-import com.google.android.gms.maps.GoogleMap;
 
 public class MapControllerTest {
 

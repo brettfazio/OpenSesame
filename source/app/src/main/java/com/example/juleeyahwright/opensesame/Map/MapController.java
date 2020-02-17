@@ -1,4 +1,4 @@
-package com.example.juleeyahwright.opensesame;
+package com.example.juleeyahwright.opensesame.Map;
 
 import android.app.Activity;
 import android.content.Context;
