@@ -12,6 +12,7 @@ import androidx.test.espresso.intent.matcher.IntentMatchers
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.filters.LargeTest
 import androidx.test.rule.ActivityTestRule
+import androidx.test.rule.GrantPermissionRule
 import androidx.test.runner.AndroidJUnit4
 import com.example.juleeyahwright.opensesame.Map.MapActivity
 import org.hamcrest.Description
@@ -23,6 +24,7 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 
+
 @LargeTest
 @RunWith(AndroidJUnit4::class)
 class LoginActivityTest {
@@ -30,6 +32,8 @@ class LoginActivityTest {
     @Rule
     @JvmField
     var mActivityTestRule = ActivityTestRule(LoginActivity::class.java)
+
+    @get:Rule var permissionRule = GrantPermissionRule.grant(android.Manifest.permission.ACCESS_FINE_LOCATION)
 
     @Before
     fun clearData() {
