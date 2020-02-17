@@ -15,7 +15,6 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity implements AccountModelListener {
 
-    private FirebaseAuth mAuth;
     private boolean processingLogin;
     private AccountModel accountModel;
     private boolean showPopUp;
@@ -24,7 +23,6 @@ public class LoginActivity extends AppCompatActivity implements AccountModelList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_activity);
-        mAuth = FirebaseAuth.getInstance();
         processingLogin = false;
         accountModel = new AccountModel(FirebaseAuth.getInstance(), this);
 

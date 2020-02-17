@@ -10,15 +10,21 @@ import com.google.firebase.firestore.FirebaseFirestore;
 public class CreateReportController {
 
     private CreateReportListener listener;
+    private FirebaseFirestore db;
 
-    public CreateReportController(CreateReportListener listener) {
+    public CreateReportController(@NonNull FirebaseFirestore db, CreateReportListener listener) {
+        this.db = db;
         this.listener = listener;
     }
 
-    void writeReport(final Report report) {
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
+    public CreateReportController(CreateReportListener listener) {
+        this.db = FirebaseFirestore.getInstance();
+        this.listener = listener;
+    }
 
-        db.collection("reports")
+    public void writeReport(@NonNull final Report report) {
+
+        db.collection(report.getCollectionPath())
                 .add(report.getFirebaseMap())
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override

@@ -24,4 +24,18 @@ public class ReportTest {
         assert(map.get("information").equals("this is a dummy report"));
         assert(map.get("location").equals(new LatLng(0.0,0.0)));
     }
+
+    @Test
+    public void getCollectionPath_test() {
+        Report report = new Report("dummy", "this is a dummy report", new LatLng(0.0,0.0));
+
+        assert (report.getCollectionPath().equals(Report.DEFAULT_COLLECTION_PATH));
+    }
+
+    @Test
+    public void customGetCollectionPath_test() {
+        Report report = new Report("dummy", "this is a dummy report", new LatLng(0.0,0.0), "custom");
+
+        assert (report.getCollectionPath().equals("custom"));
+    }
 }

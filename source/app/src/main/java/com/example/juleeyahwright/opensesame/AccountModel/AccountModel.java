@@ -21,6 +21,11 @@ public class AccountModel extends Observable implements Executor {
         this.observer = observer;
     }
 
+    public AccountModel(AccountModelListener observer) {
+        this.mAuth = FirebaseAuth.getInstance();
+        this.observer = observer;
+    }
+
     public void logIn(final String email, final String password) {
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
