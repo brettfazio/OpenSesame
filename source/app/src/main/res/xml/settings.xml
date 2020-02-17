@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/settings"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <PreferenceCategory android:title="Text and Colors">
+        <ListPreference
+            android:defaultValue="2"
+            android:dialogTitle="@string/text_size"
+            android:entries="@array/text_size_entries"
+            android:entryValues="@array/text_size_values"
+            android:key="@string/key_text_size"
+            android:summary="@string/summary_text_size"
+            android:title="@string/title_text_size" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

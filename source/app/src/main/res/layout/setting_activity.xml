@@ -1,49 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/settings_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/mainTitleTextView"
-        android:layout_width="match_parent"
-        android:layout_height="53dp"
-        android:gravity="center"
-        android:text="@string/settings"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+    <fragment
+        android:id="@+id/fragment_settings"
+        android:name="com.example.juleeyahwright.opensesame.SettingsActivity.SettingsFragment"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="38dp"
-        android:text="@string/font_size" />
-
-    <RadioGroup
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <RadioButton
-            android:id="@+id/radioButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/small" />
-
-        <RadioButton
-            android:id="@+id/radioButton2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/medium" />
-
-        <RadioButton
-            android:id="@+id/radioButton3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/large" />
-    </RadioGroup>
-
-    <Switch
-        android:id="@+id/switch1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/invert" />
-
-</LinearLayout>
+</PreferenceScreen>
