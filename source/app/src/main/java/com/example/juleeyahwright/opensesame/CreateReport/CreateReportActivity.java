@@ -61,6 +61,7 @@ public class CreateReportActivity extends AppCompatActivity implements CreateRep
 
     private void createReportClicked() {
         String title = getEnteredTitle();
+        String info = getEnteredInfo();
 
         if (title == null || title.length() == 0) {
             Toast.makeText(getApplicationContext(),
@@ -68,8 +69,14 @@ public class CreateReportActivity extends AppCompatActivity implements CreateRep
                     Toast.LENGTH_LONG).show();
             return;
         }
+        if (info == null || info.length() == 0) {
+            Toast.makeText(getApplicationContext(),
+                    "Information must be non-empty.",
+                    Toast.LENGTH_LONG).show();
+            return;
+        }
 
-        controller.writeReport(new Report(title, "", new LatLng(0,0)));
+        controller.writeReport(title, info, getLatLng());
     }
 
     private String getEnteredTitle() {

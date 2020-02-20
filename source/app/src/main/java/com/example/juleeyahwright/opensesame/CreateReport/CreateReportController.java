@@ -2,6 +2,7 @@ package com.example.juleeyahwright.opensesame.CreateReport;
 
 import androidx.annotation.NonNull;
 
+import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
@@ -20,6 +21,10 @@ public class CreateReportController {
     public CreateReportController(CreateReportListener listener) {
         this.db = FirebaseFirestore.getInstance();
         this.listener = listener;
+    }
+
+    public void writeReport(String title, String info, LatLng location) {
+        this.writeReport(new Report(title, info, location));
     }
 
     public void writeReport(@NonNull final Report report) {
