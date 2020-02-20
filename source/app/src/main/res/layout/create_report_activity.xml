@@ -26,6 +26,36 @@
         android:hint="Briefly title the issue here"
         android:inputType="textPersonName" />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp">
+    </View>
+
+    <TextView
+        android:id="@+id/infoTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Explain the problem in more detail here"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+    <EditText
+        android:id="@+id/infoEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Explanation here"
+        android:lines="6"
+        android:minLines="6"
+        android:gravity="top|left"
+        android:imeOptions="actionDone"
+        android:maxLines="6"
+        android:inputType="textMultiLine" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp">
+    </View>
+
     <Button
         android:id="@+id/createReportButton"
         android:layout_width="match_parent"

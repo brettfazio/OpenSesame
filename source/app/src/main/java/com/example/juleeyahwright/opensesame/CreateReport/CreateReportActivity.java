@@ -78,6 +78,12 @@ public class CreateReportActivity extends AppCompatActivity implements CreateRep
         return text;
     }
 
+    private String getEnteredInfo() {
+        String text = ((EditText) findViewById(R.id.infoEditText)).getText().toString();
+
+        return text;
+    }
+
     @Override
     public void reportCreateSuccess(@NotNull Report report) {
         finish();
