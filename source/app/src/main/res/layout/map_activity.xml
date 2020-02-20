@@ -18,5 +18,5 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:drawableStart="@drawable/add_button_icon"
-        android:text="@string/add_button" />
+        android:text="@string/add_button_ready" />
 </FrameLayout>

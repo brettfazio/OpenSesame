@@ -1,13 +1,13 @@
 package com.example.juleeyahwright.opensesame.Map;
 
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.view.MenuItem;
-import android.content.Intent;
-
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,8 +25,8 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class MapActivity extends AppCompatActivity implements OnMapReadyCallback {
 
-    private LatLng newReportLocation;
     private MapController mapController;
+    private boolean selectionStateReady;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,30 +43,64 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
             }
         });
 
-        //TODO(): Uncomment when API is enabled
-        /*mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
-            @Override
-            public void onMapClick(LatLng latLng) {
-                clicked(latLng);
-            }
-        });*/
-
+        selectionStateReady = true;
     }
 
     private void addReportClicked() {
+        if (!selectionStateReady) {
+            System.out.println("changing to add");
+            selectionStateReady = true;
+            changeAddState();
+            return;
+        }
+        // selectionStateReady is false
+        System.out.println("changing to cancel");
+        selectionStateReady = false;
+        changeAddState();
+
+        Toast.makeText(getApplicationContext(),
+                "Select a location on the map to create a report there!",
+                Toast.LENGTH_SHORT).show();
+    }
+
+    private void resetButtonState() {
+        selectionStateReady = true;
+        changeAddState();
+    }
+
+    private void intentToReport(LatLng location) {
         Intent intent = new Intent(MapActivity.this, CreateReportActivity.class);
-        intent.putExtra("LOCATION", newReportLocation);
+        intent.putExtra("LOCATION", location);
         startActivity(intent);
+        resetButtonState();
     }
 
     private void clicked(LatLng location) {
+        if (!selectionStateReady) {
+            intentToReport(location);
+        }
+    }
 
+    private void changeAddState() {
+        Button addButton = (Button) findViewById(R.id.add_button);
+        if (selectionStateReady) {
+            addButton.setText(getResources().getString(R.string.add_button_ready));
+        }else {
+            addButton.setText(getResources().getString(R.string.add_button_processing));
+        }
     }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mapController = new MapController(googleMap, this);
         mapController.checkAndRequestPermissions(MapActivity.this, MapActivity.this);
+
+        mapController.getMap().setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+            @Override
+            public void onMapClick(LatLng latLng) {
+                clicked(latLng);
+            }
+        });
     }
 
     @Override
