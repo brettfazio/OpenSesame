@@ -54,3 +54,18 @@ OpenSesame is a property management application that enables students to self-re
   - [Tests Overview](https://github.com/brettfazio/OpenSesame/blob/master/artifacts/tests.md)
 - [Demonstration](https://youtu.be/lcnQW3OlJYU)
 
+## Sprint 4
+
+- [Requirements](https://github.com/brettfazio/OpenSesame/blob/master/artifacts/requirements.md)
+- [Trello Board](https://trello.com/b/Uk0WAfML/poosd-project-planning)
+- [Burndown Chart (Sprint 3 Link)](https://docs.google.com/spreadsheets/d/1Y43pEhpzISF8GFcUxGFpyDcoG_V6MrjTX5RkJyNy-zg/edit?usp=sharing)
+- [Velocity Chart](https://docs.google.com/spreadsheets/d/1gnRoC_7pPnwzBa5BHy0pjnqTHj9mGjGospp1FK0AmFc/edit?usp=sharing)
+- Design Documents
+  - [System Architecture](https://github.com/brettfazio/OpenSesame/blob/master/artifacts/architecture.md)
+- [Source Code](https://github.com/brettfazio/OpenSesame/tree/master/source/app/src/main/java/com/example/juleeyahwright/opensesame)
+- Tests
+  - [UI Tests](https://github.com/brettfazio/OpenSesame/tree/master/source/app/src/androidTest/java/com/example/juleeyahwright/opensesame)
+  - [Unit Tests](https://github.com/brettfazio/OpenSesame/tree/master/source/app/src/test/java/com/example/juleeyahwright/opensesame)
+  - [Tests Overview](https://github.com/brettfazio/OpenSesame/blob/master/artifacts/tests.md)
+- [Demonstration (Sprint 3 Link)](https://youtu.be/lcnQW3OlJYU)
+
