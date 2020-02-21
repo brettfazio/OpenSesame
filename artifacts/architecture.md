@@ -1,5 +1,7 @@
 # Program Organization
 
+### Context Diagram:
+
 <img src = "/images/SystemArchitecture.png" width="1000" >
 
 # Major Classes
