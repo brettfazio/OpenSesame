@@ -4,6 +4,8 @@
 
 <img src = "/images/SystemArchitecture.png" width="1000" >
 
+The above context diagram shows the interaction between the user, the OpenSesame android app, and our two backend services: Firebase (for login and data storage) and Google Maps (for displaying the map).
+
 # Major Classes
 
 <img src = "/images/ClassDiagram.png" width="1000" >
