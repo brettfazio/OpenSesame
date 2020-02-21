@@ -2,9 +2,15 @@
 
 ### Context Diagram:
 
+<img src = "/images/ContextDiagram.png" width="200" >
+
+Above context diagram shows the basic interaction that is the user interacting with the OpenSesame app.
+
+### Container Diagram:
+
 <img src = "/images/SystemArchitecture.png" width="1000" >
 
-The above context diagram shows the interaction between the user, the OpenSesame android app, and our two backend services: Firebase (for login and data storage) and Google Maps (for displaying the map).
+The above container diagram shows the interaction between the user, the OpenSesame android app, and our two backend services: Firebase (for login and data storage) and Google Maps (for displaying the map).
 
 # Major Classes
 
