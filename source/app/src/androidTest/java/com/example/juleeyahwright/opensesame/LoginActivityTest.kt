@@ -34,8 +34,10 @@ class LoginActivityTest {
     @JvmField
     var mActivityTestRule = ActivityTestRule(LoginActivity::class.java)
 
+    // keeps a pop-up window asking for permissionsfrom being generated that would interfere with tests
     @get:Rule var permissionRule = GrantPermissionRule.grant(Manifest.permission.ACCESS_FINE_LOCATION)
 
+    // sets up clean environment for tests
     @Before
     fun clearData() {
         val mActivity = mActivityTestRule.activity
@@ -45,6 +47,10 @@ class LoginActivityTest {
         prefs.edit().clear().commit()
     }
 
+    /*
+    Testing: Soft keyboard inputs string into email field
+    Pass Criteria: Text displayed is the same as the text input
+    */
     @Test
     fun setEmail_loginActivityTest() {
         val appCompatEditText = onView(
@@ -59,12 +65,20 @@ class LoginActivityTest {
         onView(withId(R.id.emailField)).check(ViewAssertions.matches(withText("cool@cool.com")))
     }
 
+    /*
+    Testing: Soft keyboard inputs string into password field
+    Pass Criteria: Text displayed is the same as the text input
+    */
     @Test
     fun setPassword_loginActivityTest() {
         onView(withId(R.id.passwordField)).perform(replaceText("123456"), closeSoftKeyboard())
         onView(withId(R.id.passwordField)).check(ViewAssertions.matches(withText("123456")))
     }
 
+    /*
+    Testing: When correct email/password combo is entered and login is pressed, user is taken to MapActivity
+    Pass Criteria: After button is clicked, MapActivity is the newly displayed screen
+    */
     @Test
     fun performLogin_loginActivityTest() {
         onView(withId(R.id.emailField)).perform(replaceText("cool@cool.com"), closeSoftKeyboard())
@@ -79,6 +93,10 @@ class LoginActivityTest {
         Intents.release()
     }
 
+    /*
+    Testing: When correct email/password combo is entered and login is pressed many times, user is taken to MapActivity
+    Pass Criteria: After button is clicked several times, MapActivity is the newly displayed screen
+    */
     @Test
     fun performLoginSpam_loginActivityTest() {
         onView(withId(R.id.emailField)).perform(replaceText("cool@cool.com"), closeSoftKeyboard())
@@ -94,6 +112,9 @@ class LoginActivityTest {
         Intents.release()
     }
 
+    /*
+    Utility function that verifies that an element is present
+    */
     private fun childAtPosition(
             parentMatcher: Matcher<View>, position: Int): Matcher<View> {
 

@@ -9,6 +9,10 @@ import java.util.Map;
 
 public class ReportTest {
 
+    /*
+    Testing: When fields are input with dummy text, the text is stored in a report
+    Pass Criteria: Report fields match input
+     */
     @Test
     public void firebaseMap_reportTest() {
         Report report = new Report("dummy", "this is a dummy report", new LatLng(0.0,0.0));
@@ -25,6 +29,10 @@ public class ReportTest {
         assert(map.get("location").equals(new LatLng(0.0,0.0)));
     }
 
+    /*
+    Testing: Report is matched with current location
+    Pass Criteria: Report matches location
+    */
     @Test
     public void getCollectionPath_test() {
         Report report = new Report("dummy", "this is a dummy report", new LatLng(0.0,0.0));
@@ -32,6 +40,10 @@ public class ReportTest {
         assert (report.getCollectionPath().equals(Report.DEFAULT_COLLECTION_PATH));
     }
 
+    /*
+    Testing: Report is matched with a custom location
+    Pass Criteria: Report matches custom location
+    */
     @Test
     public void customGetCollectionPath_test() {
         Report report = new Report("dummy", "this is a dummy report", new LatLng(0.0,0.0), "custom");

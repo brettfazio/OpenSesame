@@ -7,7 +7,9 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-
+/*
+CreateReportController: makes sure that report is added to database
+ */
 public class CreateReportController {
 
     private CreateReportListener listener;
@@ -27,6 +29,7 @@ public class CreateReportController {
         this.writeReport(new Report(title, info, location));
     }
 
+    // write the report if successful connection to the database is established
     public void writeReport(@NonNull final Report report) {
 
         db.collection(report.getCollectionPath())

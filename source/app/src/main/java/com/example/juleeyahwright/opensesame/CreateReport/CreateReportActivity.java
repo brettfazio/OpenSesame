@@ -15,10 +15,14 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import org.jetbrains.annotations.NotNull;
 
+/*
+CreateReportActivity: displays the report for the user to fill out
+ */
 public class CreateReportActivity extends AppCompatActivity implements CreateReportListener {
 
     private CreateReportController controller;
 
+    // sets up the layout for the create report
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,13 +45,11 @@ public class CreateReportActivity extends AppCompatActivity implements CreateRep
     @Override
     public void onStart() {
         super.onStart();
-
-
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Close this activity
+        // Close this activity if home is selected
         if (item.getItemId() == android.R.id.home) {
             finish();
         }
@@ -55,10 +57,13 @@ public class CreateReportActivity extends AppCompatActivity implements CreateRep
         return super.onOptionsItemSelected(item);
     }
 
+    // from the map activity, when the create a report button was pressed
+    // the location that the user selected was stored to be picked up here
     private LatLng getLatLng() {
         return (LatLng) getIntent().getExtras().get("LOCATION");
     }
 
+    // when the user tries to submit, verify that all fields are filled out
     private void createReportClicked() {
         String title = getEnteredTitle();
         String info = getEnteredInfo();

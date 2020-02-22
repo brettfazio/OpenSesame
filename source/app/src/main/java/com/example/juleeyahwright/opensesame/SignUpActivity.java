@@ -13,6 +13,9 @@ import com.example.juleeyahwright.opensesame.AccountModel.AccountModel;
 import com.example.juleeyahwright.opensesame.AccountModel.AccountModelListener;
 import com.google.firebase.auth.FirebaseAuth;
 
+/*
+SignUpActivity: After a user has opted to sign up, enters new credentials to be stored
+ */
 public class SignUpActivity extends AppCompatActivity implements AccountModelListener {
 
     private FirebaseAuth mAuth;
@@ -27,7 +30,7 @@ public class SignUpActivity extends AppCompatActivity implements AccountModelLis
         processingSignUp = false;
         accountModel = new AccountModel(FirebaseAuth.getInstance(), this);
 
-        // Link UI
+        // add button to sign up
         Button signUpButton = (Button) findViewById((R.id.signUpButton));
         signUpButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -35,6 +38,7 @@ public class SignUpActivity extends AppCompatActivity implements AccountModelLis
             }
         });
 
+        // add button to go back to the login screen
         Button backButton = (Button) findViewById(R.id.backButton);
         backButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -42,23 +46,27 @@ public class SignUpActivity extends AppCompatActivity implements AccountModelLis
             }
         });
     }
-
+    // gets text from the email field entered with the soft keyboard
     private String getEnteredEmail() {
         return ((EditText) findViewById(R.id.emailField)).getText().toString();
     }
 
+    // gets text from the password field entered with the soft keyboard
     private String getEnteredPassword() {
         return ((EditText) findViewById(R.id.passwordField)).getText().toString();
     }
 
+    // adds the user with new credentials to the database
     private void signUpUser() {
         //TODO(): Add username to stored data.
         final String email = getEnteredEmail();
         final String password = getEnteredPassword();
 
+        // if already processing, just return and let the other process finish
         if (processingSignUp) return;
         processingSignUp = true;
 
+        // verifies that users don't sign up with blank fields
         if (email.length() == 0 || password.length() == 0) {
             Toast.makeText(getApplicationContext(),
                     "Email and password must both be non-empty.",

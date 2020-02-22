@@ -14,6 +14,9 @@ import com.example.juleeyahwright.opensesame.AccountModel.AccountModelListener;
 import com.example.juleeyahwright.opensesame.Map.MapActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
+/*
+LoginActivity: Allows the user to log into the app or sign up
+ */
 public class LoginActivity extends AppCompatActivity implements AccountModelListener {
 
     private boolean processingLogin;
@@ -27,7 +30,7 @@ public class LoginActivity extends AppCompatActivity implements AccountModelList
         processingLogin = false;
         accountModel = new AccountModel(FirebaseAuth.getInstance(), this);
 
-        // Link UI
+        // adds login button that requires email and password are not blank
         Button loginButton = findViewById(R.id.logInButton);
         loginButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -36,6 +39,8 @@ public class LoginActivity extends AppCompatActivity implements AccountModelList
                 logIn(email, password, true);
             }
         });
+
+        // offer additional signup button to take the user to signup that does not require text input
         Button signUpButton = findViewById((R.id.signUpButton));
         signUpButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -48,6 +53,7 @@ public class LoginActivity extends AppCompatActivity implements AccountModelList
     public void onStart() {
         super.onStart();
 
+        // on the login page, see if user is already signed in and immediately try to login
         String email = SharedPreferencesController.getEmail(getApplicationContext());
         String password = SharedPreferencesController.getPassword(getApplicationContext());
 
@@ -58,14 +64,18 @@ public class LoginActivity extends AppCompatActivity implements AccountModelList
         logIn(email, password, false);
     }
 
+    // gets text from the email field entered with the soft keyboard
     private String getEnteredEmail() {
         return ((EditText) findViewById(R.id.emailField)).getText().toString();
     }
 
+    // gets text from the password field entered with the soft keyboard
     private String getEnteredPassword() {
         return ((EditText) findViewById(R.id.passwordField)).getText().toString();
     }
 
+    // takes input from email and password text fields, checks that they are non-empty
+    // and attempts to log the user in
     private void logIn(final String email, final String password, final boolean showPopUp) {
         if (processingLogin) return;
         this.processingLogin = true;
@@ -81,11 +91,14 @@ public class LoginActivity extends AppCompatActivity implements AccountModelList
         accountModel.logIn(email, password);
     }
 
+    // takes the user to the signup page
     private void signUp() {
         Intent signUpIntent = new Intent(this, SignUpActivity.class);
         startActivity(signUpIntent);
     }
 
+    // if login is successful, will change the email/password to the successful input
+    // and take user to the map
     @Override
     public void logInSuccess(String email, String password) {
         boolean differentPassword = SharedPreferencesController.getPassword(getApplicationContext()) == null
@@ -104,6 +117,7 @@ public class LoginActivity extends AppCompatActivity implements AccountModelList
         this.processingLogin = false;
     }
 
+    // if failure, show an error message to user
     @Override
     public void logInFailure(Exception exception, String email, String password) {
         if (showPopUp) {

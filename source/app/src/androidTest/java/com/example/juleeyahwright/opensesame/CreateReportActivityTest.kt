@@ -20,13 +20,20 @@ class CreateReportActivityTest {
     @JvmField
     var mActivityTestRule = ActivityTestRule(CreateReportActivity::class.java)
 
+    /*
+    Testing: Report has a title field
+    Pass Criteria: A report has a title
+    */
     @Test
     fun setTitle_createReportActivityTest() {
         onView(withId(R.id.titleEditText)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
         onView(withId(R.id.titleEditText)).perform(ViewActions.replaceText("Title"), ViewActions.closeSoftKeyboard())
         onView(withId(R.id.titleEditText)).check(ViewAssertions.matches(ViewMatchers.withText("Title")))
     }
-
+    /*
+    Testing:Report has an info field
+    Pass Criteria: A report has info text
+    */
     @Test
     fun setInfo_createReportActivityTest() {
         onView(withId(R.id.infoEditText)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
