@@ -12,6 +12,12 @@ Above context diagram shows the basic interaction that is the user interacting w
 
 The above container diagram shows the interaction between the user, the OpenSesame android app, and our two backend services: Firebase (for login and data storage) and Google Maps (for displaying the map).
 
+### Component Diagram:
+
+<img src = "/images/ComponentDiagram.png" width="1000" >
+
+The component diagram shows the interactions between the user and the various controllers of the application.  These controllers manipulate the application, and process inputs & outputs.
+
 # Major Classes
 
 <img src = "/images/ClassDiagram.png" width="1000" >
