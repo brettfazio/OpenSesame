@@ -5,6 +5,10 @@ import android.content.SharedPreferences;
 
 import android.content.Context;
 
+/*
+SharedPreferencesController: stores and handles login credentials of users across different
+states of the app
+ */
 public class SharedPreferencesController extends Activity {
     private static final String CONTEXT_NAME = "Login";
 

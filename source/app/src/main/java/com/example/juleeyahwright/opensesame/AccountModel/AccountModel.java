@@ -10,7 +10,10 @@ import com.google.firebase.auth.FirebaseUser;
 
 import java.util.Observable;
 import java.util.concurrent.Executor;
-
+/*
+AccountModel: logs in and signs up the user and interacts with the user database to authenticate
+with Firebase
+ */
 public class AccountModel extends Observable implements Executor {
 
     private FirebaseAuth mAuth;
@@ -26,6 +29,7 @@ public class AccountModel extends Observable implements Executor {
         this.observer = observer;
     }
 
+    // logs in only if successful authentication with Firebase
     public void logIn(final String email, final String password) {
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -43,6 +47,7 @@ public class AccountModel extends Observable implements Executor {
                 });
     }
 
+    // signs the user up and enters their data into the database 
     public void signUpUser(final String email, final String password) {
         //TODO(): Add username to stored data.
 

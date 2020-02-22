@@ -39,6 +39,7 @@ public class AccountModelTest implements AccountModelListener {
     private int logInResult;
     private int signUpResult;
 
+    // Firebase unit test setup
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);
@@ -204,6 +205,10 @@ public class AccountModelTest implements AccountModelListener {
         signUpResult = UNDEF;
     }
 
+    /*
+    Testing: When correct email/password combo is entered to login, a user is logged in
+    Pass Criteria: login task returns success
+     */
     @Test
     public void logInSuccess_test() {
         String email = "cool@cool.com";
@@ -216,6 +221,10 @@ public class AccountModelTest implements AccountModelListener {
         assert (logInResult == SUCCESS);
     }
 
+    /*
+    Testing: When incorrect email/password combo is entered to login, a user is not logged in
+    Pass Criteria: login task returns failure
+     */
     @Test
     public void logInFailure_test() {
         String email = "cool@cool.com";
@@ -228,6 +237,10 @@ public class AccountModelTest implements AccountModelListener {
         assert (logInResult == FAILURE);
     }
 
+    /*
+    Testing: When correct email/password combo is entered to sign up, a user is logged in
+    Pass Criteria: signup task returns success
+     */
     @Test
     public void signUpSuccess_test() {
         String email = "cool2@cool.com";
@@ -240,6 +253,10 @@ public class AccountModelTest implements AccountModelListener {
         assert (signUpResult == SUCCESS);
     }
 
+    /*
+    Testing: When incorrect email/password combo is entered to sign up, a user is not signed in
+    Pass Criteria: signup task returns failure
+     */
     @Test
     public void signUpFailure_test() {
         String email = "cool2@cool.com";
