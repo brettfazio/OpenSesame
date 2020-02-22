@@ -50,6 +50,7 @@ public class CreateReportControllerTest implements CreateReportListener {
 
     private int createResult;
 
+    // Firebase unit test setup
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);
@@ -220,6 +221,10 @@ public class CreateReportControllerTest implements CreateReportListener {
         createResult = UNDEF;
     }
 
+    /*
+    Testing: When report fields are entered, a report is made
+    Pass Criteria: createResult task returns success
+     */
     @Test
     public void writeReportSuccess_test() {
         Report report = new Report("test", "test info", new LatLng(0,0), TEST_COLLECTION_PATH);

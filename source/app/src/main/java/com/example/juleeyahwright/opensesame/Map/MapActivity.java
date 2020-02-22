@@ -23,11 +23,16 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.firebase.auth.FirebaseAuth;
 
+/*
+MapActivity: the main interface of the app, a google maps that shows the user's location,
+reports can be added, and settings page can be accessed
+ */
 public class MapActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private MapController mapController;
     private boolean selectionStateReady;
 
+    // add the map and buttons to the main screen
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +51,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         selectionStateReady = true;
     }
 
+    // changes the state to allow the user to add a marker to the map
     private void addReportClicked() {
         if (!selectionStateReady) {
             System.out.println("changing to add");
@@ -68,6 +74,8 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         changeAddState();
     }
 
+    // take the user to the report screen to fill out additional material, storing the location selected
+    // into the report automatically
     private void intentToReport(LatLng location) {
         Intent intent = new Intent(MapActivity.this, CreateReportActivity.class);
         intent.putExtra("LOCATION", location);
@@ -81,6 +89,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         }
     }
 
+    // toggles between "add" and "cancel" buttons
     private void changeAddState() {
         Button addButton = (Button) findViewById(R.id.add_button);
         if (selectionStateReady) {
@@ -90,6 +99,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         }
     }
 
+    // verifies that the map exists before attempting any other api calls
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mapController = new MapController(googleMap, this);
@@ -103,12 +113,14 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         });
     }
 
+    // adds a menu to access account
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.main_menu, menu);
         return true;
     }
 
+    // depending on the button selected, take the user to the appropriate screen
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         switch(item.getItemId()){
@@ -128,6 +140,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         }
     }
 
+    // if permission for location services is granted, the user's location will be displayed on the map
     @Override
     public void onRequestPermissionsResult(int requestCode,
                                            @NonNull String[] permissions,

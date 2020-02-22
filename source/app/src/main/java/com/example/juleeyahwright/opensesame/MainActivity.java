@@ -4,6 +4,9 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+/*
+MainActivity: start of app that initializes view
+ */
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -15,7 +18,5 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
-
-
     }
 }

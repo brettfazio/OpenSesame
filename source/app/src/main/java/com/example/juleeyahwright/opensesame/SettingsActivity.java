@@ -5,8 +5,12 @@ import androidx.preference.PreferenceFragmentCompat;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+/*
+SettingsActivity: the settings page for the user's account
+ */
 public class SettingsActivity extends AppCompatActivity {
 
+    // used for color inversion
     private static final float[] NEGATIVE = {
             -1.0f, 0, 0, 0, 255, // red
             0, -1.0f, 0, 0, 255, // green
@@ -14,6 +18,7 @@ public class SettingsActivity extends AppCompatActivity {
             0, 0, 0, 1.0f, 0  // alpha
     };
 
+    // sets up view to have the settings layout
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +36,7 @@ public class SettingsActivity extends AppCompatActivity {
 
     }
 
+    // inner class that defines the layout for the settings pane
     public class SettingsFragment extends PreferenceFragmentCompat {
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {

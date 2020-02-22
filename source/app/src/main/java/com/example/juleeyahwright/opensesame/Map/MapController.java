@@ -18,7 +18,9 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
-
+/*
+MapController: gets the interaction between the user and the locations on the map
+ */
 public class MapController {
 
     private static final int ZOOM = 16;
@@ -40,6 +42,7 @@ public class MapController {
         return mMap;
     }
 
+    // map sets location permissions to false by default
     public MapController(GoogleMap mMap, Activity a) {
         this.mLocationPermissionGranted = false;
         this.mMap = mMap;
