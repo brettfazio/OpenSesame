@@ -113,6 +113,20 @@ class LoginActivityTest {
     }
 
     /*
+    Testing: When correct email/password combo is entered and login is pressed many times, user is taken to MapActivity
+    Pass Criteria: After button is clicked several times, MapActivity is the newly displayed screen
+    */
+    @Test
+    fun signUp_loginActivityTest() {
+        Intents.init()
+        onView(withId(R.id.signUpButton)).perform(click())
+        Thread.sleep(3000)
+        Intents.intended(IntentMatchers.hasComponent(SignUpActivity::class.java.name), (Intents.times(1)))
+
+        Intents.release()
+    }
+
+    /*
     Utility function that verifies that an element is present
     */
     private fun childAtPosition(
