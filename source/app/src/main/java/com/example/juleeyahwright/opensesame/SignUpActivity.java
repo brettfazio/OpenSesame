@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -39,7 +40,7 @@ public class SignUpActivity extends AppCompatActivity implements AccountModelLis
         });
 
         // add button to go back to the login screen
-        Button backButton = (Button) findViewById(R.id.backButton);
+        TextView backButton = (TextView) findViewById(R.id.backButton);
         backButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 finish();
