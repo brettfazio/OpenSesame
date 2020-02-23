@@ -59,7 +59,7 @@ OpenSesame is a property management application that enables students to self-re
 - [Responsibilities](https://github.com/brettfazio/OpenSesame/blob/master/artifacts/sprint4_responsibilities.md)
 - [Requirements](https://github.com/brettfazio/OpenSesame/blob/master/artifacts/requirements.md)
 - [Trello Board](https://trello.com/b/Uk0WAfML/poosd-project-planning)
-- [Burndown Chart (Sprint 3 Link)](https://docs.google.com/spreadsheets/d/1Y43pEhpzISF8GFcUxGFpyDcoG_V6MrjTX5RkJyNy-zg/edit?usp=sharing)
+- [Burndown Chart](https://docs.google.com/spreadsheets/d/17ak-IOZISNUai-Le8XDECTyCUyfjMJ9rfcVkt88Qzto/edit?usp=sharing)
 - [Velocity Chart](https://docs.google.com/spreadsheets/d/1gnRoC_7pPnwzBa5BHy0pjnqTHj9mGjGospp1FK0AmFc/edit?usp=sharing)
 - Design Documents
   - [System Architecture](https://github.com/brettfazio/OpenSesame/blob/master/artifacts/architecture.md)
