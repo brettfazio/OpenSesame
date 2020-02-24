@@ -36,6 +36,7 @@ public class LaunchActivity extends AppCompatActivity {
         // if email and password are present
         final FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
+        // Try to login with the cached username/password combo.
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -44,16 +45,6 @@ public class LaunchActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             //Log.d(TAG, "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-
-                            // Set login preferences if they are different.
-                            if (SharedPreferencesController.isLoginCredentialsSet(getApplicationContext())
-                                    || !SharedPreferencesController.getPassword(getApplicationContext()).equals(password)
-                                    || !SharedPreferencesController.getEmail(getApplicationContext()).equals(email)) {
-                                SharedPreferencesController.setEmail(getApplicationContext(), email);
-                                SharedPreferencesController.setPassword(getApplicationContext(), password);
-                            }
-
-                            System.out.println("EMAIL " + user.getEmail());
 
                             intentMap();
                         } else {
