@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/fragment_settings"
-        android:name="com.example.juleeyahwright.opensesame.SettingsActivity.SettingsFragment"
+        android:name="com.example.juleeyahwright.opensesame.SettingsActivity$SettingsFragment"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent" />
 

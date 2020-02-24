@@ -36,6 +36,8 @@ ReportListActivity|Allows a user to see a list of all nearby reports|013<br>019
 
 <img src = "/images/ERD.png" width="1000" >
 
+The above data design diagram shows how our entries will be formatted in our Firebase database. The 4 main classes are User, WorkOrder, Marker, and Message. Users are classes for accounts, users get one when the sign up. WorkOrder is any report that is filed. Marker is it shown on the map within the app. And Message is any messages that are tagged to a marker by a user to provide additional information.
+
 # Business Rules
 
 Business Rule ID | Rule
@@ -45,9 +47,13 @@ Business Rule ID | Rule
 
 # User Interface Design
 
-Upon login, the page transitions to the main page where the user finds locations on the map and reports issues. The yellow button is for additional work orders and the pin indicates the user's current location. Drop-down text is easily visible, options organized into sections, and the text changes from white to another color for verification.
+Upon login, the page transitions to the main page where the user finds locations on the map and creating a work order to report issues by first tapping the button in the bottom-right corner. The map marker indicates the user's current location and the drop-down menu enables access to settings and sign out options.
 
-<img src = "/images/login.PNG" width="160" > <img src = "/images/UI.png" width="200" > 
+<img src = "/images/login.PNG" width="120" > <img src = "/images/UI.png" width="150" > 
+
+The images above are initial mockups
+### Flow Diagram:
+<img src = "/images/UIFlowDiagram.png" width="800" >
 
 # Resource Management
 

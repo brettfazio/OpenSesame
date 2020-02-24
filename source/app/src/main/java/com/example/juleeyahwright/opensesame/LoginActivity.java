@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -41,7 +42,7 @@ public class LoginActivity extends AppCompatActivity implements AccountModelList
         });
 
         // offer additional signup button to take the user to signup that does not require text input
-        Button signUpButton = findViewById((R.id.signUpButton));
+        TextView signUpButton = findViewById((R.id.signUpButton));
         signUpButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 signUp();
@@ -101,16 +102,9 @@ public class LoginActivity extends AppCompatActivity implements AccountModelList
     // and take user to the map
     @Override
     public void logInSuccess(String email, String password) {
-        boolean differentPassword = SharedPreferencesController.getPassword(getApplicationContext()) == null
-                || !SharedPreferencesController.getPassword(getApplicationContext()).equals(password);
-        boolean differentEmail = SharedPreferencesController.getEmail(getApplicationContext()) == null
-                || !SharedPreferencesController.getEmail(getApplicationContext()).equals(email);
-
-        if (SharedPreferencesController.isLoginCredentialsSet(getApplicationContext())
-                || differentEmail || differentPassword) {
-            SharedPreferencesController.setEmail(getApplicationContext(), email);
-            SharedPreferencesController.setPassword(getApplicationContext(), password);
-        }
+        // On a new sign in, reset the cached email/password combo.
+        SharedPreferencesController.setEmail(getApplicationContext(), email);
+        SharedPreferencesController.setPassword(getApplicationContext(), password);
 
         Intent intent = new Intent(LoginActivity.this, MapActivity.class);
         startActivity(intent);

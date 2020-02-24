@@ -1,9 +1,10 @@
 package com.example.juleeyahwright.opensesame;
 
 import android.os.Bundle;
-import androidx.preference.PreferenceFragmentCompat;
+import android.view.MenuItem;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.PreferenceFragmentCompat;
 
 /*
 SettingsActivity: the settings page for the user's account
@@ -48,5 +49,15 @@ public class SettingsActivity extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Close this activity if home is selected
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

@@ -44,7 +44,7 @@
         android:layout_marginEnd="99dp"
         android:layout_marginBottom="80dp"
         android:ems="10"
-        android:hint="Password"
+        android:hint="@string/password_hint"
         android:imeOptions="actionDone"
         android:inputType="textPassword"
         app:layout_constraintBottom_toTopOf="@+id/signUpButton"
@@ -98,7 +98,7 @@
         android:layout_marginRight="99dp"
         android:layout_marginBottom="40dp"
         android:ems="10"
-        android:hint="Email"
+        android:hint="@string/email_hint"
         android:imeOptions="actionDone"
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toTopOf="@+id/PasswordLabel"
@@ -113,23 +113,21 @@
         android:layout_marginEnd="99dp"
         android:layout_marginBottom="40dp"
         android:ems="10"
-        android:hint="Username"
+        android:hint="@string/username_hint"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/emailLabel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
+    <TextView
         android:id="@+id/backButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="162dp"
-        android:layout_marginEnd="162dp"
+
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginBottom="35dp"
-        android:text="Back"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:text="@string/back_to_login_button"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

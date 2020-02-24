@@ -5,12 +5,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.juleeyahwright.opensesame.AccountModel.AccountModel;
 import com.example.juleeyahwright.opensesame.AccountModel.AccountModelListener;
+import com.example.juleeyahwright.opensesame.Map.MapActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 /*
@@ -39,7 +41,7 @@ public class SignUpActivity extends AppCompatActivity implements AccountModelLis
         });
 
         // add button to go back to the login screen
-        Button backButton = (Button) findViewById(R.id.backButton);
+        TextView backButton = (TextView) findViewById(R.id.backButton);
         backButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 finish();
@@ -89,7 +91,7 @@ public class SignUpActivity extends AppCompatActivity implements AccountModelLis
         SharedPreferencesController.setEmail(getApplicationContext(), email);
         SharedPreferencesController.setPassword(getApplicationContext(), password);
 
-        Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
+        Intent intent = new Intent(SignUpActivity.this, MapActivity.class);
         startActivity(intent);
         processingSignUp = false;
     }

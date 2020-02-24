@@ -34,7 +34,7 @@ class LoginActivityTest {
     @JvmField
     var mActivityTestRule = ActivityTestRule(LoginActivity::class.java)
 
-    // keeps a pop-up window asking for permissionsfrom being generated that would interfere with tests
+    // keeps a pop-up window asking for permissions from being generated that would interfere with tests
     @get:Rule var permissionRule = GrantPermissionRule.grant(Manifest.permission.ACCESS_FINE_LOCATION)
 
     // sets up clean environment for tests
@@ -108,6 +108,20 @@ class LoginActivityTest {
         onView(withId(R.id.logInButton)).perform(click())
         Thread.sleep(3000)
         Intents.intended(IntentMatchers.hasComponent(MapActivity::class.java.name), (Intents.times(1)))
+
+        Intents.release()
+    }
+
+    /*
+    Testing: That pressing sign up takes you to the sign up page
+    Pass Criteria: After pressing the sign up button an Intent to SignUpActivity is triggered.
+    */
+    @Test
+    fun signUp_loginActivityTest() {
+        Intents.init()
+        onView(withId(R.id.signUpButton)).perform(click())
+        Thread.sleep(3000)
+        Intents.intended(IntentMatchers.hasComponent(SignUpActivity::class.java.name), (Intents.times(1)))
 
         Intents.release()
     }

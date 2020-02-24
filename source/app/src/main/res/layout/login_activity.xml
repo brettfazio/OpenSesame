@@ -11,12 +11,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="132dp"
-        android:layout_marginLeft="132dp"
         android:layout_marginTop="133dp"
         android:layout_marginEnd="133dp"
-        android:layout_marginRight="133dp"
         android:layout_marginBottom="101dp"
-        android:text="Log into OpenSesame! "
+        android:text="@string/app_name"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toTopOf="@+id/emailField"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,9 +29,9 @@
         android:layout_marginEnd="99dp"
         android:layout_marginBottom="45dp"
         android:ems="10"
-        android:hint="Email"
+        android:hint="@string/email_hint"
         android:imeOptions="actionDone"
-        android:inputType="textPersonName"
+        android:inputType="textEmailAddress"
         app:layout_constraintBottom_toTopOf="@+id/passwordField"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -48,7 +47,7 @@
         android:layout_marginBottom="57dp"
         android:ems="10"
         android:imeOptions="actionDone"
-        android:hint="Password"
+        android:hint="@string/password_hint"
         android:inputType="textPassword"
         app:layout_constraintBottom_toTopOf="@+id/logInButton"
         app:layout_constraintEnd_toEndOf="parent"
@@ -63,22 +62,21 @@
         android:layout_marginEnd="60dp"
         android:layout_marginRight="60dp"
         android:layout_marginBottom="70dp"
-        android:text="Log In!"
+        android:text="@string/login"
         app:layout_constraintBottom_toTopOf="@+id/signUpButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
+    <TextView
         android:id="@+id/signUpButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="105dp"
-        android:layout_marginLeft="105dp"
         android:layout_marginEnd="106dp"
-        android:layout_marginRight="106dp"
         android:layout_marginBottom="120dp"
-        android:text="Sign up for an account"
+        android:text="@string/sign_up_here_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
