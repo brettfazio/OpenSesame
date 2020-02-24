@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.juleeyahwright.opensesame.AccountModel.AccountModel;
 import com.example.juleeyahwright.opensesame.AccountModel.AccountModelListener;
+import com.example.juleeyahwright.opensesame.Map.MapActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 /*
@@ -90,7 +91,7 @@ public class SignUpActivity extends AppCompatActivity implements AccountModelLis
         SharedPreferencesController.setEmail(getApplicationContext(), email);
         SharedPreferencesController.setPassword(getApplicationContext(), password);
 
-        Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
+        Intent intent = new Intent(SignUpActivity.this, MapActivity.class);
         startActivity(intent);
         processingSignUp = false;
     }
