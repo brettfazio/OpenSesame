@@ -18,3 +18,4 @@
 |013|021| A user is able to access settings for the application|A settings menu is accessible from within the application|3|Necessary|Working|
 |014|022| A user is able to sign out of their account|A signout button is available and when pressed the user session will end|3|Necessary|Done|
 |015|023| A user can see their location on a map|When using the app a pin will appear on the map showing the user's current location|3|Necessary|Working|
+|016|024| A user can associate their new report with a location|When creating a report, you can select a location on the map to place the report|3|Necessary|Working|
