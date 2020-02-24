@@ -14,7 +14,6 @@
             android:key="@string/key_text_size"
             android:summary="@string/summary_text_size"
             android:title="@string/title_text_size" />
-
     </PreferenceCategory>
 
 </PreferenceScreen>
