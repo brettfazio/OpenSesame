@@ -47,5 +47,4 @@ public class SharedPreferencesController extends Activity {
         sp.edit().clear().commit();
     }
 
-
 }

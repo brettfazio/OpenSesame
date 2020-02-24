@@ -34,7 +34,7 @@ class LoginActivityTest {
     @JvmField
     var mActivityTestRule = ActivityTestRule(LoginActivity::class.java)
 
-    // keeps a pop-up window asking for permissionsfrom being generated that would interfere with tests
+    // keeps a pop-up window asking for permissions from being generated that would interfere with tests
     @get:Rule var permissionRule = GrantPermissionRule.grant(Manifest.permission.ACCESS_FINE_LOCATION)
 
     // sets up clean environment for tests
