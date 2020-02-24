@@ -10,14 +10,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-<<<<<<< HEAD
         android:theme="@style/AppTheme">
         <activity android:name=".SettingsActivity"/>
-=======
-        android:theme="@style/Theme.AppCompat">
-        <activity android:name=".MainActivity"/>
-        <activity android:name=".SettingsActivity" />
->>>>>>> Added finished basic design for settings page
         <activity android:name=".CreateReport.CreateReportActivity" />
         <activity android:name=".LoginActivity"/>
         <activity android:name=".LaunchActivity">

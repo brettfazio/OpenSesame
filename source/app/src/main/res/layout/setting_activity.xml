@@ -7,13 +7,6 @@
     android:layout_marginLeft="20dp"
     android:layout_marginRight="20dp">
 
-<<<<<<< HEAD
-    <fragment
-        android:id="@+id/fragment_settings"
-        android:name="com.example.juleeyahwright.opensesame.SettingsActivity$SettingsFragment"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent" />
-=======
     <TextView
         android:id="@+id/settings_title"
         android:layout_width="match_parent"
@@ -22,7 +15,6 @@
         android:textSize="30sp"
         android:textColor="@color/colorPrimary"
         />
->>>>>>> Added finished basic design for settings page
 
     <TextView
         android:id="@+id/text_and_colors"
@@ -155,7 +147,7 @@
         android:inputType="textEmailAddress"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:hint="@string/email_hint"
+        android:hint="@string/email_field_hint"
         android:importantForAutofill="no" />
 
     <TextView
@@ -175,7 +167,7 @@
         android:inputType="textPassword"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:hint="@string/password_hint"
+        android:hint="@string/password_field_hint"
         android:importantForAutofill="no" />
 
 </LinearLayout>

@@ -1,11 +1,8 @@
 package com.example.juleeyahwright.opensesame;
 
 import android.os.Bundle;
-<<<<<<< HEAD
-=======
 
 import android.view.Menu;
->>>>>>> Added finished basic design for settings page
 import android.view.MenuItem;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -49,16 +46,6 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     @Override
-<<<<<<< HEAD
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Close this activity if home is selected
-        if (item.getItemId() == android.R.id.home) {
-            finish();
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-=======
      public boolean onOptionsItemSelected(MenuItem item) {
          // Close this activity if home is selected
          if (item.getItemId() == android.R.id.home) {
@@ -72,5 +59,4 @@ public class SettingsActivity extends AppCompatActivity {
          return super.onOptionsItemSelected(item);
      }
 
->>>>>>> Added finished basic design for settings page
 }

@@ -147,7 +147,7 @@
         android:inputType="textEmailAddress"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:hint="@string/email_hint"
+        android:hint="@string/email_field_hint"
         android:importantForAutofill="no" />
 
     <TextView
@@ -167,7 +167,7 @@
         android:inputType="textPassword"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:hint="@string/password_hint"
+        android:hint="@string/password_field_hint"
         android:importantForAutofill="no" />
 
 </LinearLayout>
