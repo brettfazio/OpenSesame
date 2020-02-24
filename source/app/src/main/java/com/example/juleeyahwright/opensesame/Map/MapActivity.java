@@ -125,14 +125,14 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     public boolean onOptionsItemSelected(MenuItem item){
         switch(item.getItemId()){
             case R.id.settings_option:
-                Intent intent = new Intent(getApplicationContext(), SettingsActivity.class);
-                startActivity(intent);
+                Intent i = new Intent(MapActivity.this, SettingsActivity.class);
+                startActivity(i);
                 return true;
             case R.id.sign_out_option:
                 FirebaseAuth.getInstance().signOut();
                 finish();
                 SharedPreferencesController.clearSignInData(getApplicationContext());
-                intent = new Intent(MapActivity.this, LoginActivity.class);
+                Intent intent = new Intent(MapActivity.this, LoginActivity.class);
                 startActivity(intent);
                 return true;
             default:
