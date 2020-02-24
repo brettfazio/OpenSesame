@@ -1,6 +1,6 @@
 **Jordan:**
 
-**Brett:** Added requirements for user stories.
+**Brett:** Added requirements for user stories. Set up burndown chart.
 
 **Danny:**
 
