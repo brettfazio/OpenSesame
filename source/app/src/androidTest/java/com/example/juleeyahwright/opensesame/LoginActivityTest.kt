@@ -113,8 +113,8 @@ class LoginActivityTest {
     }
 
     /*
-    Testing: When correct email/password combo is entered and login is pressed many times, user is taken to MapActivity
-    Pass Criteria: After button is clicked several times, MapActivity is the newly displayed screen
+    Testing: That pressing sign up takes you to the sign up page
+    Pass Criteria: After pressing the sign up button an Intent to SignUpActivity is triggered.
     */
     @Test
     fun signUp_loginActivityTest() {
