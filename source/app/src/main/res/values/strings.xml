@@ -15,5 +15,7 @@
     <string name="title_text_size">Text Size</string>
     <string name="email_hint">Email</string>
     <string name="password_hint">Password</string>
+    <string name="username_hint">Username</string>
     <string name="sign_up_here_button">No Account? Sign up here!</string>
+    <string name="back_to_login_button">Already have an account? Login here.</string>
 </resources>

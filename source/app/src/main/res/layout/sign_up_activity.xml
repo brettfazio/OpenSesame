@@ -44,7 +44,7 @@
         android:layout_marginEnd="99dp"
         android:layout_marginBottom="80dp"
         android:ems="10"
-        android:hint="Password"
+        android:hint="@string/password_hint"
         android:imeOptions="actionDone"
         android:inputType="textPassword"
         app:layout_constraintBottom_toTopOf="@+id/signUpButton"
@@ -98,7 +98,7 @@
         android:layout_marginRight="99dp"
         android:layout_marginBottom="40dp"
         android:ems="10"
-        android:hint="Email"
+        android:hint="@string/email_hint"
         android:imeOptions="actionDone"
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toTopOf="@+id/PasswordLabel"
@@ -113,7 +113,7 @@
         android:layout_marginEnd="99dp"
         android:layout_marginBottom="40dp"
         android:ems="10"
-        android:hint="Username"
+        android:hint="@string/username_hint"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/emailLabel"
         app:layout_constraintEnd_toEndOf="parent"
@@ -127,7 +127,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginBottom="35dp"
-        android:text="Already have an account? Login here."
+        android:text="@string/back_to_login_button"
         app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
