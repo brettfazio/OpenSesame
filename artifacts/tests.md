@@ -15,6 +15,7 @@
 | LoginActivity | setPassword | Soft keyboard inputs string into password field | Text displayed is the same as the text input |
 | LoginActivity | performLogin | When correct email/password combo is entered and login is pressed, user is taken to MapActivity | After button is clicked, MapActivity is the newly displayed screen |
 | LoginActivity | performLoginSpam | When correct email/password combo is entered and login is pressed many times, user is taken to MapActivity | After button is clicked several times, MapActivity is the newly displayed screen |
+| LoginActivity | signUp | That pressing sign up takes you to the sign up page | After pressing the sign up button an Intent to SignUpActivity is triggered. |
 | MapActivity | addButton | When add button is clicked, user is taken to CreateReportActivity | After button is clicked, CreateReportActivity is the newly displayed screen | 
 | MapActivity | assertAddButtonStartState | An add button appears | The add button is displayed with the text ADD and the + symbol |
 | MapActivity | assertProcessingState | When the add button is pressed, the add button changes state and the map can now be clicked to place a marker | The add button is transformed into a Cancel button |
