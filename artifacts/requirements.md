@@ -20,3 +20,4 @@
 |015|023| A user can see their location on a map|When using the app a pin will appear on the map showing the user's current location|3|Necessary|Working|
 |016|024| A user can associate their new report with a location|When creating a report, you can select a location on the map to place the report|3|Necessary|Satisfied|
 |017|031| A user can tap on a user story to bring up additional information about a report|When a report is tapped, a screen with additional information comes up|3|Necessary|Working|
+|018|017| A user see their location on the map|When viewing the map, the user's current location will be highlighted|3|Necessary|Working|
