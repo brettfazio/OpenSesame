@@ -52,7 +52,8 @@ Upon login, the page transitions to the main page where the user finds locations
 
 <img src = "/images/login.PNG" width="120" > <img src = "/images/UI.png" width="150" > 
 
-The images above are initial mockups
+The images above are initial mockups of the UI.
+
 ### Flow Diagram:
 <img src = "/images/UIFlowDiagram.png" width="800" >
 
