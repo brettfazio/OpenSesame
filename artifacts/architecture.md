@@ -43,7 +43,9 @@ UI Flow Diagram | User Story
 Login Screen | 001
 User Exists Conditional | 004
 Sign Up Screen | 000
-
+Map Screen | 003, 005, 022, 023
+Settings Screen | 021
+Create Report Screen | 024
 
 
 # Business Rules
