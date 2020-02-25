@@ -18,6 +18,12 @@ The above container diagram shows the interaction between the user, the OpenSesa
 
 The component diagram shows the interactions between the user and the various controllers of the application.  These controllers manipulate the application, and process inputs & outputs.
 
+Component | User Story
+-------|--------
+MapController | 003, 024
+LoginController | 000
+ReportController | 005
+
 # Major Classes
 
 <img src = "/images/ClassDiagram.png" width="1000" >
