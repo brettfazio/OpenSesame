@@ -4,4 +4,4 @@
 
 **Danny:**
 
-**Juleeyah:**
+**Juleeyah:** Created UI diagram and changed UI description. Worked on (but didn't commit) work order marker functionality.
