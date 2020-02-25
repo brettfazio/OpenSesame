@@ -38,6 +38,14 @@ ReportListActivity|Allows a user to see a list of all nearby reports|013<br>019
 
 The above data design diagram shows how our entries will be formatted in our Firebase database. The 4 main classes are User, WorkOrder, Marker, and Message. Users are classes for accounts, users get one when the sign up. WorkOrder is any report that is filed. Marker is it shown on the map within the app. And Message is any messages that are tagged to a marker by a user to provide additional information.
 
+UI Flow Diagram | User Story
+----------------- | -----
+Login Screen | 001
+User Exists Conditional | 004
+Sign Up Screen | 000
+
+
+
 # Business Rules
 
 Business Rule ID | Rule
