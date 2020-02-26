@@ -21,13 +21,14 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.firebase.auth.FirebaseAuth;
 
 /*
 MapActivity: the main interface of the app, a google maps that shows the user's location,
 reports can be added, and settings page can be accessed
  */
-public class MapActivity extends AppCompatActivity implements OnMapReadyCallback {
+public class MapActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
 
     private MapController mapController;
     private boolean selectionStateReady;
@@ -152,5 +153,11 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
             mapController.setLocationPermission(true);
         }
         mapController.updateMapLocation(MapActivity.this);
+    }
+
+    // A marker was tapped on the map
+    @Override
+    public boolean onMarkerClick(Marker marker) {
+        return false;
     }
 }
