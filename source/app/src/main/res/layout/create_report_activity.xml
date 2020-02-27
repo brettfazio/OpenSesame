@@ -56,6 +56,26 @@
         android:layout_height="20dp">
     </View>
 
+    <TextView
+        android:id="@+id/locationTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/create_a_report_location_header"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+    <EditText
+        android:id="@+id/locationEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/create_a_report_location_hint"
+        android:inputType="text" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp">
+    </View>
+
     <Button
         android:id="@+id/createReportButton"
         android:layout_width="match_parent"

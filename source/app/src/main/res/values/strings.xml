@@ -43,4 +43,8 @@
     <string name="create_a_report_title_hint">Briefly title the issue here</string>
     <string name="create_a_report_info_hint">Explanation here</string>
     <string name="create_a_report_create_button">Create</string>
+    <string name="create_a_report_category_hint">Category here</string>
+    <string name="create_a_report_category_header">Optionally, choose a category:</string>
+    <string name="create_a_report_location_hint">Specify exact location here</string>
+    <string name="create_a_report_location_header">Provide detail of the exact location</string>
 </resources>
