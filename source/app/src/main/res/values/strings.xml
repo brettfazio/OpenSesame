@@ -47,4 +47,5 @@
     <string name="create_a_report_category_header">Optionally, choose a category:</string>
     <string name="create_a_report_location_hint">Specify exact location here</string>
     <string name="create_a_report_location_header">Provide detail of the exact location</string>
+    <string name="report_detail_title_dummy">Title Here</string>
 </resources>
