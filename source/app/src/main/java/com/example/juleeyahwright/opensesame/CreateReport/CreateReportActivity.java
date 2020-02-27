@@ -65,34 +65,54 @@ public class CreateReportActivity extends AppCompatActivity implements CreateRep
 
     // when the user tries to submit, verify that all fields are filled out
     private void createReportClicked() {
+        if (!allFieldsFilledOut()) return;
+
         String title = getEnteredTitle();
         String info = getEnteredInfo();
+        String location = getEnteredLocation();
+
+        controller.writeReport(title, info, location, getLatLng());
+    }
+
+    private boolean allFieldsFilledOut() {
+        String title = getEnteredTitle();
+        String info = getEnteredInfo();
+        String location = getEnteredLocation();
 
         if (title == null || title.length() == 0) {
             Toast.makeText(getApplicationContext(),
                     "Title must be non-empty.",
                     Toast.LENGTH_LONG).show();
-            return;
+            return false;
         }
         if (info == null || info.length() == 0) {
             Toast.makeText(getApplicationContext(),
                     "Information must be non-empty.",
                     Toast.LENGTH_LONG).show();
-            return;
+            return false;
+        }
+        if (location == null || location.length() == 0) {
+            Toast.makeText(getApplicationContext(),
+                    "Location must be non-empty.",
+                    Toast.LENGTH_LONG).show();
+            return false;
         }
 
-        controller.writeReport(title, info, getLatLng());
+        return true;
     }
 
     private String getEnteredTitle() {
         String text = ((EditText) findViewById(R.id.titleEditText)).getText().toString();
-
         return text;
     }
 
     private String getEnteredInfo() {
         String text = ((EditText) findViewById(R.id.infoEditText)).getText().toString();
+        return text;
+    }
 
+    private String getEnteredLocation() {
+        String text = ((EditText) findViewById(R.id.locationEditText)).getText().toString();
         return text;
     }
 
