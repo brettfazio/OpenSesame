@@ -8,14 +8,14 @@
         android:layout_width="match_parent"
         android:layout_height="53dp"
         android:gravity="center"
-        android:text="Create a report"
+        android:text="@string/create_a_report_header"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
     <TextView
         android:id="@+id/titleTextView"
         android:layout_width="match_parent"
         android:layout_height="57dp"
-        android:text="What is the issue?"
+        android:text="@string/create_a_report_issue_header"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
     <EditText
@@ -23,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Briefly title the issue here"
+        android:hint="@string/create_a_report_title_hint"
         android:inputType="textPersonName" />
 
     <View
@@ -35,7 +35,7 @@
         android:id="@+id/infoTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Explain the problem in more detail here"
+        android:text="@string/create_a_report_info_header"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
     <EditText
@@ -43,13 +43,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Explanation here"
-        android:lines="6"
-        android:minLines="6"
         android:gravity="top|left"
+        android:hint="@string/create_a_report_info_hint"
         android:imeOptions="actionDone"
+        android:inputType="textMultiLine"
+        android:lines="6"
         android:maxLines="6"
-        android:inputType="textMultiLine" />
+        android:minLines="6" />
 
     <View
         android:layout_width="match_parent"
@@ -60,6 +60,6 @@
         android:id="@+id/createReportButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Create" />
+        android:text="@string/create_a_report_create_button" />
 
 </LinearLayout>
