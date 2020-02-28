@@ -40,4 +40,14 @@ class CreateReportActivityTest {
         onView(withId(R.id.infoEditText)).perform(ViewActions.replaceText("Info\nmation"), ViewActions.closeSoftKeyboard())
         onView(withId(R.id.infoEditText)).check(ViewAssertions.matches(ViewMatchers.withText("Info\nmation")))
     }
+    /*
+    Testing:Report has a locationInfo field
+    Pass Criteria: A report has location Info text
+    */
+    @Test
+    fun setLocationInfo_createReportActivityTest() {
+        onView(withId(R.id.locationEditText)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        onView(withId(R.id.locationEditText)).perform(ViewActions.replaceText("basement"), ViewActions.closeSoftKeyboard())
+        onView(withId(R.id.locationEditText)).check(ViewAssertions.matches(ViewMatchers.withText("basement")))
+    }
 }

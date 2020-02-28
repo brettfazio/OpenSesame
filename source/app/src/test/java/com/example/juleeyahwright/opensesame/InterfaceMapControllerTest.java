@@ -1,23 +1,25 @@
 package com.example.juleeyahwright.opensesame;
 
 import android.location.Location;
-import org.junit.BeforeClass;
+
+import com.example.juleeyahwright.opensesame.Map.InterfaceMapController;
 import com.example.juleeyahwright.opensesame.Map.MapActivity;
-import com.example.juleeyahwright.opensesame.Map.MapController;
 import com.google.android.gms.maps.GoogleMap;
+
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.mockito.Mock;
 
 import static org.junit.Assert.assertEquals;
 
-public class MapControllerTest {
+public class InterfaceMapControllerTest {
 
     @Mock
     private static GoogleMap mMap;
     @Mock
     private static MapActivity mapActivity;
 
-    private static MapController mapController;
+    private static InterfaceMapController interfaceMapController;
     private static Location l;
 
     /*
@@ -25,7 +27,7 @@ public class MapControllerTest {
      */
     @BeforeClass
     public static void mapControllerTestSetup() {
-        mapController = new MapController(mMap, mapActivity);
+        interfaceMapController = new InterfaceMapController(mMap, mapActivity);
         l = new Location("Test Location");
     }
 
@@ -35,8 +37,8 @@ public class MapControllerTest {
      */
     @Test
     public void getLocationTest() {
-        mapController.setLocation(l);
-        assertEquals(mapController.getLocation(), l);
+        interfaceMapController.setLocation(l);
+        assertEquals(interfaceMapController.getLocation(), l);
     }
 
     /*
@@ -45,7 +47,7 @@ public class MapControllerTest {
      */
     @Test
     public void getMapTest() {
-        assertEquals(mapController.getMap(), mMap);
+        assertEquals(interfaceMapController.getMap(), mMap);
     }
 
     /*
@@ -54,7 +56,7 @@ public class MapControllerTest {
      */
     @Test
     public void getLocationPermissionTest() {
-        mapController.setLocationPermission(true);
-        assertEquals(mapController.getLocationPermission(), true);
+        interfaceMapController.setLocationPermission(true);
+        assertEquals(interfaceMapController.getLocationPermission(), true);
     }
 }

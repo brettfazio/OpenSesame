@@ -227,7 +227,7 @@ public class CreateReportControllerTest implements CreateReportListener {
      */
     @Test
     public void writeReportSuccess_test() {
-        Report report = new Report("test", "test info", new LatLng(0,0), TEST_COLLECTION_PATH);
+        Report report = new Report("test", "test info", "basement", new LatLng(0,0), TEST_COLLECTION_PATH);
 
         Mockito.when(db.collection(TEST_COLLECTION_PATH)).thenReturn(collectionReference);
         Mockito.when(collectionReference.add(report.getFirebaseMap())).thenReturn(successTask);

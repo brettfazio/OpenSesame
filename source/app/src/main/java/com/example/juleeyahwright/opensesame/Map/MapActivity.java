@@ -34,6 +34,7 @@ reports can be added, and settings page can be accessed
 public class MapActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
 
     private MapController mapController;
+    private InterfaceMapController interfaceMapController;
     private boolean selectionStateReady;
 
     // add the map and buttons to the main screen
@@ -51,6 +52,8 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                 addReportClicked();
             }
         });
+
+        mapController = new MapController(getApplicationContext());
 
         selectionStateReady = true;
     }
@@ -105,11 +108,17 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
     // verifies that the map exists before attempting any other api calls
     @Override
+<<<<<<< HEAD
     public void onMapReady(final GoogleMap googleMap) {
         mapController = new MapController(googleMap, this);
         mapController.checkAndRequestPermissions(MapActivity.this, MapActivity.this);
+=======
+    public void onMapReady(GoogleMap googleMap) {
+        interfaceMapController = new InterfaceMapController(googleMap, this);
+        interfaceMapController.checkAndRequestPermissions(MapActivity.this, MapActivity.this);
+>>>>>>> e6f74cd97f5c2efccd4804349674178bcdd002d5
 
-        mapController.getMap().setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+        interfaceMapController.getMap().setOnMapClickListener(new GoogleMap.OnMapClickListener() {
             @Override
             public void onMapClick(LatLng latLng) {
                 clicked(latLng);
@@ -152,18 +161,19 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     public void onRequestPermissionsResult(int requestCode,
                                            @NonNull String[] permissions,
                                            @NonNull int[] grantResults) {
-        mapController.setLocationPermission(false);
+        interfaceMapController.setLocationPermission(false);
         if (grantResults.length > 0
                 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
         {
-            mapController.setLocationPermission(true);
+            interfaceMapController.setLocationPermission(true);
         }
-        mapController.updateMapLocation(MapActivity.this);
+        interfaceMapController.updateMapLocation(MapActivity.this);
     }
 
     // A marker was tapped on the map
     @Override
     public boolean onMarkerClick(Marker marker) {
+        mapController.markerWasTapped(this, marker);
         return false;
     }
 

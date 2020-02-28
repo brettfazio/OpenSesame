@@ -37,4 +37,15 @@
     <string name="change_email">Change Email</string>
     <string name="email_field_hint">username@email.com</string>
     <string name="password_field_hint">*******</string>
+    <string name="create_a_report_header">Create a report</string>
+    <string name="create_a_report_issue_header">What is the issue?</string>
+    <string name="create_a_report_info_header">Explain the problem in more detail here</string>
+    <string name="create_a_report_title_hint">Briefly title the issue here</string>
+    <string name="create_a_report_info_hint">Explanation here</string>
+    <string name="create_a_report_create_button">Create</string>
+    <string name="create_a_report_category_hint">Category here</string>
+    <string name="create_a_report_category_header">Optionally, choose a category:</string>
+    <string name="create_a_report_location_hint">Specify exact location here</string>
+    <string name="create_a_report_location_header">Provide detail of the exact location</string>
+    <string name="report_detail_title_dummy">Title Here</string>
 </resources>
