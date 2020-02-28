@@ -4,6 +4,7 @@ import android.content.Context;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.juleeyahwright.opensesame.Report.ReportReference;
 import com.example.juleeyahwright.opensesame.Report.ReportService;
 import com.example.juleeyahwright.opensesame.Report.ReportServiceListener;
 import com.example.juleeyahwright.opensesame.ReportDetail.ReportDetailPresenter;
@@ -26,8 +27,7 @@ public class MapController implements ReportServiceListener {
 
     public void markerWasTapped(AppCompatActivity parent, Marker marker) {
         ReportDetailPresenter reportDetailPresenter = new ReportDetailPresenter(context);
-
-        reportDetailPresenter.presentReportDetailActivity(parent);
+        reportDetailPresenter.presentReportDetailActivity(parent, (ReportReference) marker.getTag());
     }
 
     @Override

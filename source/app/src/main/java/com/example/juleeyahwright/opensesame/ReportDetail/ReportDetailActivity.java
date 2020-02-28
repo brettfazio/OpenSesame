@@ -9,6 +9,8 @@ import com.example.juleeyahwright.opensesame.R;
 
 public class ReportDetailActivity extends AppCompatActivity {
 
+    public static final String REPORT_EXTRA = "report";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

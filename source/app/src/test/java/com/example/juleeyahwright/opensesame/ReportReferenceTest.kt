@@ -1,20 +1,19 @@
-package com.example.juleeyahwright.opensesame.Report
+package com.example.juleeyahwright.opensesame
 
+import com.example.juleeyahwright.opensesame.Report.ReportReference
 import com.google.android.gms.maps.model.LatLng
 import org.junit.Test
 
 class ReportReferenceTest {
-
     @Test
     fun customID_test() {
-        val reference: ReportReference = ReportReference("report", "this is a report", "basement", LatLng(0.0,0.0), "eFz687FFHDHD")
-
+        val reference: ReportReference = ReportReference("report", "this is a report", "basement", LatLng(0.0, 0.0), "eFz687FFHDHD")
         assert(reference.getDocumentId() == "eFz687FFHDHD")
     }
 
     @Test
     fun getFirebaseMap_test() {
-        val report = Report("dummy", "this is a dummy report", "basement", LatLng(0.0, 0.0))
+        val report : ReportReference = ReportReference("dummy", "this is a dummy report", "basement", LatLng(0.0, 0.0), "eFz687FFHDHD")
 
         val map = report.firebaseMap
 
