@@ -17,7 +17,7 @@ public class MarkerController extends AppCompatActivity {
         MarkerOptions markerOptions = new MarkerOptions();
         markerOptions.position(latLng);
         markerOptions.title(latLng.latitude + " : " + latLng.longitude);
-        return markerOptions;
+        return markerOptions:
     }
 
     /* Display all markers on map...still figuring out how to use firebasedatabase */
