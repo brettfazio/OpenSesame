@@ -6,10 +6,13 @@ import android.view.MenuItem;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.juleeyahwright.opensesame.R;
+import com.example.juleeyahwright.opensesame.Report.ReportReference;
 
 public class ReportDetailActivity extends AppCompatActivity {
 
     public static final String REPORT_EXTRA = "report";
+
+    private ReportDetailController controller;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +22,9 @@ public class ReportDetailActivity extends AppCompatActivity {
         // Show the back button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        controller = new ReportDetailController(
+                (ReportReference) getIntent().getExtras().get(REPORT_EXTRA));
     }
 
     // End the activity
