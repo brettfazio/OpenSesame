@@ -13,8 +13,8 @@ CreateReportController: makes sure that report is added to database
  */
 public class CreateReportController {
 
-    private CreateReportListener listener;
-    private FirebaseFirestore db;
+    private final CreateReportListener listener;
+    private final FirebaseFirestore db;
 
     public CreateReportController(@NonNull FirebaseFirestore db, CreateReportListener listener) {
         this.db = db;
