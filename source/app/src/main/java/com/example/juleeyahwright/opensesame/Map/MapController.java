@@ -33,4 +33,9 @@ public class MapController implements ReportServiceListener {
     @Override
     public void reportRetrievalSuccess(@NotNull QuerySnapshot querySnapshot) {
     }
+
+    @Override
+    public void reportRetrievalFailure(@NotNull Exception exception) {
+
+    }
 }
