@@ -9,9 +9,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.juleeyahwright.opensesame.Map.MapController;
 import com.example.juleeyahwright.opensesame.R;
-import com.google.android.gms.maps.CameraUpdateFactory;
+import com.example.juleeyahwright.opensesame.Report.Report;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.firebase.firestore.FirebaseFirestore;
 

@@ -1,9 +1,8 @@
 package com.example.juleeyahwright.opensesame.CreateReport;
 
-import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 
+import com.example.juleeyahwright.opensesame.Report.Report;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;

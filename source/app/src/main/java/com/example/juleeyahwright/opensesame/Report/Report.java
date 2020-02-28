@@ -1,4 +1,4 @@
-package com.example.juleeyahwright.opensesame.CreateReport;
+package com.example.juleeyahwright.opensesame.Report;
 
 import com.google.android.gms.maps.model.LatLng;
 

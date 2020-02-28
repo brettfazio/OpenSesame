@@ -1,6 +1,6 @@
 package com.example.juleeyahwright.opensesame;
 
-import com.example.juleeyahwright.opensesame.CreateReport.Report;
+import com.example.juleeyahwright.opensesame.Report.Report;
 import com.google.android.gms.maps.model.LatLng;
 
 import org.junit.Test;

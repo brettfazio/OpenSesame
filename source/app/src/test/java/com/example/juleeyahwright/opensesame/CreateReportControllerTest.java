@@ -7,7 +7,7 @@ import androidx.annotation.Nullable;
 
 import com.example.juleeyahwright.opensesame.CreateReport.CreateReportController;
 import com.example.juleeyahwright.opensesame.CreateReport.CreateReportListener;
-import com.example.juleeyahwright.opensesame.CreateReport.Report;
+import com.example.juleeyahwright.opensesame.Report.Report;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
