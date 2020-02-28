@@ -7,10 +7,9 @@ class ReportReferenceTest {
 
     @Test
     fun customID_test() {
-
         val reference: ReportReference = ReportReference("report", "this is a report", "basement", LatLng(0.0,0.0), "eFz687FFHDHD")
 
-        assert(reference.documentId == "eFz687FFHDHD")
+        assert(reference.getDocumentId() == "eFz687FFHDHD")
     }
 
     @Test
