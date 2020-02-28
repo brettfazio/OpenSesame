@@ -17,6 +17,7 @@ import com.example.juleeyahwright.opensesame.LoginActivity;
 import com.example.juleeyahwright.opensesame.R;
 import com.example.juleeyahwright.opensesame.SettingsActivity;
 import com.example.juleeyahwright.opensesame.SharedPreferencesController;
+import com.google.android.gms.common.GoogleApiAvailabilityLight;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -44,7 +45,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         setContentView(R.layout.map_activity);
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
-        mapFragment.getMapAsync( this);
+        mapFragment.getMapAsync(this);
         Button addButton = (Button) findViewById(R.id.add_button);
         addButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -93,6 +94,9 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     private void clicked(LatLng location) {
         if (!selectionStateReady) {
             intentToReport(location);
+            Toast.makeText(getApplicationContext(), "new marker", Toast.LENGTH_SHORT).show();
+            interfaceMapController.getMap().animateCamera(CameraUpdateFactory.newLatLng(location));
+            interfaceMapController.getMap().addMarker(MarkerController.addMarker(location));
         }
     }
 
@@ -101,80 +105,69 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         Button addButton = (Button) findViewById(R.id.add_button);
         if (selectionStateReady) {
             addButton.setText(getResources().getString(R.string.add_button_ready));
-        }else {
+        } else {
             addButton.setText(getResources().getString(R.string.add_button_processing));
         }
     }
 
     // verifies that the map exists before attempting any other api calls
     @Override
-<<<<<<< HEAD
     public void onMapReady(final GoogleMap googleMap) {
-        mapController = new MapController(googleMap, this);
-        mapController.checkAndRequestPermissions(MapActivity.this, MapActivity.this);
-=======
-    public void onMapReady(GoogleMap googleMap) {
-        interfaceMapController = new InterfaceMapController(googleMap, this);
-        interfaceMapController.checkAndRequestPermissions(MapActivity.this, MapActivity.this);
->>>>>>> e6f74cd97f5c2efccd4804349674178bcdd002d5
+            interfaceMapController = new InterfaceMapController(googleMap, this);
+            interfaceMapController.checkAndRequestPermissions(MapActivity.this, MapActivity.this);
 
-        interfaceMapController.getMap().setOnMapClickListener(new GoogleMap.OnMapClickListener() {
-            @Override
-            public void onMapClick(LatLng latLng) {
-                clicked(latLng);
-                Toast.makeText(getApplicationContext(), "new marker", Toast.LENGTH_SHORT).show();
-                mapController.getMap().animateCamera(CameraUpdateFactory.newLatLng(latLng));
-                mapController.getMap().addMarker(MarkerController.addMarker(latLng));
+            interfaceMapController.getMap().setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+                @Override
+                public void onMapClick(LatLng latLng) {
+                    clicked(latLng);
+                }
+            });
+    }
+
+        // adds a menu to access account
+        @Override
+        public boolean onCreateOptionsMenu (Menu menu){
+            getMenuInflater().inflate(R.menu.main_menu, menu);
+            return true;
+        }
+
+        // depending on the button selected, take the user to the appropriate screen
+        @Override
+        public boolean onOptionsItemSelected (MenuItem item){
+            switch (item.getItemId()) {
+                case R.id.settings_option:
+                    Intent i = new Intent(MapActivity.this, SettingsActivity.class);
+                    startActivity(i);
+                    return true;
+                case R.id.sign_out_option:
+                    FirebaseAuth.getInstance().signOut();
+                    finish();
+                    SharedPreferencesController.clearSignInData(getApplicationContext());
+                    Intent intent = new Intent(MapActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                    return true;
+                default:
+                    return super.onOptionsItemSelected(item);
             }
-        });
-    }
-
-    // adds a menu to access account
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu){
-        getMenuInflater().inflate(R.menu.main_menu, menu);
-        return true;
-    }
-
-    // depending on the button selected, take the user to the appropriate screen
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item){
-        switch(item.getItemId()){
-            case R.id.settings_option:
-                Intent i = new Intent(MapActivity.this, SettingsActivity.class);
-                startActivity(i);
-                return true;
-            case R.id.sign_out_option:
-                FirebaseAuth.getInstance().signOut();
-                finish();
-                SharedPreferencesController.clearSignInData(getApplicationContext());
-                Intent intent = new Intent(MapActivity.this, LoginActivity.class);
-                startActivity(intent);
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
         }
-    }
 
-    // if permission for location services is granted, the user's location will be displayed on the map
-    @Override
-    public void onRequestPermissionsResult(int requestCode,
-                                           @NonNull String[] permissions,
-                                           @NonNull int[] grantResults) {
-        interfaceMapController.setLocationPermission(false);
-        if (grantResults.length > 0
-                && grantResults[0] == PackageManager.PERMISSION_GRANTED)
-        {
-            interfaceMapController.setLocationPermission(true);
+        // if permission for location services is granted, the user's location will be displayed on the map
+        @Override
+        public void onRequestPermissionsResult ( int requestCode,
+        @NonNull String[] permissions,
+        @NonNull int[] grantResults){
+            interfaceMapController.setLocationPermission(false);
+            if (grantResults.length > 0
+                    && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                interfaceMapController.setLocationPermission(true);
+            }
+            interfaceMapController.updateMapLocation(MapActivity.this);
         }
-        interfaceMapController.updateMapLocation(MapActivity.this);
-    }
 
-    // A marker was tapped on the map
-    @Override
-    public boolean onMarkerClick(Marker marker) {
-        mapController.markerWasTapped(this, marker);
-        return false;
-    }
-
+        // A marker was tapped on the map
+        @Override
+        public boolean onMarkerClick (Marker marker){
+            mapController.markerWasTapped(this, marker);
+            return false;
+        }
 }

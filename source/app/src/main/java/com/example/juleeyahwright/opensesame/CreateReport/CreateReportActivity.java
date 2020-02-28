@@ -99,12 +99,9 @@ public class CreateReportActivity extends AppCompatActivity implements CreateRep
                     Toast.LENGTH_LONG).show();
             return false;
         }
-<<<<<<< HEAD
-        controller.writeReport(title, info, getLatLng());
-=======
+        controller.writeReport(title, info, location, getLatLng());
 
         return true;
->>>>>>> e6f74cd97f5c2efccd4804349674178bcdd002d5
     }
 
     private String getEnteredTitle() {
