@@ -18,9 +18,13 @@ public class ReportService {
         this.listener = listener;
     }
 
+    public ReportService(FirebaseFirestore db, ReportServiceListener listener) {
+        this.db = db;
+        this.listener = listener;
+    }
+
     public void getReports() {
         CollectionReference reports = db.collection(Report.DEFAULT_COLLECTION_PATH);
-
         reports.get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
@@ -29,7 +33,7 @@ public class ReportService {
                             QuerySnapshot snapshot = task.getResult();
                             listener.reportRetrievalSuccess(snapshot);
                         } else {
-                            System.out.println("Error getting documents: " + task.getException());
+                            listener.reportRetrievalFailure(task.getException());
                         }
                     }
                 });
