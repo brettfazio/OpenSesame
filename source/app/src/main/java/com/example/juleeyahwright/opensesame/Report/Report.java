@@ -55,5 +55,20 @@ public class Report {
         return collectionPath;
     }
 
+    public String getName() {
+        return this.name;
+    }
+
+    public String getInformation() {
+        return information;
+    }
+
+    public String getLocationInfo() {
+        return locationInfo;
+    }
+
+    public LatLng getLocation() {
+        return location;
+    }
 
 }

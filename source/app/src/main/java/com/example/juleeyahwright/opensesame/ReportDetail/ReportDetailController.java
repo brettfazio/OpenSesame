@@ -9,4 +9,16 @@ public class ReportDetailController {
     public ReportDetailController(ReportReference reportReference) {
         this.reportReference = reportReference;
     }
+
+    public String getReportName() {
+        return reportReference.getName();
+    }
+
+    public String getReportInformation() {
+        return reportReference.getInformation();
+    }
+
+    public String getReportLocationInfo() {
+        return reportReference.getLocationInfo();
+    }
 }
