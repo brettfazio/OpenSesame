@@ -4,4 +4,4 @@
 
 **Danny:**
 
-**Juleeyah:**
+**Juleeyah:** Added MarkerController and MarkerControllerTest
