@@ -43,7 +43,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-        Button addButton = (Button) findViewById(R.id.add_button);
+        Button addButton = findViewById(R.id.add_button);
         addButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 MarkerController.displayMarkers();
@@ -97,7 +97,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
     // toggles between "add" and "cancel" buttons
     private void changeAddState() {
-        Button addButton = (Button) findViewById(R.id.add_button);
+        Button addButton = findViewById(R.id.add_button);
         if (selectionStateReady) {
             addButton.setText(getResources().getString(R.string.add_button_ready));
         } else {
