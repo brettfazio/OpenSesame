@@ -17,16 +17,13 @@ import com.example.juleeyahwright.opensesame.LoginActivity;
 import com.example.juleeyahwright.opensesame.R;
 import com.example.juleeyahwright.opensesame.SettingsActivity;
 import com.example.juleeyahwright.opensesame.SharedPreferencesController;
-import com.google.android.gms.common.GoogleApiAvailabilityLight;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
-import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.FirebaseFirestore;
 
 /*
 MapActivity: the main interface of the app, a google maps that shows the user's location,
@@ -62,13 +59,11 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     // changes the state to allow the user to add a marker to the map
     private void addReportClicked() {
         if (!selectionStateReady) {
-            System.out.println("changing to add");
             selectionStateReady = true;
             changeAddState();
             return;
         }
         // selectionStateReady is false
-        System.out.println("changing to cancel");
         selectionStateReady = false;
         changeAddState();
 
