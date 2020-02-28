@@ -17,12 +17,15 @@ import com.example.juleeyahwright.opensesame.LoginActivity;
 import com.example.juleeyahwright.opensesame.R;
 import com.example.juleeyahwright.opensesame.SettingsActivity;
 import com.example.juleeyahwright.opensesame.SharedPreferencesController;
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 /*
 MapActivity: the main interface of the app, a google maps that shows the user's location,
@@ -41,10 +44,10 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync( this);
-
         Button addButton = (Button) findViewById(R.id.add_button);
         addButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                MarkerController.displayMarkers();
                 addReportClicked();
             }
         });
@@ -102,7 +105,7 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
     // verifies that the map exists before attempting any other api calls
     @Override
-    public void onMapReady(GoogleMap googleMap) {
+    public void onMapReady(final GoogleMap googleMap) {
         mapController = new MapController(googleMap, this);
         mapController.checkAndRequestPermissions(MapActivity.this, MapActivity.this);
 
@@ -110,6 +113,9 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
             @Override
             public void onMapClick(LatLng latLng) {
                 clicked(latLng);
+                Toast.makeText(getApplicationContext(), "new marker", Toast.LENGTH_SHORT).show();
+                mapController.getMap().animateCamera(CameraUpdateFactory.newLatLng(latLng));
+                mapController.getMap().addMarker(MarkerController.addMarker(latLng));
             }
         });
     }
@@ -160,4 +166,5 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     public boolean onMarkerClick(Marker marker) {
         return false;
     }
+
 }

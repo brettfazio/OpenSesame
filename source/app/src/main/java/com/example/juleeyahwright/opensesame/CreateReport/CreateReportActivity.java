@@ -9,7 +9,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.juleeyahwright.opensesame.Map.MapController;
 import com.example.juleeyahwright.opensesame.R;
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -21,7 +23,6 @@ CreateReportActivity: displays the report for the user to fill out
 public class CreateReportActivity extends AppCompatActivity implements CreateReportListener {
 
     private CreateReportController controller;
-
     // sets up the layout for the create report
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +38,7 @@ public class CreateReportActivity extends AppCompatActivity implements CreateRep
         Button createReportButton = findViewById(R.id.createReportButton);
         createReportButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "new marker", Toast.LENGTH_SHORT).show();
                 createReportClicked();
             }
         });
@@ -80,7 +82,6 @@ public class CreateReportActivity extends AppCompatActivity implements CreateRep
                     Toast.LENGTH_LONG).show();
             return;
         }
-
         controller.writeReport(title, info, getLatLng());
     }
 
@@ -107,4 +108,5 @@ public class CreateReportActivity extends AppCompatActivity implements CreateRep
                 "Failed to create report with error: " + exception.toString(),
                 Toast.LENGTH_LONG).show();
     }
+
 }
