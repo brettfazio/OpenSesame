@@ -3,6 +3,7 @@ package com.example.juleeyahwright.opensesame.Map;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -31,6 +32,7 @@ reports can be added, and settings page can be accessed
  */
 public class MapActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
 
+    private static final int MAP_TYPE_HYBRID = 4;
     private MapController mapController;
     private InterfaceMapController interfaceMapController;
     private boolean selectionStateReady;
@@ -117,6 +119,17 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                     clicked(latLng);
                 }
             });
+
+            boolean showCompass = getIntent().getExtras().getBoolean("SHOW_COMPASS");
+            boolean satelliteMap = getIntent().getExtras().getBoolean("SATELLITE_HYBRID");
+            boolean showZoom = getIntent().getExtras().getBoolean("SHOW_ZOOM");
+
+            if(showCompass)
+               googleMap.getUiSettings().setCompassEnabled(true);
+            if(satelliteMap)
+               googleMap.setMapType(MAP_TYPE_HYBRID);
+            if(showZoom)
+               googleMap.getUiSettings().setZoomControlsEnabled(true);
     }
 
         // adds a menu to access account

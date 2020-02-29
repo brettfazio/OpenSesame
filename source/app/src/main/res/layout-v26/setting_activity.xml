@@ -103,15 +103,17 @@
         android:layout_height="wrap_content"
         android:text="@string/show_compass"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"/>
+        android:layout_marginRight="20dp"
+        android:onClick="mapOptionChecked"/>
 
     <CheckBox
-        android:id="@+id/show_map_type"
+        android:id="@+id/satellite_hybrid"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/show_map_type_selector"
+        android:text="@string/satellite_hybrid"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"/>
+        android:layout_marginRight="20dp"
+        android:onClick="mapOptionChecked"/>
 
     <CheckBox
         android:id="@+id/show_zoom"
@@ -119,7 +121,8 @@
         android:layout_height="wrap_content"
         android:text="@string/show_zoom_controls"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"/>
+        android:layout_marginRight="20dp"
+        android:onClick="mapOptionChecked"/>
 
     <TextView
         android:id="@+id/account_options"

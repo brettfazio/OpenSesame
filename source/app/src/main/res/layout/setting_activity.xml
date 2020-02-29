@@ -36,12 +36,12 @@
         android:layout_marginRight="20dp"/>
 
     <RadioGroup
+        android:id="@+id/fontSizeGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:orientation="horizontal"
-        >
+        android:orientation="horizontal">
 
         <RadioButton
             android:id="@+id/smallRadioButton"
@@ -106,10 +106,10 @@
         android:layout_marginRight="20dp"/>
 
     <CheckBox
-        android:id="@+id/show_map_type"
+        android:id="@+id/satellite_hybrid"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/show_map_type_selector"
+        android:text="@string/satellite_hybrid"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"/>
 

@@ -32,7 +32,7 @@
     <string name="account_options">Account Options</string>
     <string name="show_compass">Show Compass</string>
     <string name="show_zoom_controls">Show Zoom Controls</string>
-    <string name="show_map_type_selector">Show Map Type Selector</string>
+    <string name="satellite_hybrid">Satellite Map View</string>
     <string name="change_password">Change Password</string>
     <string name="change_email">Change Email</string>
     <string name="email_field_hint">username@email.com</string>
