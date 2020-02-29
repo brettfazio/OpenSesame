@@ -35,6 +35,7 @@
     <string name="satellite_hybrid">Satellite Map View</string>
     <string name="change_password">Change Password</string>
     <string name="change_email">Change Email</string>
+    <string name="change_color">Select Color Theme</string>
     <string name="email_field_hint">username@email.com</string>
     <string name="password_field_hint">*******</string>
     <string name="create_a_report_header">Create a report</string>

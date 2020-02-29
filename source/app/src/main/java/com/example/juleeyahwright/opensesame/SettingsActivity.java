@@ -1,25 +1,39 @@
 package com.example.juleeyahwright.opensesame;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.PreferenceManager;
 
 import com.example.juleeyahwright.opensesame.Map.MapActivity;
+import com.turkialkhateeb.materialcolorpicker.ColorChooserDialog;
+import com.turkialkhateeb.materialcolorpicker.ColorListener;
 
 /*
 SettingsActivity: the settings page for the user's account
  */
 public class SettingsActivity extends AppCompatActivity {
+
+    SharedPreferences sharedPreferences, appPreferences;
+    SharedPreferences.Editor editor;
+    int appTheme;
+    int appColor;
+    int themeColor;
+    Constant constant;
+
+    Button getColorButton;
 
     private static final String TAG = "Settings";
 
@@ -27,7 +41,47 @@ public class SettingsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        appPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        appTheme = appPreferences.getInt("theme", 0);
+        appColor = appPreferences.getInt("color", 0);
+        themeColor = appColor;
+        constant.color = appColor;
+
+        setColorTheme();
+
         setContentView(R.layout.setting_activity);
+
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        editor = sharedPreferences.edit();
+
+        // colorize();
+
+        getColorButton = (Button) findViewById(R.id.color_button);
+
+        getColorButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ColorChooserDialog colorDialog = new ColorChooserDialog(SettingsActivity.this);
+                colorDialog.setTitle("Choose Primary Theme Color");
+                colorDialog.setColorListener(new ColorListener() {
+                    @Override
+                    public void OnColorClick(View v, int color) {
+                        // colorize();
+                        Constant.color = color;
+                        Theme.setColorTheme();
+                        editor.putInt("color", color);
+                        editor.putInt("theme", Constant.appTheme);
+                        editor.commit();
+
+                        Intent intent = new Intent(SettingsActivity.this, MapActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(intent);
+                    }
+                });
+
+                colorDialog.show();
+            }
+        });
 
         RadioGroup fontGroup = (RadioGroup)findViewById(R.id.fontSizeGroup);
         RadioButton checkedRadioButton = (RadioButton)fontGroup.findViewById(fontGroup.getCheckedRadioButtonId());
@@ -132,6 +186,10 @@ public class SettingsActivity extends AppCompatActivity {
                     Log.v(TAG, "set zoom");
                 }
         }
+     }
+
+     public void setColorTheme() {
+
      }
 
 }
