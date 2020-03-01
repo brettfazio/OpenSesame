@@ -204,6 +204,9 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     // A marker was tapped on the map
     @Override
     public boolean onMarkerClick(Marker marker) {
+        if (!selectionStateReady) {
+            return false;
+        }
         mapController.markerWasTapped(this, marker);
         return false;
     }
