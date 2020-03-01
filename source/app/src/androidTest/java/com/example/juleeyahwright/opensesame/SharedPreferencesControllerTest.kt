@@ -33,7 +33,7 @@ class SharedPreferencesControllerTest {
     @Test
     fun email_test() {
         SharedPreferencesController.setEmail(mActivityTestRule.activity.applicationContext, "test@test.com")
-        assert(SharedPreferencesController.getEmail(mActivityTestRule.activity.applicationContext).equals("test@test.com"))
+        assert(SharedPreferencesController.getEmail(mActivityTestRule.activity.applicationContext) == "test@test.com")
     }
 
     /*
@@ -43,7 +43,7 @@ class SharedPreferencesControllerTest {
     @Test
     fun password_test() {
         SharedPreferencesController.setPassword(mActivityTestRule.activity.applicationContext, "strong")
-        assert(SharedPreferencesController.getPassword(mActivityTestRule.activity.applicationContext).equals("strong"))
+        assert(SharedPreferencesController.getPassword(mActivityTestRule.activity.applicationContext) == "strong")
     }
 
     /*

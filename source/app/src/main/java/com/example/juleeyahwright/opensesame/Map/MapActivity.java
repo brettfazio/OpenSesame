@@ -68,6 +68,10 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         setContentView(R.layout.map_activity);
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
+
+        // Make sure that mapFragment is not null
+        assert mapFragment != null;
+
         mapFragment.getMapAsync(this);
         Button addButton = findViewById(R.id.add_button);
         addButton.setOnClickListener(new View.OnClickListener() {

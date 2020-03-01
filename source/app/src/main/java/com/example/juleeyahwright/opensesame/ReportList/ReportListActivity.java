@@ -1,15 +1,17 @@
 package com.example.juleeyahwright.opensesame.ReportList;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.juleeyahwright.opensesame.Map.MapActivity;
 import com.example.juleeyahwright.opensesame.R;
 import com.example.juleeyahwright.opensesame.SettingsActivity;
+
+import java.util.Objects;
 
 public class ReportListActivity extends AppCompatActivity {
 
@@ -19,7 +21,7 @@ public class ReportListActivity extends AppCompatActivity {
         setContentView(R.layout.report_list_activity);
 
         // Show the back button
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
     }
 

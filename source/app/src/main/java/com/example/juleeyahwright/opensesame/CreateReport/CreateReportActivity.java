@@ -130,18 +130,15 @@ public class CreateReportActivity extends AppCompatActivity implements CreateRep
     }
 
     private String getEnteredTitle() {
-        String text = ((EditText) findViewById(R.id.titleEditText)).getText().toString();
-        return text;
+        return ((EditText) findViewById(R.id.titleEditText)).getText().toString();
     }
 
     private String getEnteredInfo() {
-        String text = ((EditText) findViewById(R.id.infoEditText)).getText().toString();
-        return text;
+        return ((EditText) findViewById(R.id.infoEditText)).getText().toString();
     }
 
     private String getEnteredLocation() {
-        String text = ((EditText) findViewById(R.id.locationEditText)).getText().toString();
-        return text;
+        return ((EditText) findViewById(R.id.locationEditText)).getText().toString();
     }
 
     @Override

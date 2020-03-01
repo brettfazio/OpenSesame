@@ -1,15 +1,9 @@
 package com.example.juleeyahwright.opensesame.Map;
 
-import android.util.Log;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.firebase.FirebaseOptions;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.iid.FirebaseInstanceId;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 public class MarkerController extends AppCompatActivity {
 

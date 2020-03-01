@@ -44,7 +44,7 @@ public class SharedPreferencesController extends Activity {
 
     public static void clearSignInData(Context context) {
         SharedPreferences sp = spFromContext(context);
-        sp.edit().clear().commit();
+        sp.edit().clear().apply();
     }
 
 }

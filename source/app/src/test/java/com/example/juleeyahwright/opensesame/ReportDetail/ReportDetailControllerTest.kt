@@ -5,7 +5,7 @@ import com.google.android.gms.maps.model.LatLng
 import org.junit.Test
 
 class ReportDetailControllerTest {
-    var report: ReportReference = ReportReference("dummy",
+    private var report: ReportReference = ReportReference("dummy",
             "this is a dummy report",
             "basement",
             LatLng(0.0, 0.0),

@@ -11,6 +11,7 @@ import org.junit.Test;
 import org.mockito.Mock;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class InterfaceMapControllerTest {
 
@@ -57,6 +58,6 @@ public class InterfaceMapControllerTest {
     @Test
     public void getLocationPermissionTest() {
         interfaceMapController.setLocationPermission(true);
-        assertEquals(interfaceMapController.getLocationPermission(), true);
+        assertTrue(interfaceMapController.getLocationPermission());
     }
 }

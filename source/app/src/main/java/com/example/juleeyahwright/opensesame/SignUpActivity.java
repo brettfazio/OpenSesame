@@ -22,7 +22,6 @@ SignUpActivity: After a user has opted to sign up, enters new credentials to be 
  */
 public class SignUpActivity extends AppCompatActivity implements AccountModelListener {
 
-    private FirebaseAuth mAuth;
     private boolean processingSignUp;
     private AccountModel accountModel;
     SharedPreferences sharedPreferences, appPreferences;
@@ -48,12 +47,11 @@ public class SignUpActivity extends AppCompatActivity implements AccountModelLis
 
         Theme.setColorTheme();
         setContentView(R.layout.sign_up_activity);
-        mAuth = FirebaseAuth.getInstance();
         processingSignUp = false;
         accountModel = new AccountModel(FirebaseAuth.getInstance(), this);
 
         // add button to sign up
-        Button signUpButton = (Button) findViewById((R.id.signUpButton));
+        Button signUpButton = findViewById((R.id.signUpButton));
         signUpButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 signUpUser();
@@ -61,7 +59,7 @@ public class SignUpActivity extends AppCompatActivity implements AccountModelLis
         });
 
         // add button to go back to the login screen
-        TextView backButton = (TextView) findViewById(R.id.backButton);
+        TextView backButton = findViewById(R.id.backButton);
         backButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 finish();
