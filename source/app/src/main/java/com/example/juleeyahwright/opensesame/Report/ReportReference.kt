@@ -4,9 +4,10 @@ import android.os.Parcel
 import android.os.Parcelable
 import com.google.android.gms.maps.model.LatLng
 
-class ReportReference(private val name: String, private val information: String, private val locationInfo: String, private val location: LatLng, private val documentId: String) : Report(name, information, locationInfo, location), Parcelable {
+class ReportReference(private val reportName: String?, private val reportInfo: String?, private val reportLocInfo: String?, private val reportLocation: LatLng?, private val documentId: String?) :
+        Report(reportName, reportInfo, reportLocInfo, reportLocation), Parcelable {
 
-    fun getDocumentId(): String {
+    fun getDocumentId(): String? {
         return documentId
     }
 
@@ -19,10 +20,10 @@ class ReportReference(private val name: String, private val information: String,
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
-        parcel.writeString(name)
-        parcel.writeString(information)
-        parcel.writeString(locationInfo)
-        parcel.writeParcelable(location, flags)
+        parcel.writeString(reportName)
+        parcel.writeString(reportInfo)
+        parcel.writeString(reportLocInfo)
+        parcel.writeParcelable(reportLocation, flags)
         parcel.writeString(documentId)
     }
 

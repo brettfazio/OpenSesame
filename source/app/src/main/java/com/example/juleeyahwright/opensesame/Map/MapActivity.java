@@ -1,8 +1,10 @@
 package com.example.juleeyahwright.opensesame.Map;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -11,12 +13,15 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.PreferenceManager;
 
+import com.example.juleeyahwright.opensesame.Constant;
 import com.example.juleeyahwright.opensesame.CreateReport.CreateReportActivity;
 import com.example.juleeyahwright.opensesame.LoginActivity;
 import com.example.juleeyahwright.opensesame.R;
 import com.example.juleeyahwright.opensesame.SettingsActivity;
 import com.example.juleeyahwright.opensesame.SharedPreferencesController;
+import com.example.juleeyahwright.opensesame.Theme;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -34,11 +39,31 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
     private MapController mapController;
     private InterfaceMapController interfaceMapController;
     private boolean selectionStateReady;
+    SharedPreferences sharedPreferences, appPreferences;
+    SharedPreferences.Editor editor;
+    int appTheme;
+    int appColor;
+    int themeColor;
+    Constant constant;
 
     // add the map and buttons to the main screen
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        appPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        appTheme = appPreferences.getInt("theme", 0);
+        appColor = appPreferences.getInt("color", 0);
+        themeColor = appColor;
+        constant.color = appColor;
+
+        if (appColor == 0 || themeColor == 0) {
+            setTheme(Constant.appTheme);
+        } else
+            setTheme(appTheme);
+
+        Theme.setColorTheme();
+
         setContentView(R.layout.map_activity);
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -117,6 +142,17 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
                     clicked(latLng);
                 }
             });
+
+//            boolean showCompass = getIntent().getExtras().getBoolean("SHOW_COMPASS");
+//            boolean satelliteMap = getIntent().getExtras().getBoolean("SATELLITE_HYBRID");
+//            boolean showZoom = getIntent().getExtras().getBoolean("SHOW_ZOOM");
+//
+//            if(showCompass)
+//               googleMap.getUiSettings().setCompassEnabled(true);
+//            if(satelliteMap)
+//               googleMap.setMapType(4);
+//            if(showZoom)
+//               googleMap.getUiSettings().setZoomControlsEnabled(true);
     }
 
         // adds a menu to access account

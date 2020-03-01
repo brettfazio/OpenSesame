@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="text_size_entries">
-        <item>Small</item>
-        <item>Medium</item>
-        <item>Large</item>
+        <item name="smallText">Small</item>
+        <item name="mediumText">Medium</item>
+        <item name="largeText">Large</item>
     </string-array>
     <integer-array name="text_size_values">
-        <item>10</item>
-        <item>12</item>
-        <item>14</item>
+        <item name="smallText">10</item>
+        <item name="mediumText">12</item>
+        <item name="largeText">14</item>
     </integer-array>
 </resources>

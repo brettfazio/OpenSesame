@@ -1,6 +1,7 @@
 package com.example.juleeyahwright.opensesame;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.PreferenceManager;
 
 import com.example.juleeyahwright.opensesame.AccountModel.AccountModel;
 import com.example.juleeyahwright.opensesame.AccountModel.AccountModelListener;
@@ -23,10 +25,28 @@ public class SignUpActivity extends AppCompatActivity implements AccountModelLis
     private FirebaseAuth mAuth;
     private boolean processingSignUp;
     private AccountModel accountModel;
+    SharedPreferences sharedPreferences, appPreferences;
+    SharedPreferences.Editor editor;
+    int appTheme;
+    int appColor;
+    int themeColor;
+    Constant constant;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        appPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        appTheme = appPreferences.getInt("theme", 0);
+        appColor = appPreferences.getInt("color", 0);
+        themeColor = appColor;
+        constant.color = appColor;
+
+        if (appColor == 0 || themeColor == 0) {
+            setTheme(Constant.appTheme);
+        } else
+            setTheme(appTheme);
+
+        Theme.setColorTheme();
         setContentView(R.layout.sign_up_activity);
         mAuth = FirebaseAuth.getInstance();
         processingSignUp = false;
