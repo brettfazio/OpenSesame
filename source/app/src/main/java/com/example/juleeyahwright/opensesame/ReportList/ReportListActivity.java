@@ -7,19 +7,19 @@ import android.view.MenuItem;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.juleeyahwright.opensesame.BaseActivity;
 import com.example.juleeyahwright.opensesame.Map.MapActivity;
 import com.example.juleeyahwright.opensesame.R;
 import com.example.juleeyahwright.opensesame.SettingsActivity;
 
 import java.util.Objects;
 
-public class ReportListActivity extends AppCompatActivity {
+public class ReportListActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.report_list_activity);
-
         // Show the back button
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);

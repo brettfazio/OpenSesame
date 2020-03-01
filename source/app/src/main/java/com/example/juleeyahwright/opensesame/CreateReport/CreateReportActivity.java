@@ -11,6 +11,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
 
+import com.example.juleeyahwright.opensesame.BaseActivity;
 import com.example.juleeyahwright.opensesame.Constant;
 import com.example.juleeyahwright.opensesame.R;
 import com.example.juleeyahwright.opensesame.Report.Report;
@@ -23,14 +24,7 @@ import org.jetbrains.annotations.NotNull;
 /*
 CreateReportActivity: displays the report for the user to fill out
  */
-public class CreateReportActivity extends AppCompatActivity implements CreateReportListener {
-
-    SharedPreferences sharedPreferences, appPreferences;
-    SharedPreferences.Editor editor;
-    int appTheme;
-    int appColor;
-    int themeColor;
-    Constant constant;
+public class CreateReportActivity extends BaseActivity implements CreateReportListener {
 
     private CreateReportController controller;
 
@@ -38,20 +32,6 @@ public class CreateReportActivity extends AppCompatActivity implements CreateRep
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        appPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        appTheme = appPreferences.getInt("theme", 0);
-        appColor = appPreferences.getInt("color", 0);
-        themeColor = appColor;
-        constant.color = appColor;
-
-        if (appColor == 0 || themeColor == 0) {
-            setTheme(Constant.appTheme);
-        } else
-            setTheme(appTheme);
-
-        Theme.setColorTheme();
-
         setContentView(R.layout.create_report_activity);
 
         controller = new CreateReportController(FirebaseFirestore.getInstance(), this);

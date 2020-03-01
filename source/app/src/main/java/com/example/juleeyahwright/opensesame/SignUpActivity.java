@@ -20,32 +20,14 @@ import com.google.firebase.auth.FirebaseAuth;
 /*
 SignUpActivity: After a user has opted to sign up, enters new credentials to be stored
  */
-public class SignUpActivity extends AppCompatActivity implements AccountModelListener {
+public class SignUpActivity extends BaseActivity implements AccountModelListener {
 
     private boolean processingSignUp;
     private AccountModel accountModel;
-    SharedPreferences sharedPreferences, appPreferences;
-    SharedPreferences.Editor editor;
-    int appTheme;
-    int appColor;
-    int themeColor;
-    Constant constant;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        appPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        appTheme = appPreferences.getInt("theme", 0);
-        appColor = appPreferences.getInt("color", 0);
-        themeColor = appColor;
-        constant.color = appColor;
-
-        if (appColor == 0 || themeColor == 0) {
-            setTheme(Constant.appTheme);
-        } else
-            setTheme(appTheme);
-
-        Theme.setColorTheme();
         setContentView(R.layout.sign_up_activity);
         processingSignUp = false;
         accountModel = new AccountModel(FirebaseAuth.getInstance(), this);

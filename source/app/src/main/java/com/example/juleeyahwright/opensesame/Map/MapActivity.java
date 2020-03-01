@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
 
+import com.example.juleeyahwright.opensesame.BaseActivity;
 import com.example.juleeyahwright.opensesame.Constant;
 import com.example.juleeyahwright.opensesame.CreateReport.CreateReportActivity;
 import com.example.juleeyahwright.opensesame.LoginActivity;
@@ -34,37 +35,16 @@ import com.google.firebase.auth.FirebaseAuth;
 MapActivity: the main interface of the app, a google maps that shows the user's location,
 reports can be added, and settings page can be accessed
  */
-public class MapActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
+public class MapActivity extends BaseActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
 
     private MapController mapController;
     private InterfaceMapController interfaceMapController;
     private boolean selectionStateReady;
-    SharedPreferences sharedPreferences, appPreferences;
-    SharedPreferences.Editor editor;
-    int appTheme;
-    int appColor;
-    int themeColor;
-    Constant constant;
 
     // add the map and buttons to the main screen
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        appPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        appTheme = appPreferences.getInt("theme", 0);
-        appColor = appPreferences.getInt("color", 0);
-        themeColor = appColor;
-        constant.color = appColor;
-
-        if (appColor == 0 || themeColor == 0) {
-            setTheme(Constant.appTheme);
-        } else {
-            setTheme(appTheme);
-        }
-
-        Theme.setColorTheme();
-
         setContentView(R.layout.map_activity);
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);

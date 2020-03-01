@@ -20,35 +20,15 @@ import com.google.firebase.auth.FirebaseAuth;
 /*
 LoginActivity: Allows the user to log into the app or sign up
  */
-public class LoginActivity extends AppCompatActivity implements AccountModelListener {
+public class LoginActivity extends BaseActivity implements AccountModelListener {
 
     private boolean processingLogin;
     private AccountModel accountModel;
     private boolean showPopUp;
-    SharedPreferences sharedPreferences, appPreferences;
-    SharedPreferences.Editor editor;
-    int appTheme;
-    int appColor;
-    int themeColor;
-    Constant constant;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        appPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        appTheme = appPreferences.getInt("theme", 0);
-        appColor = appPreferences.getInt("color", 0);
-        themeColor = appColor;
-        constant.color = appColor;
-
-        if (appColor == 0 || themeColor == 0) {
-            setTheme(Constant.appTheme);
-        } else
-            setTheme(appTheme);
-
-        Theme.setColorTheme();
-
         setContentView(R.layout.login_activity);
         processingLogin = false;
         accountModel = new AccountModel(FirebaseAuth.getInstance(), this);

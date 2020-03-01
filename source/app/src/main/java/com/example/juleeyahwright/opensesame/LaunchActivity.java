@@ -17,12 +17,11 @@ import com.google.firebase.auth.FirebaseUser;
 LaunchActivity: determines if user is logged in and if so takes them to the map and if not takes the
 user to the login screen
  */
-public class LaunchActivity extends AppCompatActivity {
+public class LaunchActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         // check if user has logged in before
         final String email = SharedPreferencesController.getEmail(getApplicationContext());
         final String password = SharedPreferencesController.getPassword(getApplicationContext());
