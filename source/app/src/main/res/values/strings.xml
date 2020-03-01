@@ -24,7 +24,7 @@
     <string name="small">Small</string>
     <string name="medium">Medium</string>
     <string name="large">Large</string>
-    <string name = "color_options">Color Options</string>
+    <string name ="color_options">Color Theme</string>
     <string name="invert_colors">Invert Colors</string>
     <string name="high_contrast">High Contrast</string>
     <string name="color_blind_friendly">Color-Blind Friendly</string>
