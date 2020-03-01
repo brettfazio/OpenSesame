@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -60,8 +59,9 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
 
         if (appColor == 0 || themeColor == 0) {
             setTheme(Constant.appTheme);
-        } else
+        } else {
             setTheme(appTheme);
+        }
 
         Theme.setColorTheme();
 
