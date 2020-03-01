@@ -3,4 +3,75 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    <color name="redPrimary">#F44336</color>
+    <color name="pinkPrimary">#E91E63</color>
+    <color name="purplePrimary">#9C27B0</color>
+    <color name="deep_purplePrimary">#673AB7</color>
+    <color name="indigoPrimary">#3F51B5</color>
+    <color name="bluePrimary">#2196F3</color>
+    <color name="light_bluePrimary">#03A9F4</color>
+    <color name="cyanPrimary">#00BCD4</color>
+    <color name="tealPrimary">#009688</color>
+    <color name="greenPrimary">#4CAF50</color>
+    <color name="light_greenPrimary">#8BC34A</color>
+    <color name="limePrimary">#CDDC39</color>
+    <color name="yellowPrimary">#FFEB3B</color>
+    <color name="amberPrimary">#FFC107</color>
+    <color name="orangePrimary">#FF9800</color>
+    <color name="deep_orangePrimary">#FF5722</color>
+    <color name="brownPrimary">#795548</color>
+    <color name="grayPrimary">#9E9E9E</color>
+    <color name="blue_grayPrimary">#607D8B</color>
+    <color name="blackPrimary">#000000</color>
+    <color name="whitePrimary">#FFFFFF</color>
+
+
+    <color name="redPrimaryDark">#7C201A</color>
+    <color name="pinkPrimaryDark">#6C0E2E</color>
+    <color name="purplePrimaryDark">#52155C</color>
+    <color name="deep_purplePrimaryDark">#251443</color>
+    <color name="indigoPrimaryDark">#1B224C</color>
+    <color name="bluePrimaryDark">#10426A</color>
+    <color name="light_bluePrimaryDark">#024A6A</color>
+    <color name="cyanPrimaryDark">#01525C</color>
+    <color name="tealPrimaryDark">#015048</color>
+    <color name="greenPrimaryDark">#1E4520</color>
+    <color name="light_greenPrimaryDark">#3A511F</color>
+    <color name="limePrimaryDark">#515717</color>
+    <color name="yellowPrimaryDark">#716819</color>
+    <color name="amberPrimaryDark">#604802</color>
+    <color name="orangePrimaryDark">#5A3601</color>
+    <color name="deep_orangePrimaryDark">#65230E</color>
+    <color name="brownPrimaryDark">#3A2923</color>
+    <color name="grayPrimaryDark">#353434</color>
+    <color name="blue_grayPrimaryDark">#273339</color>
+    <color name="blackPrimaryDark">#FFFFFF</color>
+    <color name="whitePrimaryDark">#000000</color>
+
+    <color name="redAccent">#2CCA53</color>
+    <color name="pinkAccent">#02FA86</color>
+    <color name="purpleAccent">#B09927</color>
+    <color name="deep_purpleAccent">#B7853A</color>
+    <color name="indigoAccent">#B5603F</color>
+    <color name="blueAccent">#F37521</color>
+    <color name="light_blueAccent">#F46303</color>
+    <color name="cyanAccent">#D41900</color>
+    <color name="tealAccent">#96001E</color>
+    <color name="greenAccent">#AF4C6B</color>
+    <color name="light_greenAccent">#B74AC3</color>
+    <color name="limeAccent">#BE39DC</color>
+    <color name="yellowAccent">#9D3BFF</color>
+    <color name="amberAccent">#6607FF</color>
+    <color name="orangeAccent">#3700FF</color>
+    <color name="deep_orangeAccent">#226CFF</color>
+    <color name="brownAccent">#486F79</color>
+    <color name="grayAccent">#603B3B</color>
+    <color name="blue_grayAccent">#608B75</color>
+    <color name="blackAccent">#42BC35</color>
+    <color name="whiteAccent">#CA1212</color>
+
+    <color name="light_text">#D6D2D6</color>
+    <color name="dark_text">#050000</color>
+
 </resources>

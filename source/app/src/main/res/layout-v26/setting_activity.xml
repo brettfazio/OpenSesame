@@ -13,7 +13,6 @@
         android:layout_height="wrap_content"
         android:text="@string/settings"
         android:textSize="30sp"
-        android:textColor="@color/colorPrimary"
         />
 
     <TextView
@@ -22,52 +21,13 @@
         android:layout_height="wrap_content"
         android:text="@string/text_and_colors"
         android:textSize="24sp"
-        android:textColor="@color/colorPrimaryDark"
         />
-
-    <TextView
-        android:id="@+id/font_size"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/font_size"
-        android:textColor="@color/colorAccent"
-        android:textSize="20sp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"/>
-
-    <RadioGroup
-        android:id="@+id/fontSizeGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:orientation="horizontal">
-
-        <RadioButton
-            android:id="@+id/smallRadioButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/small" />
-
-        <RadioButton
-            android:id="@+id/medRadioButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/medium" />
-
-        <RadioButton
-            android:id="@+id/largeRadioButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/large" />
-    </RadioGroup>
 
     <TextView
         android:id="@+id/color_options"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/color_options"
-        android:textColor="@color/colorAccent"
         android:textSize="20sp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"/>
@@ -78,29 +38,12 @@
         android:layout_height="wrap_content"
         android:text="@string/change_color" />
 
-    <Switch
-        android:id="@+id/invert_colors"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/high_contrast"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"/>
-
-    <Switch
-        android:id="@+id/color_blind_colors"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/color_blind_friendly"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"/>
-
     <TextView
         android:id="@+id/map_options"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/map_options"
         android:textSize="24sp"
-        android:textColor="@color/colorPrimaryDark"
         />
 
     <CheckBox
@@ -133,7 +76,6 @@
         android:layout_height="wrap_content"
         android:text="@string/account_options"
         android:textSize="24sp"
-        android:textColor="@color/colorPrimaryDark"
         />
 
     <TextView

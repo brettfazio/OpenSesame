@@ -34,6 +34,7 @@ public class SettingsActivity extends AppCompatActivity {
     int appTheme;
     int appColor;
     int themeColor;
+    int textColor;
     Constant constant;
 
     Button getColorButton;
@@ -77,7 +78,7 @@ public class SettingsActivity extends AppCompatActivity {
                         editor.putInt("color", color);
                         editor.putInt("theme", Constant.appTheme);
                         editor.commit();
-                        Intent intent = new Intent(SettingsActivity.this, MapActivity.class);
+                        Intent intent = new Intent(SettingsActivity.this, SettingsActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);
                     }
