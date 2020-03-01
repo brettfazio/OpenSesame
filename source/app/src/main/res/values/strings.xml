@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">OpenSesame</string>
+
+    <string name="empty">EMPTY LOREM, SHOULD NOT APPEAR</string>
+
     <string name="add_button_ready">Add</string>
     <string name="add_button_processing">Cancel</string>
     <string name="menu_button">Menu</string>
@@ -49,4 +52,6 @@
     <string name="create_a_report_location_hint">Specify exact location here</string>
     <string name="create_a_report_location_header">Provide detail of the exact location</string>
     <string name="report_detail_title_dummy">Title Here</string>
+    <string name="report_detail_info_header">Description:</string>
+    <string name="report_detail_location_info_header">Location details:</string>
 </resources>
