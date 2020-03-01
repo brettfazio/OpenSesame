@@ -89,7 +89,7 @@ public class SettingsActivity extends AppCompatActivity {
                 colorDialog.show();
             }
         });
-        
+
 
         CheckBox showCompass = findViewById(R.id.show_compass);
         CheckBox showMapType = findViewById(R.id.satellite_hybrid);
