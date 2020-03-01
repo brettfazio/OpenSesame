@@ -12,6 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ReportList.ReportListActivity"/>
         <activity android:name=".SettingsActivity" android:exported="true"/>
         <activity android:name=".CreateReport.CreateReportActivity" />
         <activity android:name=".LoginActivity"/>

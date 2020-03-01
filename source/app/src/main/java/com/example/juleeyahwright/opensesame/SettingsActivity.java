@@ -7,6 +7,7 @@ import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.OvalShape;
 import android.os.Bundle;
 
+import android.provider.Settings;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,6 +22,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
 
 import com.example.juleeyahwright.opensesame.Map.MapActivity;
+import com.example.juleeyahwright.opensesame.ReportList.ReportListActivity;
 import com.turkialkhateeb.materialcolorpicker.ColorChooserDialog;
 import com.turkialkhateeb.materialcolorpicker.ColorListener;
 
@@ -158,11 +160,15 @@ public class SettingsActivity extends AppCompatActivity {
      public boolean onOptionsItemSelected(MenuItem item) {
          // Close this activity if home is selected
          if (item.getItemId() == android.R.id.home) {
-             finish();
+             Intent i = new Intent(SettingsActivity.this, MapActivity.class);
+             startActivity(i);
          } else if (item.getItemId() == R.id.settings_option) {
              finish();
          } else if (item.getItemId() == R.id.sign_out_option) {
              finish();
+         } else if (item.getItemId() == R.id.report_list_option) {
+             Intent i = new Intent(SettingsActivity.this, ReportListActivity.class);
+             startActivity(i);
          }
 
          return super.onOptionsItemSelected(item);

@@ -19,6 +19,7 @@ import com.example.juleeyahwright.opensesame.Constant;
 import com.example.juleeyahwright.opensesame.CreateReport.CreateReportActivity;
 import com.example.juleeyahwright.opensesame.LoginActivity;
 import com.example.juleeyahwright.opensesame.R;
+import com.example.juleeyahwright.opensesame.ReportList.ReportListActivity;
 import com.example.juleeyahwright.opensesame.SettingsActivity;
 import com.example.juleeyahwright.opensesame.SharedPreferencesController;
 import com.example.juleeyahwright.opensesame.Theme;
@@ -165,9 +166,14 @@ public class MapActivity extends AppCompatActivity implements OnMapReadyCallback
         // depending on the button selected, take the user to the appropriate screen
         @Override
         public boolean onOptionsItemSelected (MenuItem item){
+            Intent i;
             switch (item.getItemId()) {
+                case R.id.report_list_option:
+                    i = new Intent(MapActivity.this, ReportListActivity.class);
+                    startActivity(i);
+                    return true;
                 case R.id.settings_option:
-                    Intent i = new Intent(MapActivity.this, SettingsActivity.class);
+                    i = new Intent(MapActivity.this, SettingsActivity.class);
                     startActivity(i);
                     return true;
                 case R.id.sign_out_option:
