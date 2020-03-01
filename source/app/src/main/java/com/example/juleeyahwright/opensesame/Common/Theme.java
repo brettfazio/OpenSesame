@@ -1,4 +1,7 @@
-package com.example.juleeyahwright.opensesame;
+package com.example.juleeyahwright.opensesame.Common;
+
+import com.example.juleeyahwright.opensesame.Common.Constant;
+import com.example.juleeyahwright.opensesame.R;
 
 public class Theme {
 

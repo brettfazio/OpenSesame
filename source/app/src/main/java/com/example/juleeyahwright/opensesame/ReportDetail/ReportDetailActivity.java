@@ -1,18 +1,12 @@
 package com.example.juleeyahwright.opensesame.ReportDetail;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.preference.PreferenceManager;
-
-import com.example.juleeyahwright.opensesame.BaseActivity;
-import com.example.juleeyahwright.opensesame.Constant;
+import com.example.juleeyahwright.opensesame.Common.BaseActivity;
 import com.example.juleeyahwright.opensesame.R;
 import com.example.juleeyahwright.opensesame.Report.ReportReference;
-import com.example.juleeyahwright.opensesame.Theme;
 
 public class ReportDetailActivity extends BaseActivity {
 

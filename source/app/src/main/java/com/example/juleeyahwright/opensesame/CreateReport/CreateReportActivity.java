@@ -1,6 +1,5 @@
 package com.example.juleeyahwright.opensesame.CreateReport;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -8,14 +7,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.preference.PreferenceManager;
-
-import com.example.juleeyahwright.opensesame.BaseActivity;
-import com.example.juleeyahwright.opensesame.Constant;
+import com.example.juleeyahwright.opensesame.Common.BaseActivity;
 import com.example.juleeyahwright.opensesame.R;
 import com.example.juleeyahwright.opensesame.Report.Report;
-import com.example.juleeyahwright.opensesame.Theme;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.firebase.firestore.FirebaseFirestore;
 

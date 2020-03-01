@@ -5,12 +5,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.juleeyahwright.opensesame.BaseActivity;
+import com.example.juleeyahwright.opensesame.Common.BaseActivity;
 import com.example.juleeyahwright.opensesame.Map.MapActivity;
 import com.example.juleeyahwright.opensesame.R;
-import com.example.juleeyahwright.opensesame.SettingsActivity;
+import com.example.juleeyahwright.opensesame.Settings.SettingsActivity;
 
 import java.util.Objects;
 
