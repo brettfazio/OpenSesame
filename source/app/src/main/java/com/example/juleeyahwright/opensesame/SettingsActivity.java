@@ -89,27 +89,7 @@ public class SettingsActivity extends AppCompatActivity {
                 colorDialog.show();
             }
         });
-
-        RadioGroup fontGroup = (RadioGroup)findViewById(R.id.fontSizeGroup);
-        RadioButton checkedRadioButton = (RadioButton)fontGroup.findViewById(fontGroup.getCheckedRadioButtonId());
-
-        fontGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-        public void onCheckedChanged(RadioGroup arg0, int id) {
-            switch (id) {
-            case R.id.smallRadioButton:
-              Log.v("SmallFontButton", "Small font selected");
-              break;
-            case R.id.medRadioButton:
-              Log.v("MediumFontButton", "Medium font selected");
-              break;
-            case R.id.largeRadioButton:
-              Log.v("LargeFontButton", "Large font selected");
-              break;
-            default:
-              break;
-            }
-        }
-    });
+        
 
         CheckBox showCompass = findViewById(R.id.show_compass);
         CheckBox showMapType = findViewById(R.id.satellite_hybrid);
