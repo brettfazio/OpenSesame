@@ -36,12 +36,12 @@
         android:layout_marginRight="20dp"/>
 
     <RadioGroup
+        android:id="@+id/fontSizeGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:orientation="horizontal"
-        >
+        android:orientation="horizontal">
 
         <RadioButton
             android:id="@+id/smallRadioButton"
@@ -71,6 +71,12 @@
         android:textSize="20sp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"/>
+
+    <Button
+        android:id="@+id/color_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/change_color" />
 
     <Switch
         android:id="@+id/invert_colors"
@@ -103,8 +109,7 @@
         android:layout_height="wrap_content"
         android:text="@string/show_compass"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:onClick="mapOptionChecked"/>
+        android:layout_marginRight="20dp"/>
 
     <CheckBox
         android:id="@+id/satellite_hybrid"
@@ -112,8 +117,7 @@
         android:layout_height="wrap_content"
         android:text="@string/satellite_hybrid"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:onClick="mapOptionChecked"/>
+        android:layout_marginRight="20dp"/>
 
     <CheckBox
         android:id="@+id/show_zoom"
@@ -121,8 +125,7 @@
         android:layout_height="wrap_content"
         android:text="@string/show_zoom_controls"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:onClick="mapOptionChecked"/>
+        android:layout_marginRight="20dp"/>
 
     <TextView
         android:id="@+id/account_options"

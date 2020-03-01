@@ -2,6 +2,9 @@ package com.example.juleeyahwright.opensesame;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Paint;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.OvalShape;
 import android.os.Bundle;
 
 import android.util.Log;
@@ -47,14 +50,17 @@ public class SettingsActivity extends AppCompatActivity {
         themeColor = appColor;
         constant.color = appColor;
 
-        setColorTheme();
+        if (appColor == 0 || themeColor == 0) {
+            setTheme(Constant.appTheme);
+        } else
+            setTheme(appTheme);
+
+        Theme.setColorTheme();
 
         setContentView(R.layout.setting_activity);
 
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         editor = sharedPreferences.edit();
-
-        // colorize();
 
         getColorButton = (Button) findViewById(R.id.color_button);
 
@@ -66,13 +72,11 @@ public class SettingsActivity extends AppCompatActivity {
                 colorDialog.setColorListener(new ColorListener() {
                     @Override
                     public void OnColorClick(View v, int color) {
-                        // colorize();
                         Constant.color = color;
                         Theme.setColorTheme();
                         editor.putInt("color", color);
                         editor.putInt("theme", Constant.appTheme);
                         editor.commit();
-
                         Intent intent = new Intent(SettingsActivity.this, MapActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);
@@ -186,10 +190,6 @@ public class SettingsActivity extends AppCompatActivity {
                     Log.v(TAG, "set zoom");
                 }
         }
-     }
-
-     public void setColorTheme() {
-
      }
 
 }
