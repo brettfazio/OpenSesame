@@ -21,15 +21,10 @@ import com.turkialkhateeb.materialcolorpicker.ColorListener;
 /*
 SettingsActivity: the settings page for the user's account
  */
-public class SettingsActivity extends AppCompatActivity {
+public class SettingsActivity extends BaseActivity {
 
-    SharedPreferences sharedPreferences, appPreferences;
+    SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
-    int appTheme;
-    int appColor;
-    int themeColor;
-    int textColor;
-    Constant constant;
 
     Button getColorButton;
 
@@ -39,19 +34,6 @@ public class SettingsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        appPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        appTheme = appPreferences.getInt("theme", 0);
-        appColor = appPreferences.getInt("color", 0);
-        themeColor = appColor;
-        constant.color = appColor;
-
-        if (appColor == 0 || themeColor == 0) {
-            setTheme(Constant.appTheme);
-        } else
-            setTheme(appTheme);
-
-        Theme.setColorTheme();
-
         setContentView(R.layout.setting_activity);
 
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
