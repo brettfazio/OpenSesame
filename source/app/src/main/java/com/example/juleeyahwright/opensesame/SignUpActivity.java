@@ -68,6 +68,7 @@ public class SignUpActivity extends AppCompatActivity implements AccountModelLis
             }
         });
     }
+
     // gets text from the email field entered with the soft keyboard
     private String getEnteredEmail() {
         return ((EditText) findViewById(R.id.emailField)).getText().toString();
@@ -101,10 +102,12 @@ public class SignUpActivity extends AppCompatActivity implements AccountModelLis
     }
 
     @Override
-    public void logInSuccess(String email, String password) { }
+    public void logInSuccess(String email, String password) {
+    }
 
     @Override
-    public void logInFailure(Exception exception, String email, String password) { }
+    public void logInFailure(Exception exception, String email, String password) {
+    }
 
     @Override
     public void signUpSuccess(String email, String password) {

@@ -33,6 +33,7 @@ public class CreateReportActivity extends AppCompatActivity implements CreateRep
     Constant constant;
 
     private CreateReportController controller;
+
     // sets up the layout for the create report
     @Override
     protected void onCreate(Bundle savedInstanceState) {

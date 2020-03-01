@@ -58,7 +58,9 @@ public class ReportServiceTest implements ReportServiceListener {
             }
 
             @Override
-            public boolean isSuccessful() { return true; }
+            public boolean isSuccessful() {
+                return true;
+            }
 
             @Override
             public boolean isCanceled() {

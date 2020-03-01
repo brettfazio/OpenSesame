@@ -145,7 +145,10 @@ public class LoginActivity extends AppCompatActivity implements AccountModelList
     }
 
     @Override
-    public void signUpSuccess(String email, String password) { }
+    public void signUpSuccess(String email, String password) {
+    }
+
     @Override
-    public void signUpFailure(Exception exception, String email, String password) { }
+    public void signUpFailure(Exception exception, String email, String password) {
+    }
 }

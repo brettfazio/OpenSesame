@@ -1,7 +1,6 @@
 package com.example.juleeyahwright.opensesame
 
 
-
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.assertion.ViewAssertions
@@ -30,6 +29,7 @@ class CreateReportActivityTest {
         onView(withId(R.id.titleEditText)).perform(ViewActions.replaceText("Title"), ViewActions.closeSoftKeyboard())
         onView(withId(R.id.titleEditText)).check(ViewAssertions.matches(ViewMatchers.withText("Title")))
     }
+
     /*
     Testing:Report has an info field
     Pass Criteria: A report has info text
@@ -40,6 +40,7 @@ class CreateReportActivityTest {
         onView(withId(R.id.infoEditText)).perform(ViewActions.replaceText("Info\nmation"), ViewActions.closeSoftKeyboard())
         onView(withId(R.id.infoEditText)).check(ViewAssertions.matches(ViewMatchers.withText("Info\nmation")))
     }
+
     /*
     Testing:Report has a locationInfo field
     Pass Criteria: A report has location Info text

@@ -25,7 +25,8 @@ class MapActivityTest {
     @JvmField
     var mActivityTestRule = ActivityTestRule(MapActivity::class.java)
 
-    @get:Rule var permissionRule = GrantPermissionRule.grant(android.Manifest.permission.ACCESS_FINE_LOCATION)
+    @get:Rule
+    var permissionRule = GrantPermissionRule.grant(android.Manifest.permission.ACCESS_FINE_LOCATION)
 
     /*
     Testing: When add button is clicked, user is taken to CreateReportActivity
