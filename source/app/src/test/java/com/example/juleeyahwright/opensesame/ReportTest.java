@@ -15,7 +15,7 @@ public class ReportTest {
      */
     @Test
     public void firebaseMap_reportTest() {
-        Report report = new Report("dummy", "this is a dummy report", "basement", new LatLng(0.0,0.0));
+        Report report = new Report("dummy", "this is a dummy report", "basement", new LatLng(0.0, 0.0));
 
         Map<String, Object> map = report.getFirebaseMap();
 
@@ -25,10 +25,10 @@ public class ReportTest {
         assert (map.get("location") != null);
         assert (map.size() == 4);
 
-        assert(map.get("name").equals("dummy"));
-        assert(map.get("information").equals("this is a dummy report"));
-        assert(map.get("location").equals(new LatLng(0.0,0.0)));
-        assert(map.get("locationInfo").equals("basement"));
+        assert (map.get("name").equals("dummy"));
+        assert (map.get("information").equals("this is a dummy report"));
+        assert (map.get("location").equals(new LatLng(0.0, 0.0)));
+        assert (map.get("locationInfo").equals("basement"));
     }
 
     /*
@@ -37,7 +37,7 @@ public class ReportTest {
     */
     @Test
     public void getCollectionPath_test() {
-        Report report = new Report("dummy", "this is a dummy report", "basement", new LatLng(0.0,0.0));
+        Report report = new Report("dummy", "this is a dummy report", "basement", new LatLng(0.0, 0.0));
 
         assert (report.getCollectionPath().equals(Report.DEFAULT_COLLECTION_PATH));
     }
@@ -48,8 +48,52 @@ public class ReportTest {
     */
     @Test
     public void customGetCollectionPath_test() {
-        Report report = new Report("dummy", "this is a dummy report", "basement", new LatLng(0.0,0.0), "custom");
+        Report report = new Report("dummy", "this is a dummy report", "basement", new LatLng(0.0, 0.0), "custom");
 
         assert (report.getCollectionPath().equals("custom"));
+    }
+
+    /*
+    Testing: getName getter returns proper value
+    Pass Criteria: getName matches init value
+    */
+    @Test
+    public void getName_test() {
+        Report report = new Report("dummy", "this is a dummy report", "basement", new LatLng(0.0, 0.0), "custom");
+
+        assert (report.getName().equals("dummy"));
+    }
+
+    /*
+    Testing: getInformation getter returns proper value
+    Pass Criteria: getInformation matches init value
+    */
+    @Test
+    public void getInformation_test() {
+        Report report = new Report("dummy", "this is a dummy report", "basement", new LatLng(0.0, 0.0), "custom");
+
+        assert (report.getInformation().equals("this is a dummy report"));
+    }
+
+    /*
+    Testing: getLocationInfo getter returns proper value
+    Pass Criteria: getLocationInfo matches init value
+    */
+    @Test
+    public void getLocationInfo_test() {
+        Report report = new Report("dummy", "this is a dummy report", "basement", new LatLng(0.0, 0.0), "custom");
+
+        assert (report.getLocationInfo().equals("basement"));
+    }
+
+    /*
+    Testing: getLocation getter returns proper value
+    Pass Criteria: getLocation matches init value
+    */
+    @Test
+    public void getLocation_test() {
+        Report report = new Report("dummy", "this is a dummy report", "basement", new LatLng(0.0, 0.0), "custom");
+
+        assert (report.getLocation().equals(new LatLng(0.0, 0.0)));
     }
 }
