@@ -81,7 +81,7 @@ public class SettingsActivity extends AppCompatActivity {
                 colorDialog.show();
             }
         });
-        
+
 
         CheckBox showCompass = findViewById(R.id.show_compass);
         CheckBox showMapType = findViewById(R.id.satellite_hybrid);
@@ -118,7 +118,7 @@ public class SettingsActivity extends AppCompatActivity {
 
     // adds a menu to access account
     @Override
-    public boolean onCreateOptionsMenu(Menu menu){
+    public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);
         return true;
     }
@@ -129,26 +129,26 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     @Override
-     public boolean onOptionsItemSelected(MenuItem item) {
-         // Close this activity if home is selected
-         if (item.getItemId() == android.R.id.home) {
-             Intent i = new Intent(SettingsActivity.this, MapActivity.class);
-             startActivity(i);
-         } else if (item.getItemId() == R.id.settings_option) {
-             finish();
-         } else if (item.getItemId() == R.id.sign_out_option) {
-             finish();
-         } else if (item.getItemId() == R.id.report_list_option) {
-             Intent i = new Intent(SettingsActivity.this, ReportListActivity.class);
-             startActivity(i);
-         }
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Close this activity if home is selected
+        if (item.getItemId() == android.R.id.home) {
+            Intent i = new Intent(SettingsActivity.this, MapActivity.class);
+            startActivity(i);
+        } else if (item.getItemId() == R.id.settings_option) {
+            finish();
+        } else if (item.getItemId() == R.id.sign_out_option) {
+            finish();
+        } else if (item.getItemId() == R.id.report_list_option) {
+            Intent i = new Intent(SettingsActivity.this, ReportListActivity.class);
+            startActivity(i);
+        }
 
-         return super.onOptionsItemSelected(item);
-     }
+        return super.onOptionsItemSelected(item);
+    }
 
-     public void onCheckboxClicked(View view) {
+    public void onCheckboxClicked(View view) {
         boolean checked = ((CheckBox) view).isChecked();
-        switch(view.getId()) {
+        switch (view.getId()) {
             case R.id.show_compass:
                 if (checked) {
                     Intent i = new Intent(this, MapActivity.class);
@@ -168,6 +168,6 @@ public class SettingsActivity extends AppCompatActivity {
                     Log.v(TAG, "set zoom");
                 }
         }
-     }
+    }
 
 }

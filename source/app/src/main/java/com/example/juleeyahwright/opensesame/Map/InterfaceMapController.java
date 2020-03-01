@@ -18,6 +18,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
+
 /*
 MapController: gets the interaction between the user and the locations on the map
  */
@@ -60,15 +61,14 @@ public class InterfaceMapController {
         return this.mLocationPermissionGranted;
     }
 
-    public void checkAndRequestPermissions(Context c, Activity a){
-        if(ContextCompat.checkSelfPermission(
+    public void checkAndRequestPermissions(Context c, Activity a) {
+        if (ContextCompat.checkSelfPermission(
                 c,
                 ACCESS_FINE_LOCATION)
-                != PackageManager.PERMISSION_GRANTED)
-        {
+                != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(
                     a,
-                    new String[] {ACCESS_FINE_LOCATION},
+                    new String[]{ACCESS_FINE_LOCATION},
                     1);
         } else {
             this.mLocationPermissionGranted = true;
@@ -76,15 +76,12 @@ public class InterfaceMapController {
         }
     }
 
-    public void updateMapLocation(Activity a)
-    {
-        if(mMap == null)
+    public void updateMapLocation(Activity a) {
+        if (mMap == null)
             return;
 
-        try
-        {
-            if(mLocationPermissionGranted)
-            {
+        try {
+            if (mLocationPermissionGranted) {
                 mMap.setMyLocationEnabled(true);
                 mMap.getUiSettings().setMyLocationButtonEnabled(true);
                 getLastKnownLocation(a);
@@ -93,29 +90,24 @@ public class InterfaceMapController {
                 mMap.getUiSettings().setMyLocationButtonEnabled(false);
                 mLastKnownLocation = null;
             }
-        } catch (SecurityException e){
+        } catch (SecurityException e) {
         }
     }
 
-    public void getLastKnownLocation(Activity a)
-    {
-        try
-        {
-            if(mLocationPermissionGranted)
-            {
+    public void getLastKnownLocation(Activity a) {
+        try {
+            if (mLocationPermissionGranted) {
                 Task<Location> location = fusedLocationClient.getLastLocation();
                 location.addOnCompleteListener(a, new OnCompleteListener<Location>() {
                     @Override
                     public void onComplete(@NonNull Task<Location> task) {
-                        if(task.isSuccessful())
-                        {
+                        if (task.isSuccessful()) {
                             mLastKnownLocation = task.getResult();
-                            if(mLastKnownLocation != null)
-                            {
+                            if (mLastKnownLocation != null) {
                                 mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(
                                         new LatLng(mLastKnownLocation.getLatitude(),
                                                 mLastKnownLocation.getLongitude()),
-                                                ZOOM));
+                                        ZOOM));
                             }
                         } else {
                             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(
