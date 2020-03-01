@@ -3,6 +3,7 @@ package com.example.juleeyahwright.opensesame.ReportDetail;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
@@ -49,6 +50,8 @@ public class ReportDetailActivity extends AppCompatActivity {
 
         controller = new ReportDetailController(
                 (ReportReference) getIntent().getExtras().get(REPORT_EXTRA));
+
+        setFields();
     }
 
     // End the activity
@@ -61,4 +64,26 @@ public class ReportDetailActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    private void setFields() {
+        setTitleField();
+        setInfoField();
+        setLocationInfoField();
+    }
+
+    private void setTitleField() {
+        TextView textView = findViewById(R.id.reportDetailHeader);
+        textView.setText(controller.getReportName());
+    }
+
+    private void setInfoField() {
+        TextView textView = findViewById(R.id.reportDetailInfo);
+        textView.setText(controller.getReportInformation());
+    }
+
+    private void setLocationInfoField() {
+        TextView textView = findViewById(R.id.reportDetailLocationInfo);
+        textView.setText(controller.getReportLocationInfo());
+    }
+
 }
