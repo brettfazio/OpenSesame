@@ -1,4 +1,4 @@
-package com.example.juleeyahwright.opensesame;
+package com.example.juleeyahwright.opensesame.Settings;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -10,10 +10,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
 
+import com.example.juleeyahwright.opensesame.Common.BaseActivity;
+import com.example.juleeyahwright.opensesame.Common.Constant;
+import com.example.juleeyahwright.opensesame.Common.Theme;
 import com.example.juleeyahwright.opensesame.Map.MapActivity;
+import com.example.juleeyahwright.opensesame.R;
 import com.example.juleeyahwright.opensesame.ReportList.ReportListActivity;
 import com.turkialkhateeb.materialcolorpicker.ColorChooserDialog;
 import com.turkialkhateeb.materialcolorpicker.ColorListener;

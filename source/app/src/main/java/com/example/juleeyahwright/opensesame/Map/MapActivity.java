@@ -1,7 +1,6 @@
 package com.example.juleeyahwright.opensesame.Map;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.Menu;
@@ -11,18 +10,14 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.preference.PreferenceManager;
 
-import com.example.juleeyahwright.opensesame.BaseActivity;
-import com.example.juleeyahwright.opensesame.Constant;
+import com.example.juleeyahwright.opensesame.Common.BaseActivity;
 import com.example.juleeyahwright.opensesame.CreateReport.CreateReportActivity;
 import com.example.juleeyahwright.opensesame.LoginActivity;
 import com.example.juleeyahwright.opensesame.R;
 import com.example.juleeyahwright.opensesame.ReportList.ReportListActivity;
-import com.example.juleeyahwright.opensesame.SettingsActivity;
+import com.example.juleeyahwright.opensesame.Settings.SettingsActivity;
 import com.example.juleeyahwright.opensesame.SharedPreferencesController;
-import com.example.juleeyahwright.opensesame.Theme;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
