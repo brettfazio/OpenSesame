@@ -22,7 +22,7 @@ Component | User Story
 -------|--------
 MapController | 003, 024
 LoginController | 000
-ReportController | 005
+ReportController | 005, 018, 024
 
 # Major Classes
 
