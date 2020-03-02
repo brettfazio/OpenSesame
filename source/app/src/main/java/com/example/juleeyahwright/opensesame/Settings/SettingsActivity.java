@@ -1,7 +1,6 @@
 package com.example.juleeyahwright.opensesame.Settings;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -10,14 +9,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 
-import androidx.preference.PreferenceManager;
-
 import com.example.juleeyahwright.opensesame.Common.BaseActivity;
 import com.example.juleeyahwright.opensesame.Common.Constant;
 import com.example.juleeyahwright.opensesame.Common.Theme;
 import com.example.juleeyahwright.opensesame.Map.MapActivity;
 import com.example.juleeyahwright.opensesame.R;
 import com.example.juleeyahwright.opensesame.ReportList.ReportListActivity;
+import com.example.juleeyahwright.opensesame.SharedPreferencesController;
 import com.turkialkhateeb.materialcolorpicker.ColorChooserDialog;
 import com.turkialkhateeb.materialcolorpicker.ColorListener;
 
@@ -25,9 +23,6 @@ import com.turkialkhateeb.materialcolorpicker.ColorListener;
 SettingsActivity: the settings page for the user's account
  */
 public class SettingsActivity extends BaseActivity {
-
-    SharedPreferences sharedPreferences;
-    SharedPreferences.Editor editor;
 
     Button getColorButton;
 
@@ -38,9 +33,6 @@ public class SettingsActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.setting_activity);
-
-        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        editor = sharedPreferences.edit();
 
         getColorButton = (Button) findViewById(R.id.color_button);
 
@@ -54,9 +46,8 @@ public class SettingsActivity extends BaseActivity {
                     public void OnColorClick(View v, int color) {
                         Constant.color = color;
                         Theme.setColorTheme();
-                        editor.putInt("color", color);
-                        editor.putInt("theme", Constant.appTheme);
-                        editor.commit();
+                        SharedPreferencesController.setColor(getApplicationContext(), color);
+                        SharedPreferencesController.setTheme(getApplicationContext(), Constant.appTheme);
                         Intent intent = new Intent(SettingsActivity.this, SettingsActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);
