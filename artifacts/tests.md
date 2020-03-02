@@ -38,6 +38,11 @@
 | SharedPreferencesController | clear | After email and password are stored, clear method removes credentials from storage | No login credentials present | 
 | SharedPreferencesController | theme | Getter for theme from the user defined preferences | Returns the same theme that was written to the Android context | 
 | SharedPreferencesController | color | Getter for color from the user defined preferences | Returns the same color that was written to the Android context | 
+| SettingsTest | colorSet | Color is stored | Returns a color | 
+| SettingsTest | themeSet | Theme is stored | Returns a theme |
+| SettingsTest | defaultTheme | Default theme is run when no theme is specified | Theme is set to default amber theme |
+| SettingsTest | colorDialog | Color chooser dialog is displayed when button is clicked | Dialog is opened |
+| SettingsTest | checkbox | Checkboxes are checked when clicked | Checkbox is selected after click | 
 | ReportDetailController |  reportName | Getter for the underlying ReportReference name | Returns the proper name of the underlying ReportReference object |
 | ReportDetailController |  reportInformation | Getter for the underlying ReportReference info | Returns the proper info of the underlying ReportReference object |
 | ReportDetailController |  reportLocationInfo | Getter for the underlying ReportReference locationInfo | Returns the proper location information of the underlying ReportReference object |
