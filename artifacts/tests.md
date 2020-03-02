@@ -36,6 +36,10 @@
 | SharedPreferencesController | passwordSet | Password data is stored | The password that is stored and received matches what was input | 
 | SharedPreferencesController | allSet | Email and password data is stored | The email and password that are stored and received match what was input | 
 | SharedPreferencesController | clear | After email and password are stored, clear method removes credentials from storage | No login credentials present | 
-| SharedPreferencesController | getTheme | Getter for theme from the user defined preferences | Returns the same theme that 
+| SharedPreferencesController | theme | Getter for theme from the user defined preferences | Returns the same theme that 
 was written to the Android context | 
-| SharedPreferencesController | getColor | Getter for color from the user defined preferences | Returns the same color that was written to the Android context | 
+| SharedPreferencesController | color | Getter for color from the user defined preferences | Returns the same color that was written to the Android context | 
+| ReportDetailController |  reportName | Getter for the underlying ReportReference name | Returns the proper name of the 
+underlying ReportReference object
+| ReportDetailController |  reportInformation | Getter for the underlying ReportReference info | Returns the proper info of the underlying ReportReference object
+| ReportDetailController |  reportLocationInfo | Getter for the underlying ReportReference locationInfo | Returns the proper location information of the underlying ReportReference object
