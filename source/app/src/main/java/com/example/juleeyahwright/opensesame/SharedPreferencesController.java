@@ -12,6 +12,8 @@ states of the app
 public class SharedPreferencesController extends Activity {
     private static final String CONTEXT_NAME = "Login";
 
+    private static final int INT_UNAVAILABLE = -1;
+
     private static SharedPreferences spFromContext(Context context) {
         return context.getSharedPreferences(CONTEXT_NAME, MODE_PRIVATE);
     }
@@ -26,16 +28,16 @@ public class SharedPreferencesController extends Activity {
 
     public static void setEmail(Context context, String email) {
         SharedPreferences sp = spFromContext(context);
-        SharedPreferences.Editor Ed = sp.edit();
-        Ed.putString("email", email);
-        Ed.apply();
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putString("email", email);
+        editor.apply();
     }
 
     public static void setPassword(Context context, String password) {
         SharedPreferences sp = spFromContext(context);
-        SharedPreferences.Editor Ed = sp.edit();
-        Ed.putString("password", password);
-        Ed.apply();
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putString("password", password);
+        editor.apply();
     }
 
     public static boolean isLoginCredentialsSet(Context context) {
@@ -45,6 +47,28 @@ public class SharedPreferencesController extends Activity {
     public static void clearSignInData(Context context) {
         SharedPreferences sp = spFromContext(context);
         sp.edit().clear().apply();
+    }
+
+    public static void setColor(Context context, int color) {
+        SharedPreferences sp = spFromContext(context);
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putInt("color", color);
+        editor.apply();
+    }
+
+    public static int getColor(Context context) {
+        return spFromContext(context).getInt("email", INT_UNAVAILABLE);
+    }
+
+    public static void setTheme(Context context, int theme) {
+        SharedPreferences sp = spFromContext(context);
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putInt("theme", theme);
+        editor.apply();
+    }
+
+    public static int getTheme(Context context) {
+        return spFromContext(context).getInt("theme", INT_UNAVAILABLE);
     }
 
 }
