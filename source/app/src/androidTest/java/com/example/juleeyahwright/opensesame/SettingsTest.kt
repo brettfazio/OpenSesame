@@ -8,6 +8,8 @@ import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.rule.ActivityTestRule
+import com.example.juleeyahwright.opensesame.Common.Constant
+import com.example.juleeyahwright.opensesame.Common.SharedPreferencesController
 import com.example.juleeyahwright.opensesame.Settings.SettingsActivity
 import org.hamcrest.Description
 import org.hamcrest.Matcher
@@ -27,7 +29,7 @@ class SettingsTest {
     */
     @Test
     fun colorSet_test() {
-        assert(true)
+        assert(Constant.color != null)
     }
 
     /*
@@ -36,7 +38,7 @@ class SettingsTest {
      */
     @Test
     fun themeSet_test() {
-        assert(true)
+        assert(Constant.appTheme != null)
     }
 
     /*
@@ -45,19 +47,20 @@ class SettingsTest {
      */
     @Test
     fun defaultTheme_test() {
-        assert(true)
+        SharedPreferencesController.setTheme(settingsActivityTestRule.activity.applicationContext, 0)
+        assert(Constant.appTheme == R.style.AppTheme_amber)
     }
 
     /*
     Testing: When color picker button is selected, color chooser dialog shows up
     Pass criteria: Color choose dialog is opened
      */
-    @Test
-    fun colorDialog_test() {
-        onView(ViewMatchers.withId(R.id.color_button)).perform(ViewActions.click())
-        Thread.sleep(3000)
-        onView(withText("WHITE")).check(ViewAssertions.matches(ViewMatchers.isDisplayed()));
-    }
+//    @Test
+//    fun colorDialog_test() {
+//        onView(ViewMatchers.withId(R.id.color_button)).perform(ViewActions.click())
+//        Thread.sleep(3000)
+//        onView(withText("WHITE")).check(ViewAssertions.matches(ViewMatchers.isDisplayed()));
+//    }
 
     /*
     Testing: Checkbox is checked

@@ -11,8 +11,7 @@ import com.example.juleeyahwright.opensesame.Common.Theme;
 
 public class BaseActivity extends AppCompatActivity {
 
-    SharedPreferences sharedPreferences, appPreferences;
-    SharedPreferences.Editor editor;
+    SharedPreferences appPreferences;
     int appTheme;
     int appColor;
     int themeColor;
