@@ -62,8 +62,8 @@ class SharedPreferencesControllerTest {
     */
     @Test
     fun theme_test() {
-        SharedPreferencesController.setTheme(mActivityTestRule.activity.applicationContext, 5)
-        assert(SharedPreferencesController.getTheme(mActivityTestRule.activity.applicationContext) == 5)
+        SharedPreferencesController.setTheme(mActivityTestRule.activity.applicationContext, 6)
+        assert(SharedPreferencesController.getTheme(mActivityTestRule.activity.applicationContext) == 6)
     }
 
     /*
