@@ -70,7 +70,7 @@ User Exists Conditional | 004
 Sign Up Screen | 000
 Map Screen | 003, 005, 022, 023
 Settings Screen | 021
-Create Report Screen | 024
+Create Report Screen | 024, 18
 
 # Resource Management
 
