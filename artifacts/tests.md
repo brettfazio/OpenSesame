@@ -39,7 +39,6 @@
 | SharedPreferencesController | theme | Getter for theme from the user defined preferences | Returns the same theme that 
 was written to the Android context | 
 | SharedPreferencesController | color | Getter for color from the user defined preferences | Returns the same color that was written to the Android context | 
-| ReportDetailController |  reportName | Getter for the underlying ReportReference name | Returns the proper name of the 
-underlying ReportReference object
+| ReportDetailController |  reportName | Getter for the underlying ReportReference name | Returns the proper name of the underlying ReportReference object
 | ReportDetailController |  reportInformation | Getter for the underlying ReportReference info | Returns the proper info of the underlying ReportReference object
 | ReportDetailController |  reportLocationInfo | Getter for the underlying ReportReference locationInfo | Returns the proper location information of the underlying ReportReference object
