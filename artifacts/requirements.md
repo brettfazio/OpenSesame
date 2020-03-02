@@ -23,3 +23,4 @@
 |018|016| A user can add more information to a report on the map|When viewing the additional information screen for a report, the user can add more information|3|Necessary|Planned|
 |019|019| A user can filter reports by their category|When viewing reports as a list, the user can filer them by their category|3|Important|Planned|
 |020|023| A user can accept or decline location permissions|When using the app, a dialog will pop up asking the user to accept or deny location permissoins|3|Necessary|Working|
+|021|008| A user can select a color for the UI|When in the settings, the user can select a color for the color picker and said color will now be used as the base for the UI|2|Desirable|Satisfied
