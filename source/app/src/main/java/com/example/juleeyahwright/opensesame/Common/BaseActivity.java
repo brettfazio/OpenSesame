@@ -16,7 +16,6 @@ public class BaseActivity extends AppCompatActivity {
     int appTheme;
     int appColor;
     int themeColor;
-    int textColor;
     Constant constant;
 
     @Override
