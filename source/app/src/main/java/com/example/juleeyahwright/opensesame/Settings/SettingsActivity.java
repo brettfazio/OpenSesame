@@ -1,6 +1,5 @@
 package com.example.juleeyahwright.opensesame.Settings;
 
-import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -43,7 +42,7 @@ public class SettingsActivity extends BaseActivity {
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         editor = sharedPreferences.edit();
 
-        getColorButton = findViewById(R.id.color_button);
+        getColorButton = (Button) findViewById(R.id.color_button);
 
         getColorButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,8 +84,7 @@ public class SettingsActivity extends BaseActivity {
             public void onClick(View v) {
                 boolean checked = ((CheckBox) v).isChecked();
                 if (checked) {
-                    editor.putInt("map_type", 4);
-                    editor.commit();
+                    Log.v(TAG, "set compass");
                 }
             }
         });
@@ -155,13 +153,6 @@ public class SettingsActivity extends BaseActivity {
                     Log.v(TAG, "set zoom");
                 }
         }
-    }
-
-    public boolean isDialogPresent(Dialog dialog) {
-        if(dialog != null)
-            return true;
-        else
-            return false;
     }
 
 }

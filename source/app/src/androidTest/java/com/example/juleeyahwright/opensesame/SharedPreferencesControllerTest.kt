@@ -4,13 +4,13 @@ import android.content.Context
 import androidx.test.filters.LargeTest
 import androidx.test.rule.ActivityTestRule
 import androidx.test.runner.AndroidJUnit4
+import com.example.juleeyahwright.opensesame.Common.SharedPreferencesController
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 
 @LargeTest
-@RunWith(AndroidJUnit4::class)
 class SharedPreferencesControllerTest {
 
     @Rule
@@ -44,6 +44,26 @@ class SharedPreferencesControllerTest {
     fun password_test() {
         SharedPreferencesController.setPassword(mActivityTestRule.activity.applicationContext, "strong")
         assert(SharedPreferencesController.getPassword(mActivityTestRule.activity.applicationContext) == "strong")
+    }
+
+    /*
+    Testing: Color data is stored
+    Pass Criteria: Stored data matches input
+    */
+    @Test
+    fun color_test() {
+        SharedPreferencesController.setColor(mActivityTestRule.activity.applicationContext, 5)
+        assert(SharedPreferencesController.getColor(mActivityTestRule.activity.applicationContext) == 5)
+    }
+
+    /*
+    Testing: Theme data is stored
+    Pass Criteria: Stored data matches input
+    */
+    @Test
+    fun theme_test() {
+        SharedPreferencesController.setTheme(mActivityTestRule.activity.applicationContext, 6)
+        assert(SharedPreferencesController.getTheme(mActivityTestRule.activity.applicationContext) == 6)
     }
 
     /*

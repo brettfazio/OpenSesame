@@ -26,9 +26,9 @@
 | MapController | getLocation | Location of the device is accessed correctly | location matches actual location |
 | MapController | getMap | Map is present | Map is displayed |
 | MapController | getLocationPermission | When Locations Permissions are set to true, location permissions are stored as true | Location permissions are true |
-| ReportTest | firebaseMap_report | When fields are input with dummy text, the text is stored in a report | Report fields match input |
-| ReportTest | getCollectionPath | Report is matched with current location | Report matches location |
-| ReportTest | customGetCollectionPath | Report is matched with a custom location | Report matches custom location |
+| Report | firebaseMap_report | When fields are input with dummy text, the text is stored in a report | Report fields match input |
+| Report | getCollectionPath | Report is matched with current location | Report matches location |
+| Report | customGetCollectionPath | Report is matched with a custom location | Report matches custom location |
 | SharedPreferencesController | email | Email data is stored | Stored data matches input | 
 | SharedPreferencesController | password | Password data is stored | Stored data matches input | 
 | SharedPreferencesController | notSet | With no input, login credentials are absent | No login credentials present |
@@ -36,3 +36,11 @@
 | SharedPreferencesController | passwordSet | Password data is stored | The password that is stored and received matches what was input | 
 | SharedPreferencesController | allSet | Email and password data is stored | The email and password that are stored and received match what was input | 
 | SharedPreferencesController | clear | After email and password are stored, clear method removes credentials from storage | No login credentials present | 
+| SharedPreferencesController | theme | Getter for theme from the user defined preferences | Returns the same theme that was written to the Android context | 
+| SharedPreferencesController | color | Getter for color from the user defined preferences | Returns the same color that was written to the Android context | 
+| ReportDetailController |  reportName | Getter for the underlying ReportReference name | Returns the proper name of the underlying ReportReference object |
+| ReportDetailController |  reportInformation | Getter for the underlying ReportReference info | Returns the proper info of the underlying ReportReference object |
+| ReportDetailController |  reportLocationInfo | Getter for the underlying ReportReference locationInfo | Returns the proper location information of the underlying ReportReference object |
+| ReportReference | firebaseMap_report | When fields are input with dummy text, the text is stored in a report | Report fields match input |
+| ReportReference | getCollectionPath | Report is matched with current location | Report matches location |
+| ReportReference | customGetCollectionPath | Report is matched with a custom location | Report matches custom location |

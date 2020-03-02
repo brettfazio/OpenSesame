@@ -31,7 +31,7 @@ public class MapController implements ReportServiceListener {
     }
 
     @Override
-    public void reportRetrievalSuccess(@NotNull QuerySnapshot querySnapshot) {
+    public void reportRetrievalSuccess(@NotNull QuerySnapshot querySnapshot, @NotNull ReportReference[] reportReferences) {
     }
 
     @Override
