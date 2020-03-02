@@ -6,6 +6,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 public class ReportService {
@@ -31,7 +32,7 @@ public class ReportService {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             QuerySnapshot snapshot = task.getResult();
-                            listener.reportRetrievalSuccess(snapshot);
+                            listener.reportRetrievalSuccess(snapshot, convertToReportReferences(snapshot));
                         } else {
                             listener.reportRetrievalFailure(task.getException());
                         }
@@ -39,5 +40,16 @@ public class ReportService {
                 });
     }
 
+    private ReportReference[] convertToReportReferences(QuerySnapshot querySnapshot) {
+        ReportReference[] result = new ReportReference[querySnapshot.size()];
+
+        int index = 0;
+        for (QueryDocumentSnapshot documentSnapshot : querySnapshot) {
+            result[index] = new ReportReference(documentSnapshot);
+            index++;
+        }
+
+        return result;
+    }
 
 }

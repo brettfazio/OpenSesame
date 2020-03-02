@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.example.juleeyahwright.opensesame.Report.Report;
+import com.example.juleeyahwright.opensesame.Report.ReportReference;
 import com.example.juleeyahwright.opensesame.Report.ReportService;
 import com.example.juleeyahwright.opensesame.Report.ReportServiceListener;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -241,7 +242,7 @@ public class ReportServiceTest implements ReportServiceListener {
     }
 
     @Override
-    public void reportRetrievalSuccess(@NotNull QuerySnapshot querySnapshot) {
+    public void reportRetrievalSuccess(@NotNull QuerySnapshot querySnapshot, @NotNull ReportReference[] reportReferences) {
         result = SUCCESS;
     }
 

@@ -3,6 +3,7 @@ package com.example.juleeyahwright.opensesame.Report
 import android.os.Parcel
 import android.os.Parcelable
 import com.google.android.gms.maps.model.LatLng
+import com.google.firebase.firestore.QueryDocumentSnapshot
 
 class ReportReference(private val reportName: String?, private val reportInfo: String?, private val reportLocInfo: String?, private val reportLocation: LatLng?, private val documentId: String?) :
         Report(reportName, reportInfo, reportLocInfo, reportLocation), Parcelable {
@@ -18,6 +19,14 @@ class ReportReference(private val reportName: String?, private val reportInfo: S
             parcel.readParcelable(LatLng::class.java.classLoader),
             parcel.readString()) {
     }
+
+    constructor(queryDocumentSnapshot: QueryDocumentSnapshot) : this(
+            queryDocumentSnapshot[NAME_FIELD_NAME] as String?,
+            queryDocumentSnapshot[INFORMATION_FIELD_NAME] as String?,
+            queryDocumentSnapshot[LOCATION_INFO_FIELD_NAME] as String?,
+            queryDocumentSnapshot[LOCATION_FIELD_NAME] as LatLng?,
+            queryDocumentSnapshot.id
+    )
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(reportName)

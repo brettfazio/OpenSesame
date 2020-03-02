@@ -11,6 +11,11 @@ public class Report {
 
     public static final String DEFAULT_COLLECTION_PATH = "reports";
 
+    protected static final String INFORMATION_FIELD_NAME = "information";
+    protected static final String NAME_FIELD_NAME = "name";
+    protected static final String LOCATION_FIELD_NAME = "location";
+    protected static final String LOCATION_INFO_FIELD_NAME = "locationInfo";
+
     private LatLng location;
     private String information, name, locationInfo;
     private String collectionPath;
@@ -39,10 +44,10 @@ public class Report {
     // updates map with new marker after a report has been made
     private Map<String, Object> makeMap() {
         Map<String, Object> map = new HashMap<>();
-        map.put("location", location);
-        map.put("information", information);
-        map.put("name", name);
-        map.put("locationInfo", locationInfo);
+        map.put(LOCATION_FIELD_NAME, location);
+        map.put(INFORMATION_FIELD_NAME, information);
+        map.put(NAME_FIELD_NAME, name);
+        map.put(LOCATION_INFO_FIELD_NAME, locationInfo);
 
         return map;
     }
