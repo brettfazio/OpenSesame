@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 
 import com.example.juleeyahwright.opensesame.Common.BaseActivity;
+import com.example.juleeyahwright.opensesame.Common.SharedPreferencesController;
 import com.example.juleeyahwright.opensesame.Map.MapActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;

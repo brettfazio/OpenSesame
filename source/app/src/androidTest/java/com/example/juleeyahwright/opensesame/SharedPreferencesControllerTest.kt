@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.test.filters.LargeTest
 import androidx.test.rule.ActivityTestRule
 import androidx.test.runner.AndroidJUnit4
+import com.example.juleeyahwright.opensesame.Common.SharedPreferencesController
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test

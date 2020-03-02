@@ -17,7 +17,7 @@ import com.example.juleeyahwright.opensesame.LoginActivity;
 import com.example.juleeyahwright.opensesame.R;
 import com.example.juleeyahwright.opensesame.ReportList.ReportListActivity;
 import com.example.juleeyahwright.opensesame.Settings.SettingsActivity;
-import com.example.juleeyahwright.opensesame.SharedPreferencesController;
+import com.example.juleeyahwright.opensesame.Common.SharedPreferencesController;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;

@@ -15,7 +15,7 @@ import com.example.juleeyahwright.opensesame.Common.Theme;
 import com.example.juleeyahwright.opensesame.Map.MapActivity;
 import com.example.juleeyahwright.opensesame.R;
 import com.example.juleeyahwright.opensesame.ReportList.ReportListActivity;
-import com.example.juleeyahwright.opensesame.SharedPreferencesController;
+import com.example.juleeyahwright.opensesame.Common.SharedPreferencesController;
 import com.turkialkhateeb.materialcolorpicker.ColorChooserDialog;
 import com.turkialkhateeb.materialcolorpicker.ColorListener;
 
