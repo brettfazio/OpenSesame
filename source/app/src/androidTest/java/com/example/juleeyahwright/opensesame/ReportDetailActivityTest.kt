@@ -23,10 +23,6 @@ import org.junit.Test
 @LargeTest
 class ReportDetailActivityTest {
 
-//    @Rule
-//    @JvmField
-//    var mActivityTestRule = ActivityTestRule(ReportDetailActivity::class.java)
-
     @get:Rule
     val mActivityTestRule: ActivityTestRule<ReportDetailActivity> =
             object : ActivityTestRule<ReportDetailActivity>(ReportDetailActivity::class.java) {
@@ -38,16 +34,6 @@ class ReportDetailActivityTest {
                     }
                 }
             }
-
-    @Before
-    fun clearData() {
-//        val mActivity = mActivityTestRule.activity
-//
-//        val report = ReportReference("dummy", "this is a dummy report", "basement", LatLng(0.0, 0.0), "eFz687FFHDHD")
-//
-//        mActivity.intent.putExtra(ReportDetailActivity.REPORT_EXTRA, report)
-    }
-
 
     /*
     Testing: Pressing the add info button takes you to the add into view
