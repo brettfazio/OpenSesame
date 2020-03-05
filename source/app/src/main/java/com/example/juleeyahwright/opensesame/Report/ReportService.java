@@ -52,4 +52,8 @@ public class ReportService {
         return result;
     }
 
+    public void addMessageToReport(ReportReference reportReference, String message) {
+
+    }
+
 }

@@ -5,10 +5,13 @@ import android.view.MenuItem;
 
 import com.example.juleeyahwright.opensesame.Common.BaseActivity;
 import com.example.juleeyahwright.opensesame.R;
+import com.example.juleeyahwright.opensesame.Report.ReportReference;
 
 public class ReportAddInfoActivity extends BaseActivity {
 
     public static final String REPORT_EXTRA = "report";
+
+    private ReportAddInfoController controller;
 
     // sets up the layout for the create report
     @Override
@@ -19,6 +22,9 @@ public class ReportAddInfoActivity extends BaseActivity {
         // Show the back button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        controller = new ReportAddInfoController(getApplicationContext(),
+                (ReportReference) getIntent().getExtras().get(REPORT_EXTRA));
     }
 
     @Override
