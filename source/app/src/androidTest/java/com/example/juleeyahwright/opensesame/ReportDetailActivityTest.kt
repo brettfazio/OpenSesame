@@ -3,15 +3,11 @@ package com.example.juleeyahwright.opensesame
 
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions
-import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.intent.Intents
 import androidx.test.espresso.intent.matcher.IntentMatchers
-import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.filters.LargeTest
 import androidx.test.rule.ActivityTestRule
-import com.example.juleeyahwright.opensesame.CreateReport.CreateReportActivity
-import com.example.juleeyahwright.opensesame.Map.MapActivity
 import com.example.juleeyahwright.opensesame.ReportAddInfo.ReportAddInfoActivity
 import com.example.juleeyahwright.opensesame.ReportDetail.ReportDetailActivity
 import org.junit.Rule
