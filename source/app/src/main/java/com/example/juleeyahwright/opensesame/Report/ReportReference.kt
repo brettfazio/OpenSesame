@@ -24,7 +24,8 @@ class ReportReference(private val reportName: String?, private val reportInfo: S
             queryDocumentSnapshot[NAME_FIELD_NAME] as String?,
             queryDocumentSnapshot[INFORMATION_FIELD_NAME] as String?,
             queryDocumentSnapshot[LOCATION_INFO_FIELD_NAME] as String?,
-            queryDocumentSnapshot[LOCATION_FIELD_NAME] as LatLng?,
+            LatLng((queryDocumentSnapshot[LOCATION_FIELD_NAME] as Map<*, *>)["latitude"] as Double,
+                    (queryDocumentSnapshot[LOCATION_FIELD_NAME] as Map<*, *>)["longitude"] as Double),
             queryDocumentSnapshot.id
     )
 
