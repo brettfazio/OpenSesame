@@ -10,7 +10,6 @@ import android.widget.TextView;
 import com.example.juleeyahwright.opensesame.Common.BaseActivity;
 import com.example.juleeyahwright.opensesame.R;
 import com.example.juleeyahwright.opensesame.Report.ReportReference;
-import com.example.juleeyahwright.opensesame.ReportAddInfo.ReportAddInfoActivity;
 
 public class ReportDetailActivity extends BaseActivity {
 
@@ -26,7 +25,7 @@ public class ReportDetailActivity extends BaseActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        controller = new ReportDetailController(
+        controller = new ReportDetailController(getApplicationContext(),
                 (ReportReference) getIntent().getExtras().get(REPORT_EXTRA));
 
         setFields();
@@ -40,8 +39,8 @@ public class ReportDetailActivity extends BaseActivity {
     }
 
     private void addInfoTapped() {
-        Intent signUpIntent = new Intent(this, ReportAddInfoActivity.class);
-        startActivity(signUpIntent);
+        Intent intent = controller.intentToAddInfoActivity(this);
+        startActivity(intent);
     }
 
     // End the activity

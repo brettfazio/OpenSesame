@@ -8,6 +8,8 @@ import com.example.juleeyahwright.opensesame.R;
 
 public class ReportAddInfoActivity extends BaseActivity {
 
+    public static final String REPORT_EXTRA = "report";
+
     // sets up the layout for the create report
     @Override
     protected void onCreate(Bundle savedInstanceState) {

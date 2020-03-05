@@ -16,10 +16,10 @@ public class ReportDetailPresenter {
         this.context = context;
     }
 
-    public void presentReportDetailActivity(AppCompatActivity parent, ReportReference reportReference) {
-        Intent intent = new Intent(parent, CreateReportActivity.class);
+    public Intent presentReportDetailActivity(AppCompatActivity parent, ReportReference reportReference) {
+        Intent intent = new Intent(parent, ReportDetailActivity.class);
         intent.putExtra(ReportDetailActivity.REPORT_EXTRA, reportReference);
-        context.startActivity(intent);
+        return intent;
     }
 
 

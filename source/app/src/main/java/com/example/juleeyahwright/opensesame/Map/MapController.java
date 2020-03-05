@@ -1,6 +1,7 @@
 package com.example.juleeyahwright.opensesame.Map;
 
 import android.content.Context;
+import android.content.Intent;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -25,9 +26,9 @@ public class MapController implements ReportServiceListener {
         service.getReports();
     }
 
-    public void markerWasTapped(AppCompatActivity parent, Marker marker) {
+    public Intent markerWasTapped(AppCompatActivity parent, Marker marker) {
         ReportDetailPresenter reportDetailPresenter = new ReportDetailPresenter(context);
-        reportDetailPresenter.presentReportDetailActivity(parent, (ReportReference) marker.getTag());
+        return reportDetailPresenter.presentReportDetailActivity(parent, (ReportReference) marker.getTag());
     }
 
     @Override
