@@ -78,7 +78,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/reportDetailMessageRecycler"
         android:layout_width="381dp"
-        android:layout_height="300dp"
+        android:layout_height="250dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/reportDetailLocationInfo"/>
@@ -88,8 +88,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
+        android:layout_marginBottom="21dp"
         android:text="@string/add_report_message_button"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reportDetailMessageRecycler"/>
+        app:layout_constraintTop_toBottomOf="@+id/reportDetailMessageRecycler" />
 </androidx.constraintlayout.widget.ConstraintLayout>
