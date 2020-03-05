@@ -74,4 +74,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/reportDetailLocationInfoHeader" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/reportDetailMessageRecycler"
+        android:layout_width="381dp"
+        android:layout_height="300dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reportDetailLocationInfo"/>
+
+    <Button
+        android:id="@+id/reportDetailAddMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:text="@string/add_report_message_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reportDetailMessageRecycler"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

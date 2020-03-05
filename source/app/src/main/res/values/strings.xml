@@ -54,4 +54,5 @@
     <string name="report_detail_title_dummy">Title Here</string>
     <string name="report_detail_info_header">Description:</string>
     <string name="report_detail_location_info_header">Location details:</string>
+    <string name="add_report_message_button">Add additional information to this report</string>
 </resources>
