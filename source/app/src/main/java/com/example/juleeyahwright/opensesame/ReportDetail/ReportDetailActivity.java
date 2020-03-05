@@ -1,12 +1,16 @@
 package com.example.juleeyahwright.opensesame.ReportDetail;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.juleeyahwright.opensesame.Common.BaseActivity;
 import com.example.juleeyahwright.opensesame.R;
 import com.example.juleeyahwright.opensesame.Report.ReportReference;
+import com.example.juleeyahwright.opensesame.ReportAddInfo.ReportAddInfoActivity;
 
 public class ReportDetailActivity extends BaseActivity {
 
@@ -26,6 +30,18 @@ public class ReportDetailActivity extends BaseActivity {
                 (ReportReference) getIntent().getExtras().get(REPORT_EXTRA));
 
         setFields();
+
+        Button addButton = findViewById(R.id.reportDetailAddMessage);
+        addButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                addInfoTapped();
+            }
+        });
+    }
+
+    private void addInfoTapped() {
+        Intent signUpIntent = new Intent(this, ReportAddInfoActivity.class);
+        startActivity(signUpIntent);
     }
 
     // End the activity
