@@ -14,7 +14,7 @@ public class ReportAddInfoActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.create_report_activity);
+        setContentView(R.layout.report_add_info_activity);
 
         // Show the back button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
