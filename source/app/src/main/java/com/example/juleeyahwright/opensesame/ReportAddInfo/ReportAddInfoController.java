@@ -1,6 +1,7 @@
 package com.example.juleeyahwright.opensesame.ReportAddInfo;
 
 import android.content.Context;
+import android.widget.Toast;
 
 import com.example.juleeyahwright.opensesame.Report.ReportReference;
 import com.example.juleeyahwright.opensesame.Report.Update.ReportUpdateService;
@@ -32,6 +33,8 @@ public class ReportAddInfoController implements ReportUpdateServiceListener {
 
     @Override
     public void reportUpdateFailure(@NotNull Exception exception) {
-
+        Toast.makeText(context,
+                "Failed to add message with error: " + exception.getMessage(),
+                Toast.LENGTH_LONG).show();
     }
 }

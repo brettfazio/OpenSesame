@@ -37,4 +37,10 @@ public class ReportAddInfoActivity extends BaseActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    private void createButtonClicked() {
+        controller.addMessage("");
+
+        finish();
+    }
+
 }

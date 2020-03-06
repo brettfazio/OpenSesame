@@ -28,7 +28,6 @@ public class ReportUpdateService implements ReportGetSingleServiceListener, Mess
     }
 
     private void _addMessageToReport(DocumentSnapshot reference) {
-
         MessageCreateService messageCreateService = new MessageCreateService(this);
 
         MessageReference messageReference = new MessageReference(
