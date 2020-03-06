@@ -17,8 +17,7 @@ class ReportReference(private val reportName: String?, private val reportInfo: S
             parcel.readString(),
             parcel.readString(),
             parcel.readParcelable(LatLng::class.java.classLoader),
-            parcel.readString()) {
-    }
+            parcel.readString())
 
     constructor(queryDocumentSnapshot: QueryDocumentSnapshot) : this(
             queryDocumentSnapshot[NAME_FIELD_NAME] as String?,

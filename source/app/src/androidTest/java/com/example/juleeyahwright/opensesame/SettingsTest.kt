@@ -2,7 +2,7 @@ package com.example.juleeyahwright.opensesame
 
 import android.view.View
 import android.view.ViewGroup
-import androidx.test.espresso.Espresso.onView;
+import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.matcher.ViewMatchers
@@ -56,7 +56,7 @@ class SettingsTest {
     fun colorDialog_test() {
         onView(ViewMatchers.withId(R.id.color_button)).perform(ViewActions.click())
         Thread.sleep(3000)
-        onView(withText("WHITE")).check(ViewAssertions.matches(ViewMatchers.isDisplayed()));
+        onView(withText("WHITE")).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
     }
 
     /*
