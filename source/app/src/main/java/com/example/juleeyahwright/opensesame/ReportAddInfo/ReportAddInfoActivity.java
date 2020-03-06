@@ -2,6 +2,10 @@ package com.example.juleeyahwright.opensesame.ReportAddInfo;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.juleeyahwright.opensesame.Common.BaseActivity;
 import com.example.juleeyahwright.opensesame.R;
@@ -25,6 +29,17 @@ public class ReportAddInfoActivity extends BaseActivity {
 
         controller = new ReportAddInfoController(getApplicationContext(),
                 (ReportReference) getIntent().getExtras().get(REPORT_EXTRA));
+
+        Button addButton = findViewById(R.id.createMessageButton);
+        addButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                createButtonClicked();
+            }
+        });
+    }
+
+    private String getEnteredInfo() {
+        return ((EditText) findViewById(R.id.messageInfoEditText)).getText().toString();
     }
 
     @Override
@@ -38,7 +53,15 @@ public class ReportAddInfoActivity extends BaseActivity {
     }
 
     private void createButtonClicked() {
-        controller.addMessage("");
+        String message = getEnteredInfo();
+
+        if (message == null || message.length() == 0) {
+            Toast.makeText(getApplicationContext(),
+                    "Information must be non-empty.",
+                    Toast.LENGTH_LONG).show();
+        }
+
+        controller.addMessage(message);
 
         finish();
     }
