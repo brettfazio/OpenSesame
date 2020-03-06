@@ -49,3 +49,4 @@
 | ReportReference | firebaseMap_report | When fields are input with dummy text, the text is stored in a report | Report fields match input |
 | ReportReference | getCollectionPath | Report is matched with current location | Report matches location |
 | ReportReference | customGetCollectionPath | Report is matched with a custom location | Report matches custom location |
+| ReportDetailActivity | addMoreInfo | Pressing "moreInformation" button transition to the proper ReportAddInfo activity | After pressing the moreInfo button the activity shown is the ReportAddInfo activity |
