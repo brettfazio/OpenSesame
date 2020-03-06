@@ -15,6 +15,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Objects;
+
 /*
 CreateReportActivity: displays the report for the user to fill out
  */
@@ -31,7 +33,7 @@ public class CreateReportActivity extends BaseActivity implements CreateReportLi
         controller = new CreateReportController(FirebaseFirestore.getInstance(), this);
 
         // Show the back button
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         Button createReportButton = findViewById(R.id.createReportButton);
@@ -61,7 +63,7 @@ public class CreateReportActivity extends BaseActivity implements CreateReportLi
     // from the map activity, when the create a report button was pressed
     // the location that the user selected was stored to be picked up here
     private LatLng getLatLng() {
-        return (LatLng) getIntent().getExtras().get("LOCATION");
+        return (LatLng) Objects.requireNonNull(getIntent().getExtras()).get("LOCATION");
     }
 
     // when the user tries to submit, verify that all fields are filled out
