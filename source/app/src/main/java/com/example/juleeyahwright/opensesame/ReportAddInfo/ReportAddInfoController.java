@@ -3,13 +3,12 @@ package com.example.juleeyahwright.opensesame.ReportAddInfo;
 import android.content.Context;
 
 import com.example.juleeyahwright.opensesame.Report.ReportReference;
-import com.example.juleeyahwright.opensesame.Report.Get.ReportGetService;
-import com.example.juleeyahwright.opensesame.Report.Get.ReportGetServiceListener;
-import com.google.firebase.firestore.QuerySnapshot;
+import com.example.juleeyahwright.opensesame.Report.Update.ReportUpdateService;
+import com.example.juleeyahwright.opensesame.Report.Update.ReportUpdateServiceListener;
 
 import org.jetbrains.annotations.NotNull;
 
-public class ReportAddInfoController implements ReportGetServiceListener {
+public class ReportAddInfoController implements ReportUpdateServiceListener {
 
     private final ReportReference reportReference;
 
@@ -21,18 +20,18 @@ public class ReportAddInfoController implements ReportGetServiceListener {
     }
 
     public void addMessage(String message) {
-        ReportGetService reportGetService = new ReportGetService(this);
+        ReportUpdateService reportUpdateService = new ReportUpdateService(this);
 
-        reportGetService.addMessageToReport(reportReference, message);
+        reportUpdateService.addMessageToReport(reportReference, message);
     }
 
     @Override
-    public void reportRetrievalSuccess(@NotNull QuerySnapshot querySnapshot, @NotNull ReportReference[] reportReferences) {
+    public void reportUpdateSuccess() {
 
     }
 
     @Override
-    public void reportRetrievalFailure(@NotNull Exception exception) {
+    public void reportUpdateFailure(@NotNull Exception exception) {
 
     }
 }

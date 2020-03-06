@@ -1,20 +1,18 @@
 package com.example.juleeyahwright.opensesame.Report.Update;
 
-import androidx.annotation.NonNull;
-
+import com.example.juleeyahwright.opensesame.Message.Create.MessageCreateService;
+import com.example.juleeyahwright.opensesame.Message.Create.MessageCreateServiceListener;
+import com.example.juleeyahwright.opensesame.Message.MessageReference;
 import com.example.juleeyahwright.opensesame.Report.GetSingle.ReportGetSingleService;
 import com.example.juleeyahwright.opensesame.Report.GetSingle.ReportGetSingleServiceListener;
-import com.example.juleeyahwright.opensesame.Report.Report;
 import com.example.juleeyahwright.opensesame.Report.ReportReference;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import org.jetbrains.annotations.NotNull;
 
-public class ReportUpdateService implements ReportGetSingleServiceListener {
+public class ReportUpdateService implements ReportGetSingleServiceListener, MessageCreateServiceListener {
 
     private FirebaseFirestore db;
     private ReportUpdateServiceListener listener;
@@ -39,20 +37,14 @@ public class ReportUpdateService implements ReportGetSingleServiceListener {
     }
 
     private void _addMessageToReport(DocumentSnapshot reference) {
-        reference.getReference()
-                .update(Report.MESSAGES_FIELD_NAME, FieldValue.arrayUnion(this.message))
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        listener.reportUpdateSuccess();
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        listener.reportUpdateFailure(e);
-                    }
-                });
+
+        MessageCreateService messageCreateService = new MessageCreateService(this);
+
+        MessageReference messageReference = new MessageReference(
+                FirebaseAuth.getInstance().getCurrentUser().getUid(),
+                message);
+
+        messageCreateService.createMessage(reference.getReference(), messageReference);
     }
 
     @Override
@@ -62,6 +54,16 @@ public class ReportUpdateService implements ReportGetSingleServiceListener {
 
     @Override
     public void reportRetrievalFailure(@NotNull Exception exception) {
+        listener.reportUpdateFailure(exception);
+    }
+
+    @Override
+    public void messageCreateSuccess() {
+        listener.reportUpdateSuccess();
+    }
+
+    @Override
+    public void messageCreateFailure(@NotNull Exception exception) {
         listener.reportUpdateFailure(exception);
     }
 }
