@@ -16,8 +16,8 @@ with Firebase
  */
 public class AccountModel extends Observable implements Executor {
 
-    private FirebaseAuth mAuth;
-    private AccountModelListener observer;
+    private final FirebaseAuth mAuth;
+    private final AccountModelListener observer;
 
     public AccountModel(FirebaseAuth mAuth, AccountModelListener observer) {
         this.mAuth = mAuth;

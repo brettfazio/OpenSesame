@@ -13,7 +13,7 @@ public class ReportAddInfoController implements ReportUpdateServiceListener {
 
     private final ReportReference reportReference;
 
-    Context context;
+    private final Context context;
 
     public ReportAddInfoController(Context context, ReportReference reportReference) {
         this.context = context;

@@ -16,7 +16,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class MapController implements ReportGetServiceListener {
 
-    Context context;
+    private final Context context;
 
     public MapController(Context context) {
         this.context = context;

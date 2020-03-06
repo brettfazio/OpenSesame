@@ -9,9 +9,10 @@ public class MessageReference {
     protected static final String CREATOR_ID_FIELD_NAME = "creatorID";
     protected static final String CONTENTS_FIELD_NAME = "contents";
 
-    private String creatorID, contents;
-    private String collectionPath;
-    private Map<String, Object> map;
+    private final String creatorID;
+    private final String contents;
+    private final String collectionPath;
+    private final Map<String, Object> map;
 
     // constructor with default collection path
     public MessageReference(String creatorID, String contents) {
