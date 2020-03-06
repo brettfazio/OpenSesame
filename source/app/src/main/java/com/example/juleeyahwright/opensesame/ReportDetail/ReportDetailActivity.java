@@ -1,12 +1,17 @@
 package com.example.juleeyahwright.opensesame.ReportDetail;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.juleeyahwright.opensesame.Common.BaseActivity;
 import com.example.juleeyahwright.opensesame.R;
 import com.example.juleeyahwright.opensesame.Report.ReportReference;
+
+import java.util.Objects;
 
 public class ReportDetailActivity extends BaseActivity {
 
@@ -19,13 +24,25 @@ public class ReportDetailActivity extends BaseActivity {
         setContentView(R.layout.report_detail_activity);
 
         // Show the back button
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        controller = new ReportDetailController(
+        controller = new ReportDetailController(getApplicationContext(),
                 (ReportReference) getIntent().getExtras().get(REPORT_EXTRA));
 
         setFields();
+
+        Button addButton = findViewById(R.id.reportDetailAddMessage);
+        addButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                addInfoTapped();
+            }
+        });
+    }
+
+    private void addInfoTapped() {
+        Intent intent = controller.intentToAddInfoActivity(this);
+        startActivity(intent);
     }
 
     // End the activity

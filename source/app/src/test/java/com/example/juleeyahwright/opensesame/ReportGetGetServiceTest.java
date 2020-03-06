@@ -7,8 +7,8 @@ import androidx.annotation.Nullable;
 
 import com.example.juleeyahwright.opensesame.Report.Report;
 import com.example.juleeyahwright.opensesame.Report.ReportReference;
-import com.example.juleeyahwright.opensesame.Report.ReportService;
-import com.example.juleeyahwright.opensesame.Report.ReportServiceListener;
+import com.example.juleeyahwright.opensesame.Report.Get.ReportGetService;
+import com.example.juleeyahwright.opensesame.Report.Get.ReportGetServiceListener;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -26,7 +26,7 @@ import org.mockito.MockitoAnnotations;
 
 import java.util.concurrent.Executor;
 
-public class ReportServiceTest implements ReportServiceListener {
+public class ReportGetGetServiceTest implements ReportGetServiceListener {
 
     private static final int SUCCESS = 1;
     private static final int FAILURE = -1;
@@ -44,7 +44,7 @@ public class ReportServiceTest implements ReportServiceListener {
     @Mock
     private QuerySnapshot querySnapshot;
 
-    private ReportService reportService;
+    private ReportGetService reportGetService;
 
     private int result;
 
@@ -208,7 +208,7 @@ public class ReportServiceTest implements ReportServiceListener {
             }
         };
 
-        reportService = new ReportService(db, this);
+        reportGetService = new ReportGetService(db, this);
 
         result = UNDEF;
     }
@@ -222,7 +222,7 @@ public class ReportServiceTest implements ReportServiceListener {
         Mockito.when(db.collection(Report.DEFAULT_COLLECTION_PATH)).thenReturn(collectionReference);
         Mockito.when(collectionReference.get()).thenReturn(successTask);
 
-        reportService.getReports();
+        reportGetService.getReports();
         System.out.println(result);
         assert (result == SUCCESS);
     }
@@ -236,7 +236,7 @@ public class ReportServiceTest implements ReportServiceListener {
         Mockito.when(db.collection(Report.DEFAULT_COLLECTION_PATH)).thenReturn(collectionReference);
         Mockito.when(collectionReference.get()).thenReturn(failureTask);
 
-        reportService.getReports();
+        reportGetService.getReports();
         System.out.println(result);
         assert (result == FAILURE);
     }

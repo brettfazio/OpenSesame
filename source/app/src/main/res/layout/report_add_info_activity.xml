@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/messageCreateMainTitleTextView"
+        android:layout_width="match_parent"
+        android:layout_height="53dp"
+        android:gravity="center"
+        android:text="@string/create_a_message_header"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp">
+    </View>
+
+    <TextView
+        android:id="@+id/messageInfoTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/create_a_report_info_header"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+    <EditText
+        android:id="@+id/messageInfoEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:gravity="top|start"
+        android:hint="@string/create_a_report_info_hint"
+        android:imeOptions="actionDone"
+        android:inputType="textMultiLine"
+        android:lines="6"
+        android:maxLines="6"
+        android:minLines="6" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp">
+    </View>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp">
+    </View>
+
+    <Button
+        android:id="@+id/createMessageButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/create_a_report_create_button" />
+
+</LinearLayout>

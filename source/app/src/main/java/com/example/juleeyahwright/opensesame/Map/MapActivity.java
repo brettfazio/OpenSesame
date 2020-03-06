@@ -186,7 +186,8 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback, Goo
         if (!selectionStateReady) {
             return false;
         }
-        mapController.markerWasTapped(this, marker);
+        Intent intent = mapController.markerWasTapped(this, marker);
+        startActivity(intent);
         return false;
     }
 }

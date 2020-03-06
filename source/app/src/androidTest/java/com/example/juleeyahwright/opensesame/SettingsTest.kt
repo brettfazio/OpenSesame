@@ -2,7 +2,7 @@ package com.example.juleeyahwright.opensesame
 
 import android.view.View
 import android.view.ViewGroup
-import androidx.test.espresso.Espresso.onView;
+import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.matcher.ViewMatchers
@@ -55,12 +55,12 @@ class SettingsTest {
     Testing: When color picker button is selected, color chooser dialog shows up
     Pass criteria: Color choose dialog is opened
      */
-//    @Test
-//    fun colorDialog_test() {
-//        onView(ViewMatchers.withId(R.id.color_button)).perform(ViewActions.click())
-//        Thread.sleep(3000)
-//        onView(withText("WHITE")).check(ViewAssertions.matches(ViewMatchers.isDisplayed()));
-//    }
+    @Test
+    fun colorDialog_test() {
+        onView(ViewMatchers.withId(R.id.color_button)).perform(ViewActions.click())
+        Thread.sleep(3000)
+        onView(withText("WHITE")).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+    }
 
     /*
     Testing: Checkbox is checked

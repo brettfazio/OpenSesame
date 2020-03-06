@@ -6,9 +6,6 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
 
-import com.example.juleeyahwright.opensesame.Common.Constant;
-import com.example.juleeyahwright.opensesame.Common.Theme;
-
 public class BaseActivity extends AppCompatActivity {
 
     SharedPreferences appPreferences;

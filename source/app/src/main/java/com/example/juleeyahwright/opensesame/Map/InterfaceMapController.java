@@ -26,7 +26,7 @@ public class InterfaceMapController {
 
     private static final int ZOOM = 16;
 
-    private GoogleMap mMap;
+    private final GoogleMap mMap;
     private boolean mLocationPermissionGranted;
     private FusedLocationProviderClient fusedLocationClient;
     private Location mLastKnownLocation;

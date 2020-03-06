@@ -42,7 +42,7 @@ public class SettingsActivity extends BaseActivity {
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         editor = sharedPreferences.edit();
 
-        getColorButton = (Button) findViewById(R.id.color_button);
+        getColorButton = findViewById(R.id.color_button);
 
         getColorButton.setOnClickListener(new View.OnClickListener() {
             @Override
