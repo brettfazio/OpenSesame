@@ -40,7 +40,7 @@ class ReportDetailActivityTest {
     Pass Criteria: After button is clicked, ReportAddInfoActivity is shown
     */
     @Test
-    fun performLogin_loginActivityTest() {
+    fun addMoreInfo_reportDetailActivityTest() {
         Intents.init()
         onView(withId(R.id.reportDetailAddMessage)).perform(ViewActions.click())
         Thread.sleep(3000)
