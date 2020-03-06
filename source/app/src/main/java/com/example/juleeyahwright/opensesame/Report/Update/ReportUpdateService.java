@@ -8,24 +8,15 @@ import com.example.juleeyahwright.opensesame.Report.GetSingle.ReportGetSingleSer
 import com.example.juleeyahwright.opensesame.Report.ReportReference;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FirebaseFirestore;
 
 import org.jetbrains.annotations.NotNull;
 
 public class ReportUpdateService implements ReportGetSingleServiceListener, MessageCreateServiceListener {
-
-    private FirebaseFirestore db;
     private ReportUpdateServiceListener listener;
 
     private String message;
 
     public ReportUpdateService(ReportUpdateServiceListener listener) {
-        db = FirebaseFirestore.getInstance();
-        this.listener = listener;
-    }
-
-    public ReportUpdateService(FirebaseFirestore db, ReportUpdateServiceListener listener) {
-        this.db = db;
         this.listener = listener;
     }
 
