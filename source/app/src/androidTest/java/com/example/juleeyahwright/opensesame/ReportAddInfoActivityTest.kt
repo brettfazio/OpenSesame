@@ -1,13 +1,10 @@
 package com.example.juleeyahwright.opensesame
 
 
-import android.content.Context
 import android.content.Intent
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.assertion.ViewAssertions
-import androidx.test.espresso.intent.Intents
-import androidx.test.espresso.intent.matcher.IntentMatchers
 import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.filters.LargeTest
@@ -15,9 +12,7 @@ import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.rule.ActivityTestRule
 import com.example.juleeyahwright.opensesame.Report.ReportReference
 import com.example.juleeyahwright.opensesame.ReportAddInfo.ReportAddInfoActivity
-import com.example.juleeyahwright.opensesame.ReportDetail.ReportDetailActivity
 import com.google.android.gms.maps.model.LatLng
-import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 
