@@ -24,7 +24,7 @@ public class ReportGetSingleService {
         this.listener = listener;
     }
 
-    public void addMessageToReport(ReportReference reportReference, String message) {
+    public void getReport(ReportReference reportReference) {
         DocumentReference documentReference = db.collection(ReportReference.DEFAULT_COLLECTION_PATH).document(reportReference.getDocumentId());
 
         documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
