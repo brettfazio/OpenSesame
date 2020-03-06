@@ -3,13 +3,13 @@ package com.example.juleeyahwright.opensesame.ReportAddInfo;
 import android.content.Context;
 
 import com.example.juleeyahwright.opensesame.Report.ReportReference;
-import com.example.juleeyahwright.opensesame.Report.ReportService;
-import com.example.juleeyahwright.opensesame.Report.ReportServiceListener;
+import com.example.juleeyahwright.opensesame.Report.Get.ReportGetService;
+import com.example.juleeyahwright.opensesame.Report.Get.ReportGetServiceListener;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import org.jetbrains.annotations.NotNull;
 
-public class ReportAddInfoController implements ReportServiceListener {
+public class ReportAddInfoController implements ReportGetServiceListener {
 
     private final ReportReference reportReference;
 
@@ -21,9 +21,9 @@ public class ReportAddInfoController implements ReportServiceListener {
     }
 
     public void addMessage(String message) {
-        ReportService reportService = new ReportService(this);
+        ReportGetService reportGetService = new ReportGetService(this);
 
-        reportService.addMessageToReport(reportReference, message);
+        reportGetService.addMessageToReport(reportReference, message);
     }
 
     @Override
