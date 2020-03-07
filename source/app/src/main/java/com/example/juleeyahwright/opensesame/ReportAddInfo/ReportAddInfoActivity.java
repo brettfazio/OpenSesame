@@ -29,8 +29,16 @@ public class ReportAddInfoActivity extends BaseActivity {
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        controller = new ReportAddInfoController(getApplicationContext(),
-                (ReportReference) getIntent().getExtras().get(REPORT_EXTRA));
+        ReportReference extra = (ReportReference) getIntent().getExtras().get(REPORT_EXTRA);
+
+        if (extra == null) {
+            Toast.makeText(getApplicationContext(),
+                    "Error loading report.",
+                    Toast.LENGTH_LONG).show();
+            finish();
+        }
+
+        controller = new ReportAddInfoController(getApplicationContext(), extra);
 
         Button addButton = findViewById(R.id.createMessageButton);
         addButton.setOnClickListener(new View.OnClickListener() {
