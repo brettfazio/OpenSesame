@@ -52,8 +52,8 @@ class ReportDetailActivityTest {
     }
 
     /*
-    Testing: Pressing the add info button takes you to the add into view
-    Pass Criteria: After button is clicked, ReportAddInfoActivity is shown
+    Testing: Same information is displayed on the screen as is put in the intent extra
+    Pass Criteria: Report put into the intent extra is displayed on the screen
     */
     @Test
     fun setFields_reportDetailActivityTest() {
