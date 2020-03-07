@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MessageReference {
-    public static final String DEFAULT_COLLECTION_PATH = "reports";
+    public static final String DEFAULT_COLLECTION_PATH = "messages";
 
     protected static final String CREATOR_ID_FIELD_NAME = "creatorID";
     protected static final String CONTENTS_FIELD_NAME = "contents";
