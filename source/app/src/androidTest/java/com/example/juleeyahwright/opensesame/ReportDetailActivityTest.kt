@@ -5,8 +5,10 @@ import android.content.Context
 import android.content.Intent
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions
+import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.intent.Intents
 import androidx.test.espresso.intent.matcher.IntentMatchers
+import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.filters.LargeTest
 import androidx.test.platform.app.InstrumentationRegistry
@@ -47,5 +49,18 @@ class ReportDetailActivityTest {
         Intents.intended(IntentMatchers.hasComponent(ReportAddInfoActivity::class.java.name), (Intents.times(1)))
 
         Intents.release()
+    }
+
+    /*
+    Testing: Pressing the add info button takes you to the add into view
+    Pass Criteria: After button is clicked, ReportAddInfoActivity is shown
+    */
+    @Test
+    fun setFields_reportDetailActivityTest() {
+        onView(withId(R.id.reportDetailHeader)).check(ViewAssertions.matches(ViewMatchers.withText("dummy")))
+
+        onView(withId(R.id.reportDetailInfo)).check(ViewAssertions.matches(ViewMatchers.withText("this is a dummy report")))
+
+        onView(withId(R.id.reportDetailLocationInfo)).check(ViewAssertions.matches(ViewMatchers.withText("basement")))
     }
 }
