@@ -11,6 +11,8 @@ import com.example.juleeyahwright.opensesame.Common.BaseActivity;
 import com.example.juleeyahwright.opensesame.R;
 import com.example.juleeyahwright.opensesame.Report.ReportReference;
 
+import java.util.Objects;
+
 public class ReportAddInfoActivity extends BaseActivity {
 
     public static final String REPORT_EXTRA = "report";
@@ -24,7 +26,7 @@ public class ReportAddInfoActivity extends BaseActivity {
         setContentView(R.layout.report_add_info_activity);
 
         // Show the back button
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         controller = new ReportAddInfoController(getApplicationContext(),
