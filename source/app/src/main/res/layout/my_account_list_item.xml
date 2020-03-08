@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    card_view:cardUseCompatPadding="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="160dp" >
+
+        <TextView
+            android:id="@+id/report_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Report Name"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/report_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/report_name"
+            android:text="Location: Some location here"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/report_distance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/report_location"
+            android:text="Distance: Some distance here"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/report_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/report_distance"
+            android:text="Description: Some Description here"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/edit_button"
+            android:layout_width="201dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/report_description"
+            android:layout_marginTop="3dp"
+            android:layout_marginRight="10dp"
+            android:text="Edit" />
+
+        <Button
+            android:id="@+id/delete_button"
+            android:layout_width="196dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/report_description"
+            android:layout_marginTop="3dp"
+            android:layout_toRightOf="@+id/edit_button"
+            android:text="Delete" />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

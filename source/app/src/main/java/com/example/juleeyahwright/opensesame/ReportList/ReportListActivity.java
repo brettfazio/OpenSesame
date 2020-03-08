@@ -8,12 +8,14 @@ import android.view.MenuItem;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.juleeyahwright.opensesame.AccountModel.AccountActivity;
 import com.example.juleeyahwright.opensesame.Common.BaseActivity;
 import com.example.juleeyahwright.opensesame.R;
 
 import com.example.juleeyahwright.opensesame.Report.Get.ReportGetService;
 import com.example.juleeyahwright.opensesame.Report.Get.ReportGetServiceListener;
 import com.example.juleeyahwright.opensesame.Report.ReportReference;
+import com.example.juleeyahwright.opensesame.Settings.SettingsActivity;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import org.jetbrains.annotations.NotNull;
@@ -39,24 +41,21 @@ public class ReportListActivity extends BaseActivity implements ReportGetService
         service.getReports();
     }
 
-    // adds a menu to access account
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main_menu, menu);
-        return true;
-    }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Close this activity if home is selected
         if (item.getItemId() == android.R.id.home) {
             finish();
         } else if (item.getItemId() == R.id.settings_option) {
-            finish();
+            Intent i = new Intent(ReportListActivity.this, SettingsActivity.class);
+            startActivity(i);
         } else if (item.getItemId() == R.id.sign_out_option) {
             finish();
         } else if (item.getItemId() == R.id.report_list_option) {
             finish();
+        } else if (item.getItemId() == R.id.account_option) {
+            Intent i = new Intent(ReportListActivity.this, AccountActivity.class);
+            startActivity(i);
         }
 
         return super.onOptionsItemSelected(item);

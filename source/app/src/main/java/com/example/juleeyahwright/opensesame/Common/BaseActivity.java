@@ -2,9 +2,12 @@ package com.example.juleeyahwright.opensesame.Common;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Menu;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
+
+import com.example.juleeyahwright.opensesame.R;
 
 public class BaseActivity extends AppCompatActivity {
 
@@ -36,6 +39,13 @@ public class BaseActivity extends AppCompatActivity {
     protected void onRestart() {
         super.onRestart();
         updateColors();
+    }
+
+    // adds a menu to access account
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
     }
 
     protected void updateColors() {

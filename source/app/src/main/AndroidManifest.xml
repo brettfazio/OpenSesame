@@ -13,6 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme_amber">
         <activity android:name=".ReportList.ReportListActivity" />
+        <activity android:name=".AccountModel.AccountActivity"/>
         <activity
             android:name=".Settings.SettingsActivity"
             android:exported="true" />
