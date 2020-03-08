@@ -3,16 +3,19 @@ package com.example.juleeyahwright.opensesame.ReportList;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.juleeyahwright.opensesame.Common.BaseActivity;
 import com.example.juleeyahwright.opensesame.R;
 import com.example.juleeyahwright.opensesame.Report.Get.ReportGetService;
 import com.example.juleeyahwright.opensesame.Report.Get.ReportGetServiceListener;
 import com.example.juleeyahwright.opensesame.Report.ReportReference;
-import com.example.juleeyahwright.opensesame.ReportDetail.ReportDetailController;
 import com.google.firebase.firestore.QuerySnapshot;
+
 import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -62,14 +65,12 @@ public class ReportListActivity extends BaseActivity implements ReportGetService
 
     @Override
     public void reportRetrievalSuccess(@NotNull QuerySnapshot querySnapshot, @NotNull ReportReference[] reportReferences) {
-        ReportDetailController rdc;
-        for(ReportReference r : reportReferences){
-            rdc = new ReportDetailController(this, r);
+        for(ReportReference reportReference : reportReferences){
             reportArray.add(new ReportListItem(
-                    rdc.getReportName(),
-                    rdc.getReportLocationInfo(),
-                    rdc.getReportLatLng(),
-                    rdc.getReportInformation()));
+                    reportReference.getName(),
+                    reportReference.getLocationInfo(),
+                    reportReference.getLocation(),
+                    reportReference.getLocationInfo()));
         }
         createList();
     }
