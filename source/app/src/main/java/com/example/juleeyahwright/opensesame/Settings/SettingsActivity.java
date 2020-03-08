@@ -12,6 +12,7 @@ import android.widget.CheckBox;
 
 import androidx.preference.PreferenceManager;
 
+import com.example.juleeyahwright.opensesame.AccountModel.AccountActivity;
 import com.example.juleeyahwright.opensesame.Common.BaseActivity;
 import com.example.juleeyahwright.opensesame.Common.Constant;
 import com.example.juleeyahwright.opensesame.Common.Theme;
@@ -101,18 +102,6 @@ public class SettingsActivity extends BaseActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
     }
 
-    // adds a menu to access account
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main_menu, menu);
-        return true;
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-    }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Close this activity if home is selected
@@ -125,6 +114,9 @@ public class SettingsActivity extends BaseActivity {
             finish();
         } else if (item.getItemId() == R.id.report_list_option) {
             Intent i = new Intent(SettingsActivity.this, ReportListActivity.class);
+            startActivity(i);
+        } else if (item.getItemId() == R.id.account_option) {
+            Intent i = new Intent(SettingsActivity.this, AccountActivity.class);
             startActivity(i);
         }
 

@@ -7,6 +7,8 @@ import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.espresso.matcher.ViewMatchers.isChecked
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.rule.ActivityTestRule
+import com.example.juleeyahwright.opensesame.Common.Constant
+import com.example.juleeyahwright.opensesame.Common.SharedPreferencesController
 import com.example.juleeyahwright.opensesame.Settings.SettingsActivity
 import org.junit.Rule
 import org.junit.Test
@@ -23,7 +25,7 @@ class SettingsTest {
     */
     @Test
     fun colorSet_test() {
-        assert(true)
+        assert(Constant.color != null)
     }
 
     /*
@@ -32,7 +34,7 @@ class SettingsTest {
      */
     @Test
     fun themeSet_test() {
-        assert(true)
+        assert(Constant.appTheme != null)
     }
 
     /*
@@ -41,7 +43,8 @@ class SettingsTest {
      */
     @Test
     fun defaultTheme_test() {
-        assert(true)
+        SharedPreferencesController.setTheme(settingsActivityTestRule.activity.applicationContext, 0)
+        assert(Constant.appTheme == R.style.AppTheme_amber)
     }
 
     /*

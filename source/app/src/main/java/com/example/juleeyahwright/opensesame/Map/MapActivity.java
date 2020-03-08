@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
+import com.example.juleeyahwright.opensesame.AccountModel.AccountActivity;
 import com.example.juleeyahwright.opensesame.Common.BaseActivity;
 import com.example.juleeyahwright.opensesame.Common.SharedPreferencesController;
 import com.example.juleeyahwright.opensesame.CreateReport.CreateReportActivity;
@@ -60,6 +61,18 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback, Goo
 
         selectionStateReady = true;
     }
+
+//    @Override
+//    protected void onStart() {
+//        super.onStart();
+//        setContentView(R.layout.map_activity);
+//    }
+//
+//    @Override
+//    protected void onResume() {
+//        super.onResume();
+//        setContentView(R.layout.map_activity);
+//    }
 
     // changes the state to allow the user to add a marker to the map
     private void addReportClicked() {
@@ -135,12 +148,12 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback, Goo
 //               googleMap.getUiSettings().setZoomControlsEnabled(true);
     }
 
-    // adds a menu to access account
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main_menu, menu);
-        return true;
-    }
+//    // adds a menu to access account
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        getMenuInflater().inflate(R.menu.main_menu, menu);
+//        return true;
+//    }
 
     // depending on the button selected, take the user to the appropriate screen
     @Override
@@ -153,6 +166,10 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback, Goo
                 return true;
             case R.id.settings_option:
                 i = new Intent(MapActivity.this, SettingsActivity.class);
+                startActivity(i);
+                return true;
+            case R.id.account_option:
+                i = new Intent(MapActivity.this, AccountActivity.class);
                 startActivity(i);
                 return true;
             case R.id.sign_out_option:

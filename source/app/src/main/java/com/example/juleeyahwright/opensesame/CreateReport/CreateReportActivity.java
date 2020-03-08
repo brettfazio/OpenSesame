@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.juleeyahwright.opensesame.Common.BaseActivity;
+import com.example.juleeyahwright.opensesame.Common.SharedPreferencesController;
 import com.example.juleeyahwright.opensesame.R;
 import com.example.juleeyahwright.opensesame.Report.Report;
 import com.google.android.gms.maps.model.LatLng;
@@ -46,11 +47,6 @@ public class CreateReportActivity extends BaseActivity implements CreateReportLi
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
-    }
-
-    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Close this activity if home is selected
         if (item.getItemId() == android.R.id.home) {
@@ -73,8 +69,9 @@ public class CreateReportActivity extends BaseActivity implements CreateReportLi
         String title = getEnteredTitle();
         String info = getEnteredInfo();
         String location = getEnteredLocation();
+        String email = SharedPreferencesController.getEmail(getApplicationContext());
 
-        controller.writeReport(title, info, location, getLatLng());
+        controller.writeReport(title, info, location, getLatLng(), email);
     }
 
     private boolean allFieldsFilledOut() {
@@ -100,7 +97,6 @@ public class CreateReportActivity extends BaseActivity implements CreateReportLi
                     Toast.LENGTH_LONG).show();
             return false;
         }
-        controller.writeReport(title, info, location, getLatLng());
 
         return true;
     }

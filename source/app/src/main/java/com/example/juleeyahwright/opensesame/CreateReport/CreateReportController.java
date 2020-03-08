@@ -27,8 +27,8 @@ public class CreateReportController {
         this.listener = listener;
     }
 
-    public void writeReport(String title, String info, String locationInfo, LatLng location) {
-        this.writeReport(new Report(title, info, locationInfo, location));
+    public void writeReport(String title, String info, String locationInfo, LatLng location, String email) {
+        this.writeReport(new Report(title, info, locationInfo, location, email));
     }
 
     // write the report if successful connection to the database is established

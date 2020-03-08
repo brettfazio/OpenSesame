@@ -75,4 +75,8 @@ public class Theme {
         }
     }
 
+    public static int getColorTheme() {
+        return Constant.appTheme;
+    }
+
 }
