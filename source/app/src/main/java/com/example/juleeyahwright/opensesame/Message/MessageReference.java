@@ -1,10 +1,12 @@
 package com.example.juleeyahwright.opensesame.Message;
 
+import com.google.firebase.firestore.DocumentSnapshot;
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class MessageReference {
-    public static final String DEFAULT_COLLECTION_PATH = "reports";
+    public static final String DEFAULT_COLLECTION_PATH = "messages";
 
     protected static final String CREATOR_ID_FIELD_NAME = "creatorID";
     protected static final String CONTENTS_FIELD_NAME = "contents";
@@ -27,6 +29,14 @@ public class MessageReference {
         this.creatorID = creatorID;
         this.contents = contents;
         this.collectionPath = collectionPath;
+        this.map = makeMap();
+    }
+
+    // constructor with a DocumentSnapshot
+    public MessageReference(DocumentSnapshot snapshot) {
+        this.creatorID = (String) snapshot.get(CREATOR_ID_FIELD_NAME);
+        this.contents = (String) snapshot.get(CONTENTS_FIELD_NAME);
+        this.collectionPath = DEFAULT_COLLECTION_PATH;
         this.map = makeMap();
     }
 

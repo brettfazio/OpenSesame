@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.juleeyahwright.opensesame.Common.BaseActivity;
 import com.example.juleeyahwright.opensesame.R;
 import com.example.juleeyahwright.opensesame.Report.ReportReference;
@@ -17,6 +20,10 @@ public class ReportDetailActivity extends BaseActivity {
 
     public static final String REPORT_EXTRA = "report";
     private ReportDetailController controller;
+
+    private RecyclerView recyclerView;
+    //private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager layoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +45,16 @@ public class ReportDetailActivity extends BaseActivity {
                 addInfoTapped();
             }
         });
+
+        // Recycler view set up
+        recyclerView = findViewById(R.id.reportDetailMessageRecycler);
+
+        recyclerView.setHasFixedSize(true);
+
+        layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+
+        setUpMessages();
     }
 
     private void addInfoTapped() {
@@ -54,6 +71,10 @@ public class ReportDetailActivity extends BaseActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void setUpMessages() {
+        controller.setUpAdapter(recyclerView);
     }
 
     private void setFields() {
