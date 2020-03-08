@@ -16,9 +16,8 @@ public class MessageCreateService {
     }
 
     // write the report if successful connection to the database is established
-    public void createMessage(DocumentReference report, MessageReference messageReference) {
-
-        report.collection(MessageReference.DEFAULT_COLLECTION_PATH)
+    public void createMessage(DocumentReference reference, MessageReference messageReference) {
+        reference.collection(MessageReference.DEFAULT_COLLECTION_PATH)
                 .add(messageReference.getFirebaseMap())
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
