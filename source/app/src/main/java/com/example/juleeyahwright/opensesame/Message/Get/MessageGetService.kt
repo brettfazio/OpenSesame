@@ -6,12 +6,9 @@ import com.example.juleeyahwright.opensesame.Report.GetSingle.ReportGetSingleSer
 import com.example.juleeyahwright.opensesame.Report.ReportReference
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.DocumentSnapshot
-import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.QuerySnapshot
 
-class MessageGetService(private val db: FirebaseFirestore, private val listener: MessageGetServiceListener) : ReportGetSingleServiceListener {
-
-    constructor(listener: MessageGetServiceListener) : this(FirebaseFirestore.getInstance(), listener)
+class MessageGetService(private val listener: MessageGetServiceListener) : ReportGetSingleServiceListener {
 
     fun getMessages(reportReference: ReportReference) {
         val reportGetSingleService = ReportGetSingleService(this)
