@@ -117,8 +117,8 @@ public class SettingsActivity extends BaseActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         // Close this activity if home is selected
         if (item.getItemId() == android.R.id.home) {
-            Intent i = new Intent(SettingsActivity.this, MapActivity.class);
-            startActivity(i);
+            super.updateColors();
+            finish();
         } else if (item.getItemId() == R.id.settings_option) {
             finish();
         } else if (item.getItemId() == R.id.sign_out_option) {

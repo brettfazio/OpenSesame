@@ -1,0 +1,28 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/settings_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp">
+
+    <TextView
+        android:id="@+id/account_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/account_title"
+        android:textSize="30sp"
+        />
+
+    <TextView
+        android:id="@+id/reports_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/report_list"
+        android:textSize="24sp"
+        />
+
+
+
+</LinearLayout>

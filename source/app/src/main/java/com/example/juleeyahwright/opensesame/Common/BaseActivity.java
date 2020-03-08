@@ -17,7 +17,10 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        updateColors();
+    }
 
+    protected void updateColors() {
         appPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         appTheme = appPreferences.getInt("theme", 0);
         appColor = appPreferences.getInt("color", 0);
