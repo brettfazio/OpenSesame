@@ -56,7 +56,6 @@ public class AccountModel extends Observable implements Executor {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            FirebaseUser user = mAuth.getCurrentUser();
                             observer.signUpSuccess(email, password);
                         } else {
                             observer.signUpFailure(task.getException(), email, password);
