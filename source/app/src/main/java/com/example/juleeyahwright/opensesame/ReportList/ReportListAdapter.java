@@ -4,30 +4,31 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.juleeyahwright.opensesame.R;
+import java.util.ArrayList;
 
 public class ReportListAdapter extends RecyclerView.Adapter<ReportListAdapter.ReportViewHolder> {
+    private ArrayList<ReportListItem> reportArrayList;
 
     public static class ReportViewHolder extends RecyclerView.ViewHolder {
         public TextView mReportTitle;
-        public TextView mReportCategory;
+        public TextView mReportLocation;
         public TextView mReportDistance;
+        public TextView mReportDescription;
 
         public ReportViewHolder(View itemView) {
             super(itemView);
             mReportTitle = itemView.findViewById(R.id.report_name);
-            mReportCategory = itemView.findViewById(R.id.report_category);
-            mReportDistance= itemView.findViewById(R.id.report_distance);
+            mReportLocation = itemView.findViewById(R.id.report_location);
+            mReportDistance = itemView.findViewById(R.id.report_distance);
+            mReportDescription = itemView.findViewById(R.id.report_description);
         }
     }
 
-    // TODO
-    public ReportListAdapter(String s1, String s2, String s3) {
-
+    public ReportListAdapter(ArrayList<ReportListItem> itemArray) {
+        this.reportArrayList = itemArray;
     }
 
     @NonNull
@@ -41,13 +42,15 @@ public class ReportListAdapter extends RecyclerView.Adapter<ReportListAdapter.Re
 
     @Override
     public void onBindViewHolder(@NonNull ReportViewHolder holder, int position) {
-        holder.mReportTitle.setText("Report Name");
-        holder.mReportCategory.setText("Category: Some category here");
-        holder.mReportDistance.setText("Distance: Some distance here");
+        ReportListItem currItem = reportArrayList.get(position);
+        holder.mReportTitle.setText(currItem.getReportName());
+        holder.mReportLocation.setText("Location: " + currItem.getReportLocation());
+        holder.mReportDistance.setText("Distance: " + currItem.getReportDistance());
+        holder.mReportDescription.setText("Description: " + currItem.getReportDescription());
     }
 
     @Override
     public int getItemCount() {
-        return 1;
+        return reportArrayList.size();
     }
 }
