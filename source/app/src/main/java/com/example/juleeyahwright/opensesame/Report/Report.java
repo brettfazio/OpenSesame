@@ -15,7 +15,6 @@ public class Report {
     protected static final String NAME_FIELD_NAME = "name";
     protected static final String LOCATION_FIELD_NAME = "location";
     protected static final String LOCATION_INFO_FIELD_NAME = "locationInfo";
-    public static final String MESSAGES_FIELD_NAME = "";
 
     private LatLng location;
     private String information, name, locationInfo;
