@@ -17,18 +17,25 @@
             android:textSize="24sp"
             android:textStyle="bold"/>
         <TextView
-            android:id="@+id/report_category"
+            android:id="@+id/report_location"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/report_name"
-            android:text="Category: Some category here"
+            android:text="Location: Some location here"
             android:textSize="18sp"/>
         <TextView
             android:id="@+id/report_distance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/report_category"
+            android:layout_below="@+id/report_location"
             android:text="Distance: Some distance here"
+            android:textSize="18sp"/>
+        <TextView
+            android:id="@+id/report_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/report_distance"
+            android:text="Description: Some Description here"
             android:textSize="18sp"/>
 
     </RelativeLayout>
