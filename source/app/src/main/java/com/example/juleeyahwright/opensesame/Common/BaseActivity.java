@@ -20,6 +20,24 @@ public class BaseActivity extends AppCompatActivity {
         updateColors();
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        updateColors();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        updateColors();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        updateColors();
+    }
+
     protected void updateColors() {
         appPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         appTheme = appPreferences.getInt("theme", 0);
@@ -34,5 +52,7 @@ public class BaseActivity extends AppCompatActivity {
 
         Theme.setColorTheme();
     }
+
+
 
 }

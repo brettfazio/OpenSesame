@@ -61,26 +61,17 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback, Goo
         selectionStateReady = true;
     }
 
-    @Override
-    protected void onStart() {
-        super.updateColors();
-        super.onStart();
-        super.updateColors();
-    }
-
-    @Override
-    protected void onResume() {
-        super.updateColors();
-        super.onResume();
-        super.updateColors();
-    }
-
-    @Override
-    protected void onRestart() {
-        super.updateColors();
-        super.onRestart();
-        super.updateColors();
-    }
+//    @Override
+//    protected void onStart() {
+//        super.onStart();
+//        setContentView(R.layout.map_activity);
+//    }
+//
+//    @Override
+//    protected void onResume() {
+//        super.onResume();
+//        setContentView(R.layout.map_activity);
+//    }
 
     // changes the state to allow the user to add a marker to the map
     private void addReportClicked() {
