@@ -4,7 +4,9 @@ package com.example.juleeyahwright.opensesame
 import android.content.Context
 import android.content.Intent
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.Espresso.pressBack
 import androidx.test.espresso.action.ViewActions
+import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.intent.Intents
 import androidx.test.espresso.intent.matcher.IntentMatchers
@@ -44,7 +46,7 @@ class ReportDetailActivityTest {
     @Test
     fun addMoreInfo_reportDetailActivityTest() {
         Intents.init()
-        onView(withId(R.id.reportDetailAddMessage)).perform(ViewActions.click())
+        onView(withId(R.id.reportDetailAddMessage)).perform(click())
         Thread.sleep(3000)
         Intents.intended(IntentMatchers.hasComponent(ReportAddInfoActivity::class.java.name), (Intents.times(1)))
 
@@ -62,5 +64,22 @@ class ReportDetailActivityTest {
         onView(withId(R.id.reportDetailInfo)).check(ViewAssertions.matches(ViewMatchers.withText("this is a dummy report")))
 
         onView(withId(R.id.reportDetailLocationInfo)).check(ViewAssertions.matches(ViewMatchers.withText("basement")))
+    }
+
+    /*
+    Testing: A user can go to the Create message page and then cancel that action.
+    Pass Criteria: Clicking add intents to ReportAddInfo and pressing back finishes that view.
+    */
+    @Test
+    fun goToCreateAndBack_reportDetailActivityTest() {
+        Intents.init()
+        onView(withId(R.id.reportDetailAddMessage)).perform(click())
+
+        Thread.sleep(3000)
+        Intents.intended(IntentMatchers.hasComponent(ReportAddInfoActivity::class.java.name))
+        Intents.release()
+
+        pressBack()
+        onView(withId(R.id.reportDetailAddMessage)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
     }
 }
