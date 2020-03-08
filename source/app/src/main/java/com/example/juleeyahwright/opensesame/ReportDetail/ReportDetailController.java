@@ -11,6 +11,7 @@ import com.example.juleeyahwright.opensesame.Message.Get.MessageGetServiceListen
 import com.example.juleeyahwright.opensesame.Message.MessageReference;
 import com.example.juleeyahwright.opensesame.Report.ReportReference;
 import com.example.juleeyahwright.opensesame.ReportAddInfo.ReportAddInfoPresenter;
+import com.google.android.gms.maps.model.LatLng;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import org.jetbrains.annotations.NotNull;
@@ -41,6 +42,8 @@ public class ReportDetailController implements MessageGetServiceListener {
     public String getReportLocationInfo() {
         return reportReference.getLocationInfo();
     }
+
+    public LatLng getReportLatLng() { return reportReference.getLocation(); }
 
     public Intent intentToAddInfoActivity(AppCompatActivity parent) {
         ReportAddInfoPresenter reportAddInfoPresenter = new ReportAddInfoPresenter(context);
