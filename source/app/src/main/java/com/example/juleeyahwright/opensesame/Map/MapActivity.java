@@ -12,12 +12,12 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 
 import com.example.juleeyahwright.opensesame.Common.BaseActivity;
+import com.example.juleeyahwright.opensesame.Common.SharedPreferencesController;
 import com.example.juleeyahwright.opensesame.CreateReport.CreateReportActivity;
 import com.example.juleeyahwright.opensesame.LoginActivity;
 import com.example.juleeyahwright.opensesame.R;
 import com.example.juleeyahwright.opensesame.ReportList.ReportListActivity;
 import com.example.juleeyahwright.opensesame.Settings.SettingsActivity;
-import com.example.juleeyahwright.opensesame.Common.SharedPreferencesController;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
