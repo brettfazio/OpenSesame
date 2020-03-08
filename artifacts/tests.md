@@ -49,4 +49,7 @@
 | ReportReference | firebaseMap_report | When fields are input with dummy text, the text is stored in a report | Report fields match input |
 | ReportReference | getCollectionPath | Report is matched with current location | Report matches location |
 | ReportReference | customGetCollectionPath | Report is matched with a custom location | Report matches custom location |
-| ReportDetailActivity | addMoreInfo | Pressing "moreInformation" button transition to the proper ReportAddInfo activity | After pressing the moreInfo button the activity shown is the ReportAddInfo activity |
+| ReportDetailActivity | addMoreInfo | Pressing "moreInformation" button transition to the proper ReportAddInfo activity | After pressing the moreInfo button the activity shown is the ReportAddInfo activity
+| ReportDetailActivity | setFields | Same information is displayed on the screen as is put in the intent extra |Report put into the intent extra is displayed on the screen |
+| ReportDetailActivity | goToCreateAndBack | A user can go to the Create message page and then cancel that action. |A user can go to the Create message page and then cancel that action. |
+| ReportAddInfoActivity | setMessage | Can enter a message into the field. |A message can be successfully entered. |
