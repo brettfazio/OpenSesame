@@ -20,8 +20,8 @@ class CreateReportActivityTest {
     var mActivityTestRule = ActivityTestRule(CreateReportActivity::class.java)
 
     /*
-    Testing: Report has a title field
-    Pass Criteria: A report has a title
+    Testing: Report has a title field.
+    Pass Criteria: A report has a title.
     */
     @Test
     fun setTitle_createReportActivityTest() {
@@ -31,8 +31,8 @@ class CreateReportActivityTest {
     }
 
     /*
-    Testing:Report has an info field
-    Pass Criteria: A report has info text
+    Testing: Report has an info field.
+    Pass Criteria: A report has info text.
     */
     @Test
     fun setInfo_createReportActivityTest() {
@@ -42,13 +42,22 @@ class CreateReportActivityTest {
     }
 
     /*
-    Testing:Report has a locationInfo field
-    Pass Criteria: A report has location Info text
+    Testing: Report has a locationInfo field.
+    Pass Criteria: A report has location Info text.
     */
     @Test
     fun setLocationInfo_createReportActivityTest() {
         onView(withId(R.id.locationEditText)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
         onView(withId(R.id.locationEditText)).perform(ViewActions.replaceText("basement"), ViewActions.closeSoftKeyboard())
         onView(withId(R.id.locationEditText)).check(ViewAssertions.matches(ViewMatchers.withText("basement")))
+    }
+
+    /*
+    Testing: Create report button visibility.
+    Pass Criteria: Create report button is visible.
+    */
+    @Test
+    fun buttonVisible_createReportActivityTest() {
+        onView(withId(R.id.createReportButton)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
     }
 }

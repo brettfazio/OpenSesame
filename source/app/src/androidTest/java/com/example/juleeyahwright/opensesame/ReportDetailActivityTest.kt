@@ -57,22 +57,19 @@ class ReportDetailActivityTest {
     @Test
     fun setFields_reportDetailActivityTest() {
         onView(withId(R.id.reportDetailHeader)).check(ViewAssertions.matches(ViewMatchers.withText("dummy")))
-
         onView(withId(R.id.reportDetailInfo)).check(ViewAssertions.matches(ViewMatchers.withText("this is a dummy report")))
-
         onView(withId(R.id.reportDetailLocationInfo)).check(ViewAssertions.matches(ViewMatchers.withText("basement")))
     }
 
     /*
     Testing: A user can go to the Create message page and then cancel that action.
-    Pass Criteria: Clicking add intents to ReportAddInfo and pressing back finishes that view.
+    Pass Criteria: A user can go to the Create message page and then cancel that action.
     */
     @Test
     fun goToCreateAndBack_reportDetailActivityTest() {
         Intents.init()
         onView(withId(R.id.reportDetailAddMessage)).perform(click())
 
-        Thread.sleep(3000)
         Intents.intended(IntentMatchers.hasComponent(ReportAddInfoActivity::class.java.name))
         Intents.release()
 
