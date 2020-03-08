@@ -6,6 +6,7 @@ import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.matcher.ViewMatchers
+import androidx.test.espresso.matcher.ViewMatchers.isCompletelyDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.filters.LargeTest
 import androidx.test.platform.app.InstrumentationRegistry
@@ -33,12 +34,21 @@ class ReportAddInfoActivityTest {
             }
 
     /*
-    Testing: Can enter a message into the field
-    Pass Criteria: A message can be successfully entered
+    Testing: Can enter a message into the field.
+    Pass Criteria: A message can be successfully entered.
     */
     @Test
     fun setMessage_reportAddInfoActivityTest() {
         onView(withId(R.id.messageInfoEditText)).perform(ViewActions.replaceText("123456"), ViewActions.closeSoftKeyboard())
         onView(withId(R.id.messageInfoEditText)).check(ViewAssertions.matches(ViewMatchers.withText("123456")))
+    }
+
+    /*
+    Testing: Create message button is visible to the user.
+    Pass Criteria: Create message button is completely visible.
+    */
+    @Test
+    fun createButtonVisible_reportAddInfoActivityTest() {
+        onView(withId(R.id.createMessageButton)).check(ViewAssertions.matches(isCompletelyDisplayed()))
     }
 }

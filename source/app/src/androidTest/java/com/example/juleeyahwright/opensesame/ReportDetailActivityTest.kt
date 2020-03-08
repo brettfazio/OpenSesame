@@ -1,10 +1,10 @@
 package com.example.juleeyahwright.opensesame
 
 
-import android.content.Context
 import android.content.Intent
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.action.ViewActions
+import androidx.test.espresso.Espresso.pressBack
+import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.intent.Intents
 import androidx.test.espresso.intent.matcher.IntentMatchers
@@ -17,7 +17,6 @@ import com.example.juleeyahwright.opensesame.Report.ReportReference
 import com.example.juleeyahwright.opensesame.ReportAddInfo.ReportAddInfoActivity
 import com.example.juleeyahwright.opensesame.ReportDetail.ReportDetailActivity
 import com.google.android.gms.maps.model.LatLng
-import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 
@@ -44,7 +43,7 @@ class ReportDetailActivityTest {
     @Test
     fun addMoreInfo_reportDetailActivityTest() {
         Intents.init()
-        onView(withId(R.id.reportDetailAddMessage)).perform(ViewActions.click())
+        onView(withId(R.id.reportDetailAddMessage)).perform(click())
         Thread.sleep(3000)
         Intents.intended(IntentMatchers.hasComponent(ReportAddInfoActivity::class.java.name), (Intents.times(1)))
 
@@ -58,9 +57,23 @@ class ReportDetailActivityTest {
     @Test
     fun setFields_reportDetailActivityTest() {
         onView(withId(R.id.reportDetailHeader)).check(ViewAssertions.matches(ViewMatchers.withText("dummy")))
-
         onView(withId(R.id.reportDetailInfo)).check(ViewAssertions.matches(ViewMatchers.withText("this is a dummy report")))
-
         onView(withId(R.id.reportDetailLocationInfo)).check(ViewAssertions.matches(ViewMatchers.withText("basement")))
+    }
+
+    /*
+    Testing: A user can go to the Create message page and then cancel that action.
+    Pass Criteria: A user can go to the Create message page and then cancel that action.
+    */
+    @Test
+    fun goToCreateAndBack_reportDetailActivityTest() {
+        Intents.init()
+        onView(withId(R.id.reportDetailAddMessage)).perform(click())
+
+        Intents.intended(IntentMatchers.hasComponent(ReportAddInfoActivity::class.java.name))
+        Intents.release()
+
+        pressBack()
+        onView(withId(R.id.reportDetailAddMessage)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
     }
 }

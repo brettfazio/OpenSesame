@@ -2,6 +2,7 @@ package com.example.juleeyahwright.opensesame.ReportDetail;
 
 import android.content.Context;
 import android.content.Intent;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
@@ -65,6 +66,8 @@ public class ReportDetailController implements MessageGetServiceListener {
 
     @Override
     public void messageRetrievalFailure(@NotNull Exception exception) {
-
+        Toast.makeText(context,
+                "Failed to get messages with error: " + exception.getMessage(),
+                Toast.LENGTH_LONG).show();
     }
 }

@@ -10,14 +10,22 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.juleeyahwright.opensesame.Common.BaseActivity;
 import com.example.juleeyahwright.opensesame.R;
-import com.example.juleeyahwright.opensesame.Settings.SettingsActivity;
 
+import com.example.juleeyahwright.opensesame.Report.Get.ReportGetService;
+import com.example.juleeyahwright.opensesame.Report.Get.ReportGetServiceListener;
+import com.example.juleeyahwright.opensesame.Report.ReportReference;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import org.jetbrains.annotations.NotNull;
+
+import java.util.ArrayList;
 import java.util.Objects;
 
-public class ReportListActivity extends BaseActivity {
+public class ReportListActivity extends BaseActivity implements ReportGetServiceListener {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
+    private ArrayList<ReportListItem> reportArray = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,13 +35,8 @@ public class ReportListActivity extends BaseActivity {
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        mRecyclerView = findViewById(R.id.recycler_view);
-        mRecyclerView.setHasFixedSize(true);
-        mLayoutManager = new LinearLayoutManager(this);
-        mAdapter = new ReportListAdapter("Need", "To", "Do");
-
-        mRecyclerView.setLayoutManager(mLayoutManager);
-        mRecyclerView.setAdapter(mAdapter);
+        ReportGetService service = new ReportGetService(this);
+        service.getReports();
     }
 
     // adds a menu to access account
@@ -59,4 +62,29 @@ public class ReportListActivity extends BaseActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void createList() {
+        mRecyclerView = findViewById(R.id.recycler_view);
+        mRecyclerView.setHasFixedSize(true);
+        mLayoutManager = new LinearLayoutManager(this);
+        mAdapter = new ReportListAdapter(reportArray);
+
+        mRecyclerView.setLayoutManager(mLayoutManager);
+        mRecyclerView.setAdapter(mAdapter);
+    }
+
+    @Override
+    public void reportRetrievalSuccess(@NotNull QuerySnapshot querySnapshot, @NotNull ReportReference[] reportReferences) {
+        for(ReportReference reportReference : reportReferences){
+            reportArray.add(new ReportListItem(
+                    reportReference.getName(),
+                    reportReference.getLocationInfo(),
+                    reportReference.getLocation(),
+                    reportReference.getLocationInfo()));
+        }
+        createList();
+    }
+
+    @Override
+    public void reportRetrievalFailure(@NotNull Exception exception) {
+    }
 }
