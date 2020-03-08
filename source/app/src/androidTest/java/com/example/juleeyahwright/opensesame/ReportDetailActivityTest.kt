@@ -1,11 +1,9 @@
 package com.example.juleeyahwright.opensesame
 
 
-import android.content.Context
 import android.content.Intent
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.Espresso.pressBack
-import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.intent.Intents
@@ -19,7 +17,6 @@ import com.example.juleeyahwright.opensesame.Report.ReportReference
 import com.example.juleeyahwright.opensesame.ReportAddInfo.ReportAddInfoActivity
 import com.example.juleeyahwright.opensesame.ReportDetail.ReportDetailActivity
 import com.google.android.gms.maps.model.LatLng
-import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 
