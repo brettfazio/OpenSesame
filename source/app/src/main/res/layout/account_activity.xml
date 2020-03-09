@@ -9,6 +9,10 @@
     android:layout_marginRight="20dp"
     tools:context=".AccountModel.AccountActivity">
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="13dp" />
+
     <TextView
         android:id="@+id/account_title"
         android:layout_width="match_parent"
@@ -25,12 +29,16 @@
         android:textSize="24sp"
         />
 
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="13dp" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/account_list_view"
         android:layout_width="match_parent"
-        android:layout_height="636dp"
-        android:background="#808080"
-        android:padding="4dp"
+        android:layout_height="591dp"
+        android:background="#FFFFFF"
+        android:padding="8dp"
         android:scrollbars="vertical" />
 
 </LinearLayout>

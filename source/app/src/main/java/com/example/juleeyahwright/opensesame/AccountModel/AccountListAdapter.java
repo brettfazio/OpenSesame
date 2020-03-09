@@ -9,8 +9,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.juleeyahwright.opensesame.R;
-import com.example.juleeyahwright.opensesame.ReportList.ReportListAdapter;
-import com.example.juleeyahwright.opensesame.ReportList.ReportListItem;
 
 import java.util.ArrayList;
 
@@ -40,7 +38,7 @@ public class AccountListAdapter extends RecyclerView.Adapter<AccountListAdapter.
     @NonNull
     @Override
     public ReportViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.report_list_item,
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.my_account_list_item,
                 parent, false);
         AccountListAdapter.ReportViewHolder vh = new AccountListAdapter.ReportViewHolder(v);
         return vh;

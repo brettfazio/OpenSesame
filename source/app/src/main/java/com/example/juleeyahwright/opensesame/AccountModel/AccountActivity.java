@@ -7,11 +7,11 @@ import android.view.MenuItem;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.juleeyahwright.opensesame.Common.SharedPreferencesController;
 import com.example.juleeyahwright.opensesame.R;
 import com.example.juleeyahwright.opensesame.Report.Get.ReportGetService;
 import com.example.juleeyahwright.opensesame.Report.ReportReference;
 import com.example.juleeyahwright.opensesame.ReportList.ReportListActivity;
-import com.example.juleeyahwright.opensesame.ReportList.ReportListItem;
 import com.example.juleeyahwright.opensesame.Settings.SettingsActivity;
 import com.google.firebase.firestore.QuerySnapshot;
 
@@ -72,12 +72,16 @@ public class AccountActivity extends ReportListActivity {
 
     @Override
     public void reportRetrievalSuccess(@NotNull QuerySnapshot querySnapshot, @NotNull ReportReference[] reportReferences) {
+        String email = SharedPreferencesController.getEmail(getApplicationContext());
         for(ReportReference reportReference : reportReferences){
-            reportArray.add(new AccountListItem(
+            if(reportReference.getEmail() == email) {
+                reportArray.add(new AccountListItem(
                     reportReference.getName(),
                     reportReference.getLocationInfo(),
                     reportReference.getLocation(),
-                    reportReference.getLocationInfo()));
+                    reportReference.getLocationInfo(),
+                    reportReference.getEmail()));
+            }
         }
         createList();
     }
