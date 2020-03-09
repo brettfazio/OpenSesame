@@ -79,7 +79,8 @@ public class AccountActivity extends ReportListActivity {
                     reportReference.getName(),
                     reportReference.getLocationInfo(),
                     reportReference.getLocation(),
-                    reportReference.getLocationInfo()));
+                    reportReference.getLocationInfo(),
+                    reportReference.getEmail()));
             }
         }
         createList();
