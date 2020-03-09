@@ -5,8 +5,9 @@ import android.os.Parcelable
 import com.google.android.gms.maps.model.LatLng
 import com.google.firebase.firestore.QueryDocumentSnapshot
 
-class ReportReference(private val reportName: String?, private val reportInfo: String?, private val reportLocInfo: String?, private val reportLocation: LatLng?, private val documentId: String?) :
-        Report(reportName, reportInfo, reportLocInfo, reportLocation), Parcelable {
+class ReportReference(private val reportName: String?, private val reportInfo: String?, private val reportLocInfo: String?, private val reportLocation: LatLng?, private val documentId: String?,
+                      private val emailString: String?) :
+        Report(reportName, reportInfo, reportLocInfo, reportLocation, emailString), Parcelable {
 
     fun getDocumentId(): String? {
         return documentId
@@ -17,6 +18,7 @@ class ReportReference(private val reportName: String?, private val reportInfo: S
             parcel.readString(),
             parcel.readString(),
             parcel.readParcelable(LatLng::class.java.classLoader),
+            parcel.readString(),
             parcel.readString())
 
     constructor(queryDocumentSnapshot: QueryDocumentSnapshot) : this(
@@ -25,7 +27,8 @@ class ReportReference(private val reportName: String?, private val reportInfo: S
             queryDocumentSnapshot[LOCATION_INFO_FIELD_NAME] as String?,
             LatLng((queryDocumentSnapshot[LOCATION_FIELD_NAME] as Map<*, *>)["latitude"] as Double,
                     (queryDocumentSnapshot[LOCATION_FIELD_NAME] as Map<*, *>)["longitude"] as Double),
-            queryDocumentSnapshot.id
+            queryDocumentSnapshot.id,
+            queryDocumentSnapshot[EMAIL_FIELD_NAME] as String?
     )
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
@@ -34,6 +37,7 @@ class ReportReference(private val reportName: String?, private val reportInfo: S
         parcel.writeString(reportLocInfo)
         parcel.writeParcelable(reportLocation, flags)
         parcel.writeString(documentId)
+        parcel.writeString(emailString)
     }
 
     override fun describeContents(): Int {

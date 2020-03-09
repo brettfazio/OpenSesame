@@ -15,29 +15,33 @@ public class Report {
     protected static final String NAME_FIELD_NAME = "name";
     protected static final String LOCATION_FIELD_NAME = "location";
     protected static final String LOCATION_INFO_FIELD_NAME = "locationInfo";
+    protected static final String EMAIL_FIELD_NAME="email";
 
     private LatLng location;
     private String information, name, locationInfo;
     private String collectionPath;
     private Map<String, Object> map;
+    private String email;
 
     // constructor with default collection path
-    public Report(String name, String information, String locationInfo, LatLng location) {
+    public Report(String name, String information, String locationInfo, LatLng location, String email) {
         this.location = location;
         this.name = name;
         this.information = information;
         this.locationInfo = locationInfo;
         this.collectionPath = DEFAULT_COLLECTION_PATH;
+        this.email = email;
         this.map = makeMap();
     }
 
     // constructor with custom collection path
-    public Report(String name, String information, String locationInfo, LatLng location, String collectionPath) {
+    public Report(String name, String information, String locationInfo, LatLng location, String collectionPath, String email) {
         this.location = location;
         this.name = name;
         this.information = information;
         this.locationInfo = locationInfo;
         this.collectionPath = collectionPath;
+        this.email = email;
         this.map = makeMap();
     }
 
@@ -75,5 +79,7 @@ public class Report {
     public LatLng getLocation() {
         return location;
     }
+
+    public String getEmail() { return email; }
 
 }

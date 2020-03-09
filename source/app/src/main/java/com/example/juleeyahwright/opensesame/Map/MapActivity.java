@@ -62,18 +62,6 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback, Goo
         selectionStateReady = true;
     }
 
-//    @Override
-//    protected void onStart() {
-//        super.onStart();
-//        setContentView(R.layout.map_activity);
-//    }
-//
-//    @Override
-//    protected void onResume() {
-//        super.onResume();
-//        setContentView(R.layout.map_activity);
-//    }
-
     // changes the state to allow the user to add a marker to the map
     private void addReportClicked() {
         if (!selectionStateReady) {
@@ -147,13 +135,6 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback, Goo
 //            if(showZoom)
 //               googleMap.getUiSettings().setZoomControlsEnabled(true);
     }
-
-//    // adds a menu to access account
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        getMenuInflater().inflate(R.menu.main_menu, menu);
-//        return true;
-//    }
 
     // depending on the button selected, take the user to the appropriate screen
     @Override
