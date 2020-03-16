@@ -113,11 +113,21 @@ public class LoginActivity extends BaseActivity implements AccountModelListener 
 
     // if failure, show an error message to user
     @Override
-    public void logInFailure(Exception exception, String email, String password) {
+    public void logInFailure(final Exception exception, String email, String password) {
         if (showPopUp) {
-            Toast.makeText(getApplicationContext(),
-                    "Failed to sign in. Error: " + exception.toString(),
-                    Toast.LENGTH_LONG).show();
+            Thread thread = new Thread(){
+              public void run() {
+                  runOnUiThread(new Runnable() {
+                      public void run(){
+                          Toast.makeText(getApplicationContext(),
+                                  "Failed to sign in. Error: " + exception.toString(),
+                                  Toast.LENGTH_LONG).show();
+                      }
+                  });
+              }
+
+            };
+            thread.start();
         }
         this.processingLogin = false;
     }
