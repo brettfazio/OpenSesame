@@ -26,6 +26,10 @@ public class ReportDetailAdapter extends RecyclerView.Adapter<ReportDetailAdapte
         this.mDataset = myDataset;
     }
 
+    public void updateDataSet(MessageReference[] newDataset) {
+        this.mDataset = newDataset;
+    }
+
     // Create new views (invoked by the layout manager)
     @Override
     public ReportDetailAdapter.ReportDetailViewHolder onCreateViewHolder(ViewGroup parent,

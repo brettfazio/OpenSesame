@@ -56,12 +56,26 @@ public class ReportDetailController implements MessageGetServiceListener {
         getService.getMessages(reportReference);
     }
 
+    public void refreshMessages(RecyclerView recyclerView) {
+        if (temporaryRecyclerView == null) {
+            setUpAdapter(recyclerView);
+            return;
+        }
+
+        MessageGetService getService = new MessageGetService(this);
+        getService.getMessages(reportReference);
+    }
+
     @Override
     public void messageRetrievalSuccess(@NotNull QuerySnapshot querySnapshot, @NotNull MessageReference[] messages) {
         if (mAdapter == null) {
             mAdapter = new ReportDetailAdapter(messages);
+            temporaryRecyclerView.setAdapter(mAdapter);
+        }else {
+            mAdapter.updateDataSet(messages);
+            mAdapter.notifyDataSetChanged();
         }
-        temporaryRecyclerView.setAdapter(mAdapter);
+
     }
 
     @Override

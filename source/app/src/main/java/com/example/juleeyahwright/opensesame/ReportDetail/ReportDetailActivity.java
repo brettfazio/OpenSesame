@@ -53,6 +53,11 @@ public class ReportDetailActivity extends BaseActivity {
 
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
 
         setUpMessages();
     }
@@ -74,7 +79,7 @@ public class ReportDetailActivity extends BaseActivity {
     }
 
     private void setUpMessages() {
-        controller.setUpAdapter(recyclerView);
+        controller.refreshMessages(recyclerView);
     }
 
     private void setFields() {
