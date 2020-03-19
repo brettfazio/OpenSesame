@@ -2,24 +2,14 @@ package com.example.juleeyahwright.opensesame.Map;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.maps.model.LatLng;
+import com.example.juleeyahwright.opensesame.Report.ReportReference;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MarkerController extends AppCompatActivity {
-
-    public static MarkerOptions addMarker(LatLng latLng) {
+    public static MarkerOptions createMarker(ReportReference reportReference) {
         MarkerOptions markerOptions = new MarkerOptions();
-        markerOptions.position(latLng);
-        markerOptions.title(latLng.latitude + " : " + latLng.longitude);
+        markerOptions.position(reportReference.getLocation());
+        markerOptions.title(reportReference.getName());
         return markerOptions;
-    }
-
-    /* Display all markers on map...still figuring out how to use firebasedatabase */
-    public static void displayMarkers(){
-        //Log.i("myTag", FirebaseDatabase.getInstance().getReference("name").toString());
-    }
-
-    public static void removeMarker(){
-
     }
 }

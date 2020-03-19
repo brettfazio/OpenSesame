@@ -9,20 +9,27 @@ import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.example.juleeyahwright.opensesame.Report.Get.ReportGetService;
+import com.example.juleeyahwright.opensesame.Report.Get.ReportGetServiceListener;
+import com.example.juleeyahwright.opensesame.Report.ReportReference;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import org.jetbrains.annotations.NotNull;
 
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 
 /*
 MapController: gets the interaction between the user and the locations on the map
  */
-public class InterfaceMapController {
+public class InterfaceMapController implements ReportGetServiceListener {
 
     private static final int ZOOM = 16;
 
@@ -49,7 +56,7 @@ public class InterfaceMapController {
         this.mMap = mMap;
         try {
             this.fusedLocationClient = LocationServices.getFusedLocationProviderClient(a);
-        } catch (NullPointerException n) {
+        } catch (NullPointerException ignored) {
         }
     }
 
@@ -76,7 +83,7 @@ public class InterfaceMapController {
         }
     }
 
-    public void updateMapLocation(Activity a) {
+    void updateMapLocation(Activity a) {
         if (mMap == null)
             return;
 
@@ -94,7 +101,7 @@ public class InterfaceMapController {
         }
     }
 
-    public void getLastKnownLocation(Activity a) {
+    private void getLastKnownLocation(Activity a) {
         try {
             if (mLocationPermissionGranted) {
                 Task<Location> location = fusedLocationClient.getLastLocation();
@@ -118,5 +125,24 @@ public class InterfaceMapController {
             }
         } catch (SecurityException e) {
         }
+    }
+
+    public void drawReports() {
+        ReportGetService reportGetService = new ReportGetService(this);
+        reportGetService.getReports();
+
+    }
+
+    @Override
+    public void reportRetrievalSuccess(@NotNull QuerySnapshot querySnapshot, @NotNull ReportReference[] reportReferences) {
+        for (ReportReference reportReference : reportReferences) {
+            Marker marker = this.mMap.addMarker(MarkerController.createMarker(reportReference));
+            marker.setTag(reportReference);
+        }
+    }
+
+    @Override
+    public void reportRetrievalFailure(@NotNull Exception exception) {
+
     }
 }

@@ -3,7 +3,6 @@ package com.example.juleeyahwright.opensesame.Map;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -34,6 +33,7 @@ reports can be added, and settings page can be accessed
 public class MapActivity extends BaseActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
 
     private MapController mapController;
+    private MarkerController markerController;
     private InterfaceMapController interfaceMapController;
     private boolean selectionStateReady;
 
@@ -48,18 +48,27 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback, Goo
         // Make sure that mapFragment is not null
         assert mapFragment != null;
 
+        mapController = new MapController(getApplicationContext());
+        markerController = new MarkerController();
+
+        selectionStateReady = true;
+
         mapFragment.getMapAsync(this);
         Button addButton = findViewById(R.id.add_button);
         addButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                MarkerController.displayMarkers();
                 addReportClicked();
             }
         });
+    }
 
-        mapController = new MapController(getApplicationContext());
+    @Override
+    protected void onResume() {
+        super.onResume();
 
-        selectionStateReady = true;
+        // Draw the reports
+        if (interfaceMapController != null)
+            interfaceMapController.drawReports();
     }
 
     // changes the state to allow the user to add a marker to the map
@@ -97,7 +106,8 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback, Goo
             intentToReport(location);
             Toast.makeText(getApplicationContext(), "new marker", Toast.LENGTH_SHORT).show();
             interfaceMapController.getMap().animateCamera(CameraUpdateFactory.newLatLng(location));
-            interfaceMapController.getMap().addMarker(MarkerController.addMarker(location));
+            //TODO(brettfazio): Re-draw markers
+            //interfaceMapController.getMap().addMarker(markerController.addMarker(location));
         }
     }
 
@@ -123,6 +133,8 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback, Goo
                 clicked(latLng);
             }
         });
+        interfaceMapController.getMap().setOnMarkerClickListener(this);
+        interfaceMapController.drawReports();
 
 //            boolean showCompass = getIntent().getExtras().getBoolean("SHOW_COMPASS");
 //            boolean satelliteMap = getIntent().getExtras().getBoolean("SATELLITE_HYBRID");
@@ -181,6 +193,7 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback, Goo
     // A marker was tapped on the map
     @Override
     public boolean onMarkerClick(Marker marker) {
+        System.out.println("Marker was tapped!!!!" + selectionStateReady);
         if (!selectionStateReady) {
             return false;
         }
