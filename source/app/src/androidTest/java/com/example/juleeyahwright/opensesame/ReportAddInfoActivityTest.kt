@@ -28,7 +28,7 @@ class ReportAddInfoActivityTest {
                     val targetContext = InstrumentationRegistry.getInstrumentation().targetContext
                     return Intent(targetContext, ReportAddInfoActivity::class.java).apply {
                         putExtra(ReportAddInfoActivity.REPORT_EXTRA,
-                                ReportReference("dummy", "this is a dummy report", "basement", LatLng(0.0, 0.0), "eFz687FFHDHD"))
+                                ReportReference("dummy", "this is a dummy report", "basement", LatLng(0.0, 0.0), "eFz687FFHDHD", "hashUID"))
                     }
                 }
             }

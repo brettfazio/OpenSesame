@@ -11,7 +11,7 @@ class ReportTest {
      */
     @Test
     fun firebaseMap_reportTest() {
-        val report = Report("dummy", "this is a dummy report", "basement", LatLng(0.0, 0.0))
+        val report = Report("dummy", "this is a dummy report", "basement", LatLng(0.0, 0.0), "hashUID")
         val map = report.firebaseMap
         assert(map["name"] != null)
         assert(map["information"] != null)
@@ -30,7 +30,7 @@ class ReportTest {
     */
     @Test
     fun collectionPath_test() {
-        val report = Report("dummy", "this is a dummy report", "basement", LatLng(0.0, 0.0))
+        val report = Report("dummy", "this is a dummy report", "basement", LatLng(0.0, 0.0), "hashUID")
         assert(report.collectionPath == Report.DEFAULT_COLLECTION_PATH)
     }
 
@@ -40,7 +40,7 @@ class ReportTest {
     */
     @Test
     fun customGetCollectionPath_test() {
-        val report = Report("dummy", "this is a dummy report", "basement", LatLng(0.0, 0.0), "custom")
+        val report = Report("dummy", "this is a dummy report", "basement", LatLng(0.0, 0.0), "custom","hashUID")
         assert(report.collectionPath == "custom")
     }
 
@@ -50,7 +50,7 @@ class ReportTest {
     */
     @Test
     fun name_test() {
-        val report = Report("dummy", "this is a dummy report", "basement", LatLng(0.0, 0.0), "custom")
+        val report = Report("dummy", "this is a dummy report", "basement", LatLng(0.0, 0.0), "custom", "hashUID")
         assert(report.name == "dummy")
     }
 
@@ -60,7 +60,7 @@ class ReportTest {
     */
     @Test
     fun information_test() {
-        val report = Report("dummy", "this is a dummy report", "basement", LatLng(0.0, 0.0), "custom")
+        val report = Report("dummy", "this is a dummy report", "basement", LatLng(0.0, 0.0), "custom","hashUID")
         assert(report.information == "this is a dummy report")
     }
 
@@ -70,7 +70,7 @@ class ReportTest {
     */
     @Test
     fun locationInfo_test() {
-        val report = Report("dummy", "this is a dummy report", "basement", LatLng(0.0, 0.0), "custom")
+        val report = Report("dummy", "this is a dummy report", "basement", LatLng(0.0, 0.0), "custom","hashUID")
         assert(report.locationInfo == "basement")
     }
 
@@ -80,7 +80,7 @@ class ReportTest {
     */
     @Test
     fun location_test() {
-        val report = Report("dummy", "this is a dummy report", "basement", LatLng(0.0, 0.0), "custom")
+        val report = Report("dummy", "this is a dummy report", "basement", LatLng(0.0, 0.0), "custom","hashUID")
         assert(report.location == LatLng(0.0, 0.0))
     }
 }

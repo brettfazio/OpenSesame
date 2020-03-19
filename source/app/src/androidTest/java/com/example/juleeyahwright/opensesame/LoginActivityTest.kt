@@ -102,8 +102,8 @@ class LoginActivityTest {
 
 
         Intents.init()
-        onView(withId(R.id.logInButton)).perform(click(), doubleClick())
-        onView(withId(R.id.logInButton)).perform(click())
+        onView(withId(R.id.logInButton)).perform(click(), doubleClick(), click())
+        // onView(withId(R.id.logInButton)).perform(click())
         Thread.sleep(3000)
         Intents.intended(IntentMatchers.hasComponent(MapActivity::class.java.name), (Intents.times(1)))
 
