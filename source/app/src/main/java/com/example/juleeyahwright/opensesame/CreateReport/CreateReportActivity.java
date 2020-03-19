@@ -12,6 +12,7 @@ import com.example.juleeyahwright.opensesame.Common.SharedPreferencesController;
 import com.example.juleeyahwright.opensesame.R;
 import com.example.juleeyahwright.opensesame.Report.Report;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import org.jetbrains.annotations.NotNull;
@@ -69,9 +70,10 @@ public class CreateReportActivity extends BaseActivity implements CreateReportLi
         String title = getEnteredTitle();
         String info = getEnteredInfo();
         String location = getEnteredLocation();
-        String email = SharedPreferencesController.getEmail(getApplicationContext());
+        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-        controller.writeReport(title, info, location, getLatLng(), email);
+        controller.writeReport(title, info, location, getLatLng(), uid);
+        controller.writeReport(title, info, location, getLatLng(), uid, uid);
     }
 
     private boolean allFieldsFilledOut() {

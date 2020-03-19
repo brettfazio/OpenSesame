@@ -74,13 +74,13 @@ public class AccountActivity extends ReportListActivity {
     public void reportRetrievalSuccess(@NotNull QuerySnapshot querySnapshot, @NotNull ReportReference[] reportReferences) {
         String email = SharedPreferencesController.getEmail(getApplicationContext());
         for(ReportReference reportReference : reportReferences){
-            if(reportReference.getEmail() == email) {
+            if(reportReference.getUID() == email) {
                 reportArray.add(new AccountListItem(
                     reportReference.getName(),
                     reportReference.getLocationInfo(),
                     reportReference.getLocation(),
                     reportReference.getLocationInfo(),
-                    reportReference.getEmail()));
+                    reportReference.getUID()));
             }
         }
         createList();

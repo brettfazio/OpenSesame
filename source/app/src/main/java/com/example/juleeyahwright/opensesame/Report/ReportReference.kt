@@ -6,8 +6,8 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.firebase.firestore.QueryDocumentSnapshot
 
 class ReportReference(private val reportName: String?, private val reportInfo: String?, private val reportLocInfo: String?, private val reportLocation: LatLng?, private val documentId: String?,
-                      private val emailString: String?) :
-        Report(reportName, reportInfo, reportLocInfo, reportLocation, emailString), Parcelable {
+                      private val userID: String?) :
+        Report(reportName, reportInfo, reportLocInfo, reportLocation, userID), Parcelable {
 
     fun getDocumentId(): String? {
         return documentId
@@ -28,7 +28,7 @@ class ReportReference(private val reportName: String?, private val reportInfo: S
             LatLng((queryDocumentSnapshot[LOCATION_FIELD_NAME] as Map<*, *>)["latitude"] as Double,
                     (queryDocumentSnapshot[LOCATION_FIELD_NAME] as Map<*, *>)["longitude"] as Double),
             queryDocumentSnapshot.id,
-            queryDocumentSnapshot[EMAIL_FIELD_NAME] as String?
+            queryDocumentSnapshot[USERID_FIELD_NAME] as String?
     )
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
@@ -37,7 +37,7 @@ class ReportReference(private val reportName: String?, private val reportInfo: S
         parcel.writeString(reportLocInfo)
         parcel.writeParcelable(reportLocation, flags)
         parcel.writeString(documentId)
-        parcel.writeString(emailString)
+        parcel.writeString(userID)
     }
 
     override fun describeContents(): Int {
