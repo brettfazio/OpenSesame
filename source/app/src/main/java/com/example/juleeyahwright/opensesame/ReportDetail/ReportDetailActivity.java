@@ -22,7 +22,6 @@ public class ReportDetailActivity extends BaseActivity {
     private ReportDetailController controller;
 
     private RecyclerView recyclerView;
-    //private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
 
     @Override
