@@ -28,7 +28,9 @@ public class ReportAddInfoController implements ReportUpdateServiceListener {
 
     @Override
     public void reportUpdateSuccess() {
-
+        Toast.makeText(context,
+                "Report update success!",
+                Toast.LENGTH_LONG).show();
     }
 
     @Override

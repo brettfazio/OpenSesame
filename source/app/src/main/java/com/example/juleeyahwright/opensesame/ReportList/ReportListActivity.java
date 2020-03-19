@@ -79,7 +79,7 @@ public class ReportListActivity extends BaseActivity implements ReportGetService
                     reportReference.getLocationInfo(),
                     reportReference.getLocation(),
                     reportReference.getLocationInfo(),
-                    reportReference.getEmail()));
+                    reportReference.getUID()));
         }
         createList();
     }

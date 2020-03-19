@@ -24,7 +24,8 @@ class ReportDetailControllerTest {
             "this is a dummy report",
             "basement",
             LatLng(0.0, 0.0),
-            "eFz687FFHDHD")
+            "eFz687FFHDHD",
+            "hashUID")
 
     @Test
     fun reportName_test() {

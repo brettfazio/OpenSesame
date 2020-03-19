@@ -7,13 +7,13 @@ import org.junit.Test
 class ReportReferenceTest {
     @Test
     fun customID_test() {
-        val reference: ReportReference = ReportReference("report", "this is a report", "basement", LatLng(0.0, 0.0), "eFz687FFHDHD")
+        val reference: ReportReference = ReportReference("report", "this is a report", "basement", LatLng(0.0, 0.0), "eFz687FFHDHD", "hashUID:")
         assert(reference.getDocumentId() == "eFz687FFHDHD")
     }
 
     @Test
     fun getFirebaseMap_test() {
-        val report : ReportReference = ReportReference("dummy", "this is a dummy report", "basement", LatLng(0.0, 0.0), "eFz687FFHDHD")
+        val report : ReportReference = ReportReference("dummy", "this is a dummy report", "basement", LatLng(0.0, 0.0), "eFz687FFHDHD", "hashUID")
 
         val map = report.firebaseMap
 
@@ -35,7 +35,7 @@ class ReportReferenceTest {
     */
     @Test
     fun getName_test() {
-        val report = ReportReference("dummy", "this is a dummy report", "basement", LatLng(0.0, 0.0), "eFz687FFHDHD")
+        val report = ReportReference("dummy", "this is a dummy report", "basement", LatLng(0.0, 0.0), "eFz687FFHDHD", "hashUID")
         assert(report.name == "dummy")
     }
 
@@ -45,7 +45,7 @@ class ReportReferenceTest {
     */
     @Test
     fun getInformation_test() {
-        val report = ReportReference("dummy", "this is a dummy report", "basement", LatLng(0.0, 0.0), "eFz687FFHDHD")
+        val report = ReportReference("dummy", "this is a dummy report", "basement", LatLng(0.0, 0.0), "eFz687FFHDHD", "hashUID")
         assert(report.information == "this is a dummy report")
     }
 
@@ -55,7 +55,7 @@ class ReportReferenceTest {
     */
     @Test
     fun getLocationInfo_test() {
-        val report = ReportReference("dummy", "this is a dummy report", "basement", LatLng(0.0, 0.0), "eFz687FFHDHD")
+        val report = ReportReference("dummy", "this is a dummy report", "basement", LatLng(0.0, 0.0), "eFz687FFHDHD", "hashUID")
         assert(report.locationInfo == "basement")
     }
 
@@ -65,7 +65,7 @@ class ReportReferenceTest {
     */
     @Test
     fun getLocation_test() {
-        val report = ReportReference("dummy", "this is a dummy report", "basement", LatLng(0.0, 0.0), "eFz687FFHDHD")
+        val report = ReportReference("dummy", "this is a dummy report", "basement", LatLng(0.0, 0.0), "eFz687FFHDHD", "hashUID")
         assert(report.location == LatLng(0.0, 0.0))
     }
 }
