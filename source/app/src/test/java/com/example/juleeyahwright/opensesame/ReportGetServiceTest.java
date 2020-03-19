@@ -26,7 +26,7 @@ import org.mockito.MockitoAnnotations;
 
 import java.util.concurrent.Executor;
 
-public class ReportGetGetServiceTest implements ReportGetServiceListener {
+public class ReportGetServiceTest implements ReportGetServiceListener {
 
     private static final int SUCCESS = 1;
     private static final int FAILURE = -1;

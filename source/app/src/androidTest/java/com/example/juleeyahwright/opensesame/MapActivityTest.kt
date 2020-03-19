@@ -1,7 +1,6 @@
 package com.example.juleeyahwright.opensesame
 
 
-
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.Espresso.pressBack
 import androidx.test.espresso.action.ViewActions.click
