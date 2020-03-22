@@ -83,4 +83,14 @@ class ReportTest {
         val report = Report("dummy", "this is a dummy report", "basement", LatLng(0.0, 0.0), "custom","hashUID")
         assert(report.location == LatLng(0.0, 0.0))
     }
+
+    /*
+    Testing: getUID getter returns proper value
+    Pass Criteria: getUID matches init value
+    */
+    @Test
+    fun uid_test() {
+        val report = Report("dummy", "this is a dummy report", "basement", LatLng(0.0, 0.0), "custom","hashUID")
+        assert(report.uid == "hashUID")
+    }
 }
