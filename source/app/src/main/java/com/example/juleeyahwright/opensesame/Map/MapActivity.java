@@ -2,6 +2,7 @@ package com.example.juleeyahwright.opensesame.Map;
 
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -13,6 +14,7 @@ import androidx.annotation.NonNull;
 import com.example.juleeyahwright.opensesame.AccountModel.AccountActivity;
 import com.example.juleeyahwright.opensesame.Common.BaseActivity;
 import com.example.juleeyahwright.opensesame.Common.SharedPreferencesController;
+import com.example.juleeyahwright.opensesame.Common.UCF.UCFConstant;
 import com.example.juleeyahwright.opensesame.CreateReport.CreateReportActivity;
 import com.example.juleeyahwright.opensesame.LoginActivity;
 import com.example.juleeyahwright.opensesame.R;
@@ -30,7 +32,7 @@ import com.google.firebase.auth.FirebaseAuth;
 MapActivity: the main interface of the app, a google maps that shows the user's location,
 reports can be added, and settings page can be accessed
  */
-public class MapActivity extends BaseActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
+public class MapActivity extends BaseActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener, GoogleMap.OnCameraMoveListener {
 
     private MapController mapController;
     private MarkerController markerController;
@@ -60,6 +62,13 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback, Goo
                 addReportClicked();
             }
         });
+
+        Button workOrderButton = findViewById(R.id.work_order_button);
+        workOrderButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                workOrderClicked();
+            }
+        });
     }
 
     @Override
@@ -85,6 +94,15 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback, Goo
         Toast.makeText(getApplicationContext(),
                 "Select a location on the map to create a report there!",
                 Toast.LENGTH_SHORT).show();
+    }
+
+    private void workOrderClicked() {
+        if (findViewById(R.id.work_order_button).getVisibility() != View.VISIBLE) {
+            return;
+        }
+
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(UCFConstant.UCF_WORK_ORDER_URL));
+        startActivity(browserIntent);
     }
 
     private void resetButtonState() {
@@ -134,7 +152,11 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback, Goo
             }
         });
         interfaceMapController.getMap().setOnMarkerClickListener(this);
+        interfaceMapController.getMap().setOnCameraMoveListener(this);
         interfaceMapController.drawReports();
+
+        // Set up work order button.
+        this.onCameraMove();
 
 //            boolean showCompass = getIntent().getExtras().getBoolean("SHOW_COMPASS");
 //            boolean satelliteMap = getIntent().getExtras().getBoolean("SATELLITE_HYBRID");
@@ -200,5 +222,29 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback, Goo
         Intent intent = mapController.markerWasTapped(this, marker);
         startActivity(intent);
         return false;
+    }
+
+    @Override
+    public void onCameraMove() {
+        LatLng center = interfaceMapController.getMap().getCameraPosition().target;
+
+        // If center is in UCF
+        if (UCFConstant.isContained(center)) {
+            showWorkOrderButton();
+        }
+        // Center not in UCF
+        else {
+            hideWorkOrderButton();
+        }
+    }
+
+    private void hideWorkOrderButton() {
+        Button workOrderButton = findViewById(R.id.work_order_button);
+        workOrderButton.setVisibility(View.INVISIBLE);
+    }
+
+    private void showWorkOrderButton() {
+        Button workOrderButton = findViewById(R.id.work_order_button);
+        workOrderButton.setVisibility(View.VISIBLE);
     }
 }
