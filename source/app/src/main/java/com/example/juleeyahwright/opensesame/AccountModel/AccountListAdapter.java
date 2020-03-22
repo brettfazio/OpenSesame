@@ -12,21 +12,16 @@ import com.example.juleeyahwright.opensesame.R;
 
 import java.util.ArrayList;
 
-public class AccountListAdapter extends RecyclerView.Adapter<AccountListAdapter.ReportViewHolder>{
-
+public class AccountListAdapter extends RecyclerView.Adapter<AccountListAdapter.AccountViewHolder>{
     private ArrayList<AccountListItem> reportArrayList;
 
-    public AccountListAdapter(ArrayList<AccountListItem> reportArray) {
-        this.reportArrayList = reportArray;
-    }
-
-        public static class ReportViewHolder extends RecyclerView.ViewHolder {
+    public static class AccountViewHolder extends RecyclerView.ViewHolder {
         public TextView mReportTitle;
         public TextView mReportLocation;
         public TextView mReportDistance;
         public TextView mReportDescription;
 
-        public ReportViewHolder(View itemView) {
+        public AccountViewHolder(View itemView) {
             super(itemView);
             mReportTitle = itemView.findViewById(R.id.report_name);
             mReportLocation = itemView.findViewById(R.id.report_location);
@@ -35,17 +30,21 @@ public class AccountListAdapter extends RecyclerView.Adapter<AccountListAdapter.
         }
     }
 
+    public AccountListAdapter(ArrayList<AccountListItem> reportArray) {
+        this.reportArrayList = reportArray;
+    }
+
     @NonNull
     @Override
-    public ReportViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public AccountViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.my_account_list_item,
                 parent, false);
-        AccountListAdapter.ReportViewHolder vh = new AccountListAdapter.ReportViewHolder(v);
+        AccountViewHolder vh = new AccountViewHolder(v);
         return vh;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ReportViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull AccountViewHolder holder, int position) {
         AccountListItem currItem = reportArrayList.get(position);
         holder.mReportTitle.setText(currItem.getReportName());
         holder.mReportLocation.setText("Location: " + currItem.getReportLocation());

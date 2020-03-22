@@ -37,6 +37,18 @@ public class ReportUpdateService implements ReportGetSingleServiceListener, Mess
         messageCreateService.createMessage(reference.getReference(), messageReference);
     }
 
+    private void _updateReportTitle(DocumentSnapshot reference) {
+
+    }
+
+    private void _updateReportDescription(DocumentSnapshot reference) {
+
+    }
+
+    private void _updateReportInformation(DocumentSnapshot reference) {
+
+    }
+
     @Override
     public void reportRetrievalSuccess(@NotNull DocumentSnapshot reference) {
         _addMessageToReport(reference);

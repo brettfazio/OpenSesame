@@ -7,12 +7,17 @@ import android.view.MenuItem;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.juleeyahwright.opensesame.ReportList.ReportListActivity;
+import com.example.juleeyahwright.opensesame.Common.BaseActivity;
 import com.example.juleeyahwright.opensesame.Common.SharedPreferencesController;
 import com.example.juleeyahwright.opensesame.R;
+
 import com.example.juleeyahwright.opensesame.Report.Get.ReportGetService;
+import com.example.juleeyahwright.opensesame.Report.Get.ReportGetServiceListener;
 import com.example.juleeyahwright.opensesame.Report.ReportReference;
-import com.example.juleeyahwright.opensesame.ReportList.ReportListActivity;
 import com.example.juleeyahwright.opensesame.Settings.SettingsActivity;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import org.jetbrains.annotations.NotNull;
@@ -20,14 +25,13 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class AccountActivity extends ReportListActivity {
-
+public class AccountActivity extends BaseActivity implements ReportGetServiceListener {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private ArrayList<AccountListItem> reportArray = new ArrayList<>();
 
-@Override
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.account_activity);
@@ -63,8 +67,7 @@ public class AccountActivity extends ReportListActivity {
             Intent i = new Intent(AccountActivity.this, ReportListActivity.class);
             startActivity(i);
         } else if (item.getItemId() == R.id.account_option) {
-            Intent i = new Intent(AccountActivity.this, AccountActivity.class);
-            startActivity(i);
+            finish();
         }
 
         return super.onOptionsItemSelected(item);
@@ -73,17 +76,23 @@ public class AccountActivity extends ReportListActivity {
     @Override
     public void reportRetrievalSuccess(@NotNull QuerySnapshot querySnapshot, @NotNull ReportReference[] reportReferences) {
         String email = SharedPreferencesController.getEmail(getApplicationContext());
-        for(ReportReference reportReference : reportReferences){
-            if(reportReference.getUID() == email) {
-                reportArray.add(new AccountListItem(
-                    reportReference.getName(),
-                    reportReference.getLocationInfo(),
-                    reportReference.getLocation(),
-                    reportReference.getLocationInfo(),
-                    reportReference.getUID()));
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            for(ReportReference reportReference : reportReferences){
+                String userId = user.getUid();
+                if (userId != null && !userId.isEmpty()) {
+                    if(reportReference.getUID() != null && reportReference.getUID().equals(userId)) {
+                        reportArray.add(new AccountListItem(
+                            reportReference.getName(),
+                            reportReference.getLocationInfo(),
+                            reportReference.getLocation(),
+                            reportReference.getLocationInfo(),
+                            reportReference.getUID()));
+                    }
+                }
             }
+            createList();
         }
-        createList();
     }
 
     @Override

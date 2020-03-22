@@ -73,7 +73,6 @@ public class CreateReportActivity extends BaseActivity implements CreateReportLi
         String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
         controller.writeReport(title, info, location, getLatLng(), uid);
-        controller.writeReport(title, info, location, getLatLng(), uid, uid);
     }
 
     private boolean allFieldsFilledOut() {
