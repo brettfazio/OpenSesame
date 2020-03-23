@@ -22,4 +22,8 @@ public class AccountListItem extends ReportListItem {
         this.uid = uid;
     }
 
+    public String getUid() {
+        return reportName;
+    }
+
 }

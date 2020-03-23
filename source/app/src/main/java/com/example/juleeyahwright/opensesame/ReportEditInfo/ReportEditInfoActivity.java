@@ -36,53 +36,53 @@ public class ReportEditInfoActivity extends BaseActivity {
         controller = new ReportDetailController(getApplicationContext(),
                 (ReportReference) getIntent().getExtras().get(REPORT_EXTRA));
 
-        setFields();
+        // setFields();
 
-        Button addButton = findViewById(R.id.reportDetailEditButton);
-        addButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                saveNewInfo();
-            }
-        });
+//        Button addButton = findViewById(R.id.reportDetailEditButton);
+//        addButton.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v) {
+//                saveNewInfo();
+//            }
+//        });
     }
 
     private void saveNewInfo() {
         // edit report stuff here
     }
 
-    private void setFields() {
-        setTitleField();
-        setInfoField();
-        setLocationInfoField();
-    }
-
-    private void setTitleField() {
-        TextView textView = findViewById(R.id.reportDetailHeader);
-        textView.setVisibility(View.GONE);
-        textView.setText(controller.getReportName());
-        String currentInfo = (String) textView.getText();
-        EditText editText = findViewById(R.id.editTitleHeader);
-        editText.setText(currentInfo);
-        editText.setVisibility(View.VISIBLE);
-    }
-
-    private void setInfoField() {
-        TextView textView = findViewById(R.id.reportDetailInfo);
-        textView.setVisibility(View.GONE);
-        textView.setText(controller.getReportInformation());
-        String currentInfo = (String) textView.getText();
-        EditText editText = findViewById(R.id.editReportDetailInfo);
-        editText.setText(currentInfo);
-        editText.setVisibility(View.VISIBLE);
-    }
-
-    private void setLocationInfoField() {
-        TextView textView = findViewById(R.id.reportDetailLocationInfo);
-        textView.setVisibility(View.GONE);
-        textView.setText(controller.getReportLocationInfo());
-        String currentInfo = (String) textView.getText();
-        EditText editText = findViewById(R.id.editReportLocInfo);
-        editText.setText(currentInfo);
-        editText.setVisibility(View.VISIBLE);
-    }
+//    private void setFields() {
+//        setTitleField();
+//        setInfoField();
+//        setLocationInfoField();
+//    }
+//
+//    private void setTitleField() {
+//        TextView textView = findViewById(R.id.reportDetailHeader);
+//        textView.setVisibility(View.GONE);
+//        textView.setText(controller.getReportName());
+//        String currentInfo = (String) textView.getText();
+//        EditText editText = findViewById(R.id.editTitleHeader);
+//        editText.setText(currentInfo);
+//        editText.setVisibility(View.VISIBLE);
+//    }
+//
+//    private void setInfoField() {
+//        TextView textView = findViewById(R.id.reportDetailInfo);
+//        textView.setVisibility(View.GONE);
+//        textView.setText(controller.getReportInformation());
+//        String currentInfo = (String) textView.getText();
+//        EditText editText = findViewById(R.id.editReportDetailInfo);
+//        editText.setText(currentInfo);
+//        editText.setVisibility(View.VISIBLE);
+//    }
+//
+//    private void setLocationInfoField() {
+//        TextView textView = findViewById(R.id.reportDetailLocationInfo);
+//        textView.setVisibility(View.GONE);
+//        textView.setText(controller.getReportLocationInfo());
+//        String currentInfo = (String) textView.getText();
+//        EditText editText = findViewById(R.id.editReportLocInfo);
+//        editText.setText(currentInfo);
+//        editText.setVisibility(View.VISIBLE);
+//    }
 }

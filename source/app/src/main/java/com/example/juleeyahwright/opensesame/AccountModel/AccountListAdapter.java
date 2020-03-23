@@ -39,30 +39,6 @@ public class AccountListAdapter extends RecyclerView.Adapter<AccountListAdapter.
             mReportDescription = itemView.findViewById(R.id.report_description);
             editReportButton = itemView.findViewById(R.id.edit_button);
             deleteReportButton = itemView.findViewById(R.id.delete_button);
-            acl = new AccountListAdapter(reportArrayList);
-
-        }
-
-        public void onBindViewHolder(final AccountViewHolder accountViewHolder){
-            accountViewHolder.editReportButton.setOnClickListener(new View.OnClickListener(){
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(v.getContext(), ReportEditInfoActivity.class);
-                    intent.putExtra("title", mReportTitle.getText());
-                    intent.putExtra("location", mReportLocation.getText());
-                    intent.putExtra("description", mReportDescription.getText());
-                    v.getContext().startActivity(intent);
-                }
-            });
-
-            accountViewHolder.editReportButton.setOnClickListener(new View.OnClickListener(){
-                @Override
-                public void onClick(View v) {
-                    reportArrayList.remove(v);
-                    acl.notifyItemRemoved(accountViewHolder.getAdapterPosition());
-                    acl.notifyItemRangeChanged(accountViewHolder.getAdapterPosition(), reportArrayList.size());
-                }
-            });
         }
     }
 
@@ -76,13 +52,26 @@ public class AccountListAdapter extends RecyclerView.Adapter<AccountListAdapter.
     }
 
     @Override
-    public void onBindViewHolder(@NonNull AccountViewHolder holder, int position) {
-        AccountListItem currItem = reportArrayList.get(position);
-        holder.mReportTitle.setText(currItem.getReportName());
-        holder.mReportLocation.setText("Location: " + currItem.getReportLocation());
-        holder.mReportDistance.setText("Distance: " + currItem.getReportDistance());
-        holder.mReportDescription.setText("Description: " + currItem.getReportDescription());
-    }
+       public void onBindViewHolder(final AccountViewHolder accountViewHolder, final int position){
+            accountViewHolder.editReportButton.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(v.getContext(), ReportEditInfoActivity.class);
+                    AccountListItem report = reportArrayList.get(position);
+                    intent.putExtra("reportUID", report.getUid());
+                    v.getContext().startActivity(intent);
+                }
+            });
+
+            accountViewHolder.editReportButton.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View v) {
+                    reportArrayList.remove(v);
+                    notifyItemRemoved(accountViewHolder.getAdapterPosition());
+                    notifyItemRangeChanged(accountViewHolder.getAdapterPosition(), reportArrayList.size());
+                }
+            });
+        }
 
     @Override
     public int getItemCount() {
