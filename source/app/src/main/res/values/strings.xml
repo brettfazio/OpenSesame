@@ -1,8 +1,6 @@
 <resources>
     <string name="app_name">OpenSesame</string>
-
     <string name="empty">EMPTY LOREM, SHOULD NOT APPEAR</string>
-
     <string name="add_button_ready">Add</string>
     <string name="add_button_processing">Cancel</string>
     <string name="menu_button">Menu</string>
@@ -58,5 +56,6 @@
     <string name="create_a_message_header">Add a message</string>
     <string name="account_title">Account</string>
     <string name="report_list">My Reports</string>
+    <string name="reportDetailEditButton">Save</string>
     <string name="work_order_button_text">Create Work Order</string>
 </resources>

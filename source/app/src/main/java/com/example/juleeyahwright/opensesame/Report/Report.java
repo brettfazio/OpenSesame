@@ -35,7 +35,7 @@ public class Report {
     }
 
     // constructor with custom collection path
-    public Report(String name, String information, String locationInfo, LatLng location, String collectionPath, String uid) {
+    public Report(String name, String information, String locationInfo, LatLng location, String uid, String collectionPath) {
         this.location = location;
         this.name = name;
         this.information = information;
@@ -52,7 +52,7 @@ public class Report {
         map.put(INFORMATION_FIELD_NAME, information);
         map.put(NAME_FIELD_NAME, name);
         map.put(LOCATION_INFO_FIELD_NAME, locationInfo);
-
+        map.put(USERID_FIELD_NAME, uid);
         return map;
     }
 
