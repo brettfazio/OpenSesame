@@ -2,6 +2,8 @@ package com.example.juleeyahwright.opensesame.ReportList;
 
 import com.google.android.gms.maps.model.LatLng;
 import java.lang.Math;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 
 public class ReportListItem {
     private String reportName;
@@ -42,7 +44,16 @@ public class ReportListItem {
         double delta = Math.toRadians(point1.longitude-latlng.longitude);
         double dist = Math.acos(Math.sin(ang1)*Math.sin(ang2)+
                 Math.cos(ang1)*Math.cos(ang2)*Math.cos(delta))*radius;
-        return Double.toString(dist);
+        DecimalFormat df1 = new DecimalFormat("#");
+        df1.setRoundingMode(RoundingMode.FLOOR);
+        DecimalFormat df2 = new DecimalFormat("#.#");
+        df2.setRoundingMode(RoundingMode.FLOOR);
+        if (dist < 1000.0)
+            return df1.format(dist) + "m";
+        else if (dist > 1000.0 && dist < 10000.0)
+            return df2.format(dist/1000.0) + "km";
+        else
+            return df1.format(dist/1000.0) + "km";
     }
 
 }
