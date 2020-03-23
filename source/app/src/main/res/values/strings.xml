@@ -58,4 +58,5 @@
     <string name="create_a_message_header">Add a message</string>
     <string name="account_title">Account</string>
     <string name="report_list">My Reports</string>
+    <string name="reportDetailEditButton">Save</string>
 </resources>
