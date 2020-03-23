@@ -1,4 +1,4 @@
-**Jordan:**
+**Jordan:** Implemented distance calculations for the report listings.  Began creation of tests for report listings.
 
 **Brett (brettfazio):** Code for fetching markers from the backend, displaying them on the map, and logic for transitioning on marker press (and added tests). Added requirements to requirements document. Added tests for report UID. Added functionality to see if map is centered on UCF, if it is added ability to easily file a work order form. Removed that button if focusing on something outside of UCF, added tests for that. Did the Sprint 7 Demo.
 
