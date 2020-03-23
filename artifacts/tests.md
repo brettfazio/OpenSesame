@@ -6,6 +6,7 @@
 | AccountModel | logInFailure | When incorrect email/password combo is entered to login, a user is not logged in | login task returns failure | 
 | AccountModel | signUpSuccess | When new email/password combo is entered to signup a user is signed up | signUp task returns success | 
 | AccountModel | signUpFailure | When invalid email/password combo is entered, a user is not signed up | signUp task returns failure | 
+| AccountModel | signOutTest  | When a user signs out, the auth state changes | no exceptions occur upon sign out | 
 | CreateReportActivity | setTitle | Report has a title field | A report has a title |
 | CreateReportActivity | setInfo | Report has an info field | A report has info text |
 | CreateReportController | writeReportSuccess | When report fields are entered, a report is made | createResult task returns success | 
