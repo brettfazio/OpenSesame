@@ -26,6 +26,6 @@
 |021|008| A user can select a color for the UI|When in the settings, the user can select a color for the color picker and said color will now be used as the base for the UI|2|Desirable|Satisfied
 |022|029| A user can enter additional information into the UI|When a report on the map is selected, and the add message button is pressed, the user has an accessible UI field in which they can enter the information|2|Desirable|Working
 |023|029| A user can add additional information on a report on the map|When a report on the map is selected, the user is able to add additional information and a message will be attached to the report|5|Desirable|Working
-|024|009|As a user, I want the ability to go between to view the map and my account.|When the Account menu option is selected, the user is taken to the Account page.|2|Necessary|Working
+|024|009|As a user, I want the ability to go between to view the map and my account.|When the Account menu option is selected, the user is taken to the Account page.|2|Necessary|Satisfied
 |025|026|As a user, I want to see previously created reports on the map.|When viewing the map, given that a report has been created, it will be visible on the map.|5|Necessary|Working
 |026|032|As a user, additional information for tasks are visible from the Report Detail screen.|When viewing details for a report, additional information added will be shown at the bottom.|4|Necessary|Working
