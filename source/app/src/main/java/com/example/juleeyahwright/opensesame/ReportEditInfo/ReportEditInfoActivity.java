@@ -12,14 +12,21 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.juleeyahwright.opensesame.Common.BaseActivity;
 import com.example.juleeyahwright.opensesame.R;
+import com.example.juleeyahwright.opensesame.Report.Report;
 import com.example.juleeyahwright.opensesame.Report.ReportReference;
 import com.example.juleeyahwright.opensesame.ReportDetail.ReportDetailController;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.auth.User;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class ReportEditInfoActivity extends BaseActivity {
 
-    public static final String REPORT_EXTRA = "report";
     private ReportDetailController controller;
 
     private RecyclerView.LayoutManager layoutManager;
@@ -33,56 +40,96 @@ public class ReportEditInfoActivity extends BaseActivity {
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        controller = new ReportDetailController(getApplicationContext(),
-                (ReportReference) getIntent().getExtras().get(REPORT_EXTRA));
+        Intent intent = getIntent();
+        final String uid = intent.getStringExtra("reportUID");
+        String title = intent.getStringExtra("reportTitle");
+        String desc = intent.getStringExtra("reportDescription");
 
-        // setFields();
+        Query data = FirebaseDatabase.getInstance().getReference().child("reports").orderByChild("uid").equalTo("reportUID");
 
-//        Button addButton = findViewById(R.id.reportDetailEditButton);
-//        addButton.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View v) {
-//                saveNewInfo();
-//            }
-//        });
+        FirebaseDatabase.getInstance().getReference().child("reports")
+            .addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+//                        if(uid != null && snapshot.getValue("uid")) {
+//
+//                        }
+                    }
+                }
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                }
+            });
+
+        setFields();
+
+        Button addButton = findViewById(R.id.reportDetailEditButton);
+        addButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     private void saveNewInfo() {
         // edit report stuff here
     }
 
-//    private void setFields() {
-//        setTitleField();
-//        setInfoField();
-//        setLocationInfoField();
-//    }
-//
-//    private void setTitleField() {
-//        TextView textView = findViewById(R.id.reportDetailHeader);
-//        textView.setVisibility(View.GONE);
-//        textView.setText(controller.getReportName());
-//        String currentInfo = (String) textView.getText();
-//        EditText editText = findViewById(R.id.editTitleHeader);
-//        editText.setText(currentInfo);
-//        editText.setVisibility(View.VISIBLE);
-//    }
-//
-//    private void setInfoField() {
-//        TextView textView = findViewById(R.id.reportDetailInfo);
-//        textView.setVisibility(View.GONE);
-//        textView.setText(controller.getReportInformation());
-//        String currentInfo = (String) textView.getText();
-//        EditText editText = findViewById(R.id.editReportDetailInfo);
-//        editText.setText(currentInfo);
-//        editText.setVisibility(View.VISIBLE);
-//    }
-//
-//    private void setLocationInfoField() {
-//        TextView textView = findViewById(R.id.reportDetailLocationInfo);
-//        textView.setVisibility(View.GONE);
-//        textView.setText(controller.getReportLocationInfo());
-//        String currentInfo = (String) textView.getText();
-//        EditText editText = findViewById(R.id.editReportLocInfo);
-//        editText.setText(currentInfo);
-//        editText.setVisibility(View.VISIBLE);
-//    }
+    private void setFields() {
+        setTitleField();
+        setInfoField();
+        setLocationInfoField();
+    }
+
+    private void setTitleField() {
+        TextView textView = findViewById(R.id.reportDetailHeader);
+        textView.setVisibility(View.GONE);
+        EditText editText = null;
+        String currentInfo = null;
+        if(controller != null) {
+            if(controller.getReportName() != null) {
+                textView.setText(controller.getReportName());
+                currentInfo = (String) textView.getText();
+        }
+        }
+        editText = findViewById(R.id.editTitleHeader);
+        if(currentInfo != null)
+            editText.setText(currentInfo);
+        editText.setVisibility(View.VISIBLE);
+    }
+
+    private void setInfoField() {
+        TextView textView = findViewById(R.id.reportDetailInfo);
+        textView.setVisibility(View.GONE);
+        EditText editText = null;
+        String currentInfo = null;
+        if(controller != null) {
+            if(controller.getReportInformation() != null) {
+                textView.setText(controller.getReportInformation());
+                currentInfo = (String) textView.getText();
+            }
+        }
+        editText = findViewById(R.id.editReportDetailInfo);
+        if(currentInfo != null)
+            editText.setText(currentInfo);
+        editText.setVisibility(View.VISIBLE);
+    }
+
+    private void setLocationInfoField() {
+        TextView textView = findViewById(R.id.reportDetailLocationInfo);
+        textView.setVisibility(View.GONE);
+        EditText editText = null;
+        String currentInfo = null;
+        if(controller != null) {
+            if(controller.getReportLocationInfo() != null) {
+                textView.setText(controller.getReportLocationInfo());
+                currentInfo = (String) textView.getText();
+            }
+        }
+        editText = findViewById(R.id.editReportLocInfo);
+        if(currentInfo != null)
+            editText.setText(currentInfo);
+        editText.setVisibility(View.VISIBLE);
+    }
 }

@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.juleeyahwright.opensesame.R;
 import com.example.juleeyahwright.opensesame.ReportEditInfo.ReportEditInfoActivity;
+import com.example.juleeyahwright.opensesame.ReportList.ReportListItem;
 
 import java.util.ArrayList;
 
@@ -53,17 +54,24 @@ public class AccountListAdapter extends RecyclerView.Adapter<AccountListAdapter.
 
     @Override
        public void onBindViewHolder(final AccountViewHolder accountViewHolder, final int position){
+            AccountListItem currItem = reportArrayList.get(position);
+            accountViewHolder.mReportTitle.setText(currItem.getReportName());
+            accountViewHolder.mReportLocation.setText("Location: " + currItem.getReportLocation());
+            accountViewHolder.mReportDistance.setText("Distance: " + currItem.getReportDistance());
+            accountViewHolder.mReportDescription.setText("Description: " + currItem.getReportDescription());
             accountViewHolder.editReportButton.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(v.getContext(), ReportEditInfoActivity.class);
-                    AccountListItem report = reportArrayList.get(position);
-                    intent.putExtra("reportUID", report.getUid());
+                    AccountListItem reportItem = reportArrayList.get(position);
+                    intent.putExtra("reportUID", reportItem.getUid());
+                    intent.putExtra("reportName", reportItem.getReportName());
+                    intent.putExtra("reportDescription", reportItem.getReportDescription());
                     v.getContext().startActivity(intent);
                 }
             });
 
-            accountViewHolder.editReportButton.setOnClickListener(new View.OnClickListener(){
+            accountViewHolder.deleteReportButton.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View v) {
                     reportArrayList.remove(v);
