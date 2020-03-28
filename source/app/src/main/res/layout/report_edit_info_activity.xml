@@ -13,16 +13,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"></View>
 
-    <TextView
-        android:id="@+id/reportDetailHeader"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/report_detail_title_dummy"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ReportDetailLeadingView" />
-
     <EditText
         android:id="@+id/editTitleHeader"
         android:layout_width="wrap_content"
@@ -44,19 +34,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ReportDetailLeadingView" />
 
-    <TextView
-        android:id="@+id/reportDetailInfo"
-        android:layout_width="381dp"
-        android:layout_height="87dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="9dp"
-        android:layout_marginEnd="15dp"
-        android:lines="4"
-        android:maxLines="4"
-        android:text="@string/empty"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reportDetailInfoHeader" />
 
     <EditText
         android:id="@+id/editReportDetailInfo"
@@ -81,21 +58,8 @@
         android:text="@string/report_detail_location_info_header"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/reportDetailInfo" />
+        app:layout_constraintTop_toBottomOf="@id/editReportDetailInfo" />
 
-    <TextView
-        android:id="@+id/reportDetailLocationInfo"
-        android:layout_width="381dp"
-        android:layout_height="87dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="9dp"
-        android:layout_marginEnd="15dp"
-        android:lines="4"
-        android:maxLines="4"
-        android:text="@string/empty"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reportDetailLocationInfoHeader" />
 
     <EditText
         android:id="@+id/editReportLocInfo"
@@ -110,14 +74,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/reportDetailLocationInfoHeader" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/reportDetailMessageRecycler"
-        android:layout_width="381dp"
-        android:layout_height="250dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reportDetailLocationInfo" />
 
     <Button
         android:id="@+id/reportDetailEditButton"
