@@ -25,22 +25,6 @@ public class AccountListItem extends ReportListItem {
         this.uid = uid;
     }
 
-    public String getUid() {
-        return reportName;
-    }
-    public String getReportName() {
-        return reportName;
-    }
-    public String getReportLocation() {
-        return reportLocation;
-    }
-    public String getReportDistance() {
-        return reportDistance;
-    }
-    public String getReportDescription() {
-        return reportDescription;
-    }
-
     private String calculateReportDistance(LatLng latlng){
         // Center of UCF, temporarily
         LatLng point1 = new LatLng(28.6024, -81.2001);

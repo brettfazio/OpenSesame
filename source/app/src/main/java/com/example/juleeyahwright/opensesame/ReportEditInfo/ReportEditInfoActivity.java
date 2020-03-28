@@ -3,6 +3,7 @@ package com.example.juleeyahwright.opensesame.ReportEditInfo;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,11 +12,14 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.juleeyahwright.opensesame.AccountModel.AccountActivity;
 import com.example.juleeyahwright.opensesame.Common.BaseActivity;
 import com.example.juleeyahwright.opensesame.R;
 import com.example.juleeyahwright.opensesame.Report.Report;
 import com.example.juleeyahwright.opensesame.Report.ReportReference;
 import com.example.juleeyahwright.opensesame.ReportDetail.ReportDetailController;
+import com.example.juleeyahwright.opensesame.ReportList.ReportListActivity;
+import com.example.juleeyahwright.opensesame.Settings.SettingsActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -31,6 +35,7 @@ public class ReportEditInfoActivity extends BaseActivity {
 
     private ReportDetailController controller;
     private RecyclerView.LayoutManager layoutManager;
+    ArrayList<Report> reportsToEdit;
     Report reportToEdit = null;
     String intentUid = null;
     String intentTitle = null;
@@ -52,18 +57,20 @@ public class ReportEditInfoActivity extends BaseActivity {
         intentUid = intent.getStringExtra("reportUID");
         intentTitle = intent.getStringExtra("reportTitle");
         intentDesc = intent.getStringExtra("reportDescription");
+        Log.d("tags", "something please omfg");
+        Log.d("tags", "info here: ");
+        Log.d("tags", "uid: " + intentUid + "\ntitle: " + intentTitle + "\ndesc: " + intentDesc);
 
         Query data = FirebaseDatabase.getInstance().getReference().child("reports").orderByChild("uid").equalTo("reportUID");
+        reportsToEdit = new ArrayList<>();
 
         ValueEventListener valueEventListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if(dataSnapshot.exists()) {
                     for(DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                        reportToEdit = snapshot.getValue(Report.class);
-                        reportUid = reportToEdit.getUID();
-                        reportTitle = reportToEdit.getName();
-                        reportDesc = reportToEdit.getInformation();
+                        Report newReport = snapshot.getValue(Report.class);
+                        reportsToEdit.add(newReport);
                     }
                 }
             }
@@ -75,7 +82,15 @@ public class ReportEditInfoActivity extends BaseActivity {
 
         data.addListenerForSingleValueEvent(valueEventListener);
 
-        Log.d("tags", reportToEdit.getName());
+        if(reportsToEdit.size() < 1) {
+            Log.d("myTags", "Report list was empty");
+        }
+
+        for(Report reportToEdit : reportsToEdit) {
+            reportUid = reportToEdit.getUID();
+            reportTitle = reportToEdit.getName();
+            reportDesc = reportToEdit.getInformation();
+        }
 
         if(reportToEdit != null) {
             setFields();
@@ -108,8 +123,6 @@ public class ReportEditInfoActivity extends BaseActivity {
     private void setInfoField() {
         EditText editText = findViewById(R.id.editReportDetailInfo);
         // editText.setText(reportToEdit.getInformation());
-        Log.d("tags", "info here: ");
-        Log.d("tags", "uid: " + reportUid + "\ntitle: " + reportTitle + "\ndesc: " + reportDesc);
         editText.setText("HEREJKLDJKLJLDSKJLJFKLDSJFKDFJSDL F");
         editText.setVisibility(View.VISIBLE);
     }
@@ -129,5 +142,25 @@ public class ReportEditInfoActivity extends BaseActivity {
         if(currentInfo != null)
             editText.setText(currentInfo);
         editText.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Close this activity if home is selected
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+        } else if (item.getItemId() == R.id.settings_option) {
+            Intent i = new Intent(ReportEditInfoActivity.this, SettingsActivity.class);
+            startActivity(i);
+        } else if (item.getItemId() == R.id.sign_out_option) {
+            finish();
+        } else if (item.getItemId() == R.id.report_list_option) {
+            Intent i = new Intent(ReportEditInfoActivity.this, ReportListActivity.class);
+            startActivity(i);
+        } else if (item.getItemId() == R.id.account_option) {
+            finish();
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

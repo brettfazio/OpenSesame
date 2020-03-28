@@ -64,7 +64,7 @@ public class AccountListAdapter extends RecyclerView.Adapter<AccountListAdapter.
                 public void onClick(View v) {
                     Intent intent = new Intent(v.getContext(), ReportEditInfoActivity.class);
                     AccountListItem reportItem = reportArrayList.get(position);
-                    intent.putExtra("reportUID", reportItem.getUid());
+                    intent.putExtra("reportUID", reportItem.getReportUID());
                     intent.putExtra("reportName", reportItem.getReportName());
                     intent.putExtra("reportDescription", reportItem.getReportDescription());
                     v.getContext().startActivity(intent);

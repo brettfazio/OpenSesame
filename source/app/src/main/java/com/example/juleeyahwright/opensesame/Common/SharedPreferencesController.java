@@ -70,4 +70,26 @@ public class SharedPreferencesController extends Activity {
         return spFromContext(context).getInt("theme", INT_UNAVAILABLE);
     }
 
+    public static void setMapType(Context context, String type) {
+        SharedPreferences sp = spFromContext(context);
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putString("mapType", type);
+        editor.apply();
+    }
+
+    public static String getMapType(Context context) {
+        return spFromContext(context).getString("mapType", null);
+    }
+
+    public static void isSatelliteChecked(Context context, Boolean set) {
+        SharedPreferences sp = spFromContext(context);
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putBoolean("satelliteChecked", set);
+        editor.apply();
+    }
+
+    public static boolean getSatelliteChecked(Context context) {
+        return spFromContext(context).getBoolean("satelliteChecked", false);
+    }
+
 }

@@ -48,14 +48,6 @@
         />
 
     <CheckBox
-        android:id="@+id/show_compass"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/show_compass"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"/>
-
-    <CheckBox
         android:id="@+id/satellite_hybrid"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
