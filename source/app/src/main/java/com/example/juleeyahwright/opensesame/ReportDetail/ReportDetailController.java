@@ -32,7 +32,9 @@ public class ReportDetailController implements MessageGetServiceListener {
     }
 
     public String getReportName() {
-        return reportReference.getName();
+        if(reportReference!=null)
+            return reportReference.getName();
+        return "";
     }
 
     public String getReportInformation() {

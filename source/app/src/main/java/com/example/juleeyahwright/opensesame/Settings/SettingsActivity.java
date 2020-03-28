@@ -15,12 +15,15 @@ import androidx.preference.PreferenceManager;
 import com.example.juleeyahwright.opensesame.AccountModel.AccountActivity;
 import com.example.juleeyahwright.opensesame.Common.BaseActivity;
 import com.example.juleeyahwright.opensesame.Common.Constant;
+import com.example.juleeyahwright.opensesame.Common.SharedPreferencesController;
 import com.example.juleeyahwright.opensesame.Common.Theme;
 import com.example.juleeyahwright.opensesame.Map.MapActivity;
 import com.example.juleeyahwright.opensesame.R;
 import com.example.juleeyahwright.opensesame.ReportList.ReportListActivity;
 import com.turkialkhateeb.materialcolorpicker.ColorChooserDialog;
 import com.turkialkhateeb.materialcolorpicker.ColorListener;
+
+import static com.google.android.gms.maps.GoogleMap.MAP_TYPE_SATELLITE;
 
 /*
 SettingsActivity: the settings page for the user's account
@@ -29,8 +32,11 @@ public class SettingsActivity extends BaseActivity {
 
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
+    Intent intent;
+    boolean isSatellite = false;
 
     Button getColorButton;
+    CheckBox showMapType;
 
     private static final String TAG = "Settings";
 
@@ -58,7 +64,7 @@ public class SettingsActivity extends BaseActivity {
                         editor.putInt("color", color);
                         editor.putInt("theme", Constant.appTheme);
                         editor.commit();
-                        Intent intent = new Intent(SettingsActivity.this, SettingsActivity.class);
+                        intent = new Intent(SettingsActivity.this, SettingsActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);
                     }
@@ -69,44 +75,44 @@ public class SettingsActivity extends BaseActivity {
         });
 
 
-        CheckBox showCompass = findViewById(R.id.show_compass);
-        CheckBox showMapType = findViewById(R.id.satellite_hybrid);
-        CheckBox showZoom = findViewById(R.id.show_zoom);
-
-        showCompass.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onCheckboxClicked(v);
-            }
-        });
-
+        showMapType = findViewById(R.id.satellite_hybrid);
+        showMapType.setChecked(SharedPreferencesController.getSatelliteChecked(getApplicationContext()));
+//        CheckBox showZoom = findViewById(R.id.show_zoom);
+//
+//
         showMapType.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 boolean checked = ((CheckBox) v).isChecked();
                 if (checked) {
-                    Log.v(TAG, "set compass");
+                    SharedPreferencesController.setMapType(getApplicationContext(), "hybrid");
+                    SharedPreferencesController.isSatelliteChecked(getApplicationContext(), true);
+                } else {
+                    SharedPreferencesController.setMapType(getApplicationContext(), "normal");
+                    SharedPreferencesController.isSatelliteChecked(getApplicationContext(), false);
                 }
             }
         });
-
-        showZoom.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onCheckboxClicked(v);
-            }
-        });
+//
+//        showZoom.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                onCheckboxClicked(v);
+//            }
+//        });
 
         // Show the back button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
     }
 
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Close this activity if home is selected
         if (item.getItemId() == android.R.id.home) {
             Intent i = new Intent(SettingsActivity.this, MapActivity.class);
+
             startActivity(i);
         } else if (item.getItemId() == R.id.settings_option) {
             finish();

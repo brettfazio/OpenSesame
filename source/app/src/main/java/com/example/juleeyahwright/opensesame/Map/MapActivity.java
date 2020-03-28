@@ -154,6 +154,10 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback, Goo
         interfaceMapController.getMap().setOnMarkerClickListener(this);
         interfaceMapController.getMap().setOnCameraMoveListener(this);
         interfaceMapController.drawReports();
+        if(SharedPreferencesController.getMapType(getApplicationContext()) == "hybrid")
+            googleMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+        else
+            googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 
         // Set up work order button.
         this.onCameraMove();
