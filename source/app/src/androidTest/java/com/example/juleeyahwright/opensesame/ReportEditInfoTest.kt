@@ -3,10 +3,11 @@ package com.example.juleeyahwright.opensesame
 
 import android.content.Intent
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.action.ViewActions.closeSoftKeyboard
+import androidx.test.espresso.action.ViewActions.replaceText
 import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.matcher.ViewMatchers
-import androidx.test.espresso.matcher.ViewMatchers.isCompletelyDisplayed
-import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.filters.LargeTest
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.rule.ActivityTestRule
@@ -38,7 +39,7 @@ class ReportEditInfoTest {
     */
     @Test
     fun titleSetTest() {
-        onView(withId(R.id.editTitleHeader)).check(ViewAssertions.matches(ViewMatchers.withText("dummy")))
+        onView(withId(R.id.editTitleHeader)).check(ViewAssertions.matches(withText("dummy")))
     }
 
     /*
@@ -47,7 +48,7 @@ class ReportEditInfoTest {
     */
     @Test
     fun locationInfoSetTest() {
-        onView(withId(R.id.editReportDetailInfo)).check(ViewAssertions.matches(ViewMatchers.withText("basement")))
+        onView(withId(R.id.editReportDetailInfo)).check(ViewAssertions.matches(withText("this is a dummy report")))
     }
 
         /*
@@ -56,7 +57,7 @@ class ReportEditInfoTest {
     */
     @Test
     fun infoSetTest() {
-        onView(withId(R.id.editReportLocInfo)).check(ViewAssertions.matches(ViewMatchers.withText("this is a dummy report")))
+        onView(withId(R.id.editReportLocInfo)).check(ViewAssertions.matches(withText("basement")))
     }
 
     /*
@@ -66,5 +67,35 @@ class ReportEditInfoTest {
     @Test
     fun createButtonVisible_reportEditInfoActivityTest() {
         onView(withId(R.id.reportDetailEditButton)).check(ViewAssertions.matches(isCompletelyDisplayed()))
+    }
+
+    /*
+    Testing: Location info is modifiable
+    Pass Criteria: Location info field is set to the text that it is changed to.
+    */
+    @Test
+    fun setLocationInfoTest() {
+        onView(withId(R.id.editReportLocInfo)).perform(replaceText("new loc info"), closeSoftKeyboard())
+        onView(withId(R.id.editReportLocInfo)).check(ViewAssertions.matches(withText("new loc info")))
+    }
+
+    /*
+    Testing: Name is modifiable
+    Pass Criteria: Name field is set to the text that it is changed to.
+*/
+    @Test
+    fun setTitleInfoTest() {
+        onView(withId(R.id.editTitleHeader)).perform(replaceText("title"), closeSoftKeyboard())
+        onView(withId(R.id.editTitleHeader)).check(ViewAssertions.matches(withText("title")))
+    }
+
+    /*
+    Testing: Info is modifiable
+    Pass Criteria: Info field is set to the text that it is changed to.
+    */
+    @Test
+    fun setInfoTest() {
+        onView(withId(R.id.editReportDetailInfo)).perform(replaceText("new info"), closeSoftKeyboard())
+        onView(withId(R.id.editReportDetailInfo)).check(ViewAssertions.matches(withText("new info")))
     }
 }
