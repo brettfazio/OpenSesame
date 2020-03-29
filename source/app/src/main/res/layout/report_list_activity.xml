@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -6,12 +7,35 @@
     android:layout_height="match_parent"
     tools:context=".ReportList.ReportListActivity">
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sort:"
+        android:textSize="18sp" />
+
+    <Spinner
+        android:id="@+id/sort_order_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@id/recycler_view" />
+
+    <Spinner
+        android:id="@+id/sort_type_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/sort_order_spinner" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/sort_type_spinner"
+        android:layout_marginTop="0dp"
         android:background="#808080"
         android:padding="4dp"
-        android:scrollbars="vertical" />
+        android:scrollbars="vertical" >
+
+    </androidx.recyclerview.widget.RecyclerView>
 
 </RelativeLayout>

@@ -64,4 +64,14 @@
     <string name="monochrome_theme">Monochrome</string>
     <string name="night_theme">Night</string>
     <string name="dark_blue_theme">Dark Blue</string>
+    <string-array name="sort_options">
+        <item>Distance</item>
+        <item>Title</item>
+        <item>Description</item>
+        <item>Location</item>
+    </string-array>
+    <string-array name="sort_order">
+        <item>Ascending</item>
+        <item>Descending</item>
+    </string-array>
 </resources>

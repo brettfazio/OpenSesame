@@ -3,6 +3,8 @@ package com.example.juleeyahwright.opensesame.ReportList;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -35,6 +37,18 @@ public class ReportListActivity extends BaseActivity implements ReportGetService
         // Show the back button
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        Spinner optSpinner = findViewById(R.id.sort_type_spinner);
+        ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this,
+                R.array.sort_options, android.R.layout.simple_spinner_item);
+        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        optSpinner.setAdapter(adapter1);
+
+        Spinner orderSpinner = findViewById(R.id.sort_order_spinner);
+        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this,
+                R.array.sort_order, android.R.layout.simple_spinner_item);
+        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        orderSpinner.setAdapter(adapter2);
 
         ReportGetService service = new ReportGetService(this);
         service.getReports();
