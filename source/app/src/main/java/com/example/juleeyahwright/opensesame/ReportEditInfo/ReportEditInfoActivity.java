@@ -40,7 +40,6 @@ public class ReportEditInfoActivity extends BaseActivity {
                 (ReportReference) getIntent().getExtras().get(REPORT_EXTRA));
 
         Query data = FirebaseDatabase.getInstance().getReference().child("reports");
-
         data.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -97,7 +96,7 @@ public class ReportEditInfoActivity extends BaseActivity {
     }
 
     private void setLocationInfoField() {
-        EditText editText = findViewById(R.id.editReportDetailInfo);
+        EditText editText = findViewById(R.id.editReportLocInfo);
         editText.setText(controller.getReportLocationInfo());
         editText.setVisibility(View.VISIBLE);
     }
