@@ -3,6 +3,8 @@ package com.example.juleeyahwright.opensesame.ReportList;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
@@ -25,11 +27,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Objects;
 
-public class ReportListActivity extends BaseActivity implements ReportGetServiceListener {
+public class ReportListActivity extends BaseActivity implements ReportGetServiceListener, AdapterView.OnItemSelectedListener {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private ArrayList<ReportListItem> reportArray = new ArrayList<>();
+    private int sortType = -1;
+    private boolean asc = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,12 +48,14 @@ public class ReportListActivity extends BaseActivity implements ReportGetService
                 R.array.sort_options, android.R.layout.simple_spinner_item);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         optSpinner.setAdapter(adapter1);
+        optSpinner.setOnItemSelectedListener(this);
 
         Spinner orderSpinner = findViewById(R.id.sort_order_spinner);
         ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this,
                 R.array.sort_order, android.R.layout.simple_spinner_item);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         orderSpinner.setAdapter(adapter2);
+        orderSpinner.setOnItemSelectedListener(this);
 
         ReportGetService service = new ReportGetService(this);
         service.getReports();
@@ -95,12 +101,47 @@ public class ReportListActivity extends BaseActivity implements ReportGetService
                     reportReference.getInformation(),
                     reportReference.getUID()));
         }
-        ReportListSorter rls = new ReportListSorter(5);
-        Collections.sort(reportArray, rls);
+        Collections.sort(reportArray, new ReportListSorter(sortType));
+        if(!asc){
+            Collections.reverse(reportArray);
+        }
         createList();
     }
 
     @Override
     public void reportRetrievalFailure(@NotNull Exception exception) {
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        // On selecting a spinner item
+        String item = parent.getItemAtPosition(position).toString();
+        switch(item) {
+            case "Title":
+                sortType = 0;
+                break;
+            case "Description":
+                sortType = 2;
+                break;
+            case "Location":
+                sortType = 1;
+                break;
+            case "Distance":
+                sortType = -1;
+                break;
+            case "Ascending":
+                asc = true;
+                break;
+            case "Descending":
+                asc = false;
+                break;
+        }
+        Collections.sort(reportArray, new ReportListSorter(sortType));
+        if(!asc){
+            Collections.reverse(reportArray);
+        }
+        createList();
+    }
+    public void onNothingSelected(AdapterView<?> arg0) {
     }
 }
