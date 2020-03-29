@@ -31,7 +31,6 @@ public class SettingsActivity extends BaseActivity {
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
     Intent intent;
-    boolean isSatellite = false;
 
     Button getColorButton;
     CheckBox showMapType;
@@ -90,8 +89,9 @@ public class SettingsActivity extends BaseActivity {
         });
 
         RadioGroup themeGroup = findViewById(R.id.theme_group);
-
-        switch(SharedPreferencesController.getMapTheme(getApplicationContext())){
+        String theme = SharedPreferencesController.getMapTheme(getApplicationContext());
+        if(theme != null) {
+            switch(theme){
             case ("ucf"):
                 themeGroup.check(R.id.ucf_theme);
                 break;
@@ -107,8 +107,9 @@ public class SettingsActivity extends BaseActivity {
             default:
                 themeGroup.check(R.id.standard_theme);
                 break;
-
-        }
+            }
+        } else
+            themeGroup.check(R.id.standard_theme);
 
         themeGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
         {
