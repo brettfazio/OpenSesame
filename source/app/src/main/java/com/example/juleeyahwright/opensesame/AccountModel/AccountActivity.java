@@ -83,12 +83,7 @@ public class AccountActivity extends BaseActivity implements ReportGetServiceLis
                 String userId = user.getUid();
                 if (userId != null && !userId.isEmpty()) {
                     if(reportReference.getUID() != null && reportReference.getUID().equals(userId)) {
-                        reportArray.add(new AccountListItem(
-                            reportReference.getName(),
-                            reportReference.getLocationInfo(),
-                            reportReference.getLocation(),
-                            reportReference.getLocationInfo(),
-                            reportReference.getUID()));
+                        reportArray.add(new AccountListItem(reportReference));
                     }
                 }
             }

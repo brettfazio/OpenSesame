@@ -2,7 +2,6 @@ package com.example.juleeyahwright.opensesame.ReportEditInfo;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -11,6 +10,7 @@ import android.widget.EditText;
 import com.example.juleeyahwright.opensesame.Common.BaseActivity;
 import com.example.juleeyahwright.opensesame.R;
 import com.example.juleeyahwright.opensesame.Report.Report;
+import com.example.juleeyahwright.opensesame.Report.ReportReference;
 import com.example.juleeyahwright.opensesame.ReportList.ReportListActivity;
 import com.example.juleeyahwright.opensesame.Settings.SettingsActivity;
 import com.google.firebase.database.DataSnapshot;
@@ -23,15 +23,11 @@ import java.util.Objects;
 
 public class ReportEditInfoActivity extends BaseActivity {
 
-    Report reportToEdit = null;
-    String intentUid = null;
-    String intentTitle = null;
-    String intentDesc = null;
-    String reportUid = null;
-    String reportTitle = null;
-    String reportDesc = null;
+    public static final String REPORT_EXTRA = "report";
 
-        @Override
+    private ReportEditInfoController controller;
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.report_edit_info_activity);
@@ -40,33 +36,32 @@ public class ReportEditInfoActivity extends BaseActivity {
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        Intent intent = getIntent();
-        intentUid = intent.getStringExtra("reportUID");
-        intentTitle = intent.getStringExtra("reportName");
-        intentDesc = intent.getStringExtra("reportDescription");
-        Log.d("tags", "info here: ");
-        Log.d("tags", "uid: " + intentUid + "\ntitle: " + intentTitle + "\ndesc: " + intentDesc);
+        controller = new ReportEditInfoController(getApplicationContext(),
+                (ReportReference) getIntent().getExtras().get(REPORT_EXTRA));
 
         Query data = FirebaseDatabase.getInstance().getReference().child("reports");
 
         data.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                for(DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     Report report = snapshot.getValue(Report.class);
-                    if(report.getUID() == intentUid)
-                        if(report.getName() == intentTitle)
-                            if(report.getInformation() == intentDesc)
-                                reportToEdit = report;
+                    //if(report.getUID() == intentUid)
+                    if (report.getName() == controller.getReportName()) {
+                        if (report.getInformation() == controller.getReportInformation()) {
+                            //reportToEdit = report;
+                        }
+                    }
                 }
             }
+
             @Override
             public void onCancelled(DatabaseError dbError) {
 
             }
         });
 
-        if(reportToEdit != null) {
+        if (controller.getReportInformation() != null) {
             setFields();
         } else {
         }
@@ -91,19 +86,19 @@ public class ReportEditInfoActivity extends BaseActivity {
 
     private void setTitleField() {
         EditText editText = findViewById(R.id.editTitleHeader);
-        editText.setText(reportToEdit.getName());
+        editText.setText(controller.getReportName());
         editText.setVisibility(View.VISIBLE);
     }
 
     private void setInfoField() {
         EditText editText = findViewById(R.id.editReportDetailInfo);
-        editText.setText(reportToEdit.getInformation());
+        editText.setText(controller.getReportInformation());
         editText.setVisibility(View.VISIBLE);
     }
 
     private void setLocationInfoField() {
         EditText editText = findViewById(R.id.editReportDetailInfo);
-        editText.setText(reportToEdit.getLocationInfo());
+        editText.setText(controller.getReportLocationInfo());
         editText.setVisibility(View.VISIBLE);
     }
 

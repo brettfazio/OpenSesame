@@ -1,5 +1,6 @@
 package com.example.juleeyahwright.opensesame.AccountModel;
 
+import com.example.juleeyahwright.opensesame.Report.ReportReference;
 import com.example.juleeyahwright.opensesame.ReportList.ReportListItem;
 import com.google.android.gms.maps.model.LatLng;
 
@@ -8,21 +9,15 @@ import java.text.DecimalFormat;
 
 public class AccountListItem extends ReportListItem {
 
-    private String reportName;
-    private String reportLocation;
-    private String reportDistance;
-    private String reportDescription;
-    private String uid;
+    private ReportReference reportReference;
 
-    private LatLng reportLatLng;
-
-    public AccountListItem(String name, String loc, LatLng latlng, String desc, String uid){
-        super(name, loc, latlng, desc, uid);
-        this.reportName = name;
-        this.reportLocation = loc;
-        this.reportDistance = calculateReportDistance(latlng);
-        this.reportDescription = desc;
-        this.uid = uid;
+    public AccountListItem(ReportReference reportReference) {
+        super(reportReference.getName(),
+                reportReference.getLocationInfo(),
+                reportReference.getLocation(),
+                reportReference.getInformation(),
+                reportReference.getUID());
+        this.reportReference = reportReference;
     }
 
     private String calculateReportDistance(LatLng latlng){
@@ -44,6 +39,10 @@ public class AccountListItem extends ReportListItem {
             return df2.format(dist/1000.0) + "km";
         else
             return df1.format(dist/1000.0) + "km";
+    }
+
+    public ReportReference getReportReference() {
+        return reportReference;
     }
 
 }
