@@ -30,7 +30,6 @@ public class SettingsActivity extends BaseActivity {
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
     Intent intent;
-    boolean isSatellite = false;
 
     Button getColorButton;
     CheckBox showMapType;

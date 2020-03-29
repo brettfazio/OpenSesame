@@ -64,4 +64,5 @@
     <string name="monochrome_theme">Monochrome</string>
     <string name="night_theme">Night</string>
     <string name="dark_blue_theme">Dark Blue</string>
+    <string name="guest_button">Continue as Guest</string>
 </resources>

@@ -19,6 +19,7 @@
             android:name=".Settings.SettingsActivity"
             android:exported="true" />
         <activity android:name=".CreateReport.CreateReportActivity" />
+        <activity android:name=".Map.GuestMapActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".LaunchActivity">
             <intent-filter>

@@ -12,6 +12,7 @@ import com.example.juleeyahwright.opensesame.AccountModel.AccountModel;
 import com.example.juleeyahwright.opensesame.AccountModel.AccountModelListener;
 import com.example.juleeyahwright.opensesame.Common.BaseActivity;
 import com.example.juleeyahwright.opensesame.Common.SharedPreferencesController;
+import com.example.juleeyahwright.opensesame.Map.GuestMapActivity;
 import com.example.juleeyahwright.opensesame.Map.MapActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -46,6 +47,13 @@ public class LoginActivity extends BaseActivity implements AccountModelListener 
         signUpButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 signUp();
+            }
+        });
+
+        TextView guest = findViewById((R.id.guestAccessButton));
+        guest.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                continueAsGuest();
             }
         });
     }
@@ -96,6 +104,13 @@ public class LoginActivity extends BaseActivity implements AccountModelListener 
     private void signUp() {
         Intent signUpIntent = new Intent(this, SignUpActivity.class);
         startActivity(signUpIntent);
+    }
+
+    // takes the user to the signup page
+    private void continueAsGuest() {
+        Intent guestIntent = new Intent(this, GuestMapActivity.class);
+        accountModel.logIn("dummy@guest.com", "123456");
+        startActivity(guestIntent);
     }
 
     // if login is successful, will change the email/password to the successful input
