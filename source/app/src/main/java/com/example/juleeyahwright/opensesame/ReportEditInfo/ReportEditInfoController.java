@@ -27,8 +27,12 @@ public class ReportEditInfoController implements ReportUpdateServiceListener {
 
     public void updateReport(String newTitle, String newInfo, String newLocInfo) {
         ReportUpdateService updateService = new ReportUpdateService(this);
-
         updateService.updateReportFields(reportReference, newTitle, newInfo, newLocInfo);
+    }
+
+    public void removeReport() {
+        ReportUpdateService updateService = new ReportUpdateService(this);
+        updateService.removeReport(reportReference);
     }
 
     public String getReportInformation() {

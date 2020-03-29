@@ -51,6 +51,12 @@ public class ReportUpdateService implements ReportGetSingleServiceListener, Mess
         reportGetSingleService.getReport(reportReference);
     }
 
+    public void removeReport(ReportReference reportReference) {
+        this.reportReference = reportReference;
+        ReportGetSingleService reportGetSingleService = new ReportGetSingleService(this);
+        reportGetSingleService.removeReport(reportReference);
+    }
+
 
     public void addMessageToReport(ReportReference reportReference, String message) {
         this.message = message;

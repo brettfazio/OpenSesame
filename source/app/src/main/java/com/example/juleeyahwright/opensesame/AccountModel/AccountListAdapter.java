@@ -11,7 +11,10 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.juleeyahwright.opensesame.R;
+import com.example.juleeyahwright.opensesame.Report.ReportReference;
+import com.example.juleeyahwright.opensesame.Report.Update.ReportUpdateService;
 import com.example.juleeyahwright.opensesame.ReportEditInfo.ReportEditInfoActivity;
+import com.example.juleeyahwright.opensesame.ReportEditInfo.ReportEditInfoController;
 
 import java.util.ArrayList;
 
@@ -29,7 +32,6 @@ public class AccountListAdapter extends RecyclerView.Adapter<AccountListAdapter.
         public TextView mReportDescription;
         public Button editReportButton;
         public Button deleteReportButton;
-        public AccountListAdapter acl;
 
         public AccountViewHolder(View itemView) {
             super(itemView);
@@ -71,9 +73,15 @@ public class AccountListAdapter extends RecyclerView.Adapter<AccountListAdapter.
             accountViewHolder.deleteReportButton.setOnClickListener(new View.OnClickListener(){
                 @Override
                 public void onClick(View v) {
+                    AccountListItem reportItem = reportArrayList.get(position);
+                    ReportReference reportToDelete = reportItem.getReportReference();
+                    ReportEditInfoController controller = new ReportEditInfoController(v.getContext(), reportToDelete);
                     reportArrayList.remove(v);
-                    notifyItemRemoved(accountViewHolder.getAdapterPosition());
-                    notifyItemRangeChanged(accountViewHolder.getAdapterPosition(), reportArrayList.size());
+                    notifyItemRemoved(position);
+                    notifyItemRangeChanged(position, reportArrayList.size());
+                    controller.removeReport();
+                    Intent intent = new Intent(v.getContext(), AccountActivity.class);
+                    v.getContext().startActivity(intent);
                 }
             });
         }
