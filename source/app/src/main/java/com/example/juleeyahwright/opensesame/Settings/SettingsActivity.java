@@ -32,7 +32,7 @@ public class SettingsActivity extends BaseActivity {
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
     Intent intent;
-    private static String markerColor = "#9822ff";
+    private static String markerColor = "#FF0000";
 
     Button getColorButton;
     CheckBox showMapType;
@@ -61,7 +61,7 @@ public class SettingsActivity extends BaseActivity {
                         Constant.color = color;
                         Theme.setColorTheme();
                         editor.putInt("color", color);
-                        markerColor = String.format("#%06X", (0xFFFFFF & color));;
+                        markerColor = String.format("#%06X", (0xFFFFFF & color));
                         editor.putInt("theme", Constant.appTheme);
                         editor.commit();
                         intent = new Intent(SettingsActivity.this, SettingsActivity.class);
