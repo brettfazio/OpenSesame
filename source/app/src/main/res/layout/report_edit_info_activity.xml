@@ -11,7 +11,7 @@
         android:layout_height="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></View>
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <EditText
         android:id="@+id/editTitleHeader"
@@ -20,19 +20,21 @@
         android:text="@string/report_detail_title_dummy"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintEnd_toEndOf="parent"
+        android:imeOptions="actionDone"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ReportDetailLeadingView" />
+        app:layout_constraintTop_toBottomOf="@id/ReportDetailLeadingView"
+        android:inputType="text" />
 
     <TextView
         android:id="@+id/reportDetailInfoHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="14dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="30dp"
         android:text="@string/report_detail_info_header"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ReportDetailLeadingView" />
+        app:layout_constraintTop_toBottomOf="@+id/editTitleHeader" />
 
 
     <EditText
@@ -47,7 +49,8 @@
         android:text="@string/empty"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reportDetailInfoHeader" />
+        app:layout_constraintTop_toBottomOf="@+id/reportDetailInfoHeader"
+        android:inputType="textMultiLine"/>
 
     <TextView
         android:id="@+id/reportDetailLocationInfoHeader"
@@ -64,13 +67,13 @@
     <EditText
         android:id="@+id/editReportLocInfo"
         android:layout_width="381dp"
-        android:layout_height="87dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
         android:layout_marginTop="9dp"
         android:layout_marginEnd="15dp"
-        android:lines="4"
-        android:maxLines="4"
+        android:imeOptions="actionDone"
         android:text="@string/empty"
+        android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/reportDetailLocationInfoHeader" />
@@ -85,5 +88,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reportDetailMessageRecycler" />
+        app:layout_constraintTop_toBottomOf="@+id/editReportLocInfo" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

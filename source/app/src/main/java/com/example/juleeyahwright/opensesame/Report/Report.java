@@ -11,10 +11,10 @@ public class Report {
 
     public static final String DEFAULT_COLLECTION_PATH = "reports";
 
-    protected static final String INFORMATION_FIELD_NAME = "information";
-    protected static final String NAME_FIELD_NAME = "name";
+    public static final String INFORMATION_FIELD_NAME = "information";
+    public static final String NAME_FIELD_NAME = "name";
     protected static final String LOCATION_FIELD_NAME = "location";
-    protected static final String LOCATION_INFO_FIELD_NAME = "locationInfo";
+    public static final String LOCATION_INFO_FIELD_NAME = "locationInfo";
     protected static final String USERID_FIELD_NAME="uid";
 
     private LatLng location;

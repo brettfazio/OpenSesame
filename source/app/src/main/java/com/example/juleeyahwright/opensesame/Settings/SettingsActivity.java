@@ -2,6 +2,7 @@ package com.example.juleeyahwright.opensesame.Settings;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -31,6 +32,7 @@ public class SettingsActivity extends BaseActivity {
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
     Intent intent;
+    private static String markerColor = "#FF0000";
 
     Button getColorButton;
     CheckBox showMapType;
@@ -59,6 +61,7 @@ public class SettingsActivity extends BaseActivity {
                         Constant.color = color;
                         Theme.setColorTheme();
                         editor.putInt("color", color);
+                        markerColor = String.format("#%06X", (0xFFFFFF & color));
                         editor.putInt("theme", Constant.appTheme);
                         editor.commit();
                         intent = new Intent(SettingsActivity.this, SettingsActivity.class);
@@ -117,6 +120,7 @@ public class SettingsActivity extends BaseActivity {
                 switch(checkedId){
                     case R.id.ucf_theme:
                         SharedPreferencesController.setMapTheme(getApplicationContext(), "ucf");
+
                         break;
                     case R.id.monochrome_theme:
                         SharedPreferencesController.setMapTheme(getApplicationContext(), "monochrome");
@@ -140,6 +144,9 @@ public class SettingsActivity extends BaseActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
     }
 
+    public static String getColor(){
+        return markerColor;
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
