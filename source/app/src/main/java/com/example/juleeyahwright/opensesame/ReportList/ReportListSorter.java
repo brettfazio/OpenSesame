@@ -22,7 +22,8 @@ public class ReportListSorter implements Comparator<ReportListItem> {
             if (rli2.getReportName() == null) {
                 return 1;
             }
-            return rli1.getReportName().compareTo(rli2.getReportName());
+            return rli1.getReportName().toLowerCase().compareTo(
+                    rli2.getReportName().toLowerCase());
         } else if (compareType == 1) {
             if (rli1.getReportLocation() == null) {
                 return (rli2.getReportLocation() == null) ? 0 : 1;
@@ -30,7 +31,8 @@ public class ReportListSorter implements Comparator<ReportListItem> {
             if (rli2.getReportLocation() == null) {
                 return 1;
             }
-            return rli1.getReportLocation().compareTo(rli2.getReportLocation());
+            return rli1.getReportLocation().toLowerCase().compareTo(
+                    rli2.getReportLocation().toLowerCase());
         } else if (compareType == 2){
             if (rli1.getReportDescription() == null) {
                 return (rli2.getReportDescription() == null) ? 0 : 1;
@@ -38,7 +40,8 @@ public class ReportListSorter implements Comparator<ReportListItem> {
             if (rli2.getReportDescription() == null) {
                 return 1;
             }
-            return rli1.getReportDescription().compareTo(rli2.getReportDescription());
+            return rli1.getReportDescription().toLowerCase().compareTo(
+                    rli2.getReportDescription().toLowerCase());
         } else {
             if (rli1.getReportDistance() == null) {
                 return (rli2.getReportDistance() == null) ? 0 : 1;
