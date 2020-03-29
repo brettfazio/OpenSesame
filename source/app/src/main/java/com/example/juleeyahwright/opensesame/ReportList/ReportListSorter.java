@@ -49,7 +49,7 @@ public class ReportListSorter implements Comparator<ReportListItem> {
             if (rli2.getReportDistance() == null) {
                 return 1;
             }
-            return (rli1.getReportDistance().compareTo(rli2.getReportDistance()));
+            return Integer.compare(rli1.getDistanceInt(), rli2.getDistanceInt());
         }
     }
 
