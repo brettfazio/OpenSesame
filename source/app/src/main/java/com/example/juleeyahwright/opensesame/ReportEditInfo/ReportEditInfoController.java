@@ -3,8 +3,12 @@ package com.example.juleeyahwright.opensesame.ReportEditInfo;
 import android.content.Context;
 
 import com.example.juleeyahwright.opensesame.Report.ReportReference;
+import com.example.juleeyahwright.opensesame.Report.Update.ReportUpdateService;
+import com.example.juleeyahwright.opensesame.Report.Update.ReportUpdateServiceListener;
 
-public class ReportEditInfoController {
+import org.jetbrains.annotations.NotNull;
+
+public class ReportEditInfoController implements ReportUpdateServiceListener {
 
     private final ReportReference reportReference;
 
@@ -21,6 +25,12 @@ public class ReportEditInfoController {
         return "";
     }
 
+    public void updateReport(String newTitle, String newInfo, String newLocInfo) {
+        ReportUpdateService updateService = new ReportUpdateService(this);
+
+        updateService.updateReportFields(reportReference, newTitle, newInfo, newLocInfo);
+    }
+
     public String getReportInformation() {
         return reportReference.getInformation();
     }
@@ -29,4 +39,13 @@ public class ReportEditInfoController {
         return reportReference.getLocationInfo();
     }
 
+    @Override
+    public void reportUpdateSuccess() {
+
+    }
+
+    @Override
+    public void reportUpdateFailure(@NotNull Exception exception) {
+
+    }
 }

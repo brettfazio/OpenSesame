@@ -2,10 +2,13 @@ package com.example.juleeyahwright.opensesame.ReportEditInfo;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.juleeyahwright.opensesame.Common.BaseActivity;
 import com.example.juleeyahwright.opensesame.R;
@@ -68,13 +71,43 @@ public class ReportEditInfoActivity extends BaseActivity {
         Button addButton = findViewById(R.id.reportDetailEditButton);
         addButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                saveNewInfo();
                 finish();
             }
         });
     }
 
     private void saveNewInfo() {
-        // edit report stuff here
+        if (!allFieldsFilledOut()) return;
+        controller.updateReport(getTitleField(), getInfoField(), getLocationInfoField());
+        finish();
+    }
+
+    private boolean allFieldsFilledOut() {
+        String title = getTitleField();
+        String info = getInfoField();
+        String location = getLocationInfoField();
+
+        if (title == null || title.length() == 0) {
+            Toast.makeText(getApplicationContext(),
+                    "Title must be non-empty.",
+                    Toast.LENGTH_LONG).show();
+            return false;
+        }
+        if (info == null || info.length() == 0) {
+            Toast.makeText(getApplicationContext(),
+                    "Information must be non-empty.",
+                    Toast.LENGTH_LONG).show();
+            return false;
+        }
+        if (location == null || location.length() == 0) {
+            Toast.makeText(getApplicationContext(),
+                    "Location must be non-empty.",
+                    Toast.LENGTH_LONG).show();
+            return false;
+        }
+
+        return true;
     }
 
     private void setFields() {
@@ -98,8 +131,26 @@ public class ReportEditInfoActivity extends BaseActivity {
     private void setLocationInfoField() {
         EditText editText = findViewById(R.id.editReportLocInfo);
         editText.setText(controller.getReportLocationInfo());
+        Log.d("BRETT", editText.getImeOptions()+"");
+        editText.setImeOptions(EditorInfo.IME_ACTION_DONE);
         editText.setVisibility(View.VISIBLE);
     }
+
+    private String getTitleField() {
+        EditText editText = findViewById(R.id.editTitleHeader);
+        return editText.getText().toString();
+    }
+
+    private String getInfoField() {
+        EditText editText = findViewById(R.id.editReportDetailInfo);
+        return editText.getText().toString();
+    }
+
+    private String getLocationInfoField() {
+        EditText editText = findViewById(R.id.editReportLocInfo);
+        return editText.getText().toString();
+    }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
