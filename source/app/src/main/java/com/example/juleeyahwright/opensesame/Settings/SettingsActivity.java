@@ -16,6 +16,7 @@ import com.example.juleeyahwright.opensesame.Common.BaseActivity;
 import com.example.juleeyahwright.opensesame.Common.Constant;
 import com.example.juleeyahwright.opensesame.Common.SharedPreferencesController;
 import com.example.juleeyahwright.opensesame.Common.Theme;
+import com.example.juleeyahwright.opensesame.LoginActivity;
 import com.example.juleeyahwright.opensesame.Map.MapActivity;
 import com.example.juleeyahwright.opensesame.R;
 import com.example.juleeyahwright.opensesame.ReportList.ReportListActivity;
@@ -151,6 +152,9 @@ public class SettingsActivity extends BaseActivity {
             finish();
         } else if (item.getItemId() == R.id.sign_out_option) {
             finish();
+            SharedPreferencesController.clearSignInData(getApplicationContext());
+            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivity(intent);
         } else if (item.getItemId() == R.id.report_list_option) {
             Intent i = new Intent(SettingsActivity.this, ReportListActivity.class);
             startActivity(i);

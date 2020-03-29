@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.juleeyahwright.opensesame.AccountModel.AccountActivity;
 import com.example.juleeyahwright.opensesame.Common.BaseActivity;
+import com.example.juleeyahwright.opensesame.Common.SharedPreferencesController;
+import com.example.juleeyahwright.opensesame.LoginActivity;
 import com.example.juleeyahwright.opensesame.R;
 
 import com.example.juleeyahwright.opensesame.Report.Get.ReportGetService;
@@ -71,6 +73,9 @@ public class ReportListActivity extends BaseActivity implements ReportGetService
             startActivity(i);
         } else if (item.getItemId() == R.id.sign_out_option) {
             finish();
+            SharedPreferencesController.clearSignInData(getApplicationContext());
+            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivity(intent);
         } else if (item.getItemId() == R.id.report_list_option) {
             finish();
         } else if (item.getItemId() == R.id.account_option) {

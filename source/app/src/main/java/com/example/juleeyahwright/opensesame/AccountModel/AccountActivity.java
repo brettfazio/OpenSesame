@@ -9,6 +9,8 @@ import android.widget.Button;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.juleeyahwright.opensesame.LoginActivity;
+import com.example.juleeyahwright.opensesame.Map.MapActivity;
 import com.example.juleeyahwright.opensesame.ReportList.ReportListActivity;
 import com.example.juleeyahwright.opensesame.Common.BaseActivity;
 import com.example.juleeyahwright.opensesame.Common.SharedPreferencesController;
@@ -64,7 +66,11 @@ public class AccountActivity extends BaseActivity implements ReportGetServiceLis
             Intent i = new Intent(AccountActivity.this, SettingsActivity.class);
             startActivity(i);
         } else if (item.getItemId() == R.id.sign_out_option) {
+            FirebaseAuth.getInstance().signOut();
             finish();
+            SharedPreferencesController.clearSignInData(getApplicationContext());
+            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivity(intent);
         } else if (item.getItemId() == R.id.report_list_option) {
             Intent i = new Intent(AccountActivity.this, ReportListActivity.class);
             startActivity(i);
@@ -83,12 +89,7 @@ public class AccountActivity extends BaseActivity implements ReportGetServiceLis
                 String userId = user.getUid();
                 if (userId != null && !userId.isEmpty()) {
                     if(reportReference.getUID() != null && reportReference.getUID().equals(userId)) {
-                        reportArray.add(new AccountListItem(
-                            reportReference.getName(),
-                            reportReference.getLocationInfo(),
-                            reportReference.getLocation(),
-                            reportReference.getLocationInfo(),
-                            reportReference.getUID()));
+                        reportArray.add(new AccountListItem(reportReference));
                     }
                 }
             }
