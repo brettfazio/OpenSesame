@@ -63,8 +63,23 @@ class SettingsTest {
      */
     @Test
     fun checkbox_test() {
-        onView(ViewMatchers.withId(R.id.show_compass)).perform(ViewActions.click())
-        onView(ViewMatchers.withId(R.id.show_compass)).check(ViewAssertions.matches(isChecked()))
+        onView(ViewMatchers.withId(R.id.satellite_hybrid)).perform(ViewActions.click())
+        onView(ViewMatchers.withId(R.id.satellite_hybrid)).check(ViewAssertions.matches(isChecked()))
     }
+
+    /*
+    Testing: Radio group button is checked
+    Pass criteria: When radio group button is selected, it is checked
+     */
+    @Test
+    fun radiobutton_test() {
+        onView(ViewMatchers.withId(R.id.ucf_theme)).perform(ViewActions.click())
+        onView(ViewMatchers.withId(R.id.ucf_theme)).check(ViewAssertions.matches(isChecked()))
+    }
+
+    /*
+    Testing: Default map theme is there at start
+    Pass criteria: Without a theme checked, it defaults to
+     */
 
 }

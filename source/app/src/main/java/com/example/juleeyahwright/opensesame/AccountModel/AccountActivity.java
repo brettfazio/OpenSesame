@@ -77,7 +77,6 @@ public class AccountActivity extends BaseActivity implements ReportGetServiceLis
 
     @Override
     public void reportRetrievalSuccess(@NotNull QuerySnapshot querySnapshot, @NotNull ReportReference[] reportReferences) {
-        String email = SharedPreferencesController.getEmail(getApplicationContext());
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
             for(ReportReference reportReference : reportReferences){

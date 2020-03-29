@@ -2,8 +2,10 @@ package com.example.juleeyahwright.opensesame.Map;
 
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -25,6 +27,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.Marker;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -156,23 +159,55 @@ public class MapActivity extends BaseActivity implements OnMapReadyCallback, Goo
         interfaceMapController.drawReports();
         if(SharedPreferencesController.getMapType(getApplicationContext()) == "hybrid")
             googleMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
-        else
-            googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+        else if (SharedPreferencesController.getMapTheme(getApplicationContext()) != null) {
+            setMapTheme(googleMap);
+        }
 
         // Set up work order button.
         this.onCameraMove();
 
-//            boolean showCompass = getIntent().getExtras().getBoolean("SHOW_COMPASS");
-//            boolean satelliteMap = getIntent().getExtras().getBoolean("SATELLITE_HYBRID");
-//            boolean showZoom = getIntent().getExtras().getBoolean("SHOW_ZOOM");
-//
-//            if(showCompass)
-//               googleMap.getUiSettings().setCompassEnabled(true);
-//            if(satelliteMap)
-//               googleMap.setMapType(4);
-//            if(showZoom)
-//               googleMap.getUiSettings().setZoomControlsEnabled(true);
     }
+
+    public void setMapTheme(GoogleMap googleMap) {
+        boolean success = false;
+        try {
+            switch (SharedPreferencesController.getMapTheme(getApplicationContext())) {
+                case ("ucf"):
+                    success = googleMap.setMapStyle(
+                       MapStyleOptions.loadRawResourceStyle(
+                               this, R.raw.ucf_map_style));
+                    break;
+                case("night"):
+                    success = googleMap.setMapStyle(
+                       MapStyleOptions.loadRawResourceStyle(
+                               this, R.raw.night_style));
+                    break;
+                case("monochrome"):
+                    success = googleMap.setMapStyle(
+                       MapStyleOptions.loadRawResourceStyle(
+                               this, R.raw.monochrome_style));
+                    break;
+                case("dark_blue"):
+                    success = googleMap.setMapStyle(
+                       MapStyleOptions.loadRawResourceStyle(
+                               this, R.raw.dark_blue_style));
+                    break;
+                default:
+                    success = googleMap.setMapStyle(
+                       MapStyleOptions.loadRawResourceStyle(
+                               this, R.raw.standard_theme));
+                    break;
+            }
+
+            if(!success) {
+                Log.i("styles", "Either parsing failed or default is selected.");
+            }
+
+        } catch (Resources.NotFoundException e) {
+
+        }
+    }
+
 
     // depending on the button selected, take the user to the appropriate screen
     @Override

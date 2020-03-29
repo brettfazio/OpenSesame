@@ -3,12 +3,11 @@ package com.example.juleeyahwright.opensesame.Settings;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.RadioGroup;
 
 import androidx.preference.PreferenceManager;
 
@@ -22,8 +21,6 @@ import com.example.juleeyahwright.opensesame.R;
 import com.example.juleeyahwright.opensesame.ReportList.ReportListActivity;
 import com.turkialkhateeb.materialcolorpicker.ColorChooserDialog;
 import com.turkialkhateeb.materialcolorpicker.ColorListener;
-
-import static com.google.android.gms.maps.GoogleMap.MAP_TYPE_SATELLITE;
 
 /*
 SettingsActivity: the settings page for the user's account
@@ -77,9 +74,6 @@ public class SettingsActivity extends BaseActivity {
 
         showMapType = findViewById(R.id.satellite_hybrid);
         showMapType.setChecked(SharedPreferencesController.getSatelliteChecked(getApplicationContext()));
-//        CheckBox showZoom = findViewById(R.id.show_zoom);
-//
-//
         showMapType.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,13 +87,51 @@ public class SettingsActivity extends BaseActivity {
                 }
             }
         });
-//
-//        showZoom.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                onCheckboxClicked(v);
-//            }
-//        });
+
+        RadioGroup themeGroup = findViewById(R.id.theme_group);
+
+        switch(SharedPreferencesController.getMapTheme(getApplicationContext())){
+            case ("ucf"):
+                themeGroup.check(R.id.ucf_theme);
+                break;
+            case("night"):
+                themeGroup.check(R.id.night_theme);
+                break;
+            case("monochrome"):
+                themeGroup.check(R.id.monochrome_theme);
+                break;
+            case("dark_blue"):
+                themeGroup.check(R.id.dark_blue_theme);
+                break;
+            default:
+                themeGroup.check(R.id.standard_theme);
+                break;
+
+        }
+
+        themeGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
+        {
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                switch(checkedId){
+                    case R.id.ucf_theme:
+                        SharedPreferencesController.setMapTheme(getApplicationContext(), "ucf");
+                        break;
+                    case R.id.monochrome_theme:
+                        SharedPreferencesController.setMapTheme(getApplicationContext(), "monochrome");
+                        break;
+                    case R.id.night_theme:
+                        SharedPreferencesController.setMapTheme(getApplicationContext(), "night");
+                        break;
+                    case R.id.dark_blue_theme:
+                        SharedPreferencesController.setMapTheme(getApplicationContext(), "dark_blue");
+                        break;
+                    default:
+                        SharedPreferencesController.setMapTheme(getApplicationContext(), "standard");
+                        break;
+                }
+                editor.commit();
+            }
+        });
 
         // Show the back button
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -127,30 +159,6 @@ public class SettingsActivity extends BaseActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    public void onCheckboxClicked(View view) {
-        boolean checked = ((CheckBox) view).isChecked();
-        switch (view.getId()) {
-            case R.id.show_compass:
-                if (checked) {
-                    Intent i = new Intent(this, MapActivity.class);
-                    i.putExtra("SHOW_COMPASS", true);
-                    Log.v(TAG, "set compass");
-                }
-            case R.id.satellite_hybrid:
-                if (checked) {
-                    Intent i = new Intent(this, MapActivity.class);
-                    i.putExtra("SATELLITE_HYBRID", true);
-                    Log.v(TAG, "set satellite");
-                }
-            case R.id.show_zoom:
-                if (checked) {
-                    Intent i = new Intent(this, MapActivity.class);
-                    i.putExtra("SHOW_ZOOM", true);
-                    Log.v(TAG, "set zoom");
-                }
-        }
     }
 
 }

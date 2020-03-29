@@ -55,60 +55,51 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"/>
 
-    <CheckBox
-        android:id="@+id/show_zoom"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/show_zoom_controls"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"/>
-
     <TextView
-        android:id="@+id/account_options"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/account_options"
-        android:textSize="24sp"
-        />
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/map_theme"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"   />
 
-    <TextView
-        android:id="@+id/change_email"
+    <RadioGroup
+        android:id="@+id/theme_group"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/change_email"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:hint="@string/change_email"/>
+        android:layout_height="156dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp">
 
-    <EditText
-        android:id="@+id/new_email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textEmailAddress"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:hint="@string/email_field_hint"
-        android:importantForAutofill="no" />
 
-    <TextView
-        android:id="@+id/change_password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/change_password"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:hint="@string/change_password"/>
+        <RadioButton
+            android:id="@+id/standard_theme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/normal" />
 
-    <EditText
-        android:id="@+id/new_password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:hint="@string/password_field_hint"
-        android:importantForAutofill="no" />
+        <RadioButton
+            android:id="@+id/ucf_theme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/UCF_theme" />
+
+        <RadioButton
+            android:id="@+id/monochrome_theme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/monochrome_theme" />
+
+        <RadioButton
+            android:id="@+id/night_theme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/night_theme" />
+
+        <RadioButton
+            android:id="@+id/dark_blue_theme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/dark_blue_theme" />
+    </RadioGroup>
 
 </LinearLayout>
