@@ -4,4 +4,4 @@
 
 **Danny:** Added satellite option for MapActivity and added new four map themes for users to choose from. Added and worked on AccountList update and delete functionalities. Added unit tests for it. 
 
-**Juleeyah:** Edited and finalized map themes and created a customized UCF map theme. 
+**Juleeyah:** Edited and finalized map themes and created a customized UCF map theme. Changed markers to match the Settings generated color theme for easier readability. 
