@@ -54,3 +54,7 @@
 | ReportDetailActivity | setFields | Same information is displayed on the screen as is put in the intent extra |Report put into the intent extra is displayed on the screen |
 | ReportDetailActivity | goToCreateAndBack | A user can go to the Create message page and then cancel that action. |A user can go to the Create message page and then cancel that action. |
 | ReportAddInfoActivity | setMessage | Can enter a message into the field. |A message can be successfully entered. |
+| ReportEditInfoActivity | setTitle | Title edit text is set to report title. |Title matches report. |
+| ReportEditInfoActivity | setInfo | Info edit text is set to report info text. |Info matches report.|
+| ReportEditInfoActivity | setLocInfo | Location info edit text is set to report loc info. |Location info matches report.|
+| ReportEditInfoActivity | editButtonTest | Save button appears. |Edit button is completely visible.|
