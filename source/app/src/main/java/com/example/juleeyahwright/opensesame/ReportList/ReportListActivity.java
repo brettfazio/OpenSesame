@@ -22,6 +22,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Objects;
 
 public class ReportListActivity extends BaseActivity implements ReportGetServiceListener {
@@ -94,6 +95,8 @@ public class ReportListActivity extends BaseActivity implements ReportGetService
                     reportReference.getInformation(),
                     reportReference.getUID()));
         }
+        ReportListSorter rls = new ReportListSorter(5);
+        Collections.sort(reportArray, rls);
         createList();
     }
 
