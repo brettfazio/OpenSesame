@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.juleeyahwright.opensesame.R;
+import com.example.juleeyahwright.opensesame.ReportDetail.ReportDetailActivity;
 import com.example.juleeyahwright.opensesame.ReportEditInfo.ReportEditInfoActivity;
 import com.example.juleeyahwright.opensesame.ReportList.ReportListItem;
 
@@ -64,6 +65,7 @@ public class AccountListAdapter extends RecyclerView.Adapter<AccountListAdapter.
                 public void onClick(View v) {
                     Intent intent = new Intent(v.getContext(), ReportEditInfoActivity.class);
                     AccountListItem reportItem = reportArrayList.get(position);
+                    //intent.putExtra(ReportDetailActivity.REPORT_EXTRA, reportReference);
                     intent.putExtra("reportUID", reportItem.getReportUID());
                     intent.putExtra("reportName", reportItem.getReportName());
                     intent.putExtra("reportDescription", reportItem.getReportDescription());

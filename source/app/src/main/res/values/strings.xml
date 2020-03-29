@@ -19,13 +19,13 @@
     <string name="username_hint">Username</string>
     <string name="sign_up_here_button">No Account? Sign up here!</string>
     <string name="back_to_login_button">Already have an account? Login here.</string>
-    <string name="text_and_colors">Text and Colors</string>
+    <string name="text_and_colors">Application Theme</string>
     <string name="text_options">Text Options</string>
     <string name="font_size">Font Size</string>
     <string name="small">Small</string>
     <string name="medium">Medium</string>
     <string name="large">Large</string>
-    <string name ="color_options">Color Theme</string>
+    <string name ="color_options">Color Options</string>
     <string name="invert_colors">Invert Colors</string>
     <string name="high_contrast">High Contrast</string>
     <string name="color_blind_friendly">Color-Blind Friendly</string>
@@ -58,4 +58,10 @@
     <string name="report_list">My Reports</string>
     <string name="reportDetailEditButton">Save</string>
     <string name="work_order_button_text">Create Work Order</string>
+    <string name="map_theme">Map Theme</string>
+    <string name="normal">Standard</string>
+    <string name="UCF_theme">UCF</string>
+    <string name="monochrome_theme">Monochrome</string>
+    <string name="night_theme">Night</string>
+    <string name="dark_blue_theme">Dark Blue</string>
 </resources>
