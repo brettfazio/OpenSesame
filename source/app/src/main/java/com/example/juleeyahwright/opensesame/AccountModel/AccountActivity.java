@@ -61,7 +61,8 @@ public class AccountActivity extends BaseActivity implements ReportGetServiceLis
     public boolean onOptionsItemSelected(MenuItem item) {
         // Close this activity if home is selected
         if (item.getItemId() == android.R.id.home) {
-            finish();
+            Intent i = new Intent(AccountActivity.this, MapActivity.class);
+            startActivity(i);
         } else if (item.getItemId() == R.id.settings_option) {
             Intent i = new Intent(AccountActivity.this, SettingsActivity.class);
             startActivity(i);

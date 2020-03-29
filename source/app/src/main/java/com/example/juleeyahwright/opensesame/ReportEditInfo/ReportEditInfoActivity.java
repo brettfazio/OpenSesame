@@ -40,26 +40,26 @@ public class ReportEditInfoActivity extends BaseActivity {
         controller = new ReportEditInfoController(getApplicationContext(),
                 (ReportReference) getIntent().getExtras().get(REPORT_EXTRA));
 
-        Query data = FirebaseDatabase.getInstance().getReference().child("reports");
-        data.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    Report report = snapshot.getValue(Report.class);
-                    //if(report.getUID() == intentUid)
-                    if (report.getName() == controller.getReportName()) {
-                        if (report.getInformation() == controller.getReportInformation()) {
-                            //reportToEdit = report;
-                        }
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError dbError) {
-
-            }
-        });
+//        Query data = FirebaseDatabase.getInstance().getReference().child("reports");
+//        data.addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+//                    Report report = snapshot.getValue(Report.class);
+//                    //if(report.getUID() == intentUid)
+//                    if (report.getName() == controller.getReportName()) {
+//                        if (report.getInformation() == controller.getReportInformation()) {
+//                            //reportToEdit = report;
+//                        }
+//                    }
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError dbError) {
+//
+//            }
+//        });
 
         if (controller.getReportInformation() != null) {
             setFields();

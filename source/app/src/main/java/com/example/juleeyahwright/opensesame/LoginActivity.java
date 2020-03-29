@@ -49,13 +49,6 @@ public class LoginActivity extends BaseActivity implements AccountModelListener 
                 signUp();
             }
         });
-
-        TextView guest = findViewById((R.id.guestAccessButton));
-        guest.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                continueAsGuest();
-            }
-        });
     }
 
     @Override

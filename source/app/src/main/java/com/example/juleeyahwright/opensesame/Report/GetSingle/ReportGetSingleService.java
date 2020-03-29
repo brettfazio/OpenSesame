@@ -1,9 +1,12 @@
 package com.example.juleeyahwright.opensesame.Report.GetSingle;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 
 import com.example.juleeyahwright.opensesame.Report.ReportReference;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -40,6 +43,16 @@ public class ReportGetSingleService {
                 } else {
                     listener.reportRetrievalFailure(task.getException());
                 }
+            }
+        });
+    }
+
+    public void removeReport(ReportReference reportReference) {
+        DocumentReference documentReference = db.collection(ReportReference.DEFAULT_COLLECTION_PATH).document(reportReference.getDocumentId());
+        documentReference.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void voided) {
+                Log.i("deleted", "Report successfully deleted");
             }
         });
     }
