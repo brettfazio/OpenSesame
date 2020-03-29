@@ -2,10 +2,8 @@ package com.example.juleeyahwright.opensesame.ReportEditInfo;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -131,8 +129,6 @@ public class ReportEditInfoActivity extends BaseActivity {
     private void setLocationInfoField() {
         EditText editText = findViewById(R.id.editReportLocInfo);
         editText.setText(controller.getReportLocationInfo());
-        Log.d("BRETT", editText.getImeOptions()+"");
-        editText.setImeOptions(EditorInfo.IME_ACTION_DONE);
         editText.setVisibility(View.VISIBLE);
     }
 
